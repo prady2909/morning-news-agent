@@ -153,43 +153,43 @@ FEEDS = [
         "name": "Claire Vo (ChatPRD)",
         "topic": "PM",
         "type": "video",
-        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCxxxxxxxxxxxxxxxxxxxxxx",  # VERIFY — find via @ClairVo channel page
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCRYY7IEbkHLH_ScJCu9eWDQ",
     },
     {
         "name": "Andrej Karpathy",
         "topic": "AI",
         "type": "video",
-        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCxxxxxxxxxxxxxxxxxxxxxx",  # VERIFY — channel is @AndrejKarpathy
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCYO_jab_esuFRV4b17AJtAw",
     },
     {
         "name": "Matt Wolfe",
         "topic": "AI",
         "type": "video",
-        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCxxxxxxxxxxxxxxxxxxxxxx",  # VERIFY — channel is @mreflow or @mattwolfe
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UChpleBmo18P08aKCIgti38g",
     },
     {
         "name": "AI Explained",
         "topic": "AI",
         "type": "video",
-        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCxxxxxxxxxxxxxxxxxxxxxx",  # VERIFY — search YouTube for "AI Explained" channel
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCNJ1Ymd5yFuUPtn21xtRbbw",
     },
     {
         "name": "Corbin Brown",
         "topic": "AI",
         "type": "video",
-        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCxxxxxxxxxxxxxxxxxxxxxx",  # VERIFY
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCJFMlSxcvlZg5yZUYJT0Pug",
     },
     {
         "name": "The AI Automators",
         "topic": "AI",
         "type": "video",
-        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCxxxxxxxxxxxxxxxxxxxxxx",  # VERIFY
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCwvXnrOCRlhokHlJwohf2OA",
     },
     {
         "name": "Alex Finn",
         "topic": "AI",
         "type": "video",
-        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCxxxxxxxxxxxxxxxxxxxxxx",  # VERIFY
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCfQNB91qRP_5ILeu_S_bSkg",
     },
     {
         "name": "Y Combinator (YouTube)",

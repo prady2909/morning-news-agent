@@ -54,9 +54,13 @@ TOPIC_ORDER = ["PM", "GTM", "AI", "Startups"]
 # ── Text helpers ────────────────────────────────────────────────────────────────
 
 def strip_html(text: str) -> str:
-    """Drop tags and collapse whitespace so feed HTML becomes clean prose."""
+    """Drop tags, decode HTML entities, then collapse whitespace so feed HTML
+    becomes clean prose. Entities (&amp;, &#127897;) are decoded HERE so the
+    single html.escape() at render time encodes them once instead of doubling
+    them into visible '&amp;' / '&#127897;' junk."""
     no_tags = re.sub(r"<[^>]+>", " ", text or "")
-    return re.sub(r"\s+", " ", no_tags).strip()
+    decoded = html.unescape(no_tags)
+    return re.sub(r"\s+", " ", decoded).strip()
 
 
 def make_teaser(text: str, limit: int = TEASER_CHARS) -> str:

@@ -10,8 +10,8 @@ Pipeline:
        - each item shows title + source + topic flair + RSS teaser + link
        - topics are click-to-filter, Reddit-flair style (feed-level topic)
        - responsive layout (phone + laptop), light/dark aware
-  5. Archive: write today's snapshot as site/<YYYY-MM-DD>.html and (over)write
-     site/index.html with today's items plus a list of clickable past dates.
+  5. Archive: write today's snapshot as docs/<YYYY-MM-DD>.html and (over)write
+     docs/index.html with today's items plus a list of clickable past dates.
 
 This is v1: NO AI summarization. It is deliberately title + teaser + link only.
 
@@ -34,7 +34,7 @@ from fetch import FEEDS, fetch_one, OK
 
 # ── Config ────────────────────────────────────────────────────────────────────
 
-OUTPUT_DIR = Path(__file__).parent / "site"   # dated pages + index.html live here
+OUTPUT_DIR = Path(__file__).parent / "docs"   # dated pages + index.html live here
 MAX_ITEMS_PER_FEED = 15                        # cap so one chatty feed can't dominate
 TEASER_CHARS = 280                             # blurb length before we trim + ellipsis
 

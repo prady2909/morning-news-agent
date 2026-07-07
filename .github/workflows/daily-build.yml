@@ -1,0 +1,66 @@
+# .github/workflows/daily-build.yml
+name: Daily news build
+
+# ── Triggers ────────────────────────────────────────────────────────────────
+# CRITICAL: this workflow COMMITS generated files back to the repo. If it also
+# triggered on `push`, its own auto-commit would start another run, whose commit
+# would start another run — an infinite self-triggering loop. So we trigger ONLY
+# on a timer (schedule) and on-demand (workflow_dispatch). There is intentionally
+# NO `push:` here.
+on:
+  schedule:
+    # cron fields:  minute hour day-of-month month day-of-week
+    #                 0     11      *          *        *
+    #   → "at minute 0 of hour 11, every day".
+    # GitHub Actions cron is ALWAYS in UTC and does NOT observe daylight saving.
+    # 11:00 UTC == 07:00 America/New_York during EDT (summer, UTC-4) — your 7am.
+    # Note: in winter (EST, UTC-5) this same line lands at 06:00 Boston. If you
+    # want a fixed local 7am year-round you'd swap to "0 12 * * *" for the EST
+    # months, or run the job twice and gate on the local hour.
+    - cron: "0 11 * * *"
+  workflow_dispatch:   # adds a "Run workflow" button in the Actions tab for manual test runs
+
+# The push step below needs write access to repository contents. GITHUB_TOKEN
+# is read-only by default, so we grant write explicitly (scoped to this workflow).
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install dependencies
+        # v1 build_page.py (-> fetch.py) imports only feedparser. python-dotenv
+        # and google-genai are v2 summarizer deps and are intentionally omitted
+        # to keep this workflow lean. No requirements.txt exists yet.
+        run: pip install feedparser
+
+      - name: Build the news page
+        run: python build_page.py
+
+      - name: Commit & push updated docs/ (only if something changed)
+        run: |
+          # Explicit bot identity so these daily commits are clearly the
+          # automation, not your own authored work.
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add docs/
+
+          # "nothing changed" case: if the staged tree is identical, skip the
+          # commit and exit 0 so the run stays green instead of failing on an
+          # empty commit.
+          if git diff --cached --quiet; then
+            echo "No changes in docs/ — nothing to commit."
+          else
+            git commit -m "Auto-update news page ($(date -u +%Y-%m-%d))"
+            git push
+          fi

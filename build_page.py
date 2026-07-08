@@ -37,6 +37,7 @@ from fetch import FEEDS, fetch_one, OK
 OUTPUT_DIR = Path(__file__).parent / "docs"   # dated pages + index.html live here
 MAX_ITEMS_PER_FEED = 15                        # cap so one chatty feed can't dominate
 TEASER_CHARS = 280                             # blurb length before we trim + ellipsis
+MIN_TEASER_CHARS = 40                          # drop teasers shorter than this after promo strip
 
 # Topic → accent color for the flair pills. Anything not listed falls back to grey.
 TOPIC_COLORS = {
@@ -63,9 +64,24 @@ def strip_html(text: str) -> str:
     return re.sub(r"\s+", " ", decoded).strip()
 
 
+def strip_promo_tail(text: str) -> str:
+    """Cut YouTube-style promo junk (newsletter/course plugs, channel links) that
+    trails the real description. Truncate at the earliest of 'http', 👉, or 🔗 —
+    the real content always comes first — and tidy the cut point. No marker → text
+    unchanged."""
+    positions = [text.find(m) for m in ("http", "👉", "🔗")]
+    positions = [p for p in positions if p != -1]
+    if not positions:
+        return text
+    return text[:min(positions)].rstrip().rstrip(".,;:-–—•|/ ")
+
+
 def make_teaser(text: str, limit: int = TEASER_CHARS) -> str:
-    """Clean + trim a blurb to `limit` chars, cutting on a word boundary."""
-    text = strip_html(text)
+    """Clean + trim a blurb to `limit` chars, cutting on a word boundary.
+    Strip promo tails first; if what's left is too short to be useful, drop it."""
+    text = strip_promo_tail(strip_html(text))
+    if len(text) < MIN_TEASER_CHARS:
+        return ""
     if len(text) <= limit:
         return text
     return text[:limit].rsplit(" ", 1)[0].rstrip() + "…"

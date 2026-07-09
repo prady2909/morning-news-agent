@@ -1,11 +1,16 @@
 """
 sources.py — Master list of RSS feeds for the morning news aggregator.
 
-Each entry is a dict with four keys:
+Each entry is a dict with four required keys:
   name  : human-readable label, used in reports and (later) email subjects
   topic : one of PM | GTM | AI | Startups
   type  : "article" (blog/newsletter) or "video" (YouTube channel)
   url   : the RSS/Atom feed URL
+
+Optional key:
+  max_items : per-feed cap on how many items land on the page. Omit it to use
+              build_page.py's default (MAX_ITEMS_PER_FEED). The YouTube feeds set
+              this low so their frequent uploads don't bury the PM/GTM/Startups feeds.
 
 Lines marked  # VERIFY  mean I couldn't confirm the exact feed URL from
 memory — the guess is reasonable but test it and replace if it's dead.
@@ -154,47 +159,55 @@ FEEDS = [
         "topic": "PM",
         "type": "video",
         "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCRYY7IEbkHLH_ScJCu9eWDQ",
+        "max_items": 4,
     },
     {
         "name": "Andrej Karpathy",
         "topic": "AI",
         "type": "video",
         "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCYO_jab_esuFRV4b17AJtAw",
+        "max_items": 4,
     },
     {
         "name": "Matt Wolfe",
         "topic": "AI",
         "type": "video",
         "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UChpleBmo18P08aKCIgti38g",
+        "max_items": 4,
     },
     {
         "name": "AI Explained",
         "topic": "AI",
         "type": "video",
         "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCNJ1Ymd5yFuUPtn21xtRbbw",
+        "max_items": 4,
     },
     {
         "name": "Corbin Brown",
         "topic": "AI",
         "type": "video",
         "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCJFMlSxcvlZg5yZUYJT0Pug",
+        "max_items": 4,
     },
     {
         "name": "The AI Automators",
         "topic": "AI",
         "type": "video",
         "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCwvXnrOCRlhokHlJwohf2OA",
+        "max_items": 4,
     },
     {
         "name": "Alex Finn",
         "topic": "AI",
         "type": "video",
         "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCfQNB91qRP_5ILeu_S_bSkg",
+        "max_items": 4,
     },
     {
         "name": "Y Combinator (YouTube)",
         "topic": "Startups",
         "type": "video",
         "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCcefcZRL2oaA_uBNeo5UOWg",  # VERIFY — most-cited ID for YC's channel
+        "max_items": 4,
     },
 ]

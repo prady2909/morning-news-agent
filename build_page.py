@@ -35,7 +35,7 @@ from fetch import FEEDS, fetch_one, OK
 # ── Config ────────────────────────────────────────────────────────────────────
 
 OUTPUT_DIR = Path(__file__).parent / "docs"   # dated pages + index.html live here
-MAX_ITEMS_PER_FEED = 15                        # cap so one chatty feed can't dominate
+MAX_ITEMS_PER_FEED = 15                        # DEFAULT cap; a feed may override via its "max_items" key
 TEASER_CHARS = 280                             # blurb length before we trim + ellipsis
 MIN_TEASER_CHARS = 40                          # drop teasers shorter than this after promo strip
 
@@ -132,8 +132,9 @@ def collect_items() -> list:
             continue
 
         parsed = feedparser.parse(feed_info["url"])
+        cap = feed_info.get("max_items", MAX_ITEMS_PER_FEED)   # per-feed override, else default
         count = 0
-        for entry in parsed.entries[:MAX_ITEMS_PER_FEED]:
+        for entry in parsed.entries[:cap]:
             items.append({
                 "title":   entry.get("title", "(no title)"),
                 "link":    entry.get("link", ""),

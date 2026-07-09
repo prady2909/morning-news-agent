@@ -141,6 +141,7 @@ def collect_items() -> list:
                 "teaser":  entry_teaser(entry),
                 "source":  name,
                 "topic":   feed_info["topic"],
+                "type":    feed_info["type"],   # "article" | "video" — drives the format filter
                 "dt":      entry_datetime(entry),
             })
             count += 1
@@ -176,13 +177,14 @@ def render_chip(topic: str) -> str:
 
 def render_item(item: dict) -> str:
     topic = item["topic"]
+    item_type = item["type"]
     date_str = human_date(item["dt"]) if item["dt"] else ""
     date_html = f'<span class="date">{esc(date_str)}</span>' if date_str else ""
     teaser_html = f'<p class="teaser">{esc(item["teaser"])}</p>' if item["teaser"] else ""
     link = esc(item["link"])
     title = esc(item["title"])
 
-    return f"""      <article class="item" data-topic="{esc(topic)}">
+    return f"""      <article class="item" data-topic="{esc(topic)}" data-type="{esc(item_type)}">
         <div class="meta">
           <button class="flair" data-filter="{esc(topic)}" style="--c:{color_for(topic)}">{esc(topic)}</button>
           <span class="source">{esc(item["source"])}</span>
@@ -237,10 +239,11 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     .backlink:hover {{ color:var(--text); }}
 
     .filters {{
-      position:sticky; top:0; z-index:10; display:flex; flex-wrap:wrap; gap:8px;
+      position:sticky; top:0; z-index:10; display:flex; flex-direction:column; gap:8px;
       padding:12px 0; margin-bottom:8px; background:var(--bg);
       border-bottom:1px solid var(--border);
     }}
+    .filter-row {{ display:flex; flex-wrap:wrap; gap:8px; }}
     .chip {{
       font:inherit; font-size:.85rem; font-weight:600; cursor:pointer;
       padding:5px 12px; border-radius:999px; background:var(--chip-bg);
@@ -291,9 +294,16 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
       <p class="subtitle">{date_label} · {item_count} items from {source_count} sources</p>
     </header>
 
-    <nav class="filters" aria-label="Filter by topic">
-      <button class="chip active" data-filter="all">All</button>
+    <nav class="filters" aria-label="Filter items">
+      <div class="filter-row" aria-label="Filter by topic">
+        <button class="chip active" data-filter="all">All</button>
 {chips}
+      </div>
+      <div class="filter-row" aria-label="Filter by format">
+        <button class="chip active" data-format="all">All</button>
+        <button class="chip" data-format="article" style="--c:var(--text)">Articles</button>
+        <button class="chip" data-format="video" style="--c:var(--text)">Videos</button>
+      </div>
     </nav>
 
     <main id="items">
@@ -309,20 +319,30 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   <script>
     (function () {{
       var countEl = document.getElementById('count');
-      function apply(topic) {{
+      var activeTopic = 'all';    // topic-chip / flair selection
+      var activeFormat = 'all';   // format-chip selection (article | video)
+      function apply() {{
         document.querySelectorAll('.item').forEach(function (el) {{
-          el.hidden = !(topic === 'all' || el.dataset.topic === topic);
+          var topicOk = activeTopic === 'all' || el.dataset.topic === activeTopic;
+          var formatOk = activeFormat === 'all' || el.dataset.type === activeFormat;
+          el.hidden = !(topicOk && formatOk);   // visible only if it matches BOTH axes
         }});
-        document.querySelectorAll('.chip').forEach(function (c) {{
-          c.classList.toggle('active', c.dataset.filter === topic);
+        document.querySelectorAll('.chip[data-filter]').forEach(function (c) {{
+          c.classList.toggle('active', c.dataset.filter === activeTopic);
+        }});
+        document.querySelectorAll('.chip[data-format]').forEach(function (c) {{
+          c.classList.toggle('active', c.dataset.format === activeFormat);
         }});
         var n = document.querySelectorAll('.item:not([hidden])').length;
         if (countEl) countEl.textContent = n + (n === 1 ? ' item' : ' items');
       }}
       document.querySelectorAll('[data-filter]').forEach(function (btn) {{
-        btn.addEventListener('click', function () {{ apply(btn.dataset.filter); }});
+        btn.addEventListener('click', function () {{ activeTopic = btn.dataset.filter; apply(); }});
       }});
-      apply('all');
+      document.querySelectorAll('[data-format]').forEach(function (btn) {{
+        btn.addEventListener('click', function () {{ activeFormat = btn.dataset.format; apply(); }});
+      }});
+      apply();
     }})();
   </script>
 </body>

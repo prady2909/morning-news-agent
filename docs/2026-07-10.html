@@ -21,7 +21,7 @@
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
       -webkit-text-size-adjust:100%;
     }
-    .wrap { max-width:760px; margin:0 auto; padding:24px 16px 72px; }
+    .wrap { max-width:1400px; margin:0 auto; padding:24px 32px 72px; }
     header { margin-bottom:16px; }
     header .top { display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap; }
     h1 { font-size:1.7rem; margin:0; letter-spacing:-0.02em; }
@@ -69,6 +69,21 @@
     .dates a:hover { color:var(--text); text-decoration:underline; }
     .muted { color:var(--muted); }
 
+    /* Two-column layout: article content on the left, archive rail on the right. */
+    .layout { display:grid; grid-template-columns:minmax(0,700px) 300px; gap:32px; justify-content:space-between; align-items:start; }
+    .content { min-width:0; }   /* let the left column shrink instead of overflowing the grid */
+    .rail-box {
+      background:var(--card); border:1px solid var(--border); border-radius:12px;
+      padding:16px 18px; position:sticky; top:12px;
+    }
+    .rail-box h2 { font-size:1rem; margin:0 0 8px; }
+
+    /* Narrow screens: drop the rail below the content instead of beside it. */
+    @media (max-width:860px) {
+      .layout { grid-template-columns:1fr; }
+      .rail-box { position:static; }
+    }
+
     @media (max-width:480px) {
       h1 { font-size:1.4rem; }
       .wrap { padding:16px 12px 56px; }
@@ -84,24 +99,54 @@
         <h1>Morning News</h1>
         <span id="count"></span>
       </div>
-      <p class="subtitle">Friday, 10 Jul 2026 · 92 items from 12 sources</p>
+      <p class="subtitle">Friday, 10 Jul 2026 · 187 items from 20 sources</p>
     </header>
 
-    <nav class="filters" aria-label="Filter items">
-      <div class="filter-row" aria-label="Filter by topic">
-        <button class="chip active" data-filter="all">All</button>
+    <div class="layout">
+      <div class="content">
+        <nav class="filters" aria-label="Filter items">
+          <div class="filter-row" aria-label="Filter by topic">
+            <button class="chip active" data-filter="all">All</button>
       <button class="chip" data-filter="PM" style="--c:#2563eb">PM</button>
+      <button class="chip" data-filter="GTM" style="--c:#059669">GTM</button>
       <button class="chip" data-filter="AI" style="--c:#7c3aed">AI</button>
       <button class="chip" data-filter="Startups" style="--c:#ea580c">Startups</button>
-      </div>
-      <div class="filter-row" aria-label="Filter by format">
-        <button class="chip active" data-format="all">All</button>
-        <button class="chip" data-format="article" style="--c:var(--text)">Articles</button>
-        <button class="chip" data-format="video" style="--c:var(--text)">Videos</button>
-      </div>
-    </nav>
+          </div>
+          <div class="filter-row" aria-label="Filter by format">
+            <button class="chip active" data-format="all">All</button>
+            <button class="chip" data-format="article" style="--c:var(--text)">Articles</button>
+            <button class="chip" data-format="video" style="--c:var(--text)">Videos</button>
+          </div>
+        </nav>
 
-    <main id="items">
+        <main id="items">
+      <article class="item" data-topic="AI" data-type="video">
+        <div class="meta">
+          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <span class="source">Matt Wolfe</span>
+          <span class="date">10 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://www.youtube.com/watch?v=EOCRtSnvNNE" target="_blank" rel="noopener noreferrer">AI News: GPT-5.6 and the new Super App are a Massive Leap!</a></h2>
+        <p class="teaser">Here&#x27;s the AI News You Might Have Missed This Week. Try my Shorts Broll Generator and get $1,000 in free credits for Hyperagent here</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="video">
+        <div class="meta">
+          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <span class="source">Y Combinator (YouTube)</span>
+          <span class="date">10 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://www.youtube.com/watch?v=VbqaL_eHhKY" target="_blank" rel="noopener noreferrer">New Ways To Design With AI Tools</a></h2>
+        <p class="teaser">AI isn&#x27;t just changing the tools designers use. It&#x27;s changing the way they think, prototype, and build. In this episode of Design Review, YC Head of Design Eve Bouffard joins General Partner Aaron Epstein to share the AI-first workflow she uses to design products, websites, and…</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="video">
+        <div class="meta">
+          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <span class="source">Claire Vo (ChatPRD)</span>
+          <span class="date">10 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://www.youtube.com/shorts/WSqWNLnvLt0" target="_blank" rel="noopener noreferrer">Theoretically Intelligent vs. Practically Effective: Why GPT-5.6 Sol Beats Fable for Product Work</a></h2>
+        <p class="teaser">I ran a five-category benchmark across PRDs, prototypes, wireframes, debugging, and agentic voice, and Sol had the highest taste score by a significant margin on the 70% Claire / 30% machine split. That gap between &quot;hyper-intelligent&quot; and &quot;actually ships&quot; is real, and for…</p>
+      </article>
       <article class="item" data-topic="AI" data-type="video">
         <div class="meta">
           <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
@@ -119,6 +164,15 @@
         </div>
         <h2 class="title"><a href="https://www.youtube.com/watch?v=tjRkSyfac1A" target="_blank" rel="noopener noreferrer">Anthropic Quietly Dropped a Playbook to Secure Your AI Agents (Zero Trust)</a></h2>
         
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">Maja Voje (GTM Strategist)</span>
+          <span class="date">10 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://knowledge.gtmstrategist.com/p/ai-design-tools-vs-human-designers" target="_blank" rel="noopener noreferrer">Why We Still Pay Human Designers in 2026</a></h2>
+        <p class="teaser">We tested 6 AI design tools. Results surprised us.</p>
       </article>
       <article class="item" data-topic="PM" data-type="video">
         <div class="meta">
@@ -162,7 +216,7 @@
           <span class="source">Matt Wolfe</span>
           <span class="date">9 Jul</span>
         </div>
-        <h2 class="title"><a href="https://www.youtube.com/shorts/oXi5E3FvZKI" target="_blank" rel="noopener noreferrer">OpenAI&#x27;s First Hardware Release is THIS?</a></h2>
+        <h2 class="title"><a href="https://www.youtube.com/shorts/oXi5E3FvZKI" target="_blank" rel="noopener noreferrer">OpenAI is FINALLY Releasing Hardware</a></h2>
         <p class="teaser">Mark your calendars for July 15th! OpenAI is officially releasing its first-ever hardware product this month. It’s a physical, programmable macro pad built specifically for developers to use with Codex and created in partnership with mechanical keyboard maker @worklouder…</p>
       </article>
       <article class="item" data-topic="AI" data-type="video">
@@ -201,14 +255,14 @@
         <h2 class="title"><a href="https://www.lennysnewsletter.com/p/adam-mosseri-ai-is-a-tailwind-for" target="_blank" rel="noopener noreferrer">Adam Mosseri: AI is a tailwind for authenticity</a></h2>
         <p class="teaser">Listen now | Instagram’s Adam Mosseri on the new product team structure in 2026, the rise of the “product staff” role, and the hiring traits that matter most today</p>
       </article>
-      <article class="item" data-topic="PM" data-type="video">
+      <article class="item" data-topic="GTM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
-          <span class="source">Claire Vo (ChatPRD)</span>
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">The GTM Engineer (Clay)</span>
           <span class="date">9 Jul</span>
         </div>
-        <h2 class="title"><a href="https://www.youtube.com/shorts/28fgijupaDk" target="_blank" rel="noopener noreferrer">WTF is a harness?`</a></h2>
-        <p class="teaser">The term has taken on an almost mythical quality in engineering circles, but I strip it down in this episode: a harness is code you write to make an AI agent more effective at a specific job. Cursor is a complex harness. Claude Code is a complex harness. Yours can be eight files…</p>
+        <h2 class="title"><a href="https://thegtmengineer.substack.com/p/putting-agents-to-work-on-your-go" target="_blank" rel="noopener noreferrer">Putting Agents to Work on Your Go-to-Market Data, from Identity Resolution to Agentic Data Science with Jai Toor, Co-Founder of Deepline</a></h2>
+        <p class="teaser">How the most cutting edge GTM teams are incorporating agents into identity resolution and lead scoring workflows, why the strongest approach to agentic context is pulling it in real time, and more</p>
       </article>
       <article class="item" data-topic="AI" data-type="video">
         <div class="meta">
@@ -267,15 +321,6 @@
       <article class="item" data-topic="AI" data-type="video">
         <div class="meta">
           <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
-          <span class="source">Matt Wolfe</span>
-          <span class="date">8 Jul</span>
-        </div>
-        <h2 class="title"><a href="https://www.youtube.com/shorts/bxdsBsbtoSg" target="_blank" rel="noopener noreferrer">AI Can FINALLY Edit Videos For You</a></h2>
-        <p class="teaser">Imagine typing &quot;edit this for me&quot; and letting AI handle your entire video timeline. 🤯 That&#x27;s the promise behind Palmier (not sponsored), a new AI video editor powered by Claude. From organizing media and trimming clips to generating missing B-roll on the fly, it’s designed to…</p>
-      </article>
-      <article class="item" data-topic="AI" data-type="video">
-        <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
           <span class="source">Corbin Brown</span>
           <span class="date">7 Jul</span>
         </div>
@@ -312,11 +357,29 @@
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
           <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <span class="source">Julie Zhuo (The Looking Glass)</span>
+          <span class="date">6 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://lg.substack.com/p/some-people-like-restoring-vintage" target="_blank" rel="noopener noreferrer">How life was different during the early Internet</a></h2>
+        
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
           <span class="source">Lenny&#x27;s Newsletter</span>
           <span class="date">6 Jul</span>
         </div>
         <h2 class="title"><a href="https://www.lennysnewsletter.com/p/how-i-ai-sonnet-5-review-and-how" target="_blank" rel="noopener noreferrer">🎙️ How I AI: Sonnet 5 review &amp; How to run autonomous coding agents from your phone</a></h2>
         <p class="teaser">Your weekly listens from How I AI, part of the Lenny&#x27;s Podcast Network</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">The GTM Engineer (Clay)</span>
+          <span class="date">6 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://thegtmengineer.substack.com/p/the-76-gtm-engineering-roundup-profound" target="_blank" rel="noopener noreferrer">The 7/6 GTM Engineering roundup: Profound &amp; Cursor internal AI tools, 2 new signal software acquisitions, GTM Engineer at Clutch</a></h2>
+        <p class="teaser">Weekly GTM Engineering roundup on two internal tool deep dives with Profound &amp; Cursor, Warmly and Common Room&#x27;s acquisitions, learnings from a GTME demo day, and more!</p>
       </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
@@ -345,6 +408,15 @@
         <h2 class="title"><a href="https://www.lennysnewsletter.com/p/community-wisdom-quarterly-planning" target="_blank" rel="noopener noreferrer">🧠 Community Wisdom: Quarterly planning and AI, cash vs. equity comp, paying for interview exercises, AI-powered outbound, compliance startup opportunities, and more</a></h2>
         
       </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">Maja Voje (GTM Strategist)</span>
+          <span class="date">3 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://knowledge.gtmstrategist.com/p/linkedin-demand-generation-5-modes" target="_blank" rel="noopener noreferrer">You Don&#x27;t Have to Become an Influencer to Win on LinkedIn</a></h2>
+        <p class="teaser">5 modes of LinkedIn for GTM, and how to pick the one that fits your goals and your bandwidth right now</p>
+      </article>
       <article class="item" data-topic="AI" data-type="video">
         <div class="meta">
           <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
@@ -362,6 +434,15 @@
         </div>
         <h2 class="title"><a href="https://www.youtube.com/watch?v=zwl9Uyw2DjA" target="_blank" rel="noopener noreferrer">This New Google Format Gives Your AI Agent a Second Brain</a></h2>
         
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">The GTM Engineer (Clay)</span>
+          <span class="date">2 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://thegtmengineer.substack.com/p/how-sellers-and-cx-at-profound-use" target="_blank" rel="noopener noreferrer">How sellers and CX at Profound use Prophet to see every deal, account, call, next step, and more in one place</a></h2>
+        <p class="teaser">How Profound built its revenue intelligence platform in-house in under two months, why search was the wrong thing to build, and the always-on agent layer coming next.</p>
       </article>
       <article class="item" data-topic="AI" data-type="video">
         <div class="meta">
@@ -417,6 +498,15 @@
         <h2 class="title"><a href="https://www.lennysnewsletter.com/p/how-i-ai-glm-52-review-and-how-gusto" target="_blank" rel="noopener noreferrer">🎙️ How I AI: GLM-5.2 review &amp; How Gusto built a new product line with Claude Code</a></h2>
         <p class="teaser">Your weekly listens from How I AI, part of the Lenny&#x27;s Podcast Network</p>
       </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">The GTM Engineer (Clay)</span>
+          <span class="date">29 Jun</span>
+        </div>
+        <h2 class="title"><a href="https://thegtmengineer.substack.com/p/the-629-gtm-engineering-roundup-linkedin" target="_blank" rel="noopener noreferrer">The 6/29 GTM Engineering roundup: LinkedIn bans, GTM Engineering agent on Vercel, GTM Engineer at Lovable</a></h2>
+        <p class="teaser">Weekly GTM Engineering roundup on LinkedIn starting to ban for automated activities, a GTM Engineering GitHub repo to build on Vercel, step by step outbound campaign builder skill and more</p>
+      </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
           <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
@@ -453,14 +543,32 @@
         <h2 class="title"><a href="https://www.youtube.com/watch?v=Ju8LVdvuxGM" target="_blank" rel="noopener noreferrer">India Can Create The Largest AI Companies</a></h2>
         <p class="teaser">In this final panel from Startup School India, the hosts reflect on why India&#x27;s deep technical talent makes it uniquely positioned to produce some of the world&#x27;s largest companies in this new AI wave and how young founders can break out of conventional advice from traditional…</p>
       </article>
-      <article class="item" data-topic="Startups" data-type="video">
+      <article class="item" data-topic="GTM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
-          <span class="source">Y Combinator (YouTube)</span>
-          <span class="date">25 Jun</span>
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">Maja Voje (GTM Strategist)</span>
+          <span class="date">26 Jun</span>
         </div>
-        <h2 class="title"><a href="https://www.youtube.com/watch?v=oHwUD9b9_pg" target="_blank" rel="noopener noreferrer">Zynga Founder: Consumer Is Not Investible Right Now - Thats Why You Should Build It</a></h2>
-        <p class="teaser">Mark Pincus is the founder of Zynga and author of &quot;Life at the Speed of Play: Launch Products People Love&quot;, which distills the product philosophy and founder playbook he developed across five companies. In this episode of the Main Function, Pincus sits down with Garry to talk…</p>
+        <h2 class="title"><a href="https://knowledge.gtmstrategist.com/p/how-to-build-a-pitch-perfect-gtm-slide" target="_blank" rel="noopener noreferrer">How to Build a Pitch-Perfect GTM Slide That Wins Investors</a></h2>
+        <p class="teaser">VC insights inside - how to convince investors to give you the resources you need to win the market</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">The GTM Engineer (Clay)</span>
+          <span class="date">26 Jun</span>
+        </div>
+        <h2 class="title"><a href="https://thegtmengineer.substack.com/p/8-months-of-high-growth-gtm-agency" target="_blank" rel="noopener noreferrer">8 Months of High-Growth GTM Agency Learnings and Wins With Alex Fine, Co-Founder of Understory</a></h2>
+        <p class="teaser">Alex joined on the GTM Engineer 8 months ago. Now he&#x27;s back to share what&#x27;s new in GTM Engineering land, what&#x27;s working in channels like LinkedIn, how they&#x27;ve been hiring, and more</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">The GTM Engineer (Clay)</span>
+          <span class="date">24 Jun</span>
+        </div>
+        <h2 class="title"><a href="https://thegtmengineer.substack.com/p/how-to-10x-your-case-study-distribution" target="_blank" rel="noopener noreferrer">How to 10x Your Case Study Distribution (And Actually Drive Pipeline)</a></h2>
+        <p class="teaser">A GTM Engineer Experiment on exactly how to set up your case study distribution engine for maximum value</p>
       </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
@@ -480,6 +588,33 @@
         <h2 class="title"><a href="https://www.lennysnewsletter.com/p/the-new-inner-game-your-unfair-advantage" target="_blank" rel="noopener noreferrer">The new inner game: Your unfair advantage in the age of AI</a></h2>
         <p class="teaser">A playbook for the biggest upheaval of work we’ll see in our lifetime</p>
       </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">The GTM Engineer (Clay)</span>
+          <span class="date">22 Jun</span>
+        </div>
+        <h2 class="title"><a href="https://thegtmengineer.substack.com/p/the-622-gtm-engineering-roundup-free" target="_blank" rel="noopener noreferrer">The 6/22 GTM Engineering roundup: free webpage markdown tool, 4-layer context build-out, GTM Engineer at Omni</a></h2>
+        <p class="teaser">Weekly GTM Engineering roundup on a tool for free webpage markdown, a detailed 4-layer context system, hacking LI engagement, automating a new feature newsletter and more</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">Maja Voje (GTM Strategist)</span>
+          <span class="date">19 Jun</span>
+        </div>
+        <h2 class="title"><a href="https://knowledge.gtmstrategist.com/p/craft-irresistible-outbound-campaigns-with-claude-code" target="_blank" rel="noopener noreferrer">Craft Irresistible Outbound Campaigns Using Claude Code</a></h2>
+        <p class="teaser">Get the full Signal-to-Pipeline playbook that produced $10M pipeline for our clients in H1</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">The GTM Engineer (Clay)</span>
+          <span class="date">18 Jun</span>
+        </div>
+        <h2 class="title"><a href="https://thegtmengineer.substack.com/p/building-gtm-infrastructure-that" target="_blank" rel="noopener noreferrer">Building GTM Infrastructure that Scales with Keerthivasan Chaitanya Kumar, Growth Engineering Lead at Omni</a></h2>
+        <p class="teaser">How to architect a data system for your entire addressable market, what becomes possible when your CRM is actually clean, and how BDRs at Omni build prospect lists with plain-text queries</p>
+      </article>
       <article class="item" data-topic="AI" data-type="video">
         <div class="meta">
           <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
@@ -498,6 +633,24 @@
         <h2 class="title"><a href="https://www.ycombinator.com/blog/chris-golda-and-grey-baker-general-partners/" target="_blank" rel="noopener noreferrer">Christopher Golda and Grey Baker Join YC as General Partners</a></h2>
         <p class="teaser">We&#x27;re excited to announce that Christopher Golda and Grey Baker are joining YC as General Partners.</p>
       </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">The GTM Engineer (Clay)</span>
+          <span class="date">16 Jun</span>
+        </div>
+        <h2 class="title"><a href="https://thegtmengineer.substack.com/p/how-to-automate-a-new-features-newsletter" target="_blank" rel="noopener noreferrer">How to Automate a New Features Newsletter &amp; LinkedIn Post with LLMs and GitHub</a></h2>
+        <p class="teaser">A GTM Engineer Experiment on how Apurva Shukla, Head of Growth at Sumble, used LLMs and GitHub to programmatically create weekly content for team-wide product &amp; feature updates</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">The GTM Engineer (Clay)</span>
+          <span class="date">15 Jun</span>
+        </div>
+        <h2 class="title"><a href="https://thegtmengineer.substack.com/p/the-615-gtm-engineering-roundup-gtm" target="_blank" rel="noopener noreferrer">The 6/15 GTM Engineering roundup: GTM Engineering observations from the trenches at Hightouch, GTME career paths, GTM Engineer at Sapien</a></h2>
+        <p class="teaser">Weekly GTM Engineering roundup on a GTM Engineering career path deep dive, GTME observations inside the trenches at Hightouch, how Profound&#x27;s GTME automated 1,800 hours of manual CSM work &amp; more</p>
+      </article>
       <article class="item" data-topic="AI" data-type="video">
         <div class="meta">
           <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
@@ -506,6 +659,15 @@
         </div>
         <h2 class="title"><a href="https://www.youtube.com/watch?v=Qj71N0tBzRo" target="_blank" rel="noopener noreferrer">Claude Fable Blocked - 11 Quiet Details on What’s Next</a></h2>
         <p class="teaser">Claude Fable 5 banned, but what’s the bigger story. We go through 11 under-reported details, so you have the context to see what’s coming next for your use of AI. From whether the ban will last, what the possible motives are, what the model can actually do, and some wild…</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <span class="source">Julie Zhuo (The Looking Glass)</span>
+          <span class="date">13 Jun</span>
+        </div>
+        <h2 class="title"><a href="https://lg.substack.com/p/to-all-the-folks-who-are-about-to" target="_blank" rel="noopener noreferrer">To All the Folks Who Are About to Be Rich</a></h2>
+        <p class="teaser">Because of IPOs, acquisitions, or just doing some damned good business</p>
       </article>
       <article class="item" data-topic="AI" data-type="video">
         <div class="meta">
@@ -516,6 +678,24 @@
         <h2 class="title"><a href="https://www.youtube.com/shorts/-7etvZSBxlk" target="_blank" rel="noopener noreferrer">Measuring the entropy of English</a></h2>
         
       </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">Maja Voje (GTM Strategist)</span>
+          <span class="date">12 Jun</span>
+        </div>
+        <h2 class="title"><a href="https://knowledge.gtmstrategist.com/p/science-of-scaling" target="_blank" rel="noopener noreferrer">You&#x27;re Probably Scaling at the Wrong Time and Speed</a></h2>
+        <p class="teaser">50% of founders scale too late and too slow. Here is how to use your performance data to optimize your scale.</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">The GTM Engineer (Clay)</span>
+          <span class="date">11 Jun</span>
+        </div>
+        <h2 class="title"><a href="https://thegtmengineer.substack.com/p/how-edgar-from-profound-automated" target="_blank" rel="noopener noreferrer">How Edgar from Profound automated 1,800 hours/month of CSM work after shadowing them until 2am</a></h2>
+        <p class="teaser">A GTM Engineering Experiment on how Profound saved their post-sales team 1,800 hours per month with personalized slide decks &amp; advanced customer search queries on top of Dust</p>
+      </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
           <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
@@ -524,6 +704,15 @@
         </div>
         <h2 class="title"><a href="https://www.ycombinator.com/blog/diana-hu-managing-partner/" target="_blank" rel="noopener noreferrer">Diana Hu Is YC&#x27;s Newest Managing Partner</a></h2>
         <p class="teaser">We&#x27;re thrilled to announce that Diana Hu has been promoted to Managing Partner at Y Combinator. Few people have built a startup from zero and also shipped tech to 100 million people. Diana has done both.</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">April Dunford</span>
+          <span class="date">11 Jun</span>
+        </div>
+        <h2 class="title"><a href="https://aprildunford.substack.com/p/in-the-age-of-ai-you-need-a-point" target="_blank" rel="noopener noreferrer">In the Age of AI, You Need a Point of View</a></h2>
+        <p class="teaser">Let&#x27;s compare and contrast the point of view of a handful of tech companies</p>
       </article>
       <article class="item" data-topic="AI" data-type="video">
         <div class="meta">
@@ -543,6 +732,24 @@
         <h2 class="title"><a href="https://www.youtube.com/shorts/7L_eTem1SQ4" target="_blank" rel="noopener noreferrer">What&#x27;s the perfect encoding? How do you know?</a></h2>
         
       </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <span class="source">Julie Zhuo (The Looking Glass)</span>
+          <span class="date">9 Jun</span>
+        </div>
+        <h2 class="title"><a href="https://lg.substack.com/p/the-art-and-excellence-of-sales" target="_blank" rel="noopener noreferrer">The Art and Excellence of Sales</a></h2>
+        <p class="teaser">7 Lessons from former Meta Chief Revenue Officer David Fischer</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">The GTM Engineer (Clay)</span>
+          <span class="date">8 Jun</span>
+        </div>
+        <h2 class="title"><a href="https://thegtmengineer.substack.com/p/the-68-gtm-engineering-roundup-airplane" target="_blank" rel="noopener noreferrer">The 6/8 GTM Engineering roundup: Airplane Growth Hack,💰GTM GitHub Repo, GTM Engineer at Dust</a></h2>
+        <p class="teaser">Weekly GTM Engineering roundup on the implications of Ramp&#x27;s $44B valuation, a💰GTM GitHub Repo, Monaco&#x27;s Airplane Hack &amp; more</p>
+      </article>
       <article class="item" data-topic="AI" data-type="video">
         <div class="meta">
           <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
@@ -551,6 +758,123 @@
         </div>
         <h2 class="title"><a href="https://www.youtube.com/watch?v=l6DKRf-fAAM" target="_blank" rel="noopener noreferrer">Reinventing Entropy | Compression is Intelligence Part 1</a></h2>
         <p class="teaser">How to study the compressibility of language. Check out our virtual career fair</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">Maja Voje (GTM Strategist)</span>
+          <span class="date">5 Jun</span>
+        </div>
+        <h2 class="title"><a href="https://knowledge.gtmstrategist.com/p/4-gtm-frameworks-for-focused-execution" target="_blank" rel="noopener noreferrer">4 GTM Frameworks That Take You From Overwhelm to Focused Execution</a></h2>
+        <p class="teaser">The four workshop-tested bangers I run with every client, stress-tested for the AI era, and free to use</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">The GTM Engineer (Clay)</span>
+          <span class="date">2 Jun</span>
+        </div>
+        <h2 class="title"><a href="https://thegtmengineer.substack.com/p/how-one-person-ships-marketing-pages" target="_blank" rel="noopener noreferrer">How One Person Ships Marketing Pages 12x Faster After Ditching Webflow</a></h2>
+        <p class="teaser">How and why we rebuilt our marketing website from scratch to a modern AI-first stack, and what it has unlocked for marketing and sales</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">The GTM Engineer (Clay)</span>
+          <span class="date">2 Jun</span>
+        </div>
+        <h2 class="title"><a href="https://thegtmengineer.substack.com/p/the-61-gtm-engineering-roundup-learnings" target="_blank" rel="noopener noreferrer">The 6/1 GTM Engineering roundup: Learnings from 10K+ cold email replies, Opus 4.8, GTM Engineer at Skydio</a></h2>
+        <p class="teaser">Weekly roundup to cut through the noise this week includes an Opus 4.8 readout, email templates behind the best of 10K+ replies, how Vanta turned 900+ employees into agent builders using Dust and more</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">The GTM Engineer (Clay)</span>
+          <span class="date">1 Jun</span>
+        </div>
+        <h2 class="title"><a href="https://thegtmengineer.substack.com/p/a-context-engineering-deep-dive-for" target="_blank" rel="noopener noreferrer">A Context Engineering Deep Dive for GTM with Jacob Dietle, Context Engineer and Founder at Taste Systems</a></h2>
+        <p class="teaser">Why AI output is only as good as the context it’s given, what goes into building a context engine that compounds across use cases, how to decide buy vs. build with your context OS, and more</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">Maja Voje (GTM Strategist)</span>
+          <span class="date">29 May</span>
+        </div>
+        <h2 class="title"><a href="https://knowledge.gtmstrategist.com/p/how-to-rank-1-in-chatgpt-your-guide" target="_blank" rel="noopener noreferrer">How to Rank #1 in ChatGPT: Your Guide to AEO</a></h2>
+        <p class="teaser">6 pillars to win AI search visibility in 2026</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">Sean Ellis</span>
+          <span class="date">22 May</span>
+        </div>
+        <h2 class="title"><a href="https://seanellis.substack.com/p/how-glasp-grew-chatgpt-traffic-from" target="_blank" rel="noopener noreferrer">How Glasp grew ChatGPT traffic from 500 to 19,000 daily sessions in 4 months</a></h2>
+        <p class="teaser">Most AEO tools query LLMs from the outside. We read our own server logs instead.</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">Maja Voje (GTM Strategist)</span>
+          <span class="date">22 May</span>
+        </div>
+        <h2 class="title"><a href="https://knowledge.gtmstrategist.com/p/bye-ai-sdrs-hello-superhuman-agents" target="_blank" rel="noopener noreferrer">Bye, AI SDRs - Hello Superhuman Agents</a></h2>
+        <p class="teaser">HubSpot&#x27;s AI agent Fiona handles what would take 83 SDRs and 19 sales engineers - and lifts trial conversions 78%</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">April Dunford</span>
+          <span class="date">21 May</span>
+        </div>
+        <h2 class="title"><a href="https://aprildunford.substack.com/p/positioning-in-the-age-of-ai" target="_blank" rel="noopener noreferrer">Positioning in the Age of AI</a></h2>
+        <p class="teaser">I’m often asked how a company will know that its positioning needs to change.</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">Maja Voje (GTM Strategist)</span>
+          <span class="date">15 May</span>
+        </div>
+        <h2 class="title"><a href="https://knowledge.gtmstrategist.com/p/from-zero-to-80k-the-7-content-growth-levers" target="_blank" rel="noopener noreferrer">From Zero to +80K: The 7 Growth Levers Behind My Content Engine</a></h2>
+        <p class="teaser">Where humans thrive in the age of AI-first GTM - Gifts inside 🎁</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">Stuart Balcombe (ConnectedGTM)</span>
+          <span class="date">14 May</span>
+        </div>
+        <h2 class="title"><a href="https://stuartbalcombe.substack.com/p/do-they-even-work-here" target="_blank" rel="noopener noreferrer">Do they even work here?</a></h2>
+        <p class="teaser">Real data from building email verification + job change tracking.</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">Sean Ellis</span>
+          <span class="date">13 May</span>
+        </div>
+        <h2 class="title"><a href="https://seanellis.substack.com/p/the-advisory-honeymoon" target="_blank" rel="noopener noreferrer">Why Most Growth Advisory Engagements Fail in Month Two</a></h2>
+        <p class="teaser">How to avoid the &quot;Distraction Trap&quot; and build a foundation for alignment instead</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">Maja Voje (GTM Strategist)</span>
+          <span class="date">8 May</span>
+        </div>
+        <h2 class="title"><a href="https://knowledge.gtmstrategist.com/p/3-big-ideas-for-the-ai-first-gtm" target="_blank" rel="noopener noreferrer">3 Big Ideas for the AI-First GTM Era</a></h2>
+        <p class="teaser">Latest insights from Elena Verna, Kyle Norton, Emily Kramer and other thought leaders in the GTM space</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">Maja Voje (GTM Strategist)</span>
+          <span class="date">1 May</span>
+        </div>
+        <h2 class="title"><a href="https://knowledge.gtmstrategist.com/p/content-engineering-how-to-build-content-system-in-claude-code" target="_blank" rel="noopener noreferrer">Content Engineering: How to Build Your Content System in Claude Code</a></h2>
+        <p class="teaser">How one CMO built a knowledge base for an AI-powered GTM engine. Free GitHub repo inside.</p>
       </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
@@ -561,6 +885,33 @@
         <h2 class="title"><a href="https://www.svpg.com/build-to-learn-faq/" target="_blank" rel="noopener noreferrer">Build To Learn FAQ</a></h2>
         <p class="teaser">In our last article, we argued that especially in the age of AI, we are all builders, but that there is a very meaningful difference between building to learn (known as product discovery) versus building to earn (known as product delivery). Moreover, we argued that as the cost…</p>
       </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">Maja Voje (GTM Strategist)</span>
+          <span class="date">24 Apr</span>
+        </div>
+        <h2 class="title"><a href="https://knowledge.gtmstrategist.com/p/claude-for-gtm-pulse-report-2026" target="_blank" rel="noopener noreferrer">Is the Claude Hype Real? We Asked 200 GTM Operators.</a></h2>
+        <p class="teaser">New data from the 2026 Claude for GTM Pulse Report</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">April Dunford</span>
+          <span class="date">23 Apr</span>
+        </div>
+        <h2 class="title"><a href="https://aprildunford.substack.com/p/new-workbook-available-subscribers" target="_blank" rel="noopener noreferrer">New Workbook Available (Subscribers Only)</a></h2>
+        
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <span class="source">Julie Zhuo (The Looking Glass)</span>
+          <span class="date">21 Apr</span>
+        </div>
+        <h2 class="title"><a href="https://lg.substack.com/p/i-am-an-idiot" target="_blank" rel="noopener noreferrer">I am an idiot</a></h2>
+        <p class="teaser">Notes on idiocy, in the age of something smarter.</p>
+      </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
           <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
@@ -569,6 +920,15 @@
         </div>
         <h2 class="title"><a href="https://blog.eladgil.com/p/random-thoughts-while-gazing-at-the" target="_blank" rel="noopener noreferrer">Random thoughts while gazing at the misty AI Frontier</a></h2>
         <p class="teaser">A bunch of random things I have been thinking about, some of which are probably wrong</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">Maja Voje (GTM Strategist)</span>
+          <span class="date">17 Apr</span>
+        </div>
+        <h2 class="title"><a href="https://knowledge.gtmstrategist.com/p/aeo-how-to-make-ai-recommend-your-product" target="_blank" rel="noopener noreferrer">AEO: How to Make AI Recommend Your Product</a></h2>
+        <p class="teaser">The playbook for getting mentioned by ChatGPT, Perplexity, and Google AI — because if AI doesn’t know you exist, neither do your buyers</p>
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
@@ -591,6 +951,24 @@
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
           <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <span class="source">Julie Zhuo (The Looking Glass)</span>
+          <span class="date">14 Apr</span>
+        </div>
+        <h2 class="title"><a href="https://lg.substack.com/p/how-to-spot-a-world-class-designer" target="_blank" rel="noopener noreferrer">How to Spot a World-Class Designer</a></h2>
+        <p class="teaser">7 lessons from designer, inventor and angel investor Soleio on what separate excellent from mediocre</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">Maja Voje (GTM Strategist)</span>
+          <span class="date">10 Apr</span>
+        </div>
+        <h2 class="title"><a href="https://knowledge.gtmstrategist.com/p/the-gtm-repository-for-claude-code" target="_blank" rel="noopener noreferrer">The GTM Repository: Build Your Claude Code GTM Brain</a></h2>
+        <p class="teaser">A practical guide to building a GTM repository for Claude - with a starter kits for you to copy</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
           <span class="source">Marty Cagan (SVPG)</span>
           <span class="date">9 Apr</span>
         </div>
@@ -606,6 +984,60 @@
         <h2 class="title"><a href="https://www.ycombinator.com/blog/welcome-harshita/" target="_blank" rel="noopener noreferrer">Harshita Arora Joins YC as General Partner</a></h2>
         <p class="teaser">We&#x27;re thrilled to announce that Harshita Arora is joining Y Combinator as a General Partner. She brings deep fintech and infrastructure experience, a founder&#x27;s instinct for product, and the perspective of someone who&#x27;s been building companies since she was a teenager.</p>
       </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">Maja Voje (GTM Strategist)</span>
+          <span class="date">27 Mar</span>
+        </div>
+        <h2 class="title"><a href="https://knowledge.gtmstrategist.com/p/how-to-build-gtm-campaigns-with-claude-code" target="_blank" rel="noopener noreferrer">How to Build GTM Campaigns Your Prospects Would Pay to Receive</a></h2>
+        <p class="teaser">Use Claude Code to build irresistible messages that don&#x27;t sound like they were written by a chatbot - in 30 minutes</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <span class="source">Julie Zhuo (The Looking Glass)</span>
+          <span class="date">11 Mar</span>
+        </div>
+        <h2 class="title"><a href="https://lg.substack.com/p/what-excellent-growth-teams-see-that" target="_blank" rel="noopener noreferrer">What Excellent Growth Teams See That Others Miss</a></h2>
+        <p class="teaser">Watch now | A conversation with Brian Hale, Chief Growth Officer at Doordash</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">April Dunford</span>
+          <span class="date">10 Mar</span>
+        </div>
+        <h2 class="title"><a href="https://aprildunford.substack.com/p/guest-post-on-lennys-newsletter-today" target="_blank" rel="noopener noreferrer">Guest Post on Lenny&#x27;s Newsletter today</a></h2>
+        <p class="teaser">The trickiest positioning problems and how to avoid them</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">Sean Ellis</span>
+          <span class="date">4 Mar</span>
+        </div>
+        <h2 class="title"><a href="https://seanellis.substack.com/p/one-year-with-lovable-the-workflow" target="_blank" rel="noopener noreferrer">One Year With Lovable: The Workflow Breakthrough That Changed Everything</a></h2>
+        <p class="teaser">How giving Claude real code context transformed the way I build</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">Sean Ellis</span>
+          <span class="date">2 Mar</span>
+        </div>
+        <h2 class="title"><a href="https://seanellis.substack.com/p/aeo-blueprint-for-startups" target="_blank" rel="noopener noreferrer">AEO Blueprint for Startups</a></h2>
+        <p class="teaser">I wrote this essay with two folks who bring a lot more to the table than I do with AEO.</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">April Dunford</span>
+          <span class="date">26 Feb</span>
+        </div>
+        <h2 class="title"><a href="https://aprildunford.substack.com/p/new-book-available-early-announcement" target="_blank" rel="noopener noreferrer">New Book Available (EARLY announcement for subscribers)</a></h2>
+        <p class="teaser">Amazon support stinks so you get early access</p>
+      </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
           <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
@@ -615,6 +1047,15 @@
         <h2 class="title"><a href="https://www.ycombinator.com/blog/adding-canada-back/" target="_blank" rel="noopener noreferrer">Adding Canada Back to Our List of Accepted Countries of Incorporation</a></h2>
         <p class="teaser">After hearing feedback from Canadian founders in our network, we are adding Canada back to our list of accepted countries of incorporation.</p>
       </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">Sean Ellis</span>
+          <span class="date">4 Feb</span>
+        </div>
+        <h2 class="title"><a href="https://seanellis.substack.com/p/planning-your-first-sales-hire-you" target="_blank" rel="noopener noreferrer">Planning Your First Sales Hire? You Don&#x27;t Need a Performer. You Need a Producer.</a></h2>
+        <p class="teaser">This is a guest post from my friend Garrett Brown. His full bio is at the end, but the idea for this piece came out of a recent breakfast we had together. Garrett was walking me through a mistake he sees founders make over and over again with their first sales hire.</p>
+      </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
           <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
@@ -623,6 +1064,24 @@
         </div>
         <h2 class="title"><a href="https://www.svpg.com/product-coaching-and-ai/" target="_blank" rel="noopener noreferrer">Product Coaching and AI</a></h2>
         <p class="teaser">This article represents a significant change to what we have been advocating for the past two decades. But hopefully you will agree it is necessary, and that it also represents a substantial step forward. We have been gradually but consistently raising the alarm about the need…</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">April Dunford</span>
+          <span class="date">29 Jan</span>
+        </div>
+        <h2 class="title"><a href="https://aprildunford.substack.com/p/positioning-prep-part-1-decisions" target="_blank" rel="noopener noreferrer">Positioning Prep Part 1: Decisions to Make Before a Positioning Exercise</a></h2>
+        <p class="teaser">Everything is easier if you make these decisions before you start.</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">Sean Ellis</span>
+          <span class="date">28 Jan</span>
+        </div>
+        <h2 class="title"><a href="https://seanellis.substack.com/p/in-early-scale-growth-the-dominant" target="_blank" rel="noopener noreferrer">In Early-Scale Growth, the Dominant Cost Is Not CAC. It’s Time.</a></h2>
+        <p class="teaser">How speed of learning shapes sustainable growth engines</p>
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
@@ -645,6 +1104,33 @@
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
           <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <span class="source">Julie Zhuo (The Looking Glass)</span>
+          <span class="date">15 Jan</span>
+        </div>
+        <h2 class="title"><a href="https://lg.substack.com/p/playing-authentic-games" target="_blank" rel="noopener noreferrer">Playing Authentic Games</a></h2>
+        
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">April Dunford</span>
+          <span class="date">12 Jan</span>
+        </div>
+        <h2 class="title"><a href="https://aprildunford.substack.com/p/announcement-obviously-awesome-the" target="_blank" rel="noopener noreferrer">Announcement: Obviously Awesome - the new updated and expanded edition!!</a></h2>
+        <p class="teaser">It&#x27;s coming and it&#x27;s gonna be OBVIOUSLY AWESOMER</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">Sean Ellis</span>
+          <span class="date">8 Jan</span>
+        </div>
+        <h2 class="title"><a href="https://seanellis.substack.com/p/why-intent-is-now-much-bigger-than" target="_blank" rel="noopener noreferrer">Intent Has Outgrown Search</a></h2>
+        
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
           <span class="source">Marty Cagan (SVPG)</span>
           <span class="date">19 Dec</span>
         </div>
@@ -660,6 +1146,15 @@
         <h2 class="title"><a href="https://www.ycombinator.com/blog/2026-demo-days/" target="_blank" rel="noopener noreferrer">2026 Demo Day Dates</a></h2>
         <p class="teaser">We’re excited to share the Demo Day dates for 2026 so founders, investors, and our broader community can plan ahead.</p>
       </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">Sean Ellis</span>
+          <span class="date">11 Dec</span>
+        </div>
+        <h2 class="title"><a href="https://seanellis.substack.com/p/unlocking-advocacy-growths-force" target="_blank" rel="noopener noreferrer">Unlocking Advocacy: Growth’s Force Multiplier in the Age of AI</a></h2>
+        <p class="teaser">Introducing the Perfect Customer Loop Framework</p>
+      </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
           <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
@@ -668,6 +1163,15 @@
         </div>
         <h2 class="title"><a href="https://www.ycombinator.com/blog/meesho-goes-public/" target="_blank" rel="noopener noreferrer">Meesho Goes Public</a></h2>
         <p class="teaser">Meesho goes public today. From S16 to IPO, they’ve built one of India’s largest e-commerce platforms—empowering millions of small merchants to grow their businesses. Congrats to Vidit and Sanjeev on a decade of relentless building and listening to users!</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">Sean Ellis</span>
+          <span class="date">4 Dec</span>
+        </div>
+        <h2 class="title"><a href="https://seanellis.substack.com/p/the-new-growth-playbook-for-ai-freemium" target="_blank" rel="noopener noreferrer">The Most Powerful Growth Engine in AI: Freemium Fueled Word of Mouth</a></h2>
+        <p class="teaser">The proven path to generating scalable word of mouth for B2C and B2B AI products</p>
       </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
@@ -678,6 +1182,15 @@
         <h2 class="title"><a href="https://www.svpg.com/stakeholders-and-the-product-model/" target="_blank" rel="noopener noreferrer">Stakeholders and the Product Model</a></h2>
         <p class="teaser">By Chris Jones and Marty Cagan Moving to the product operating model is about moving from shipping roadmaps of features (output), to solving problems for your customers and your business, as measured by achieving business results (outcomes). But the changes required to do this…</p>
       </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">Sean Ellis</span>
+          <span class="date">26 Nov</span>
+        </div>
+        <h2 class="title"><a href="https://seanellis.substack.com/p/the-first-30-seconds-matter-more" target="_blank" rel="noopener noreferrer">The First 30 Seconds Matter More Than You Think</a></h2>
+        
+      </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
           <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
@@ -687,6 +1200,15 @@
         <h2 class="title"><a href="https://www.ycombinator.com/blog/groww/" target="_blank" rel="noopener noreferrer">Congratulations to Groww</a></h2>
         <p class="teaser">Today, Groww, India&#x27;s leading digital investing platform, goes public. Tens of millions use Groww to invest simply and confidently in stocks, mutual funds, and ETFs. As YC&#x27;s first company to list in India, we couldn&#x27;t be more proud.</p>
       </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">Sean Ellis</span>
+          <span class="date">7 Nov</span>
+        </div>
+        <h2 class="title"><a href="https://seanellis.substack.com/p/the-power-of-zero-based-calendaring" target="_blank" rel="noopener noreferrer">How Zero-Based Calendaring Changed the Way I Work (and Feel)</a></h2>
+        <p class="teaser">You know those days that seem to vanish in a blur of emails, meetings, and “urgent” fires?</p>
+      </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
           <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
@@ -695,6 +1217,15 @@
         </div>
         <h2 class="title"><a href="https://www.svpg.com/prototypes-vs-products/" target="_blank" rel="noopener noreferrer">Prototypes vs Products</a></h2>
         <p class="teaser">Note: This is part of the product creator series of articles, based on the overview article, The Era of the Product Creator. This series is intended for anyone that wants to create a successful product, whether or not the person has had professional training or experience in…</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <span class="source">Julie Zhuo (The Looking Glass)</span>
+          <span class="date">6 Nov</span>
+        </div>
+        <h2 class="title"><a href="https://lg.substack.com/p/the-lost-art-of-crying" target="_blank" rel="noopener noreferrer">The Lost Art of Crying</a></h2>
+        <p class="teaser">How to build and dismantle a kingdom of ice</p>
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
@@ -714,6 +1245,15 @@
         <h2 class="title"><a href="https://www.ycombinator.com/blog/ycs-newest-visiting-partners/" target="_blank" rel="noopener noreferrer">Meet YC&#x27;s Newest Visiting Partners</a></h2>
         <p class="teaser">We&#x27;re excited to announce that nine exceptional founders are joining us as Visiting Partners at YC: Matt Riley, Harshita Arora, Grey Baker, Christopher Golda, Raphael Schaad, Christina Gilbert, Francois Chaubard, Vivian Shen, and James Evans.</p>
       </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">Sean Ellis</span>
+          <span class="date">29 Sep</span>
+        </div>
+        <h2 class="title"><a href="https://seanellis.substack.com/p/plg-vs-sales-and-marketing-do-you" target="_blank" rel="noopener noreferrer">PLG vs. Sales and Marketing: Do You Really Have to Choose?</a></h2>
+        <p class="teaser">Why even the best PLG companies rely on sales and marketing to reach full potential</p>
+      </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
           <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
@@ -723,6 +1263,15 @@
         <h2 class="title"><a href="https://www.ycombinator.com/blog/build-onchain/" target="_blank" rel="noopener noreferrer">YC x Coinbase RFS: Build Onchain</a></h2>
         <p class="teaser">We are entering the era of Fintech 3.0. Regulatory clarity, growing consumer adoption, and low-cost chains have paved the way for a golden age of building in crypto — and at YC, Base, and Coinbase, we want to fund builders to seize this moment.</p>
       </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">Sean Ellis</span>
+          <span class="date">17 Sep</span>
+        </div>
+        <h2 class="title"><a href="https://seanellis.substack.com/p/ai-as-the-new-mentor-how-startups" target="_blank" rel="noopener noreferrer">AI as the New Mentor: How Startups Can Unlock Growth With New Marketing Grads</a></h2>
+        <p class="teaser">AI is turning new marketing grads into impact players, helping them ramp faster and giving founders a cost-effective path to traction.</p>
+      </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
           <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
@@ -731,6 +1280,15 @@
         </div>
         <h2 class="title"><a href="https://www.svpg.com/forward-deployed-engineers/" target="_blank" rel="noopener noreferrer">Forward Deployed Engineers</a></h2>
         <p class="teaser">Note: This is part of the product creator series of articles, based on the overview article, The Era of the Product Creator. This series is intended for anyone that wants to create a successful product, whether or not the person has had professional training or experience in…</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <span class="source">Julie Zhuo (The Looking Glass)</span>
+          <span class="date">16 Sep</span>
+        </div>
+        <h2 class="title"><a href="https://lg.substack.com/p/unsent-letter-25" target="_blank" rel="noopener noreferrer">Unsent Letter #25</a></h2>
+        
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
@@ -750,6 +1308,33 @@
         <h2 class="title"><a href="https://www.svpg.com/the-purpose-of-prototypes/" target="_blank" rel="noopener noreferrer">The Purpose of Prototypes</a></h2>
         <p class="teaser">Note: This is part of the product creator series of articles, based on the overview article, The Era of the Product Creator. This series is intended for anyone that wants to create a successful product, whether or not the person has had professional training or experience in…</p>
       </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">Sean Ellis</span>
+          <span class="date">10 Sep</span>
+        </div>
+        <h2 class="title"><a href="https://seanellis.substack.com/p/the-most-common-mistakes-founders" target="_blank" rel="noopener noreferrer">The Most Common Mistakes Founders Make in Their Quest to Scale</a></h2>
+        <p class="teaser">Avoiding shortcuts and overcorrections when scaling your startup</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <span class="source">Julie Zhuo (The Looking Glass)</span>
+          <span class="date">9 Sep</span>
+        </div>
+        <h2 class="title"><a href="https://lg.substack.com/p/managing-ai-is-like-managing-humans" target="_blank" rel="noopener noreferrer">You&#x27;re definitely going to be a manager now</a></h2>
+        <p class="teaser">Book launch! + Predictions for the manager in the era of AI</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">Sean Ellis</span>
+          <span class="date">28 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://seanellis.substack.com/p/why-every-startup-needs-a-growth" target="_blank" rel="noopener noreferrer">Your Startup Doesn’t Just Need Growth Tactics — It Needs a Growth System Architect</a></h2>
+        <p class="teaser">Before optimizers. Before scalers. Architects of scalable growth systems.</p>
+      </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
           <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
@@ -758,6 +1343,15 @@
         </div>
         <h2 class="title"><a href="https://www.svpg.com/product-leadership-archetypes/" target="_blank" rel="noopener noreferrer">Product Leadership Archetypes</a></h2>
         <p class="teaser">Just recently SVPG Partner Christian Idiodi hosted Shreyas Doshi on his Product Therapy podcast, where they discussed the role of product leadership. If you haven’t yet listened to this interview, I would strongly encourage it, as I loved hearing Shreyas’ thoughts on this…</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <span class="source">Julie Zhuo (The Looking Glass)</span>
+          <span class="date">21 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://lg.substack.com/p/the-making-of-a-founder" target="_blank" rel="noopener noreferrer">The Making of a Founder</a></h2>
+        
       </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
@@ -798,6 +1392,24 @@
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
           <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <span class="source">Julie Zhuo (The Looking Glass)</span>
+          <span class="date">2 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://lg.substack.com/p/unsent-letter-11" target="_blank" rel="noopener noreferrer">Unsent Letter #11</a></h2>
+        
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <span class="source">Julie Zhuo (The Looking Glass)</span>
+          <span class="date">24 Jun</span>
+        </div>
+        <h2 class="title"><a href="https://lg.substack.com/p/when-ai-has-better-taste-than-you" target="_blank" rel="noopener noreferrer">When AI Has Better Taste Than You</a></h2>
+        <p class="teaser">How machines conquered our skills, infiltrated our aesthetics, and left us with one final advantage</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
           <span class="source">Marty Cagan (SVPG)</span>
           <span class="date">15 Jun</span>
         </div>
@@ -812,6 +1424,24 @@
         </div>
         <h2 class="title"><a href="https://www.ycombinator.com/blog/dalton-caldwell-partner-emeritus/" target="_blank" rel="noopener noreferrer">Dalton Caldwell’s Move to Partner Emeritus</a></h2>
         <p class="teaser">After 12+ years, 25 batches, and working with more than a thousand startups, Dalton Caldwell is transitioning to Partner Emeritus at YC. Dalton joined YC in 2011 and has contributed in a number of roles over the years, most recently as a Managing Partner. During his time here,…</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <span class="source">Julie Zhuo (The Looking Glass)</span>
+          <span class="date">3 Jun</span>
+        </div>
+        <h2 class="title"><a href="https://lg.substack.com/p/unsent-letter-47" target="_blank" rel="noopener noreferrer">Unsent letter #47</a></h2>
+        <p class="teaser">To the corporate jobber with a faraway gaze</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <span class="source">Julie Zhuo (The Looking Glass)</span>
+          <span class="date">27 May</span>
+        </div>
+        <h2 class="title"><a href="https://lg.substack.com/p/the-thing-you-are-expert-at-will" target="_blank" rel="noopener noreferrer">The Thing You Are Expert at Will Be Your Career Downfall</a></h2>
+        <p class="teaser">AI will disrupt some of us more than others.</p>
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
@@ -840,6 +1470,15 @@
         <h2 class="title"><a href="https://blog.eladgil.com/p/market-ending-moves" target="_blank" rel="noopener noreferrer">Market Ending Moves</a></h2>
         <p class="teaser">Startup CEOs should ask themselves what crazy ideas can turn into a move that just ends a market&#x27;s competitive dynamic</p>
       </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">April Dunford</span>
+          <span class="date">6 Feb</span>
+        </div>
+        <h2 class="title"><a href="https://aprildunford.substack.com/p/value-vs-objection-handling" target="_blank" rel="noopener noreferrer">Value vs. Objection Handling</a></h2>
+        <p class="teaser">In my positioning work, it is not unusual for teams to confuse value for customers with what I would call “objection handling.”</p>
+      </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
           <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
@@ -848,6 +1487,96 @@
         </div>
         <h2 class="title"><a href="https://blog.eladgil.com/p/leaving-delaware" target="_blank" rel="noopener noreferrer">Leaving Delaware</a></h2>
         <p class="teaser">This post covers why companies are considering reincorporating from Delaware to Nevada &amp; Texas</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">April Dunford</span>
+          <span class="date">16 Jan</span>
+        </div>
+        <h2 class="title"><a href="https://aprildunford.substack.com/p/what-to-do-when-a-competitor-lies" target="_blank" rel="noopener noreferrer">What to do When a Competitor Lies</a></h2>
+        <p class="teaser">Copying features isn&#x27;t as easy as the marketers think it is. But why bother to do that when you can simply say you have capabilities you don&#x27;t? Are you competing against dirty liars? Here&#x27;s how to fight back.</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">April Dunford</span>
+          <span class="date">19 Dec</span>
+        </div>
+        <h2 class="title"><a href="https://aprildunford.substack.com/p/how-to-turn-a-competitors-strength" target="_blank" rel="noopener noreferrer">How to Turn a Competitor&#x27;s Strength into a Weakness</a></h2>
+        <p class="teaser">We all operate in competitive markets, and often, it feels like our competitors’ strengths are impossible to overcome. In this post we examine how to turn your competitor&#x27;s biggest strength into a weakness.</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <span class="source">Melissa Perri</span>
+          <span class="date">23 Sep</span>
+        </div>
+        <h2 class="title"><a href="https://melissaperri.substack.com/p/my-thoughts-on-founder-mode-and-why" target="_blank" rel="noopener noreferrer">My Thoughts on Founder Mode... and Why It&#x27;s Dangerous</a></h2>
+        <p class="teaser">Just because you made it from 0 to 1 doesn&#x27;t mean you inherently know how to scale.</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">April Dunford</span>
+          <span class="date">19 Sep</span>
+        </div>
+        <h2 class="title"><a href="https://aprildunford.substack.com/p/the-no-differentiation-illusion" target="_blank" rel="noopener noreferrer">The &quot;No Differentiation&quot; Illusion</a></h2>
+        <p class="teaser">How do we position a product that doesn&#x27;t have any advantages over the alternatives? Let&#x27;s start by entertaining the idea that maybe we&#x27;re wrong about that.</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">April Dunford</span>
+          <span class="date">5 Sep</span>
+        </div>
+        <h2 class="title"><a href="https://aprildunford.substack.com/p/when-to-revisit-your-positioning" target="_blank" rel="noopener noreferrer">When To Revisit Your Positioning</a></h2>
+        <p class="teaser">You shouldn&#x27;t wait until disaster strikes to adjust your positioning, but when it does, that&#x27;s a great time to revisit it.</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <span class="source">Melissa Perri</span>
+          <span class="date">23 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://melissaperri.substack.com/p/building-a-great-product-management-organization" target="_blank" rel="noopener noreferrer">Building a Great Product Management Organization</a></h2>
+        <p class="teaser">For the past eight years, I’ve been working with C-Suite leaders at companies big and small to set up their Product Management organizations.</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <span class="source">Melissa Perri</span>
+          <span class="date">6 Jun</span>
+        </div>
+        <h2 class="title"><a href="https://melissaperri.substack.com/p/why-are-we-making-product-managers" target="_blank" rel="noopener noreferrer">Why are we making Product Managers the &quot;one throat to choke&quot;?</a></h2>
+        
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">April Dunford</span>
+          <span class="date">16 May</span>
+        </div>
+        <h2 class="title"><a href="https://aprildunford.substack.com/p/positioning-and-acquisitions" target="_blank" rel="noopener noreferrer">Positioning and Acquisitions</a></h2>
+        <p class="teaser">An acquisition – for both the acquiring company and the company that has been acquired – is a golden opportunity to revisit and tighten up positioning.</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">April Dunford</span>
+          <span class="date">12 Apr</span>
+        </div>
+        <h2 class="title"><a href="https://aprildunford.substack.com/p/dolly-beyonce-and-differentiated" target="_blank" rel="noopener noreferrer">Dolly, Beyoncé and Differentiated Value</a></h2>
+        <p class="teaser">My favorite positioning quote is from Dolly Parton, who said, “Find out what you are and do it on purpose.” I think about this quote a lot (I used it in my book, Obviously Awesome, and I even made stickers).</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <span class="source">April Dunford</span>
+          <span class="date">28 Mar</span>
+        </div>
+        <h2 class="title"><a href="https://aprildunford.substack.com/p/shifting-positioning-b2b-tech" target="_blank" rel="noopener noreferrer">Shifting Positioning - Why B2B Tech is Different</a></h2>
+        <p class="teaser">Consumer products rarely shift positioning, where positioning shifts are expected and normal for B2B products. As a result, some of the key concepts related to positioning consumer products are completely irrelevant for B2B products. In my book Sales Pitch, I discussed the…</p>
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
@@ -876,6 +1605,15 @@
         <h2 class="title"><a href="https://blog.eladgil.com/p/a-return-to-company-core-mission" target="_blank" rel="noopener noreferrer">A return to company core mission &amp; values</a></h2>
         <p class="teaser">If you want to refocus on your core mission, and end political discourse at work, now is a window of time to do it</p>
       </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <span class="source">Melissa Perri</span>
+          <span class="date">29 Dec</span>
+        </div>
+        <h2 class="title"><a href="https://melissaperri.substack.com/p/what-i-wish-i-knew-before-writing-a-book" target="_blank" rel="noopener noreferrer">What I Wish I Knew Before Writing a Book</a></h2>
+        <p class="teaser">I’ve been reflecting on what I learned writing two business books and wanted to share those insights that I wish someone had shared with me before I started.</p>
+      </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
           <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
@@ -903,6 +1641,15 @@
         <h2 class="title"><a href="https://blog.eladgil.com/p/video-and-transcript-apoorva-metha" target="_blank" rel="noopener noreferrer">Video &amp; transcript: Apoorva Metha, founder &amp; former CEO, Instacart</a></h2>
         <p class="teaser">Full video &amp; transcript from Fireside chat with Apoorva Metha</p>
       </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <span class="source">Melissa Perri</span>
+          <span class="date">15 Nov</span>
+        </div>
+        <h2 class="title"><a href="https://melissaperri.substack.com/p/episode-145-the-responsible-tech-4b4" target="_blank" rel="noopener noreferrer">Episode 145: The Responsible Tech Revolution with Tanya Johnson, Chief Product Officer at Auror</a></h2>
+        <p class="teaser">In this episode of Product Thinking, Tanya Johnson, Chief Product Officer at Auror, joins Melissa Perri to explore the importance of responsible and ethical use of tech and AI.</p>
+      </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
           <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
@@ -911,6 +1658,78 @@
         </div>
         <h2 class="title"><a href="https://blog.eladgil.com/p/fireside-chat-with-satya-nadella" target="_blank" rel="noopener noreferrer">Fireside chat with Satya Nadella, CEO of Microsoft</a></h2>
         <p class="teaser">Video and transcript of our fireside chat at Stripe from Monday</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <span class="source">Melissa Perri</span>
+          <span class="date">8 Nov</span>
+        </div>
+        <h2 class="title"><a href="https://melissaperri.substack.com/p/episode-144-banking-20-or-how-to-e37" target="_blank" rel="noopener noreferrer">Episode 144: Banking 2.0 or How to Drive Change and Scale in Financial Organizations with Anish Bhimani, Managing Director and Chief Product Officer at JPMorgan Chase, Commercial Banking</a></h2>
+        <p class="teaser">In this episode of Product Thinking, Anish Bhimani, Managing Director and Chief Product Officer at JPMorgan Chase, Commercial Banking joins Melissa Perri to share his insights on how product managers can scale and lead digital transformation in commercial banking.</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <span class="source">Melissa Perri</span>
+          <span class="date">1 Nov</span>
+        </div>
+        <h2 class="title"><a href="https://melissaperri.substack.com/p/episode-143-harnessing-the-power-0b0" target="_blank" rel="noopener noreferrer">Episode 143: Harnessing the Power of Wireframes with Ellen Chisa, Partner at boldstart ventures, and Leon Barnard, Education Team Lead at Balsamiq</a></h2>
+        <p class="teaser">In this episode of Product Thinking, product experts Ellen Chisa, Partner at boldstart ventures, and Leon Barnard, Education Team Lead at Balsamiq, join Melissa Perri to discuss the importance of wireframing in product development.</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <span class="source">Melissa Perri</span>
+          <span class="date">25 Oct</span>
+        </div>
+        <h2 class="title"><a href="https://melissaperri.substack.com/p/episode-142-mastering-data-driven-661" target="_blank" rel="noopener noreferrer">Episode 142: Mastering Data-Driven Product Management with Bethany Lyons, Chief Product Officer at KAWA Analytics</a></h2>
+        <p class="teaser">In this episode of Product Thinking, Bethany Lyons, Chief Product Officer at KAWA Analytics, joins Melissa Perri to unveil the role of a data-driven product manager in early-stage startups.</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <span class="source">Melissa Perri</span>
+          <span class="date">18 Oct</span>
+        </div>
+        <h2 class="title"><a href="https://melissaperri.substack.com/p/episode-141-building-a-global-product-1b6" target="_blank" rel="noopener noreferrer">Episode 141: Building a Global Product Powerhouse with Jag Duggal, Chief Product Officer at Nubank</a></h2>
+        <p class="teaser">In this episode of Product Thinking, Jag Duggal, Chief Product Officer at Nubank, joins Melissa Perri to unravel the process of building a strong global product management team in a fast-growing business.</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <span class="source">Melissa Perri</span>
+          <span class="date">11 Oct</span>
+        </div>
+        <h2 class="title"><a href="https://melissaperri.substack.com/p/episode-140-when-product-meets-customer-32a" target="_blank" rel="noopener noreferrer">Episode 140: When Product Meets Customer Success, Miracles Happen with Bryan House, Chief Experience Officer at Elastic Path</a></h2>
+        <p class="teaser">In this episode of Product Thinking, Bryan House, Chief Experience Officer at Elastic Path, joins Melissa Perri to explore the close collaboration between product and customer success in building a customer-centric organization.</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <span class="source">Melissa Perri</span>
+          <span class="date">5 Oct</span>
+        </div>
+        <h2 class="title"><a href="https://melissaperri.substack.com/p/coming-soon" target="_blank" rel="noopener noreferrer">Coming soon</a></h2>
+        <p class="teaser">This is Product Thinking with Melissa Perri.</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <span class="source">Melissa Perri</span>
+          <span class="date">4 Oct</span>
+        </div>
+        <h2 class="title"><a href="https://melissaperri.substack.com/p/episode-139-why-startups-fail-and-064" target="_blank" rel="noopener noreferrer">Episode 139: Why Startups Fail and How You Can Avoid That with Tom Eisenmann, Professor of Business Administration at Harvard Business School</a></h2>
+        <p class="teaser">In this episode of Product Thinking, Tom Eisenmann, Professor of Business Administration at Harvard Business School, joins Melissa Perri to dive into &quot;Why Startups Fail,&quot; his transformative book.</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <span class="source">Melissa Perri</span>
+          <span class="date">27 Sep</span>
+        </div>
+        <h2 class="title"><a href="https://melissaperri.substack.com/p/episode-138-strategies-for-product-805" target="_blank" rel="noopener noreferrer">Episode 138: Strategies for Product Management in Fresh Markets with Chris Andrews, Chief Operating Officer and Head of Product at Rendered.AI</a></h2>
+        <p class="teaser">In this episode of Product Thinking, Chris Andrews, Chief Operating Officer and Head of Product at Rendered.AI, joins Melissa Perri to unveil the challenges and strategies involved in building products in new markets, as well as the unique aspects of product management in these…</p>
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
@@ -921,6 +1740,15 @@
         <h2 class="title"><a href="https://blog.eladgil.com/p/unicorn-market-cap-2023-rise-of-ai" target="_blank" rel="noopener noreferrer">Unicorn Market Cap 2023: Rise of AI</a></h2>
         <p class="teaser">We analyze growth in unicorn market cap by region. We also compare # of Barry&#x27;s Bootcamps to # of unicorns for key cities.</p>
       </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <span class="source">Melissa Perri</span>
+          <span class="date">20 Sep</span>
+        </div>
+        <h2 class="title"><a href="https://melissaperri.substack.com/p/episode-137-answering-questions-about-cf7" target="_blank" rel="noopener noreferrer">Episode 137: Answering Questions About Platform Product Management and What That Means</a></h2>
+        <p class="teaser">Have a product question for Melissa? Submit one here, and Melissa may answer it in a future episode.</p>
+      </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
           <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
@@ -930,12 +1758,66 @@
         <h2 class="title"><a href="https://blog.eladgil.com/p/ai-regulation" target="_blank" rel="noopener noreferrer">AI Regulation</a></h2>
         <p class="teaser">There have been multiple call to regulate AI. It is too early to do so.</p>
       </article>
-    </main>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <span class="source">Melissa Perri</span>
+          <span class="date">13 Sep</span>
+        </div>
+        <h2 class="title"><a href="https://melissaperri.substack.com/p/episode-136-from-college-choices-ff6" target="_blank" rel="noopener noreferrer">Episode 136: From College Choices to Education Empire with Luke Skurman, CEO of Niche</a></h2>
+        <p class="teaser">In this episode of Product Thinking, Luke Skurman, CEO of Niche, joins Melissa Perri to explore the incredible story of Niche&#x27;s journey from helping students choose the right college to become a successful company in the education industry.</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <span class="source">Aakash Gupta (Product Growth)</span>
+          <span class="date">2 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://aakashg.substack.com/p/protocol-insights-2" target="_blank" rel="noopener noreferrer">Protocol Insights #2</a></h2>
+        <p class="teaser">In this weeks coverage we look at popular liquid staking protocols and the recent activity around $ETC.</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <span class="source">Aakash Gupta (Product Growth)</span>
+          <span class="date">27 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://aakashg.substack.com/p/weekly-insights-1" target="_blank" rel="noopener noreferrer">Protocol Insights #1</a></h2>
+        <p class="teaser">This week, we look at Helium, Solana and Yuga Labs</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <span class="source">Aakash Gupta (Product Growth)</span>
+          <span class="date">17 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://aakashg.substack.com/p/week-2-polygon-has-a-week-full-of" target="_blank" rel="noopener noreferrer">Polygon announcements multiple partnerships, ETH merge date soft committed, Celsius Bankruptcy disclosures and US CPI reaches all-time high</a></h2>
+        
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <span class="source">Aakash Gupta (Product Growth)</span>
+          <span class="date">11 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://aakashg.substack.com/p/coming-soon" target="_blank" rel="noopener noreferrer">Week 2: Voyager Bankruptcy, RWA proposals on MakerDAO, AAVE&#x27;s new stablecoin</a></h2>
+        
+      </article>
+        </main>
 
-    <footer class="archive">
-      <h2>Archive</h2>
+        <footer class="archive">
+          <h2>Archive</h2>
 <p class="dates"><a href="2026-07-09.html">9 Jul</a>, <a href="2026-07-08.html">8 Jul</a>, <a href="2026-07-07.html">7 Jul</a>, <a href="2026-07-06.html">6 Jul</a>, <a href="2026-07-05.html">5 Jul</a>, <a href="2026-07-04.html">4 Jul</a></p>
-    </footer>
+        </footer>
+      </div>
+
+      <aside class="rail" aria-label="Archive">
+        <div class="rail-box">
+          <h2>Archive</h2>
+          <p class="muted">Calendar coming soon</p>
+        </div>
+      </aside>
+    </div>
   </div>
 
   <script>

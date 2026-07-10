@@ -229,7 +229,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
       -webkit-text-size-adjust:100%;
     }}
-    .wrap {{ max-width:760px; margin:0 auto; padding:24px 16px 72px; }}
+    .wrap {{ max-width:1400px; margin:0 auto; padding:24px 32px 72px; }}
     header {{ margin-bottom:16px; }}
     header .top {{ display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap; }}
     h1 {{ font-size:1.7rem; margin:0; letter-spacing:-0.02em; }}
@@ -277,6 +277,21 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     .dates a:hover {{ color:var(--text); text-decoration:underline; }}
     .muted {{ color:var(--muted); }}
 
+    /* Two-column layout: article content on the left, archive rail on the right. */
+    .layout {{ display:grid; grid-template-columns:minmax(0,700px) 300px; gap:32px; justify-content:space-between; align-items:start; }}
+    .content {{ min-width:0; }}   /* let the left column shrink instead of overflowing the grid */
+    .rail-box {{
+      background:var(--card); border:1px solid var(--border); border-radius:12px;
+      padding:16px 18px; position:sticky; top:12px;
+    }}
+    .rail-box h2 {{ font-size:1rem; margin:0 0 8px; }}
+
+    /* Narrow screens: drop the rail below the content instead of beside it. */
+    @media (max-width:860px) {{
+      .layout {{ grid-template-columns:1fr; }}
+      .rail-box {{ position:static; }}
+    }}
+
     @media (max-width:480px) {{
       h1 {{ font-size:1.4rem; }}
       .wrap {{ padding:16px 12px 56px; }}
@@ -294,26 +309,37 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
       <p class="subtitle">{date_label} · {item_count} items from {source_count} sources</p>
     </header>
 
-    <nav class="filters" aria-label="Filter items">
-      <div class="filter-row" aria-label="Filter by topic">
-        <button class="chip active" data-filter="all">All</button>
+    <div class="layout">
+      <div class="content">
+        <nav class="filters" aria-label="Filter items">
+          <div class="filter-row" aria-label="Filter by topic">
+            <button class="chip active" data-filter="all">All</button>
 {chips}
-      </div>
-      <div class="filter-row" aria-label="Filter by format">
-        <button class="chip active" data-format="all">All</button>
-        <button class="chip" data-format="article" style="--c:var(--text)">Articles</button>
-        <button class="chip" data-format="video" style="--c:var(--text)">Videos</button>
-      </div>
-    </nav>
+          </div>
+          <div class="filter-row" aria-label="Filter by format">
+            <button class="chip active" data-format="all">All</button>
+            <button class="chip" data-format="article" style="--c:var(--text)">Articles</button>
+            <button class="chip" data-format="video" style="--c:var(--text)">Videos</button>
+          </div>
+        </nav>
 
-    <main id="items">
+        <main id="items">
 {items}
-    </main>
+        </main>
 
-    <footer class="archive">
-      <h2>Archive</h2>
+        <footer class="archive">
+          <h2>Archive</h2>
 {archive}
-    </footer>
+        </footer>
+      </div>
+
+      <aside class="rail" aria-label="Archive">
+        <div class="rail-box">
+          <h2>Archive</h2>
+          <p class="muted">Calendar coming soon</p>
+        </div>
+      </aside>
+    </div>
   </div>
 
   <script>

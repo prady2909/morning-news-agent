@@ -20,6 +20,7 @@ then feedparser.parse() once more on healthy feeds to read their entries. That's
 two fetches per feed, but it keeps fetch.py as the single source of "healthy".
 """
 
+import calendar
 import html
 import re
 import sys
@@ -206,6 +207,42 @@ def render_archive(archive_dates: list) -> str:
     return '<p class="dates">' + ", ".join(links) + "</p>"
 
 
+# Sunday-first weekday headers for the archive calendar.
+CAL_WEEKDAYS = ["S", "M", "T", "W", "T", "F", "S"]
+
+
+def render_calendar(today: datetime, snapshot_dates: set) -> str:
+    """Static month grid for `today`'s month (no navigation yet). A day links to
+    its snapshot ONLY if docs/<date>.html exists AND it isn't today; every other
+    day — missing snapshot, future, or today — is dimmed and inert. Clickability
+    is derived purely from `snapshot_dates`, so deleting/adding a snapshot flips
+    a day automatically on the next build (no hardcoded start date)."""
+    year, month = today.year, today.month
+    cal = calendar.Calendar(firstweekday=6)   # 6 = Sunday, so weeks start on Sunday
+
+    head = "".join(f'<span class="cal-dow">{d}</span>' for d in CAL_WEEKDAYS)
+    cells = []
+    for week in cal.monthdayscalendar(year, month):
+        for day in week:
+            if day == 0:                                  # padding for days in adjacent months
+                cells.append('<span class="cal-day cal-empty"></span>')
+                continue
+            ds = f"{year:04d}-{month:02d}-{day:02d}"
+            # Today is never clickable: its content is on the front page and it only
+            # joins the archive tomorrow, once its snapshot is frozen.
+            clickable = ds in snapshot_dates and day != today.day
+            if clickable:
+                cells.append(f'<a class="cal-day cal-on" href="{ds}.html">{day}</a>')
+            else:
+                extra = " cal-today" if day == today.day else ""
+                cells.append(f'<span class="cal-day cal-off{extra}">{day}</span>')
+
+    return (
+        '          <div class="cal-title">' + esc(today.strftime("%B %Y")) + "</div>\n"
+        '          <div class="cal-grid">' + head + "".join(cells) + "</div>"
+    )
+
+
 PAGE_TEMPLATE = """<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -286,6 +323,22 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     }}
     .rail-box h2 {{ font-size:1rem; margin:0 0 8px; }}
 
+    /* Archive calendar: static current-month grid inside the rail. */
+    .cal-title {{ font-size:.9rem; font-weight:600; margin:0 0 8px; }}
+    .cal-grid {{ display:grid; grid-template-columns:repeat(7,1fr); gap:2px; text-align:center; }}
+    .cal-dow {{ font-size:.7rem; font-weight:700; color:var(--muted); padding:4px 0; }}
+    .cal-day {{
+      display:flex; align-items:center; justify-content:center;
+      aspect-ratio:1; font-size:.8rem; border-radius:6px;
+    }}
+    .cal-off {{ color:var(--muted); opacity:.45; }}            /* no snapshot / future / today: inert */
+    .cal-today {{ outline:1.5px solid var(--border); outline-offset:-1.5px; opacity:.7; }}
+    .cal-on {{                                                 /* has a snapshot: clickable */
+      color:var(--text); font-weight:600; text-decoration:none;
+      background:var(--chip-bg); border:1px solid var(--border); cursor:pointer;
+    }}
+    .cal-on:hover {{ border-color:var(--text); }}
+
     /* Narrow screens: drop the rail below the content instead of beside it. */
     @media (max-width:860px) {{
       .layout {{ grid-template-columns:1fr; }}
@@ -336,7 +389,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
       <aside class="rail" aria-label="Archive">
         <div class="rail-box">
           <h2>Archive</h2>
-          <p class="muted">Calendar coming soon</p>
+{calendar}
         </div>
       </aside>
     </div>
@@ -376,7 +429,8 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 """
 
 
-def render_page(items: list, date_label: str, archive_dates: list, is_index: bool) -> str:
+def render_page(items: list, date_label: str, archive_dates: list, is_index: bool,
+                today: datetime, snapshot_dates: set) -> str:
     chips = "\n".join("      " + render_chip(t) for t in topics_present(items))
     items_html = "\n".join(render_item(it) for it in items)
     source_count = len({it["source"] for it in items})
@@ -389,6 +443,7 @@ def render_page(items: list, date_label: str, archive_dates: list, is_index: boo
         chips=chips,
         items=items_html,
         archive=render_archive(archive_dates),
+        calendar=render_calendar(today, snapshot_dates),
         backlink=backlink,
     )
 
@@ -406,6 +461,17 @@ def find_archive_dates(exclude: str) -> list:
         if m and m.group(1) != exclude:
             dates.append(m.group(1))
     return sorted(dates, reverse=True)
+
+
+def find_snapshot_dates() -> set:
+    """Every dated snapshot present in docs/ as a set of 'YYYY-MM-DD' strings.
+    The calendar uses this to decide which days are clickable — no exclusions,
+    since today is gated out in render_calendar itself."""
+    return {
+        m.group(1)
+        for path in OUTPUT_DIR.glob("*.html")
+        if (m := DATE_FILE_RE.match(path.name))
+    }
 
 
 # ── Entry point ─────────────────────────────────────────────────────────────────
@@ -430,15 +496,21 @@ def main() -> None:
 
     # Past editions (everything already on disk except today's snapshot).
     archive_dates = find_archive_dates(exclude=today_str)
+    # Full snapshot set for the calendar's clickability check (today gated out later).
+    snapshot_dates = find_snapshot_dates()
 
     dated_path = OUTPUT_DIR / f"{today_str}.html"
     index_path = OUTPUT_DIR / "index.html"
 
     dated_path.write_text(
-        render_page(items, date_label, archive_dates, is_index=False), encoding="utf-8"
+        render_page(items, date_label, archive_dates, is_index=False,
+                    today=today, snapshot_dates=snapshot_dates),
+        encoding="utf-8",
     )
     index_path.write_text(
-        render_page(items, date_label, archive_dates, is_index=True), encoding="utf-8"
+        render_page(items, date_label, archive_dates, is_index=True,
+                    today=today, snapshot_dates=snapshot_dates),
+        encoding="utf-8",
     )
 
     print(f"\nWrote:\n  {index_path}\n  {dated_path}")

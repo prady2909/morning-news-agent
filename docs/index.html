@@ -78,6 +78,22 @@
     }
     .rail-box h2 { font-size:1rem; margin:0 0 8px; }
 
+    /* Archive calendar: static current-month grid inside the rail. */
+    .cal-title { font-size:.9rem; font-weight:600; margin:0 0 8px; }
+    .cal-grid { display:grid; grid-template-columns:repeat(7,1fr); gap:2px; text-align:center; }
+    .cal-dow { font-size:.7rem; font-weight:700; color:var(--muted); padding:4px 0; }
+    .cal-day {
+      display:flex; align-items:center; justify-content:center;
+      aspect-ratio:1; font-size:.8rem; border-radius:6px;
+    }
+    .cal-off { color:var(--muted); opacity:.45; }            /* no snapshot / future / today: inert */
+    .cal-today { outline:1.5px solid var(--border); outline-offset:-1.5px; opacity:.7; }
+    .cal-on {                                                 /* has a snapshot: clickable */
+      color:var(--text); font-weight:600; text-decoration:none;
+      background:var(--chip-bg); border:1px solid var(--border); cursor:pointer;
+    }
+    .cal-on:hover { border-color:var(--text); }
+
     /* Narrow screens: drop the rail below the content instead of beside it. */
     @media (max-width:860px) {
       .layout { grid-template-columns:1fr; }
@@ -1813,7 +1829,8 @@
       <aside class="rail" aria-label="Archive">
         <div class="rail-box">
           <h2>Archive</h2>
-          <p class="muted">Calendar coming soon</p>
+          <div class="cal-title">July 2026</div>
+          <div class="cal-grid"><span class="cal-dow">S</span><span class="cal-dow">M</span><span class="cal-dow">T</span><span class="cal-dow">W</span><span class="cal-dow">T</span><span class="cal-dow">F</span><span class="cal-dow">S</span><span class="cal-day cal-empty"></span><span class="cal-day cal-empty"></span><span class="cal-day cal-empty"></span><span class="cal-day cal-off">1</span><span class="cal-day cal-off">2</span><span class="cal-day cal-off">3</span><a class="cal-day cal-on" href="2026-07-04.html">4</a><a class="cal-day cal-on" href="2026-07-05.html">5</a><a class="cal-day cal-on" href="2026-07-06.html">6</a><a class="cal-day cal-on" href="2026-07-07.html">7</a><a class="cal-day cal-on" href="2026-07-08.html">8</a><a class="cal-day cal-on" href="2026-07-09.html">9</a><span class="cal-day cal-off cal-today">10</span><span class="cal-day cal-off">11</span><span class="cal-day cal-off">12</span><span class="cal-day cal-off">13</span><span class="cal-day cal-off">14</span><span class="cal-day cal-off">15</span><span class="cal-day cal-off">16</span><span class="cal-day cal-off">17</span><span class="cal-day cal-off">18</span><span class="cal-day cal-off">19</span><span class="cal-day cal-off">20</span><span class="cal-day cal-off">21</span><span class="cal-day cal-off">22</span><span class="cal-day cal-off">23</span><span class="cal-day cal-off">24</span><span class="cal-day cal-off">25</span><span class="cal-day cal-off">26</span><span class="cal-day cal-off">27</span><span class="cal-day cal-off">28</span><span class="cal-day cal-off">29</span><span class="cal-day cal-off">30</span><span class="cal-day cal-off">31</span><span class="cal-day cal-empty"></span></div>
         </div>
       </aside>
     </div>

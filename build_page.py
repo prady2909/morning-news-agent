@@ -22,6 +22,7 @@ two fetches per feed, but it keeps fetch.py as the single source of "healthy".
 
 import calendar
 import html
+import json
 import re
 import sys
 from datetime import datetime
@@ -211,14 +212,15 @@ def render_archive(archive_dates: list) -> str:
 CAL_WEEKDAYS = ["S", "M", "T", "W", "T", "F", "S"]
 
 
-def render_calendar(today: datetime, snapshot_dates: set) -> str:
-    """Static month grid for `today`'s month (no navigation yet). A day links to
-    its snapshot ONLY if docs/<date>.html exists AND it isn't today; every other
-    day — missing snapshot, future, or today — is dimmed and inert. Clickability
-    is derived purely from `snapshot_dates`, so deleting/adding a snapshot flips
-    a day automatically on the next build (no hardcoded start date)."""
-    year, month = today.year, today.month
+def render_month_grid(year: int, month: int, today: datetime, snapshot_dates: set) -> str:
+    """Inner HTML for one month's `.cal-grid` (weekday header + day cells). A day
+    links to its snapshot ONLY if docs/<date>.html exists AND the date is strictly
+    before today; every other day — missing snapshot, today, or future — is dimmed
+    and inert. Clickability is derived purely from `snapshot_dates`, so
+    deleting/adding a snapshot flips a day automatically on the next build. The
+    same logic renders every month, so navigating months stays consistent."""
     cal = calendar.Calendar(firstweekday=6)   # 6 = Sunday, so weeks start on Sunday
+    today_tuple = (today.year, today.month, today.day)
 
     head = "".join(f'<span class="cal-dow">{d}</span>' for d in CAL_WEEKDAYS)
     cells = []
@@ -228,18 +230,88 @@ def render_calendar(today: datetime, snapshot_dates: set) -> str:
                 cells.append('<span class="cal-day cal-empty"></span>')
                 continue
             ds = f"{year:04d}-{month:02d}-{day:02d}"
-            # Today is never clickable: its content is on the front page and it only
-            # joins the archive tomorrow, once its snapshot is frozen.
-            clickable = ds in snapshot_dates and day != today.day
+            this_tuple = (year, month, day)
+            is_today = this_tuple == today_tuple
+            is_future = this_tuple > today_tuple
+            # Today/future are never clickable: today's content is on the front page
+            # and only joins the archive tomorrow, once its snapshot is frozen.
+            clickable = ds in snapshot_dates and not is_today and not is_future
             if clickable:
                 cells.append(f'<a class="cal-day cal-on" href="{ds}.html">{day}</a>')
             else:
-                extra = " cal-today" if day == today.day else ""
+                extra = " cal-today" if is_today else ""
                 cells.append(f'<span class="cal-day cal-off{extra}">{day}</span>')
 
+    return head + "".join(cells)
+
+
+def earliest_month(snapshot_dates: set, today: datetime) -> tuple:
+    """Month (year, month) of the oldest snapshot on disk — the back-arrow floor.
+    Falls back to `today`'s month when there are no snapshots yet."""
+    if not snapshot_dates:
+        return today.year, today.month
+    y, m, _ = min(snapshot_dates).split("-")   # 'YYYY-MM-DD' sorts chronologically
+    return int(y), int(m)
+
+
+def render_calendar(today: datetime, snapshot_dates: set) -> str:
+    """Archive calendar for the rail: the current month on load, with a back arrow
+    that pages to earlier months entirely client-side. Every month from the
+    earliest-data month through the current month is pre-rendered here (same grid
+    logic as the initial view) and emitted as JSON, so the arrow can swap months
+    without a rebuild. There is NO forward arrow — the current month is the newest
+    viewable — and the back arrow is disabled once the earliest-data month shows."""
+    cy, cm = today.year, today.month
+    ey, em = earliest_month(snapshot_dates, today)
+
+    # Build every month from earliest → current (chronological), pre-rendering each grid.
+    months, order = {}, []
+    y, m = ey, em
+    while (y, m) <= (cy, cm):
+        key = f"{y:04d}-{m:02d}"
+        order.append(key)
+        months[key] = {
+            "title": datetime(y, m, 1).strftime("%B %Y"),
+            "grid": render_month_grid(y, m, today, snapshot_dates),
+        }
+        m += 1
+        if m > 12:
+            m, y = 1, y + 1
+
+    current_key = f"{cy:04d}-{cm:02d}"
+    earliest_key = f"{ey:04d}-{em:02d}"
+    at_floor = current_key == earliest_key
+    disabled_attr = " disabled" if at_floor else ""
+
     return (
-        '          <div class="cal-title">' + esc(today.strftime("%B %Y")) + "</div>\n"
-        '          <div class="cal-grid">' + head + "".join(cells) + "</div>"
+        '          <div class="cal-nav">\n'
+        f'            <button type="button" class="cal-back" id="cal-back"'
+        f' aria-label="Previous month"{disabled_attr}>&lsaquo;</button>\n'
+        f'            <div class="cal-title" id="cal-title">{esc(months[current_key]["title"])}</div>\n'
+        '          </div>\n'
+        f'          <div class="cal-grid" id="cal-grid">{months[current_key]["grid"]}</div>\n'
+        '          <script>\n'
+        '            (function () {\n'
+        f'              var MONTHS = {json.dumps(months)};\n'
+        f'              var ORDER = {json.dumps(order)};\n'
+        f'              var EARLIEST = {json.dumps(earliest_key)};\n'
+        f'              var current = {json.dumps(current_key)};\n'
+        '              var backEl = document.getElementById("cal-back");\n'
+        '              var titleEl = document.getElementById("cal-title");\n'
+        '              var gridEl = document.getElementById("cal-grid");\n'
+        '              function render() {\n'
+        '                var data = MONTHS[current];\n'
+        '                titleEl.textContent = data.title;\n'
+        '                gridEl.innerHTML = data.grid;\n'
+        '                backEl.disabled = (current === EARLIEST);\n'
+        '              }\n'
+        '              backEl.addEventListener("click", function () {\n'
+        '                var i = ORDER.indexOf(current);\n'
+        '                if (i > 0) { current = ORDER[i - 1]; render(); }\n'
+        '              });\n'
+        '              render();\n'
+        '            })();\n'
+        '          </script>'
     )
 
 
@@ -323,8 +395,16 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     }}
     .rail-box h2 {{ font-size:1rem; margin:0 0 8px; }}
 
-    /* Archive calendar: static current-month grid inside the rail. */
-    .cal-title {{ font-size:.9rem; font-weight:600; margin:0 0 8px; }}
+    /* Archive calendar: month grid inside the rail, with client-side month paging. */
+    .cal-nav {{ display:flex; align-items:center; gap:8px; margin:0 0 8px; }}
+    .cal-title {{ font-size:.9rem; font-weight:600; margin:0; }}
+    .cal-back {{
+      font:inherit; font-size:1rem; line-height:1; cursor:pointer;
+      background:var(--chip-bg); color:var(--text); border:1px solid var(--border);
+      border-radius:6px; padding:1px 9px;
+    }}
+    .cal-back:hover:not(:disabled) {{ border-color:var(--text); }}
+    .cal-back:disabled {{ opacity:.35; cursor:default; }}
     .cal-grid {{ display:grid; grid-template-columns:repeat(7,1fr); gap:2px; text-align:center; }}
     .cal-dow {{ font-size:.7rem; font-weight:700; color:var(--muted); padding:4px 0; }}
     .cal-day {{

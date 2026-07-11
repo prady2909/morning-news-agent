@@ -11,7 +11,8 @@ Pipeline:
        - topics are click-to-filter, Reddit-flair style (feed-level topic)
        - responsive layout (phone + laptop), light/dark aware
   5. Archive: write today's snapshot as docs/<YYYY-MM-DD>.html and (over)write
-     docs/index.html with today's items plus a list of clickable past dates.
+     docs/index.html with today's items plus a right-rail calendar whose past
+     days link to their snapshots.
 
 This is v1: NO AI summarization. It is deliberately title + teaser + link only.
 
@@ -197,17 +198,6 @@ def render_item(item: dict) -> str:
       </article>"""
 
 
-def render_archive(archive_dates: list) -> str:
-    """archive_dates: list of 'YYYY-MM-DD' strings, newest first."""
-    if not archive_dates:
-        return '<p class="dates muted">No past editions yet.</p>'
-    links = []
-    for ds in archive_dates:
-        d = datetime.strptime(ds, "%Y-%m-%d")
-        links.append(f'<a href="{ds}.html">{esc(human_date(d))}</a>')
-    return '<p class="dates">' + ", ".join(links) + "</p>"
-
-
 # Sunday-first weekday headers for the archive calendar.
 CAL_WEEKDAYS = ["S", "M", "T", "W", "T", "F", "S"]
 
@@ -380,12 +370,6 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     .title a:hover {{ text-decoration:underline; }}
     .teaser {{ margin:0; color:var(--muted); font-size:.95rem; }}
 
-    footer.archive {{ margin-top:36px; padding-top:20px; border-top:1px solid var(--border); }}
-    footer.archive h2 {{ font-size:1rem; margin:0 0 8px; }}
-    .dates a {{ color:var(--muted); text-decoration:none; }}
-    .dates a:hover {{ color:var(--text); text-decoration:underline; }}
-    .muted {{ color:var(--muted); }}
-
     /* Two-column layout: article content on the left, archive rail on the right. */
     .layout {{ display:grid; grid-template-columns:minmax(0,700px) 300px; gap:32px; justify-content:space-between; align-items:start; }}
     .content {{ min-width:0; }}   /* let the left column shrink instead of overflowing the grid */
@@ -459,11 +443,6 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
         <main id="items">
 {items}
         </main>
-
-        <footer class="archive">
-          <h2>Archive</h2>
-{archive}
-        </footer>
       </div>
 
       <aside class="rail" aria-label="Archive">
@@ -509,7 +488,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 """
 
 
-def render_page(items: list, date_label: str, archive_dates: list, is_index: bool,
+def render_page(items: list, date_label: str, is_index: bool,
                 today: datetime, snapshot_dates: set) -> str:
     chips = "\n".join("      " + render_chip(t) for t in topics_present(items))
     items_html = "\n".join(render_item(it) for it in items)
@@ -522,7 +501,6 @@ def render_page(items: list, date_label: str, archive_dates: list, is_index: boo
         source_count=source_count,
         chips=chips,
         items=items_html,
-        archive=render_archive(archive_dates),
         calendar=render_calendar(today, snapshot_dates),
         backlink=backlink,
     )
@@ -531,16 +509,6 @@ def render_page(items: list, date_label: str, archive_dates: list, is_index: boo
 # ── Archive discovery ───────────────────────────────────────────────────────────
 
 DATE_FILE_RE = re.compile(r"^(\d{4}-\d{2}-\d{2})\.html$")
-
-
-def find_archive_dates(exclude: str) -> list:
-    """Return existing dated pages (YYYY-MM-DD strings), newest first, minus `exclude`."""
-    dates = []
-    for path in OUTPUT_DIR.glob("*.html"):
-        m = DATE_FILE_RE.match(path.name)
-        if m and m.group(1) != exclude:
-            dates.append(m.group(1))
-    return sorted(dates, reverse=True)
 
 
 def find_snapshot_dates() -> set:
@@ -574,8 +542,6 @@ def main() -> None:
 
     print(f"\nCollected {len(items)} items from {len({it['source'] for it in items})} sources.")
 
-    # Past editions (everything already on disk except today's snapshot).
-    archive_dates = find_archive_dates(exclude=today_str)
     # Full snapshot set for the calendar's clickability check (today gated out later).
     snapshot_dates = find_snapshot_dates()
 
@@ -583,19 +549,17 @@ def main() -> None:
     index_path = OUTPUT_DIR / "index.html"
 
     dated_path.write_text(
-        render_page(items, date_label, archive_dates, is_index=False,
+        render_page(items, date_label, is_index=False,
                     today=today, snapshot_dates=snapshot_dates),
         encoding="utf-8",
     )
     index_path.write_text(
-        render_page(items, date_label, archive_dates, is_index=True,
+        render_page(items, date_label, is_index=True,
                     today=today, snapshot_dates=snapshot_dates),
         encoding="utf-8",
     )
 
     print(f"\nWrote:\n  {index_path}\n  {dated_path}")
-    if archive_dates:
-        print(f"Archive now lists {len(archive_dates)} past edition(s).")
 
 
 if __name__ == "__main__":

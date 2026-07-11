@@ -26,7 +26,7 @@ import html
 import json
 import re
 import sys
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 
 import feedparser
@@ -41,6 +41,7 @@ OUTPUT_DIR = Path(__file__).parent / "docs"   # dated pages + index.html live he
 MAX_ITEMS_PER_FEED = 15                        # DEFAULT cap; a feed may override via its "max_items" key
 TEASER_CHARS = 280                             # blurb length before we trim + ellipsis
 MIN_TEASER_CHARS = 40                          # drop teasers shorter than this after promo strip
+RECENCY_DAYS = 15                              # LIVE front page only: hide items older than this many days
 
 # Topic → accent color for the flair pills. Anything not listed falls back to grey.
 TOPIC_COLORS = {
@@ -161,6 +162,17 @@ def topics_present(items: list) -> list:
     ordered = [t for t in TOPIC_ORDER if t in seen]
     ordered += sorted(t for t in seen if t not in TOPIC_ORDER)
     return ordered
+
+
+def filter_recent(items: list, today: datetime) -> list:
+    """Keep only items published within RECENCY_DAYS of `today`. Items with NO
+    parseable date are KEPT — we drop only what we can positively confirm is
+    stale. This is for the LIVE front page (docs/index.html) exclusively; dated
+    snapshots stay unfiltered so those frozen historical records keep their
+    original, legitimately-old items. If this empties a topic, that's intended —
+    we never backfill with older items to avoid an empty section."""
+    cutoff = today - timedelta(days=RECENCY_DAYS)
+    return [it for it in items if it["dt"] is None or it["dt"] >= cutoff]
 
 
 # ── Rendering ───────────────────────────────────────────────────────────────────
@@ -548,18 +560,24 @@ def main() -> None:
     dated_path = OUTPUT_DIR / f"{today_str}.html"
     index_path = OUTPUT_DIR / "index.html"
 
+    # Today's frozen snapshot keeps the full item set; the live front page hides
+    # anything we can positively date as older than RECENCY_DAYS. Past snapshots
+    # on disk are never re-rendered here, so they stay untouched.
+    recent_items = filter_recent(items, today)
+
     dated_path.write_text(
         render_page(items, date_label, is_index=False,
                     today=today, snapshot_dates=snapshot_dates),
         encoding="utf-8",
     )
     index_path.write_text(
-        render_page(items, date_label, is_index=True,
+        render_page(recent_items, date_label, is_index=True,
                     today=today, snapshot_dates=snapshot_dates),
         encoding="utf-8",
     )
 
-    print(f"\nWrote:\n  {index_path}\n  {dated_path}")
+    print(f"\nWrote:\n  {index_path} ({len(recent_items)} items)"
+          f"\n  {dated_path} ({len(items)} items)")
 
 
 if __name__ == "__main__":

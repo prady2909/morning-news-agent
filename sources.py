@@ -56,6 +56,18 @@ FEEDS = [
         "type": "article",
         "url": "https://melissaperri.substack.com/feed",  # VERIFY — also check productcraft.com/rss
     },
+    {
+        "name": "The Beautiful Mess",
+        "topic": "PM",
+        "type": "article",
+        "url": "https://cutlefish.substack.com/feed",
+    },
+    {
+        "name": "Itamar Gilad",
+        "topic": "PM",
+        "type": "article",
+        "url": "https://itamargilad.com/feed",
+    },
 
     # ── GTM ───────────────────────────────────────────────────────────────
 
@@ -106,6 +118,18 @@ FEEDS = [
         "type": "article",
         "url": "https://aprildunford.substack.com/feed",  # VERIFY — also try obviously.substack.com/feed
     },
+    {
+        "name": "MKT1",
+        "topic": "GTM",
+        "type": "article",
+        "url": "https://newsletter.mkt1.co/feed",
+    },
+    {
+        "name": "GTMnow",
+        "topic": "GTM",
+        "type": "article",
+        "url": "https://thegtmnewsletter.substack.com/feed",
+    },
 
     # ── AI ────────────────────────────────────────────────────────────────
 
@@ -126,6 +150,19 @@ FEEDS = [
     #     "type": "article",
     #     "url": "https://www.fast.ai/atom.xml",
     # },
+
+    {
+        "name": "Import AI",
+        "topic": "AI",
+        "type": "article",
+        "url": "https://importai.substack.com/feed",
+    },
+    {
+        "name": "Ahead of AI",
+        "topic": "AI",
+        "type": "article",
+        "url": "https://magazine.sebastianraschka.com/feed",
+    },
 
     # ── Startups ──────────────────────────────────────────────────────────
 
@@ -148,6 +185,19 @@ FEEDS = [
         "topic": "Startups",
         "type": "article",
         "url": "https://blog.eladgil.com/feed",  # VERIFY — also try eladgil.substack.com/feed
+    },
+    {
+        "name": "Newcomer",
+        "topic": "Startups",
+        "type": "article",
+        "url": "https://newcomer.co/feed",
+    },
+    {
+        "name": "SaaStr",
+        "topic": "Startups",
+        "type": "article",
+        "url": "https://saastr.com/feed",
+        "max_items": 8,  # high-volume — cap so one source can't dominate the page
     },
 
     # ── YouTube Channels ──────────────────────────────────────────────────

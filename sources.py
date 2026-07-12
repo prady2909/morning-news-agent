@@ -116,7 +116,7 @@ FEEDS = [
         "name": "April Dunford",
         "topic": "GTM",
         "type": "article",
-        "url": "https://aprildunford.substack.com/feed",  # VERIFY — also try obviously.substack.com/feed
+        "url": "https://aprildunford.substack.com/feed",
     },
     {
         "name": "MKT1",
@@ -163,6 +163,12 @@ FEEDS = [
         "type": "article",
         "url": "https://magazine.sebastianraschka.com/feed",
     },
+    {
+        "name": "Interconnects",
+        "topic": "AI",
+        "type": "article",
+        "url": "https://www.interconnects.ai/feed",
+    },
 
     # ── Startups ──────────────────────────────────────────────────────────
 
@@ -184,7 +190,13 @@ FEEDS = [
         "name": "Elad Gil",
         "topic": "Startups",
         "type": "article",
-        "url": "https://blog.eladgil.com/feed",  # VERIFY — also try eladgil.substack.com/feed
+        "url": "https://blog.eladgil.com/feed",
+    },
+    {
+        "name": "Not Boring",
+        "topic": "Startups",
+        "type": "article",
+        "url": "https://www.notboring.co/feed",
     },
     {
         "name": "Newcomer",

@@ -41,9 +41,11 @@ jobs:
         # v1 build_page.py (-> fetch.py) imports only feedparser. python-dotenv
         # and google-genai are v2 summarizer deps and are intentionally omitted
         # to keep this workflow lean. No requirements.txt exists yet.
-        run: pip install feedparser
+        run: pip install feedparser google-genai python-dotenv
 
       - name: Build the news page
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python build_page.py
 
       - name: Commit & push updated docs/ (only if something changed)

@@ -26,6 +26,7 @@ import html
 import json
 import re
 import sys
+import time
 from datetime import datetime, timedelta
 from pathlib import Path
 
@@ -33,6 +34,11 @@ import feedparser
 
 # Reuse the feed list + health logic already written in fetch.py.
 from fetch import FEEDS, fetch_one, OK
+
+# v3 Phase 1: AI summaries. Low-level Gemini pieces (prompt, client, model, the
+# call itself) are lifted verbatim from summarize.py into summaries.py; the
+# orchestration + graceful fallback below lives here.
+import summaries
 
 
 # ── Config ────────────────────────────────────────────────────────────────────
@@ -42,6 +48,7 @@ MAX_ITEMS_PER_FEED = 15                        # DEFAULT cap; a feed may overrid
 TEASER_CHARS = 280                             # blurb length before we trim + ellipsis
 MIN_TEASER_CHARS = 40                          # drop teasers shorter than this after promo strip
 RECENCY_DAYS = 15                              # LIVE front page only: hide items older than this many days
+SUMMARIES_PER_SECTION = 4                      # v3 Phase 1: top N most-recent ARTICLE items per topic get an AI summary (LIVE only)
 
 # Topic → accent color for the flair pills. Anything not listed falls back to grey.
 TOPIC_COLORS = {
@@ -147,6 +154,11 @@ def collect_items() -> list:
                 "topic":   feed_info["topic"],
                 "type":    feed_info["type"],   # "article" | "video" — drives the format filter
                 "dt":      entry_datetime(entry),
+                # Raw body kept ONLY for articles — feeds the summarizer later.
+                # Videos never get summarized, so they don't need it.
+                "source_text": (summaries.entry_source_text(entry)
+                                if feed_info["type"] == "article" else ""),
+                "summary": "",   # filled in by add_summaries() for LIVE index only
             })
             count += 1
         print(f"[{i:>2}/{total}] OK    {name}  ({count} items)")
@@ -175,6 +187,76 @@ def filter_recent(items: list, today: datetime) -> list:
     return [it for it in items if it["dt"] is None or it["dt"] >= cutoff]
 
 
+# ── AI summaries (v3 Phase 1) ─────────────────────────────────────────────────────
+
+def add_summaries(items: list, client) -> None:
+    """Attach a Gemini summary (item["summary"]) to the top SUMMARIES_PER_SECTION
+    most-recent ARTICLE items in each topic section — in place.
+
+    Callers pass the LIVE, recency-filtered list; snapshots are rendered with
+    is_index=False so the summary text never reaches them. `items` is assumed
+    newest-first (collect_items sorts it), so section[:N] is the most-recent N.
+
+    Every failure mode degrades to today's teaser-only card and can NEVER break
+    the build or make a card worse:
+      - no client (missing GEMINI_API_KEY)  -> skip all
+      - body thinner than MIN_SOURCE_CHARS  -> skip-too-thin (no API call)
+      - empty model response                -> skip-too-thin
+      - any API / quota / network error     -> skip-error
+    One line is logged per attempted item so the outcome is visible in the build.
+    """
+    if client is None:
+        print("\n[summaries] no GEMINI_API_KEY / client unavailable — "
+              "skipping all summaries; cards fall back to teasers.")
+        return
+
+    print(f"\nSummarizing top {SUMMARIES_PER_SECTION} recent article(s) per section "
+          f"with {summaries.MODEL} (LIVE index only)...")
+
+    start = datetime.now()
+    done = thin = errored = calls = 0
+
+    for topic in TOPIC_ORDER:
+        section = [it for it in items
+                   if it["topic"] == topic and it["type"] == "article"]
+
+        for it in section[:SUMMARIES_PER_SECTION]:
+            title = it["title"]
+            label = title if len(title) <= 60 else title[:59] + "…"
+            src = it.get("source_text", "")
+
+            # Too thin to be worth summarizing — keep the teaser, skip the call.
+            if len(src) < summaries.MIN_SOURCE_CHARS:
+                thin += 1
+                print(f"  [{topic:>8}] skipped-too-thin : {label}")
+                continue
+
+            # Space calls out to stay under free-tier RPM (no leading wait).
+            if calls > 0:
+                time.sleep(summaries.SLEEP_SECONDS)
+            calls += 1
+
+            try:
+                summary = summaries.summarize_item(client, title, src)
+            except Exception as e:   # never let one call crash the build
+                errored += 1
+                print(f"  [{topic:>8}] skipped-error    : {label}  ({e})")
+                continue
+
+            if not summary:
+                thin += 1
+                print(f"  [{topic:>8}] skipped-too-thin : {label}  (empty response)")
+                continue
+
+            it["summary"] = summary
+            done += 1
+            print(f"  [{topic:>8}] summarized       : {label}")
+
+    elapsed = (datetime.now() - start).total_seconds()
+    print(f"\n[summaries] {done} summarized · {thin} skipped-too-thin · "
+          f"{errored} skipped-error · {calls} API call(s) · {elapsed:.1f}s")
+
+
 # ── Rendering ───────────────────────────────────────────────────────────────────
 
 def esc(text: str) -> str:
@@ -190,14 +272,27 @@ def render_chip(topic: str) -> str:
             f'style="--c:{color_for(topic)}">{esc(topic)}</button>')
 
 
-def render_item(item: dict) -> str:
+def render_item(item: dict, is_index: bool = False) -> str:
     topic = item["topic"]
     item_type = item["type"]
     date_str = human_date(item["dt"]) if item["dt"] else ""
     date_html = f'<span class="date">{esc(date_str)}</span>' if date_str else ""
-    teaser_html = f'<p class="teaser">{esc(item["teaser"])}</p>' if item["teaser"] else ""
     link = esc(item["link"])
     title = esc(item["title"])
+
+    # Body blurb: on the LIVE index an AI summary (when we got one) REPLACES the
+    # teaser — one blurb per card, no redundant double-summary. Everywhere else,
+    # and whenever summarizing was skipped/failed, the card is exactly today's:
+    # the RSS teaser. Snapshots (is_index=False) never show summaries even though
+    # the item dict may carry one, so they stay raw v1.
+    summary = item.get("summary") if is_index else ""
+    if summary:
+        body_html = (f'<p class="summary"><span class="summary-tag">Summary</span>'
+                     f'{esc(summary)}</p>')
+    elif item["teaser"]:
+        body_html = f'<p class="teaser">{esc(item["teaser"])}</p>'
+    else:
+        body_html = ""
 
     return f"""      <article class="item" data-topic="{esc(topic)}" data-type="{esc(item_type)}">
         <div class="meta">
@@ -206,7 +301,7 @@ def render_item(item: dict) -> str:
           {date_html}
         </div>
         <h2 class="title"><a href="{link}" target="_blank" rel="noopener noreferrer">{title}</a></h2>
-        {teaser_html}
+        {body_html}
       </article>"""
 
 
@@ -381,6 +476,15 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     .title a {{ color:var(--text); text-decoration:none; }}
     .title a:hover {{ text-decoration:underline; }}
     .teaser {{ margin:0; color:var(--muted); font-size:.95rem; }}
+    /* AI summary (LIVE only): slightly more prominent than a teaser (full text
+       colour), prefixed by a small tag so it reads as our summary, not the feed's. */
+    .summary {{ margin:0; color:var(--text); font-size:.95rem; }}
+    .summary-tag {{
+      display:inline-block; font-size:.62rem; font-weight:700; letter-spacing:.05em;
+      text-transform:uppercase; color:var(--muted);
+      border:1px solid var(--border); border-radius:4px;
+      padding:1px 6px; margin-right:8px; vertical-align:middle;
+    }}
 
     /* Two-column layout: article content on the left, archive rail on the right. */
     .layout {{ display:grid; grid-template-columns:minmax(0,700px) 300px; gap:32px; justify-content:space-between; align-items:start; }}
@@ -503,7 +607,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 def render_page(items: list, date_label: str, is_index: bool,
                 today: datetime, snapshot_dates: set) -> str:
     chips = "\n".join("      " + render_chip(t) for t in topics_present(items))
-    items_html = "\n".join(render_item(it) for it in items)
+    items_html = "\n".join(render_item(it, is_index) for it in items)
     source_count = len({it["source"] for it in items})
     backlink = "" if is_index else '    <a class="backlink" href="index.html">← Latest</a>\n'
 
@@ -564,6 +668,11 @@ def main() -> None:
     # anything we can positively date as older than RECENCY_DAYS. Past snapshots
     # on disk are never re-rendered here, so they stay untouched.
     recent_items = filter_recent(items, today)
+
+    # v3 Phase 1: attach AI summaries to the top recent articles per section.
+    # Operates on the LIVE list only; the snapshot render below uses is_index=False
+    # so summaries never appear in the dated file. Degrades to teasers on any error.
+    add_summaries(recent_items, summaries.make_client())
 
     dated_path.write_text(
         render_page(items, date_label, is_index=False,

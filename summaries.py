@@ -54,6 +54,11 @@ def entry_source_text(entry) -> str:
 
 # ── Summarization (lifted from summarize.py) ──────────────────────────────────
 
+# Bump this whenever PROMPT_TEMPLATE (or how we summarize) changes materially.
+# The cache stores it alongside each summary, so a bump makes every summary built
+# under an older prompt a cache miss → it gets re-summarized with the new prompt.
+PROMPT_VERSION = 1
+
 PROMPT_TEMPLATE = """You are summarizing one item for a personal morning news briefing.
 
 Write a short summary (2-3 sentences) of the item below.

@@ -24,6 +24,7 @@ two fetches per feed, but it keeps fetch.py as the single source of "healthy".
 import calendar
 import html
 import json
+import os
 import re
 import sys
 import time
@@ -39,6 +40,10 @@ from fetch import FEEDS, fetch_one, OK
 # call itself) are lifted verbatim from summarize.py into summaries.py; the
 # orchestration + graceful fallback below lives here.
 import summaries
+
+# v3 Phase 2: versioned summary cache. A hit reuses a prior successful summary and
+# skips the Gemini call entirely. Only CI writes the cache file (see main()).
+from cache import load_cache, get_cached, set_cached, save_cache
 
 
 # ── Config ────────────────────────────────────────────────────────────────────
@@ -189,13 +194,19 @@ def filter_recent(items: list, today: datetime) -> list:
 
 # ── AI summaries (v3 Phase 1) ─────────────────────────────────────────────────────
 
-def add_summaries(items: list, client) -> None:
+def add_summaries(items: list, client, cache: dict) -> None:
     """Attach a Gemini summary (item["summary"]) to the top SUMMARIES_PER_SECTION
     most-recent ARTICLE items in each topic section — in place.
 
     Callers pass the LIVE, recency-filtered list; snapshots are rendered with
     is_index=False so the summary text never reaches them. `items` is assumed
     newest-first (collect_items sorts it), so section[:N] is the most-recent N.
+
+    `cache` is the versioned summary cache loaded once per build. Before calling
+    Gemini for an item we check the cache (keyed on the normalized URL + current
+    MODEL + PROMPT_VERSION); a hit reuses that summary with NO API call and NO
+    rate-limit sleep. Only a genuinely successful fresh summary is written back to
+    the cache — throttled/thin/errored items stay uncached so they retry next build.
 
     Every failure mode degrades to today's teaser-only card and can NEVER break
     the build or make a card worse:
@@ -214,7 +225,7 @@ def add_summaries(items: list, client) -> None:
           f"with {summaries.MODEL} (LIVE index only)...")
 
     start = datetime.now()
-    done = thin = errored = calls = 0
+    done = thin = errored = calls = hits = 0
 
     for topic in TOPIC_ORDER:
         section = [it for it in items
@@ -224,6 +235,18 @@ def add_summaries(items: list, client) -> None:
             title = it["title"]
             label = title if len(title) <= 60 else title[:59] + "…"
             src = it.get("source_text", "")
+            url = it.get("link", "")
+
+            # Cache first: a hit reuses a prior successful summary — no API call,
+            # no rate-limit sleep. Keyed on normalized URL + this MODEL + PROMPT_VERSION,
+            # so a model or prompt change turns hits into misses automatically.
+            cached = get_cached(cache, url, summaries.MODEL, summaries.PROMPT_VERSION)
+            if cached is not None:
+                it["summary"] = cached
+                hits += 1
+                print(f"  [{topic:>8}] cache HIT         : {label}")
+                print(f"[cache] HIT {url}")
+                continue
 
             # Too thin to be worth summarizing — keep the teaser, skip the call.
             if len(src) < summaries.MIN_SOURCE_CHARS:
@@ -249,11 +272,15 @@ def add_summaries(items: list, client) -> None:
                 continue
 
             it["summary"] = summary
+            # Cache ONLY this success — never the thin/error/empty fallback paths
+            # above — so a throttled or failed item stays uncached and retries.
+            set_cached(cache, url, summary, summaries.MODEL, summaries.PROMPT_VERSION)
             done += 1
             print(f"  [{topic:>8}] summarized       : {label}")
+            print(f"[cache] MISS->stored {url}")
 
     elapsed = (datetime.now() - start).total_seconds()
-    print(f"\n[summaries] {done} summarized · {thin} skipped-too-thin · "
+    print(f"\n[summaries] {done} summarized · {hits} cache-hit · {thin} skipped-too-thin · "
           f"{errored} skipped-error · {calls} API call(s) · {elapsed:.1f}s")
 
 
@@ -669,10 +696,14 @@ def main() -> None:
     # on disk are never re-rendered here, so they stay untouched.
     recent_items = filter_recent(items, today)
 
+    # v3 Phase 2: load the versioned summary cache ONCE before any section is
+    # summarized (never per-article). Threaded into add_summaries as an argument.
+    cache = load_cache()
+
     # v3 Phase 1: attach AI summaries to the top recent articles per section.
     # Operates on the LIVE list only; the snapshot render below uses is_index=False
     # so summaries never appear in the dated file. Degrades to teasers on any error.
-    add_summaries(recent_items, summaries.make_client())
+    add_summaries(recent_items, summaries.make_client(), cache)
 
     dated_path.write_text(
         render_page(items, date_label, is_index=False,
@@ -687,6 +718,16 @@ def main() -> None:
 
     print(f"\nWrote:\n  {index_path} ({len(recent_items)} items)"
           f"\n  {dated_path} ({len(items)} items)")
+
+    # Write-guard: only CI (the scheduler) persists the cache. GITHUB_ACTIONS is
+    # set to "true" on GitHub's runners and is absent locally, so local builds READ
+    # the cache (fast, no wasted quota) but never WRITE it — summary_cache.json
+    # never shows up in a local git status, and the scheduler stays its sole writer.
+    if os.environ.get("GITHUB_ACTIONS") == "true":
+        save_cache(cache)
+        print("[cache] saved (CI run)")
+    else:
+        print("[cache] not saved (local run — CI owns the cache file)")
 
 
 if __name__ == "__main__":

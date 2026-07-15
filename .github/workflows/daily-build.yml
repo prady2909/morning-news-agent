@@ -55,7 +55,11 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add docs/
+          # Stage the generated page AND the summary cache the build just wrote
+          # (CI-only: build_page.py's save_cache() runs when GITHUB_ACTIONS=true,
+          # so summary_cache.json always exists here). Persisting it to origin lets
+          # tomorrow's run read it and skip re-summarizing unchanged articles.
+          git add docs/ summary_cache.json
 
           # "nothing changed" case: if the staged tree is identical, skip the
           # commit and exit 0 so the run stays green instead of failing on an

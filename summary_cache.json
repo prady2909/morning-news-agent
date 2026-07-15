@@ -1,1 +1,44 @@
-{}
+{
+  "https://newsletter.mkt1.co/p/mutiny-growth-lessons": {
+    "created_at": "2026-07-15T12:17:56.427950+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "The MKT1 newsletter offers an inside look at how Growth Marketing Lead Matt Ratchford is building Mutiny's growth engine. His updates for the AI agent for GTM teams include improving conversion with a headline change, re-orienting outbound efforts to focus on high-quality accounts, and noting that 50% of new users come from word of mouth."
+  },
+  "https://www.interconnects.ai/p/6-months-to-live-for-open-models": {
+    "created_at": "2026-07-15T12:18:05.685808+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Open-source AI models are facing a serious viability test due to new regulations being discussed at the White House. There is a likely action to ban or delay open-weights models above certain capability levels within the next six months, driven by concerns about frontier capabilities and calls to restrict Chinese open-weight models."
+  },
+  "https://www.lennysnewsletter.com/p/how-i-ai-gpt-56-review-how-a-solo": {
+    "created_at": "2026-07-15T12:17:28.899389+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Claire benchmarked GPT-5.6 Sol against Claude Fable and other models for real product work, finding Sol to be the most practically effective. Sol became her new daily driver due to its ability to produce functional prototypes, easier-to-work-with writing, and practical flexibility for building products. It also excels at video editing via Codex and browser use with @Chrome for agentic workflows."
+  },
+  "https://www.lennysnewsletter.com/p/how-tech-workers-actually-feel-about": {
+    "created_at": "2026-07-15T12:17:43.485256+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "An annual Tech Worker Sentiment Survey, now in its second year, gathered responses from thousands of workers across various tech roles. The study explores how people in tech feel about their jobs, AI, burnout, and career futures, revealing that AI has split the workforce. Key findings include an 11-point jump in burnout and a sentiment that no one in tech would recommend their job to new industry entrants."
+  },
+  "https://www.lennysnewsletter.com/p/this-solo-builder-runs-247-local": {
+    "created_at": "2026-07-15T12:17:35.322750+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Alex Finn, an AI builder, runs an ambitious local AI setup on his own hardware. His system includes three Mac Studio machines, a DGX Spark, and a custom RTX 5090 build, all coordinated through a self-built fleet dashboard. Finn has spent five months optimizing model allocation, integrating with Claude Code loops, and establishing a self-running software factory."
+  },
+  "https://www.saastr.com/dear-saastr-at-what-point-should-we-hire-an-internal-recruiter/": {
+    "created_at": "2026-07-15T12:18:14.526254+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "A startup should consider hiring an internal recruiter when consistently hiring five or more people per quarter. This approach becomes more cost-effective than paying external recruiter fees for multiple placements and allows for a better focus on culture and specific candidate profiles. External recruiters are recommended for early-stage or hard-to-fill roles before regular, high-volume hiring begins."
+  },
+  "https://www.saastr.com/dont-put-ai-on-your-hot-leads-put-it-on-the-ones-your-reps-will-never-call-theres-millions-in-revenue-there/": {
+    "created_at": "2026-07-15T12:18:31.978848+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "AI agents should be deployed on \"B leads\" rather than \"A leads\" for outbound sales efforts. B leads have real signal but are often ignored by human sales representatives who prioritize \"A leads.\" Deploying AI agents on these neglected B leads can unlock significant revenue by leveraging the agents' patience to work leads humans typically skip."
+  }
+}

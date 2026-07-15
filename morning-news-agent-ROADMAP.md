@@ -2,8 +2,8 @@
 
 *Living document. This is the durable spine of the project — the north star we check every decision against. The per-session handoff docs answer "where exactly did we stop"; THIS answers "where are we going and why." Update it whenever a phase completes, a decision is made, or the plan changes.*
 
-**Last updated:** 2026-07-13 (Session 11)
-**Current commit:** `bd77739` · local == origin · working tree clean
+**Last updated:** 2026-07-14 (Session 12)
+**Current commit:** `4a83821` (last human commit — CI cache persistence). Scheduler/bot has since auto-committed the initial empty cache + docs (`198fabe`). Roadmap commit pending this session close.
 
 ---
 
@@ -18,11 +18,10 @@ A self-updating morning newspaper: a single page that, every morning, shows me t
 ## WHERE WE ARE RIGHT NOW
 
 **v1 is complete and live** at `prady2909.github.io/morning-news-agent/`.
-The pipeline is stateless — it rebuilds from scratch daily via a GitHub Actions scheduler (~7am Boston), builds static HTML, serves via GitHub Pages.
 
-**Next up:** v3 Phase 2 (caching). Phase 0 and Phase 1 are DONE. As of Session 11, the Actions **scheduler** now correctly runs summaries too (the first scheduled run after Phase 1 had been crashing on a missing dependency + missing key — both fixed this session). The remaining phases are below.
+**v3 Phase 2 (caching) — CODE SHIPPED, live payoff pending verification.** As of Session 12 the entire caching layer is built, committed, and green: a standalone `cache.py` module, wiring into `build_page.py`/`summaries.py`, and a workflow change so the scheduler commits `summary_cache.json` back to origin each run. The write/commit/persist plumbing is verified in the wild (the file exists in the repo, bot-committed, correct structure). The ONLY thing not yet seen with our own eyes is a real cache HIT — that requires a run that successfully summarizes first, which is pending a clean Gemini quota window (see Decisions Log #13).
 
-**Where the summarization work stands:** The `summarize.py` POC (rediscovered Session 10) was verified working (Phase 0) and its logic is now wired into the build via a new `summaries.py` helper (Phase 1). Summaries appear on the top ~4 recent article cards per section on the LIVE page only. Phase 2 (caching) is the next real step and also the fix for the rate-limit ceiling found in Phase 1 (see Decisions Log #8).
+**Next up:** verify the live payoff (first HIT) on the next successful scheduler run, then v3 Phase 3 (scrape teaser-only feeds).
 
 ---
 
@@ -35,7 +34,12 @@ The pipeline is stateless — it rebuilds from scratch daily via a GitHub Action
 - **Living roadmap created + committed (Session 10)** — this file, now tracked in the repo (commit `0839ab1`).
 - **v3 Phase 0 — Gemini verified (Session 10)** — ran `summarize.py` as-is; key works, quota live, `gemini-2.5-flash` + `google-genai` SDK still valid, summaries sensible. Foundation confirmed.
 - **v3 Phase 1 — AI summaries live (Session 10, commit `e76dff2`)** — new `summaries.py` helper + `build_page.py` wiring; top ~4 recent article items per section get a Gemini summary on the LIVE page (snapshots stay raw v1); YouTube untouched; graceful fallback to teaser on any skip/error verified in the wild. The SaaStr "summary of an ad" trap that killed v2 is defeated (now reads full bodies).
-- **Scheduler summary fix (Session 11, commit `bd77739`)** — Phase 1 shipped `summaries.py` but the Actions workflow still only did `pip install feedparser` and passed NO Gemini key, so the *first scheduled run* after Phase 1 crashed with `ModuleNotFoundError: No module named 'dotenv'`. Fixed two things in `.github/workflows/daily-build.yml`: (1) install line now `pip install feedparser google-genai python-dotenv`; (2) added an `env:` block to the "Build the news page" step passing `GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}`. Also created the `GEMINI_API_KEY` repository secret (Settings → Secrets → Actions) — it did not exist before. Verified: manual `workflow_dispatch` run #9 went green and real summaries render on the live scheduler-built page. (The earlier red run that first surfaced this was masked by an unrelated GitHub infra outage — "Failed to resolve action download info" — which cleared on re-run.)
+- **Scheduler summary fix (Session 11, commit `bd77739`)** — Phase 1 shipped `summaries.py` but the Actions workflow still only did `pip install feedparser` and passed NO Gemini key, so the *first scheduled run* after Phase 1 crashed with `ModuleNotFoundError: No module named 'dotenv'`. Fixed the install line + added an `env:` block passing `GEMINI_API_KEY`; created the repo secret. Verified green + real summaries on the scheduler-built page.
+- **v3 Phase 2 — Caching CODE SHIPPED (Session 12)** — three commits, one clean phase, verified one hard thing at a time:
+  - `cache.py` (commit `44948b6`) — standalone, pure module. Reads/writes `summary_cache.json`, keyed on normalized URL, versioned entries. 6/6 self-test PASS (empty-miss, round-trip hit, prompt-version gate, model gate, URL normalization, corrupt-file safety). No network, no imports of project code.
+  - Cache wiring (commit `eab195c`) — `add_summaries(items, client, cache)` threads the cache dict as an argument (no global); loaded once in `main()`; checked at the top of the item loop (hit → reuse, no API call, no sleep); `set_cached` fires ONLY on the success path; CI-only write-guard on `GITHUB_ACTIONS == "true"`.
+  - Workflow persistence (commit `4a83821`) — `.github/workflows/daily-build.yml` commit step now stages `docs/ summary_cache.json` (was `docs/`); existing "nothing changed" guard preserved.
+  - **Verified in the wild:** manual `workflow_dispatch` run #11 went green, and `summary_cache.json` now exists in the repo as a bot-committed file. Its `{}` (empty) content is CORRECT for that run — every summary 429'd (quota already spent by earlier local tests), and only successes are cached, so nothing was stored. Plumbing proven; live HIT still pending (see Phase 2 exit criteria + Decisions Log #13).
 
 ---
 
@@ -44,26 +48,20 @@ The pipeline is stateless — it rebuilds from scratch daily via a GitHub Action
 *Discipline: one phase at a time. Each phase is independently shippable and must be verified by ground truth before advancing. Do NOT bundle phases — debugging two hard things at once is how this stalls.*
 
 ### Phase 0 — Verify `summarize.py` still works against current Gemini ✅ DONE (Session 10)
-Ran `summarize.py` as-is. Key works, quota available, `gemini-2.5-flash` + `google-genai` SDK still valid, summaries sensible. The anti-hallucination guard fired correctly on a thin item. Foundation confirmed — no fix was needed.
 **Status:** ✅ Done
 
 ### Phase 1 — Wire summaries into the build (full-body article feeds) ✅ DONE (Session 10, commit `e76dff2`)
-Built `summaries.py` (lifts prompt/client/model/HTML-strip from `summarize.py`) + wired `add_summaries()` into `build_page.py`. Top `SUMMARIES_PER_SECTION = 4` most-recent article items per section get a Gemini summary; videos never summarized; summaries gated to the LIVE index only (`is_index`), snapshots stay raw v1; every skip/error falls back to the teaser card. Verified in browser: ~12 good summaries, clean fallback, layout holds, YouTube untouched.
-**Two findings logged for Phase 2 (see Decisions Log #7, #8):**
-- **Field-priority bug fixed:** the lifted `entry_source_text` preferred the tiny `summary` field; changed to take the LONGER of `content[0].value` vs `summary` (matches how feeds were measured). Without this, rich Substack posts were wrongly skipped as "too thin."
-- **Rate limit is real:** Gemini free tier is **5 requests/minute** for `gemini-2.5-flash` (ground-truth from the build; ~3 of 16 calls hit 429 and fell back to teasers). Left the 4s sleep as-is because Phase 2 caching dissolves this (only new items get summarized).
-**Open polish note (not a blocker):** summaries run a touch long (4–6 lines); if it feels heavy in daily use, tighten the prompt to a hard 2-sentence cap later.
 **Status:** ✅ Done
+**Open polish note (not a blocker):** summaries run a touch long (4–6 lines); tighten the prompt to a hard 2-sentence cap later. NOTE: doing this means bumping `PROMPT_VERSION` (see Decisions Log #11) so the cache re-summarizes old entries under the new prompt.
 
-### Phase 2 — Caching (the stateful piece) ← NEXT UP
-**Why:** The pipeline rebuilds from scratch daily. Without caching, Phase 1 re-summarizes identical articles every morning — real cost, more API calls = more failure surface, AND it collides with the 5-req/min free-tier limit. **Session 11 gave hard evidence:** the scheduler's run #9 made 10 calls, 4 failed (429 quota + 503 capacity), and Startups — always processed last — got starved to zero summaries every build (see Decisions Log #9). Caching means only NEW articles get summarized each day (~3–5), which drops under the 5/min cap — so caching is both the efficiency fix AND the (429) rate-limit fix.
-**IMPORTANT caveat (don't be surprised):** caching fixes *volume*, not *rate*. (a) The FIRST build after caching deploys has an empty cache → every item is "new" → you'll hit the same 429s once while it fills. (b) Caching does NOT touch 503 "high demand" errors — those are Gemini capacity, independent of usage. So keep the graceful teaser-fallback AND keep SUMMARIES_PER_SECTION capped at least through the cold-start build. Don't rip the cap out the moment caching lands.
-**The big deal:** This is the FIRST time the project remembers something between runs. It's the exact stateful-architecture problem we parked dedup to avoid — v3 forces us to finally solve it. Treat it as a genuine architectural step, not a tweak. Key design question to resolve FIRST: WHERE the cache lives and how it survives the scheduler's daily rebuild. Leading candidate = a committed JSON file keyed by article URL. **Critical sub-questions to settle before coding:** (1) The Actions workflow currently only commits `docs/` — the cache file must ALSO be written+committed back to origin each run or it never persists (check/extend the "Commit & push" step). (2) Only cache SUCCESSFUL summaries — a 429/503 fallback must stay uncached so it retries next build, else a throttled item is stuck as a teaser forever. (3) Local-build discipline: like `docs/<today>.html`, decide whether the cache is `git restore`d locally so only the scheduler owns it.
-**Once caching lands:** the `SUMMARIES_PER_SECTION = 4` cap can likely be raised (but keep SOME cap through cold-start — see caveat).
-**Exit criteria:** An article summarized once is not re-summarized on subsequent builds; build time and API calls drop measurably; 429s effectively disappear under normal daily volume (Startups stops getting starved); occasional 503s still tolerated via fallback.
-**Status:** ⬜ Not started
+### Phase 2 — Caching (the stateful piece) 🟡 CODE SHIPPED — live payoff pending (Session 12)
+**What shipped:** `cache.py` + wiring + workflow persistence, all committed & green (see DONE). Key = normalized URL (Decisions Log #10). Value = versioned object (Decisions Log #11). Local discipline solved via a CI-only write-guard, NOT the git-restore originally planned (Decisions Log #12).
+**Still to verify (the one thing we haven't seen):** a real cache HIT. This needs a run that summarizes successfully first (to populate the cache), then a subsequent run that reads it. Run #11 came back empty because its quota was already spent by same-evening local tests — expected, self-heals.
+**Cold-start caveat (confirmed in practice):** the first populated build still fires real API calls; caching cuts *volume*, not the per-minute *rate*, and does nothing for 503s. Keep the graceful teaser fallback and keep `SUMMARIES_PER_SECTION = 4` at least through cold-start.
+**Exit criteria (partially met):** ✅ article summarized once isn't re-summarized (logic proven by self-test + wiring); ✅ cache persists across runs (file committed by CI); ⬜ 429s measurably drop and Startups stops getting starved under normal daily volume — PENDING first live HIT. Once a scheduler run shows `[summaries] … cache-hit > 0 …` with fewer API calls and Startups summarized, flip this to ✅.
+**Once fully verified:** `SUMMARIES_PER_SECTION = 4` can likely be raised (keep SOME cap through cold-start).
 
-### Phase 3 — Scrape teaser-only article feeds
+### Phase 3 — Scrape teaser-only article feeds ⬜ NEXT (after Phase 2 live-verified)
 **Why last (of the article work):** Fragile, per-site, breaks when sites change. Only worth it once summarization + caching are proven. Fetches full article text for feeds that only provide a teaser in RSS, so those items can also be summarized.
 **Exit criteria:** Teaser-only feeds get fetched and summarized like full-body ones, with graceful failure when a scrape fails (don't break the build).
 **Status:** ⬜ Not started
@@ -74,46 +72,52 @@ Built `summaries.py` (lifts prompt/client/model/HTML-strip from `summarize.py`) 
 
 *Revisit only if the stated reason changes. Don't re-raise unprompted.*
 
-- **Dedup / "memory notebook"** — stop showing the same item across days. High-risk stateful work; the recency filter already fixed the worst pain (old junk). v3's caching work (Phase 2) may reshape the stateful foundation — revisit dedup only AFTER Phase 2, if it's still wanted.
-- **YouTube transcript summarization** — KILLED, not parked. YouTube items are a discovery problem, not a summarization one: title + link already does the job. Summarizing a promo blurb = summarizing an ad. This deleted what was originally v3's hardest phase. (Decisions Log #3.)
-- **Node 20 deprecation warning (surfaced Session 11)** — the Actions build throws a non-blocking warning that `actions/checkout@v4` and `actions/setup-python@v5` run on deprecated Node 20. Harmless for now (warning only, build stays green). Low-priority cleanup: bump to `checkout@v5` / `setup-python@v6` someday. Not urgent.
-- **Chip-color polish** — cosmetic, near-zero impact. Filler task if ever bored, not a priority.
-- **Snapshot rollup** — reorganizing the growing `docs/*.html` pile. ~365 files/yr, harmless. Premature until the folder is genuinely unwieldy.
-- **YouTube-first "All" tab** — Prady confirmed it doesn't bother him. Off the table.
+- **Dedup / "memory notebook"** — the recency filter already fixed the worst pain. Phase 2's caching is now the project's stateful foundation; revisit dedup only if still wanted after Phase 2 is fully verified.
+- **YouTube transcript summarization** — KILLED, not parked (Decisions Log #3). Videos stay as plain links.
+- **Node 20 deprecation warning** — non-blocking Actions warning that `checkout@v4` / `setup-python@v5` run on deprecated Node 20 (build stays green; it's being force-run on Node 24). Low-priority: bump to `checkout@v5` / `setup-python@v6` someday. Surfaced again Session 11 & 12; still parked.
+- **Chip-color polish** — cosmetic filler task.
+- **Snapshot rollup** — reorganizing the growing `docs/*.html` pile. Premature.
+- **YouTube-first "All" tab** — off the table.
+- **OneDrive + git file-locks after rebases** — parked; don't re-diagnose unprompted.
+- **The `Co-Authored-By: Claude` on an old commit + `claude` listed as a repo contributor** — legacy from an early commit; rewriting public history isn't worth it. Prady confirmed it doesn't bother him. Note: keep NEW commits free of AI attribution (standing rule).
 
 ---
 
 ## DECISIONS LOG (the *why* behind settled calls — don't relitigate)
 
-1. **Measure feeds before adding them.** Proven in Session 10 — caught a 2019 corpse (Shreyas Doshi), a 2024 abandoned feed (Melissa Perri), and a frozen-since-Jan-2026 feed (Growth Unhinged) before they polluted the build. Always check: URL resolves AND feed is alive (recent post) AND content is rich (not teaser). All three, not just "it parsed."
-2. **Confirmed-dead feeds — do NOT re-chase:** Shreyas Doshi (2019 legacy URL), Melissa Perri (Sep 2024, abandoned), Growth Unhinged (Substack feed `kylepoyar.substack.com/feed` frozen Jan 2026; only possible live path is the custom-domain feed, a v3-level hunt not worth it now).
-3. **YouTube items stay as links — never summarized.** They're for discovery ("go watch this"), and RSS only gives a promo blurb anyway. `sources.py` already tags `type: "article"` vs YouTube channels, so summarization can cleanly attach to articles only. Design consequence: the feed will have two card types (video = "go watch", article = "here's the gist") — that's fine, arguably good.
-4. **Sequence v3 as test → summarize → cache → scrape.** Caching is NOT optional — it's what makes daily summarization viable instead of slow/expensive. But it comes AFTER a dumb-but-working summarization pass, so we debug one hard thing at a time.
-5. **measure_feeds.py deleted (Session 10).** The old diagnostic was hardwired to fetch.py's feeds and never actually did the measuring — throwaway scratchpad scripts did. Future measuring = fresh scratchpad scripts on demand (worked great). No standing tool to maintain.
-6. **`summarize.py` is a working July-4 POC, not junk and not the deleted file.** (Note: it is NOT `measure_feeds.py` — that separate diagnostic was deleted in Session 10; these two get confused because of similar vibes.) `summarize.py` loads the Gemini key from `.env`, reuses `fetch.py`'s health logic to sample ~4 items, and calls `gemini-2.5-flash` via the `google-genai` SDK with a strict source-only/no-fabrication prompt, 4s rate-limit between calls. It PROVES Gemini summarization works on these feeds. As of Phase 1 its logic is lifted into `summaries.py`; `summarize.py` itself is left in place, unchanged, as the original POC.
-7. **Body extraction takes the LONGER of `content[0].value` vs `summary` (Session 10).** The POC preferred `summary` first, but on Substack feeds `summary` is a tiny teaser (37–311 chars) while the full post lives in `content[0].value` (8k–34k). Preferring summary silently fed the summarizer teasers and skipped rich posts as "too thin" — and worse, produced weak summaries of ad-blurbs (the v2-killer trap). `summaries.py` `entry_source_text` now takes the longer field, matching how feeds were originally measured. `summarize.py` still has the old summary-first logic but it's dormant, so not worth touching.
-8. **Gemini free tier has TWO failure modes, not one (corrected Session 11).** The quota is **5 requests/minute** (`GenerateRequestsPerMinutePerProjectPerModel-FreeTier`, `quotaValue: '5'`) → over-limit calls return **429 RESOURCE_EXHAUSTED**. SEPARATELY, Gemini also returns intermittent **503 UNAVAILABLE ("high demand")** that has nothing to do with your usage — it's their capacity. Session 11's scheduler run (#9) made 10 API calls: 6 summarized, 4 skipped-error (two 429s + two 503s), 1 skipped-too-thin. **Implications:** (a) real daily call volume is ~10, not the ~16 the SUMMARIES_PER_SECTION=4 cap implied (many sections have <4 article candidates). (b) **Phase 2 caching fixes the 429s** (fewer calls/build → under 5/min) but does NOT fix 503s — an occasional 503 will still drop a summary to teaser even post-cache; that self-heals next run and the graceful fallback keeps the build green. (c) Do NOT pay for a higher tier for a hobby project.
-9. **Startups is ALWAYS processed last, so it ALWAYS gets starved without caching (Session 11).** Sections summarize in order PM → GTM → AI → Startups. The 5/min quota is spent by the time Startups' calls fire, so on run #9 all 4 Startups items errored (429/503) and fell back to teasers while PM/GTM/AI got real summaries. This is deterministic, not random — Startups loses the race every no-cache build. IMPORTANT: this was initially mis-hypothesized as the SaaStr "teaser-trap" (body too thin → Phase 3 territory); the build log disproved that — every Startups skip was `skipped-error` (rate/capacity), NOT `skipped-too-thin`. SaaStr bodies ARE rich enough. So this is purely a rate-limit ordering artifact that Phase 2 caching resolves — NOT a scraping problem. (Lesson: check the log's skip-reason, don't guess.)
+1. **Measure feeds before adding them.** (Session 10) Always check URL resolves AND feed is alive AND content is rich.
+2. **Confirmed-dead feeds — do NOT re-chase:** Shreyas Doshi (2019), Melissa Perri (Sep 2024), Growth Unhinged (Substack feed frozen Jan 2026).
+3. **YouTube items stay as links — never summarized.** Discovery, not summarization; RSS only gives a promo blurb.
+4. **Sequence v3 as test → summarize → cache → scrape.** One hard thing at a time.
+5. **measure_feeds.py deleted (Session 10).** Future measuring = fresh throwaway scratchpad scripts on demand.
+6. **`summarize.py` is a working POC, left untouched.** Its logic was lifted into `summaries.py` in Phase 1; the original stays dormant for reference. (NOT the deleted `measure_feeds.py`.)
+7. **Body extraction takes the LONGER of `content[0].value` vs `summary` (Session 10).** Prevents feeding the summarizer tiny teasers and skipping rich Substack posts.
+8. **Gemini free tier has TWO failure modes.** 429 RESOURCE_EXHAUSTED (rate/quota) and 503 UNAVAILABLE ("high demand", Gemini's own capacity, independent of usage). Caching helps the 429s, not the 503s. Both fall back to teasers gracefully → build stays green. (See #13 for a correction to the specific quota numbers.)
+9. **Startups is ALWAYS processed last, so it ALWAYS gets starved without caching (Session 11).** Order is PM → GTM → AI → Startups; quota's spent by the time Startups fires. Deterministic, not the SaaStr teaser-trap (the build log's skip-reason `skipped-error`, not `skipped-too-thin`, disproved that). Phase 2 caching is the fix. Lesson: read the log's skip-reason, don't guess.
+10. **Cache key = normalized URL — chosen by EVIDENCE, not assumption (Session 12).** A throwaway `probe_urls.py` fetched all 22 article feeds twice and checked for URL wobble, query-identity risk, and GUID usability. Result: **22/22 STABLE** — zero wobble, zero query-identity risk, and not a single feed link even contains a `?`. So the key is the URL with scheme+host lowercased and the query string stripped (`normalize_url()` in `cache.py`). The query-strip is a no-op on today's data but is kept as cheap defense against a feed that later adds tracking params. A GUID/hash fallback chain was considered and REJECTED as over-engineering (YAGNI) since no feed needs it. Known weak spot: two thin feeds (Stuart Balcombe = 1 entry, Aakash Gupta = 4) were too sparse to sample collisions confidently; if either ever misbehaves, look here first. (`probe_urls.py` was a scratchpad — deleted after use, never committed.)
+11. **Cache value = versioned object, not a bare string (Session 12).** Each entry is `{summary, model, prompt_version, created_at}`. `get_cached` returns a hit ONLY if both `model` AND `prompt_version` match the current build's values; otherwise it's a miss and the item is re-summarized. `PROMPT_VERSION = 1` lives in `summaries.py` next to `PROMPT_TEMPLATE`. WHY: the open Phase-1 note to tighten the prompt to 2 sentences would otherwise leave every already-cached summary frozen in the old long format forever. Bumping `PROMPT_VERSION` (or changing `MODEL`) now auto-invalidates stale entries. Added upfront because the structure is greenfield (one dict vs. a later migration of a live cache). Decided over the "ship bare strings, manually nuke the cache on every prompt change" alternative.
+12. **Local-build discipline = CI-only write-guard, replacing the planned git-restore (Session 12).** The build calls `save_cache()` ONLY when `os.environ.get("GITHUB_ACTIONS") == "true"`. So the scheduler is the sole writer; local builds READ the cache (fast, no wasted quota) but never WRITE it → `summary_cache.json` never appears in a local `git status`, so there's nothing to restore and no `.gitignore` entry needed. This supersedes the original Phase-2 plan to `git restore` the cache locally like `docs/<date>.html`. (Note: GitHub Actions can't touch the local machine anyway — an early "use Actions to avoid local updates" idea was a wrong-computer category error.) Verified: two local builds produced NO cache file (`Test-Path → False`).
+13. **Correction to the Gemini quota numbers — "20/day" was an unverified inference (Session 12).** Claude Code claimed run #11 died on a "free-tier daily cap of 20 requests." That number is NOT from an error body — it was inferred — and contradicts published limits (post-Dec-2025 free-tier `gemini-2.5-flash` is documented around 10 RPM / 250 RPD, some sources 1,500 RPD; nobody publishes 20/day). The project's real **5 RPM** figure (from Session 11) is trustworthy because it came from an actual 429 quota-name in a log. The simplest explanation for run #11's all-error result: two full local builds earlier that evening + the manual CI run fired ~29 calls in a short window, saturating the 5 RPM rolling limit — no mystery daily cap required. To confirm which limit a 429 hit, read the error body (it distinguishes RPM / RPD / TPM). Do NOT log "20/day" as fact. Lesson reaffirmed: read the log, don't infer; and search for current provider limits rather than trusting a single confident claim.
 
 ---
 
 ## KEY ARCHITECTURE FACTS (context for every future decision)
 
-- **Stateless pipeline** — rebuilds from scratch daily, no memory between runs. Phase 2 is the first deliberate break from this.
-- **Archive = capture-date, not publish-date** — the calendar shows what the feed displayed on a given day.
+- **Pipeline is now stateful in ONE place.** It still rebuilds pages from scratch daily, but `summary_cache.json` (keyed on normalized URL, versioned entries) persists between runs. Phase 2 is the first deliberate break from statelessness.
+- **Archive = capture-date, not publish-date.**
 - **Live page filtered to 15 days; snapshots never filtered.**
-- **Scheduler commits to origin/main ~7am Boston daily** — always `git fetch`/`git pull` at session start; local drifts behind each morning.
-- **Files:** `build_page.py` (pipeline + page builder, now also orchestrates summaries), `sources.py` (FEEDS list only, no imports), `fetch.py` (feed fetch + health logic), `summaries.py` (LIVE summarization helper used by the build — prompt, Gemini client, longer-field extraction), `summarize.py` (original dormant POC, unchanged, kept for reference). `.env` holds the Gemini key, git-ignored.
-- **`gemini-2.5-flash`** via the `google-genai` SDK (`from google import genai`) — verified working Session 10. Free tier: **5 req/min** quota (429 on over-limit) PLUS intermittent 503 capacity errors (see Decisions Log #8).
-- **Actions workflow now installs summary deps + passes the key (Session 11).** `.github/workflows/daily-build.yml` runs `pip install feedparser google-genai python-dotenv` and passes `GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}` to the build step. The key lives as a **repository secret** (Settings → Secrets → Actions), NOT in `.env` on the runner (there is no `.env` on the runner — `load_dotenv()` no-ops there and the key comes from the env var). Locally, the key still comes from the git-ignored `.env`.
-- **Summaries are LIVE-index only** — `render_item(is_index=True)` gates them; snapshots never carry summaries and stay raw v1. `SUMMARIES_PER_SECTION = 4` caps how many per section (revisit after Phase 2 caching).
+- **Scheduler commits to origin/main ~7am Boston daily** — always `git fetch`/`git pull` at session start; local drifts behind each morning. As of Session 12 the scheduler commits `summary_cache.json` alongside `docs/`.
+- **Files:** `build_page.py` (pipeline + page builder + summary/cache orchestration), `sources.py` (FEEDS list only, no imports), `fetch.py` (feed fetch + health logic), `summaries.py` (LIVE summarization helper — prompt, `MODEL`, `PROMPT_VERSION`, longer-field extraction), `summarize.py` (original dormant POC, unchanged), `cache.py` (pure versioned-cache module — `normalize_url`, `load_cache`, `get_cached`, `set_cached`, `save_cache`), `summary_cache.json` (the persisted cache — scheduler-owned, do NOT git-ignore, do NOT restore locally). `.env` holds the Gemini key locally (git-ignored, verified never leaked); CI uses the `GEMINI_API_KEY` repo secret.
+- **Cache write-guard:** `save_cache()` runs only when `GITHUB_ACTIONS == "true"`. Scheduler writes; local reads only.
+- **`gemini-2.5-flash`** via `google-genai` (`from google import genai`). Project's observed limit **5 RPM** (real, from a log); published free-tier RPD figures vary (~250–1,500) — see Decisions Log #13. 429 (rate/quota) + 503 (capacity) both fall back to teasers.
+- **Summaries are LIVE-index only** — snapshots stay raw v1. `SUMMARIES_PER_SECTION = 4`.
 
 ---
 
 ## HOW TO USE & MAINTAIN THIS DOC
 
-- **At session start:** read WHERE WE ARE + the current phase's exit criteria. That's your orientation.
-- **When a phase completes:** flip its status ⬜ → ✅, move a one-line summary into DONE, update "Last updated" + current commit.
-- **When a real decision is made:** add it to the Decisions Log with the *why*. This is what stops future sessions (and fresh Claude instances) from relitigating settled questions.
-- **When the plan changes:** edit the phases directly. This doc is meant to be rewritten as reality shifts — a stale roadmap is worse than none.
-- **This doc ≠ the handoff.** Roadmap = the durable "where we're going." Handoff = the disposable "where we stopped this session, resume here." Keep both.
+- **At session start:** read WHERE WE ARE + the current phase's exit criteria. Expect BOTH this roadmap and the latest handoff to be attached; if either is missing, ask for it before doing project work.
+- **When a phase completes:** flip its status, move a one-line summary into DONE, update "Last updated" + current commit.
+- **When a real decision is made:** add it to the Decisions Log with the *why*.
+- **When the plan changes:** edit the phases directly.
+- **This doc ≠ the handoff.** Roadmap = durable "where we're going." Handoff = disposable "where we stopped, resume here." Keep both.

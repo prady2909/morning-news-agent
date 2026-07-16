@@ -2,8 +2,8 @@
 
 *Living document. This is the durable spine of the project — the north star we check every decision against. The per-session handoff docs answer "where exactly did we stop"; THIS answers "where are we going and why." Update it whenever a phase completes, a decision is made, or the plan changes.*
 
-**Last updated:** 2026-07-16 (Session 13)
-**Current commit:** `5594f99` (Session 13 — Phase 2 caching verified ✅, roadmap updated). Prior tip `7576831` (July 16 auto-update cron).
+**Last updated:** 2026-07-16 (Session 14)
+**Current commit:** `589dbba` (Session 14 — roadmap hygiene). Phase 3 killed this session (see below); v4 live-feed logged as candidate. Roadmap commit for Session 14 pending this session close.
 
 ---
 
@@ -21,7 +21,9 @@ A self-updating morning newspaper: a single page that, every morning, shows me t
 
 **v3 Phase 2 (caching) — ✅ COMPLETE, live payoff verified (Session 13).** The full caching layer is built, committed, and now PROVEN in production. The **July 15 cron ran cold** and populated the cache (7 summarized · 0 hits · 9 API calls · 68.6s); the **July 16 cron read it back** — **6 cache-hits · 3 API calls · 0 errors · 25.6s**, and Startups (SaaStr) got summarized instead of starved last. Every Phase 2 exit criterion met with real `[summaries]` log evidence.
 
-**Next up:** v3 Phase 3 (scrape teaser-only feeds) — now the active phase.
+**Phase 3 (scrape teaser-only feeds) — ❌ KILLED (Session 14).** A throwaway measurement probe (reusing the real `entry_source_text` + `MIN_SOURCE_CHARS = 300`) sampled all 22 article feeds: every one came back FULL-BODY, 0 teaser-only, 0 mixed, only 7/375 items (2%) under threshold and those were scattered one-off link/note posts. The premise of the phase — that some feeds ship only teasers — is false for the current feed list. Building brittle per-site scrapers to rescue ~2% of mostly-non-article items is a bad trade. Killed on evidence. See Decisions Log #15.
+
+**Next up:** v4 (live news feed) — logged as a CANDIDATE needing scoping, concept not yet chosen. Not active until scoped.
 
 ---
 
@@ -63,10 +65,17 @@ A self-updating morning newspaper: a single page that, every morning, shows me t
 **Exit criteria — ALL MET (Session 13):** ✅ article summarized once isn't re-summarized (6 cache-hits on the July 16 cron); ✅ cache persists across runs (10 entries committed by CI across the 15th + 16th); ✅ 429s measurably drop and Startups stops getting starved (API calls 9→3, skipped-error 2→0, SaaStr/Startups summarized). Proof lines: July 15 `#12` = 7 summarized · 0 hit · 9 calls; July 16 `#13` = 3 summarized · 6 hit · 3 calls.
 **Once fully verified:** `SUMMARIES_PER_SECTION = 4` can likely be raised (keep SOME cap through cold-start).
 
-### Phase 3 — Scrape teaser-only article feeds 🟡 CURRENT — active phase (Phase 2 verified ✅ Session 13)
-**Why last (of the article work):** Fragile, per-site, breaks when sites change. Only worth it once summarization + caching are proven. Fetches full article text for feeds that only provide a teaser in RSS, so those items can also be summarized.
-**Exit criteria:** Teaser-only feeds get fetched and summarized like full-body ones, with graceful failure when a scrape fails (don't break the build).
-**Status:** 🟡 Current — not yet started. This is the active phase as of Session 13.
+### Phase 3 — Scrape teaser-only article feeds ❌ KILLED (Session 14)
+**Status:** ❌ Killed — not built, deliberately abandoned on evidence.
+**Why killed:** Session 14 measurement probe found 0/22 article feeds are teaser-only (all FULL-BODY; 2% of items under the 300-char threshold, mostly one-off link/note posts). No scrape candidates exist, so there's nothing to justify fragile per-site scraping. The Phase-1 `MIN_SOURCE_CHARS` + longer-field logic already handles the rare thin item via graceful teaser fallback.
+**If a feed ever goes teaser-only:** re-run the probe pattern; handle it as a targeted fix, not a standing phase. Don't build scraper infra pre-emptively.
+
+### v4 — Live news feed 🔵 CANDIDATE (needs scoping — Session 14)
+**The idea:** a section fed by actual news sources (news-wire RSS, Google News by topic), refreshed more often than the daily digest, so genuinely breaking items show up intraday.
+**Concept options surfaced (Session 14, not yet chosen):** A = breaking column on the existing page (news-wire + Google News RSS, hourly cron; lowest risk, reuses everything). B = separate `/live` page refreshing hourly. C = topic-search via a news API (GNews/NewsAPI; most powerful, adds an API + quota).
+**Ruled out as not viable on free static hosting:** X/Twitter (paid/locked API, scraping breaks ToS), YouTube "trending" (no clean free feed), true real-time (needs a server).
+**Open scoping question before this goes active:** adding news-wire sources + an hourly cron shifts the project from "curated thought-leadership digest" toward "news aggregator." That's an identity decision, not just a build task — resolve it before writing code.
+**Next step:** fresh chat, pick a concept, scope it. Do NOT start building until the concept is locked (standing rule: new window for the first real step of a phase).
 
 ---
 
@@ -101,6 +110,7 @@ A self-updating morning newspaper: a single page that, every morning, shows me t
 12. **Local-build discipline = CI-only write-guard, replacing the planned git-restore (Session 12).** The build calls `save_cache()` ONLY when `os.environ.get("GITHUB_ACTIONS") == "true"`. So the scheduler is the sole writer; local builds READ the cache (fast, no wasted quota) but never WRITE it → `summary_cache.json` never appears in a local `git status`, so there's nothing to restore and no `.gitignore` entry needed. This supersedes the original Phase-2 plan to `git restore` the cache locally like `docs/<date>.html`. (Note: GitHub Actions can't touch the local machine anyway — an early "use Actions to avoid local updates" idea was a wrong-computer category error.) Verified: two local builds produced NO cache file (`Test-Path → False`).
 13. **Correction to the Gemini quota numbers — "20/day" was an unverified inference (Session 12).** Claude Code claimed run #11 died on a "free-tier daily cap of 20 requests." That number is NOT from an error body — it was inferred — and contradicts published limits (post-Dec-2025 free-tier `gemini-2.5-flash` is documented around 10 RPM / 250 RPD, some sources 1,500 RPD; nobody publishes 20/day). The project's real **5 RPM** figure (from Session 11) is trustworthy because it came from an actual 429 quota-name in a log. The simplest explanation for run #11's all-error result: two full local builds earlier that evening + the manual CI run fired ~29 calls in a short window, saturating the 5 RPM rolling limit — no mystery daily cap required. To confirm which limit a 429 hit, read the error body (it distinguishes RPM / RPD / TPM). Do NOT log "20/day" as fact. Lesson reaffirmed: read the log, don't infer; and search for current provider limits rather than trusting a single confident claim.
 14. **Phase 2 payoff confirmed by log line, not by cache file alone (Session 13).** The pulled `summary_cache.json` (10 entries: 7×07-15, 3×07-16, all SaaStr new on the 16th) was *suggestive* but genuinely ambiguous — an unchanged-but-cached article and an errored-and-teaser'd article both leave NO new cache entry, so the file cannot distinguish a hit from a fallback. The proof only came from the `[summaries]` log lines: July 16 `#13` showed `6 cache-hit · 3 API call(s) · 0 skipped-error` vs July 15 `#12`'s `0 cache-hit · 9 API call(s) · 2 skipped-error`. Reaffirms the standing rule: green build (or a plausible-looking artifact) ≠ done — read the log's own counters. Caveat banked: the 6 hits partly reflect PM/GTM/AI feeds not turning over between the two days; churny news days will show fewer hits + more calls, and cold-start still fires the full ~9. Caching cut *volume*, not the per-minute *rate ceiling* — keep `SUMMARIES_PER_SECTION = 4` and the teaser fallback through cold-start.
+15. **Phase 3 (scrape teaser-only feeds) KILLED on evidence, not built (Session 14).** A throwaway probe (`probe_teasers.py`, deleted after use per Decisions Log #5) reused the real pipeline logic — `summaries.entry_source_text` + `MIN_SOURCE_CHARS = 300` — and sampled all 22 article feeds live. Result: 22/22 FULL-BODY, 0 teaser-only, 0 mixed; only 7/375 items (2%) under threshold, scattered one-off link/note posts across 4 feeds. The phase's whole premise (feeds shipping only teasers) is false for the current list, so per-site scraping has no work to justify its fragility. Measure-first (Decisions Log #1) paid off — it prevented an entire wasted phase. Caveat: this is a snapshot; if a feed later goes teaser-only the existing teaser-fallback keeps the build green, and we'd handle it as a targeted fix. Also logged: v4 (live news feed) as a CANDIDATE needing a scoping decision (news-wire sources + hourly cron shifts the project toward "news aggregator" — an identity call to make before building).
 
 ---
 

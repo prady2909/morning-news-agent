@@ -29,6 +29,18 @@
     "prompt_version": 1,
     "summary": "Alex Finn, an AI builder, runs an ambitious local AI setup on his own hardware. His system includes three Mac Studio machines, a DGX Spark, and a custom RTX 5090 build, all coordinated through a self-built fleet dashboard. Finn has spent five months optimizing model allocation, integrating with Claude Code loops, and establishing a self-running software factory."
   },
+  "https://www.saastr.com/500m-arr-60-engineers-cash-flow-positive-how-higgsfield-actually-runs-with-ceo-alex-mashrabov/": {
+    "created_at": "2026-07-16T12:22:13.873301+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Higgsfield reached a $500M annualized revenue run rate in June, approximately 15 months after launching in March 2025, and is cash-flow positive. The company operates with about 150 people, including a core engineering team of 60, and now aggregates various AI models, with approximately 70% of its revenue coming from agencies."
+  },
+  "https://www.saastr.com/an-hour-with-our-top-ai-agent-cost-13-42-you-cant-hire-anyone-for-that/": {
+    "created_at": "2026-07-16T12:22:04.101022+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "An AI marketing agent, 10K, completed a one-hour work session at a cost of $13.42, which is less than human minimum wages and significantly below the hourly equivalent of a human VP of Marketing. This particular cost was for a \"build-and-analyze session,\" while the marginal cost to simply run 10K is much lower, estimated at $30-$60 per month. The low running cost is attributed to architectural choices, shifting the primary constraint from cost to the ability of teams to effectively direct AI agents."
+  },
   "https://www.saastr.com/dear-saastr-at-what-point-should-we-hire-an-internal-recruiter/": {
     "created_at": "2026-07-15T12:18:14.526254+00:00",
     "model": "gemini-2.5-flash",
@@ -40,5 +52,11 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "AI agents should be deployed on \"B leads\" rather than \"A leads\" for outbound sales efforts. B leads have real signal but are often ignored by human sales representatives who prioritize \"A leads.\" Deploying AI agents on these neglected B leads can unlock significant revenue by leveraging the agents' patience to work leads humans typically skip."
+  },
+  "https://www.saastr.com/is-software-dead-no-it-just-got-a-lot-harder-to-win-the-saastr-ai-deep-dive-with-rory-odriscoll/": {
+    "created_at": "2026-07-16T12:21:54.955379+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Software is not dead, but winning in the industry has become much harder due to AI, which is currently in a massive \"invest mode\" with spending significantly outpacing revenue. New software companies must build strong, defensible moats, such as proprietary non-public data or integration with physical sensors, to differentiate themselves from core foundation models. Founders need to understand their specific layer in the AI stack, ensure real growth, and manage compute costs efficiently."
   }
 }

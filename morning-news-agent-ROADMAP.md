@@ -3,7 +3,7 @@
 *Living document. This is the durable spine of the project — the north star we check every decision against. The per-session handoff docs answer "where exactly did we stop"; THIS answers "where are we going and why." Update it whenever a phase completes, a decision is made, or the plan changes.*
 
 **Last updated:** 2026-07-16 (Session 13)
-**Current commit:** `7576831` (latest origin — July 16 auto-update). Last human commit `84ae597` (Session 12 roadmap). Roadmap commit for Session 13 (Phase 2 verified ✅) pending this session close.
+**Current commit:** `5594f99` (Session 13 — Phase 2 caching verified ✅, roadmap updated). Prior tip `7576831` (July 16 auto-update cron).
 
 ---
 

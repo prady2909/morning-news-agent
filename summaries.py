@@ -18,7 +18,7 @@ from google import genai
 # ── Config (lifted from summarize.py) ─────────────────────────────────────────
 
 MODEL = "gemini-2.5-flash"   # current free-tier Flash model
-SLEEP_SECONDS = 4            # ~15 calls/min max — comfortably under free-tier RPM
+SLEEP_SECONDS = 12           # 60/12 = 5 calls/min — safe under observed 5 RPM (and the ~10 RPM published for 2.5-flash). Bandaid pending real 429 backoff.
 
 # A body shorter than this is basically already a teaser — summarizing it would
 # be a summary-of-a-summary, so build_page skips it and keeps the teaser card.

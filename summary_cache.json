@@ -1,4 +1,10 @@
 {
+  "https://itamargilad.com/ai-pm-jobs/": {
+    "created_at": "2026-07-17T12:11:24.755607+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "The article examines whether AI will eliminate Product Manager (PM) jobs by reviewing four theories. It suggests that full automation of PM work is unlikely due to its high dimensionality and complex human judgment requirements, while AI may also increase the demand for PMs to define what to build. However, the most plausible risk to PM jobs is a potential market collapse if the AI investment bubble bursts."
+  },
   "https://newsletter.mkt1.co/p/mutiny-growth-lessons": {
     "created_at": "2026-07-15T12:17:56.427950+00:00",
     "model": "gemini-2.5-flash",
@@ -28,6 +34,30 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Alex Finn, an AI builder, runs an ambitious local AI setup on his own hardware. His system includes three Mac Studio machines, a DGX Spark, and a custom RTX 5090 build, all coordinated through a self-built fleet dashboard. Finn has spent five months optimizing model allocation, integrating with Claude Code loops, and establishing a self-running software factory."
+  },
+  "https://www.newcomer.co/p/scoop-menlo-ventures-sees-irr-of": {
+    "created_at": "2026-07-17T12:12:37.036222+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Menlo Ventures is seeing an Internal Rate of Return (IRR) of over 40% on its recent funds, largely driven by its substantial investment in the AI lab Anthropic. The firm committed around $1 billion to Anthropic across different vehicles, with this stake now worth $14 billion, contributing to the firm's recent success and its largest fundraise to date."
+  },
+  "https://www.notboring.co/p/weekly-dose-of-optimism-202": {
+    "created_at": "2026-07-17T12:12:00.847721+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Saronic, an autonomous shipbuilding startup, saw its Corsair drone boats used in combat for the first time, striking an Iranian submarine and ship-maintenance facility. The company also announced plans for a new $3 billion shipyard, Port Alpha, in Brownsville, Texas, which is expected to create up to 10,000 jobs and build various types of ships."
+  },
+  "https://www.saastr.com/20vc-x-saastr-this-week-apple-sues-openai-the-token-maxing-era-begins-and-the-tam-question-hanging-over-ai-coding/": {
+    "created_at": "2026-07-17T12:12:20.026491+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Apple sued OpenAI this week over alleged trade secret theft involving physical prototypes and former employees, which signaled Apple's intent to make poaching expensive. The discussion also noted the start of a \"token-maxing\" era, driven by rapidly increasing AI spend and a shift towards two-tier model strategies for token consumption. A central, unresolved question was the total addressable market for AI coding, with concerns that leading AI companies could quickly reach the ceiling of the US developer wage market."
+  },
+  "https://www.saastr.com/5-interesting-learnings-from-zoom-at-5-billion-in-arr-re-accelerating-growth-real-ai-monetization-and-a-25x-anthropic-windfall/": {
+    "created_at": "2026-07-17T12:11:43.855879+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Zoom reported re-accelerating revenue growth in Q1 FY2027, reaching $1.239 billion, up 5.5% year-over-year. The company has become a \"cash machine,\" with free cash flow margins over 40%, driven by enterprise sales and successful AI monetization. Additionally, its Anthropic stake is carried at $1.27 billion, representing a significant gain and potential additional value."
   },
   "https://www.saastr.com/500m-arr-60-engineers-cash-flow-positive-how-higgsfield-actually-runs-with-ceo-alex-mashrabov/": {
     "created_at": "2026-07-16T12:22:13.873301+00:00",

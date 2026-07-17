@@ -35,6 +35,12 @@
     "prompt_version": 1,
     "summary": "Alex Finn, an AI builder, runs an ambitious local AI setup on his own hardware. His system includes three Mac Studio machines, a DGX Spark, and a custom RTX 5090 build, all coordinated through a self-built fleet dashboard. Finn has spent five months optimizing model allocation, integrating with Claude Code loops, and establishing a self-running software factory."
   },
+  "https://www.newcomer.co/p/ipo-party-faces-down-volatility-and": {
+    "created_at": "2026-07-17T22:41:15.981737+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "US IPOs have seen their biggest year since 2021, with total proceeds nearly matching the 2021 annual record. However, aftermarket performance has been disappointing, with many, including SpaceX, slumping since their debut and trading below offering prices."
+  },
   "https://www.newcomer.co/p/scoop-menlo-ventures-sees-irr-of": {
     "created_at": "2026-07-17T12:12:37.036222+00:00",
     "model": "gemini-2.5-flash",
@@ -70,6 +76,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "An AI marketing agent, 10K, completed a one-hour work session at a cost of $13.42, which is less than human minimum wages and significantly below the hourly equivalent of a human VP of Marketing. This particular cost was for a \"build-and-analyze session,\" while the marginal cost to simply run 10K is much lower, estimated at $30-$60 per month. The low running cost is attributed to architectural choices, shifting the primary constraint from cost to the ability of teams to effectively direct AI agents."
+  },
+  "https://www.saastr.com/claude-became-our-ai-vp-of-product-we-moved-10-years-off-marketo-for-14-our-agent-killed-a-10k-app-in-an-hour-the-agents-010/": {
+    "created_at": "2026-07-17T22:40:57.029584+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Episode #010 of The Agents describes how Claude integrated with Replit to function as an AI VP of Product, managing feature builds. The team also used an LLM to migrate 10 years of Marketo data for $14.28 and an agent autonomously replaced a $10,000/year app in one hour."
   },
   "https://www.saastr.com/dear-saastr-at-what-point-should-we-hire-an-internal-recruiter/": {
     "created_at": "2026-07-15T12:18:14.526254+00:00",

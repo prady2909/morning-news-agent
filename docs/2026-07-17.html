@@ -4,16 +4,31 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Morning News — Friday, 17 Jul 2026</title>
-  <style>
-    :root {
-      --bg:#f8fafc; --card:#ffffff; --text:#0f172a; --muted:#64748b;
-      --border:#e2e8f0; --chip-bg:#ffffff;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg:#0f172a; --card:#1e293b; --text:#e2e8f0; --muted:#94a3b8;
-        --border:#334155; --chip-bg:#1e293b;
+  <script>
+    // No-flash theme: set data-theme BEFORE the stylesheet paints. Stored choice
+    // wins; otherwise fall back to the OS preference.
+    (function () {
+      var t = localStorage.getItem('theme');
+      if (t !== 'light' && t !== 'dark') {
+        t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
       }
+      document.documentElement.dataset.theme = t;
+    })();
+  </script>
+  <style>
+    /* Editorial palette — warm off-white light / tinted off-black dark. Single
+       accent is the red (--seg-red). Dark mode is driven by data-theme, set by
+       the no-flash script above and flipped by the mode toggle in the filter row.
+       --chip-bg tracks --card so the archive calendar keeps its surface. */
+    :root {
+      --bg:#faf8f3; --card:#ffffff; --text:#1c1a17; --text-secondary:#4a463e;
+      --muted:#6b6459; --border:#ddd6c8; --chip-bg:#ffffff;
+      --seg-red:#9b2020; --seg-fill:#1c1a17; --seg-on:#faf8f3;
+    }
+    :root[data-theme="dark"] {
+      --bg:#161410; --card:#1f1c17; --text:#efe8da; --text-secondary:#cabfae;
+      --muted:#9a9081; --border:#33302a; --chip-bg:#1f1c17;
+      --seg-red:#e0645c; --seg-fill:#efe8da; --seg-on:#161410;
     }
     * { box-sizing: border-box; }
     body {
@@ -24,49 +39,91 @@
     .wrap { max-width:1400px; margin:0 auto; padding:24px 32px 72px; }
     header { margin-bottom:16px; }
     header .top { display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap; }
-    h1 { font-size:1.7rem; margin:0; letter-spacing:-0.02em; }
-    .subtitle { color:var(--muted); font-size:.95rem; margin:4px 0 0; }
-    #count { color:var(--muted); font-size:.85rem; white-space:nowrap; }
+    h1 { font-family:Georgia,"Times New Roman",serif; font-size:1.7rem; font-weight:600; margin:0; letter-spacing:-0.02em; }
+    .subtitle { color:var(--muted); font-size:.95rem; margin:4px 0 0; font-variant-numeric:tabular-nums; }
+    #count { color:var(--muted); font-size:.85rem; white-space:nowrap; font-variant-numeric:tabular-nums; }
     .backlink { display:inline-block; margin-bottom:12px; color:var(--muted); text-decoration:none; font-size:.9rem; }
     .backlink:hover { color:var(--text); }
 
     .filters {
-      position:sticky; top:0; z-index:10; display:flex; flex-direction:column; gap:8px;
-      padding:12px 0; margin-bottom:8px; background:var(--bg);
+      position:sticky; top:0; z-index:10; display:flex; flex-direction:column;
+      padding:0 0 12px; margin-bottom:8px; background:var(--bg);
       border-bottom:1px solid var(--border);
     }
-    .filter-row { display:flex; flex-wrap:wrap; gap:8px; }
-    .chip {
-      font:inherit; font-size:.85rem; font-weight:600; cursor:pointer;
-      padding:5px 12px; border-radius:999px; background:var(--chip-bg);
-      border:1.5px solid var(--border); color:var(--text); transition:all .12s ease;
+    /* One row of three toggle groups (topic · format · mode) split by thin
+       vertical dividers, above a top hairline. */
+    .filter-row {
+      display:flex; flex-wrap:nowrap; align-items:center; gap:16px;
+      border-top:1px solid var(--border); padding-top:16px; overflow-x:auto;
     }
-    .chip[data-filter="all"] { --c:var(--text); }
-    .chip:hover { border-color:var(--c); }
-    .chip.active { background:var(--c); border-color:var(--c); color:#fff; }
+    .filter-div { width:1px; align-self:stretch; background:var(--border); }
+    .grp { display:inline-flex; align-items:center; gap:6px; }
+    /* Segmented bar: red OUTER border with faint neutral internal dividers. The
+       SELECTED segment fills itself directly (--seg-fill) with a flipped label
+       (--seg-on), so the fill always matches the segment shape exactly — no pill,
+       no slide, instant selection. */
+    .segbar {
+      display:inline-flex; border:1.5px solid var(--seg-red);
+      border-radius:8px; overflow:hidden;
+    }
+    .seg {
+      font:inherit; font-size:13.5px; font-weight:500;
+      cursor:pointer; padding:7px 15px; background:transparent; color:var(--seg-red);
+      border:none; border-left:1px solid var(--border); line-height:1;
+      display:inline-flex; align-items:center;
+    }
+    .seg:first-child { border-left:none; }
+    .seg.selected { background:var(--seg-fill); color:var(--seg-on); }
+    /* End segments round their fill to follow the bar's inner corners (8px bar,
+       1.5px border → 6px inner). */
+    .seg:first-child.selected { border-top-left-radius:6px; border-bottom-left-radius:6px; }
+    .seg:last-child.selected { border-top-right-radius:6px; border-bottom-right-radius:6px; }
+    .seg-mode { padding:7px 13px; }
+    .seg-mode svg { width:15px; height:15px; display:block; }
+    /* Per-bar reset: a muted × shown only when that bar has an active selection. */
+    .seg-reset {
+      font:inherit; font-size:1rem; line-height:1; cursor:pointer;
+      background:transparent; border:none; color:var(--muted); padding:0 2px;
+    }
+    .seg-reset[hidden] { display:none; }
 
     .item {
       background:var(--card); border:1px solid var(--border); border-radius:12px;
-      padding:16px 18px; margin-bottom:14px;
+      padding:18px 20px; margin-bottom:14px;
     }
-    .meta { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:8px; }
+    .meta {
+      display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:8px;
+      font-variant-numeric:tabular-nums;
+    }
+    /* Neutral card tags: identical for every topic; still clickable (data-filter). */
     .flair {
-      font:inherit; font-size:.72rem; font-weight:700; letter-spacing:.03em;
-      text-transform:uppercase; cursor:pointer; padding:2px 9px; border-radius:999px;
-      background:transparent; color:var(--c); border:1.5px solid var(--c);
+      font:inherit; font-size:.72rem; font-weight:600; letter-spacing:.03em;
+      text-transform:uppercase; cursor:pointer; padding:2px 9px; border-radius:6px;
+      background:transparent; color:var(--text-secondary); border:1px solid var(--border);
     }
-    .flair:hover { background:var(--c); color:#fff; }
-    .source { font-size:.85rem; font-weight:600; color:var(--muted); }
+    .flair:hover { border-color:var(--text-secondary); color:var(--text); }
+    .source { font-size:.85rem; font-weight:500; color:var(--text-secondary); }
     .date { font-size:.8rem; color:var(--muted); margin-left:auto; }
-    .title { font-size:1.1rem; margin:0 0 6px; line-height:1.35; }
+    /* Editorial headline: serif, high-contrast (never red), tighter tracking. */
+    .title {
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:1.2rem; font-weight:600; letter-spacing:-0.01em;
+      margin:0 0 6px; line-height:1.3;
+    }
     .title a { color:var(--text); text-decoration:none; }
     .title a:hover { text-decoration:underline; }
-    .teaser { margin:0; color:var(--muted); font-size:.95rem; }
+    .teaser {
+      margin:0; max-width:65ch; color:var(--text-secondary); font-size:.95rem;
+      font-variant-numeric:tabular-nums;
+    }
     /* AI summary (LIVE only): slightly more prominent than a teaser (full text
        colour), prefixed by a small tag so it reads as our summary, not the feed's. */
-    .summary { margin:0; color:var(--text); font-size:.95rem; }
+    .summary {
+      margin:0; max-width:65ch; color:var(--text); font-size:.95rem;
+      font-variant-numeric:tabular-nums;
+    }
     .summary-tag {
-      display:inline-block; font-size:.62rem; font-weight:700; letter-spacing:.05em;
+      display:inline-block; font-size:.62rem; font-weight:600; letter-spacing:.05em;
       text-transform:uppercase; color:var(--muted);
       border:1px solid var(--border); border-radius:4px;
       padding:1px 6px; margin-right:8px; vertical-align:middle;
@@ -132,33 +189,92 @@
     <div class="layout">
       <div class="content">
         <nav class="filters" aria-label="Filter items">
-          <div class="filter-row" aria-label="Filter by topic">
-            <button class="chip active" data-filter="all">All</button>
-      <button class="chip" data-filter="PM" style="--c:#2563eb">PM</button>
-      <button class="chip" data-filter="GTM" style="--c:#059669">GTM</button>
-      <button class="chip" data-filter="AI" style="--c:#7c3aed">AI</button>
-      <button class="chip" data-filter="Startups" style="--c:#ea580c">Startups</button>
-          </div>
-          <div class="filter-row" aria-label="Filter by format">
-            <button class="chip active" data-format="all">All</button>
-            <button class="chip" data-format="article" style="--c:var(--text)">Articles</button>
-            <button class="chip" data-format="video" style="--c:var(--text)">Videos</button>
+          <div class="filter-row">
+            <div class="grp" aria-label="Filter by topic">
+              <div class="segbar" id="topic-bar">
+                <button class="seg" data-filter="AI">AI</button>
+                <button class="seg" data-filter="PM">PM</button>
+                <button class="seg" data-filter="GTM">GTM</button>
+                <button class="seg" data-filter="Startups">Startups</button>
+              </div>
+              <button class="seg-reset" id="topic-reset" aria-label="Clear topic filter" hidden>&times;</button>
+            </div>
+            <div class="filter-div" aria-hidden="true"></div>
+            <div class="grp" aria-label="Filter by format">
+              <div class="segbar" id="format-bar">
+                <button class="seg" data-format="article">Articles</button>
+                <button class="seg" data-format="video">Videos</button>
+              </div>
+              <button class="seg-reset" id="format-reset" aria-label="Clear format filter" hidden>&times;</button>
+            </div>
+            <div class="filter-div" aria-hidden="true"></div>
+            <div class="grp" aria-label="Color theme">
+              <div class="segbar" id="mode-bar">
+                <button class="seg seg-mode" data-theme-choice="light" aria-label="Light mode"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"></circle><line x1="12" y1="2" x2="12" y2="4"></line><line x1="12" y1="20" x2="12" y2="22"></line><line x1="2" y1="12" x2="4" y2="12"></line><line x1="20" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="6.3" y2="6.3"></line><line x1="17.7" y1="17.7" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="6.3" y2="17.7"></line><line x1="17.7" y1="6.3" x2="19.1" y2="4.9"></line></svg></button>
+                <button class="seg seg-mode" data-theme-choice="dark" aria-label="Dark mode"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg></button>
+              </div>
+            </div>
           </div>
         </nav>
 
         <main id="items">
+      <article class="item" data-topic="AI" data-type="video">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Alex Finn</span>
+          <span class="date">17 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://www.youtube.com/watch?v=rQUgUKnPsFs" target="_blank" rel="noopener noreferrer">Do these 5 things in Claude Fable 5 NOW</a></h2>
+        <p class="teaser">Fable 5 is incredible. Do these 5 things now before they disappear FULL Fable 5 bootcamp in the Vibe Coding Academy coming up</p>
+      </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">SaaStr</span>
+          <span class="date">17 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://www.saastr.com/claude-became-our-ai-vp-of-product-we-moved-10-years-off-marketo-for-14-our-agent-killed-a-10k-app-in-an-hour-the-agents-010/" target="_blank" rel="noopener noreferrer">Claude Became Our AI VP of Product. We Moved 10 Years Off Marketo for $14. Our Agent Killed a $10K App in an Hour: The Agents #010</a></h2>
+        <p class="teaser">Amelia and I just published Episode #010 of The Agents. Same setup as always: three humans, 21+ agents in production, an 8-figure B2B + AI business and $200m of investments at SaaStr AI Fund, revenue running 140% of last year and growing again. Every week we get into what’s…</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="video">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Matt Wolfe</span>
+          <span class="date">17 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://www.youtube.com/watch?v=ss2LaCKUQmU" target="_blank" rel="noopener noreferrer">AI News: Claude&#x27;s New Browser, Spotify Gets AI &amp; OpenAI&#x27;s New Hardware</a></h2>
+        <p class="teaser">Try Seedream 5.0 plus other top AI image and video models at Artlist</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Newcomer</span>
+          <span class="date">17 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://www.newcomer.co/p/ipo-party-faces-down-volatility-and" target="_blank" rel="noopener noreferrer">IPO Party Faces Down Volatility &amp; Sinking SpaceX Shares. Can the Window Stay Open?</a></h2>
+        <p class="teaser">Plus, an emerging consensus on AI regulation &amp; a big new fund for Greylock</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="video">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Y Combinator (YouTube)</span>
+          <span class="date">17 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://www.youtube.com/watch?v=qz4GQ0zUFRw" target="_blank" rel="noopener noreferrer">The Key Thing Human Brains Have That AI Is Trying To Learn</a></h2>
+        <p class="teaser">In this episode of Decoded, Ankit and Francois walk through the motivation and math behind world models. They cover a number of areas including why sample efficiency is one of the biggest unsolved problems in AI, how deterministic differentiable control and Newtonian physics…</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">SaaStr</span>
           <span class="date">17 Jul</span>
         </div>
         <h2 class="title"><a href="https://www.saastr.com/5-interesting-learnings-from-zoom-at-5-billion-in-arr-re-accelerating-growth-real-ai-monetization-and-a-25x-anthropic-windfall/" target="_blank" rel="noopener noreferrer">5 Interesting Learnings from Zoom at ~$5 Billion in ARR: Modestly Re-Accelerating Growth, Real AI Monetization, a $27B Market Cap, and a 25x Anthropic Windfall</a></h2>
-        <p class="teaser">Almost everyone wrote Zoom off a few years back. The story was tidy: the app everyone loved before 2022, but then almost a COVID one-hit-wonder that peaked in 2021 after going from $1B to $4B in ARR in one year. That would slowly bleed out as people went back to the office and…</p>
+        <p class="teaser">Almost everyone wrote Zoom off a few years back. The innovative app everyone loved before 2020, but then almost a COVID one-hit-wonder that peaked in 2021 after going from $1B to $4B in ARR in one year. That would slowly bleed out as people went back to the office and Teams ate…</p>
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Not Boring</span>
           <span class="date">17 Jul</span>
         </div>
@@ -167,7 +283,16 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">SaaStr</span>
+          <span class="date">17 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://www.saastr.com/dear-saastr-do-any-top-b2b-events-give-you-the-list/" target="_blank" rel="noopener noreferrer">Dear SaaStr: Do Any Top B2B Events Give You “The List”?</a></h2>
+        <p class="teaser">Dear SaaStr: Do Any Top B2B Events Give You “The List”? No, no good ones do, and for good reason. Top tier B2B events, especially ones focused on quality over volume, deliberately don’t hand over attendee lists to sponsors as a blanket data asset. If events sold attendee data…</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">SaaStr</span>
           <span class="date">16 Jul</span>
         </div>
@@ -176,7 +301,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Newcomer</span>
           <span class="date">16 Jul</span>
         </div>
@@ -185,7 +310,7 @@
       </article>
       <article class="item" data-topic="AI" data-type="video">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">Matt Wolfe</span>
           <span class="date">16 Jul</span>
         </div>
@@ -194,7 +319,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">SaaStr</span>
           <span class="date">16 Jul</span>
         </div>
@@ -203,7 +328,7 @@
       </article>
       <article class="item" data-topic="PM" data-type="video">
         <div class="meta">
-          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <button class="flair" data-filter="PM">PM</button>
           <span class="source">Claire Vo (ChatPRD)</span>
           <span class="date">16 Jul</span>
         </div>
@@ -212,7 +337,7 @@
       </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <button class="flair" data-filter="PM">PM</button>
           <span class="source">Itamar Gilad</span>
           <span class="date">16 Jul</span>
         </div>
@@ -221,7 +346,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Not Boring</span>
           <span class="date">16 Jul</span>
         </div>
@@ -230,7 +355,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">SaaStr</span>
           <span class="date">16 Jul</span>
         </div>
@@ -239,7 +364,7 @@
       </article>
       <article class="item" data-topic="AI" data-type="video">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">Andrej Karpathy</span>
           <span class="date">16 Jul</span>
         </div>
@@ -248,7 +373,7 @@
       </article>
       <article class="item" data-topic="AI" data-type="video">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">Matt Wolfe</span>
           <span class="date">15 Jul</span>
         </div>
@@ -257,7 +382,7 @@
       </article>
       <article class="item" data-topic="AI" data-type="video">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">Alex Finn</span>
           <span class="date">15 Jul</span>
         </div>
@@ -266,7 +391,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">SaaStr</span>
           <span class="date">15 Jul</span>
         </div>
@@ -275,7 +400,7 @@
       </article>
       <article class="item" data-topic="AI" data-type="video">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">Corbin Brown</span>
           <span class="date">15 Jul</span>
         </div>
@@ -284,7 +409,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">SaaStr</span>
           <span class="date">15 Jul</span>
         </div>
@@ -293,7 +418,7 @@
       </article>
       <article class="item" data-topic="PM" data-type="video">
         <div class="meta">
-          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <button class="flair" data-filter="PM">PM</button>
           <span class="source">Claire Vo (ChatPRD)</span>
           <span class="date">15 Jul</span>
         </div>
@@ -302,43 +427,25 @@
       </article>
       <article class="item" data-topic="AI" data-type="video">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">The AI Automators</span>
           <span class="date">15 Jul</span>
         </div>
         <h2 class="title"><a href="https://www.youtube.com/watch?v=uNfkHpNfXow" target="_blank" rel="noopener noreferrer">Unsloth&#x27;s New Qwen Quants Just Dropped, And...</a></h2>
         
       </article>
-      <article class="item" data-topic="Startups" data-type="article">
-        <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
-          <span class="source">SaaStr</span>
-          <span class="date">15 Jul</span>
-        </div>
-        <h2 class="title"><a href="https://www.saastr.com/dear-saastr-at-what-point-should-we-hire-an-internal-recruiter/" target="_blank" rel="noopener noreferrer">Dear SaaStr.ai: At What Point Should We Hire an Internal Recruiter?</a></h2>
-        <p class="teaser">Dear SaaStr.ai: At what point has a start up do you hire a recruiter internally versus paying recruiters 20% fees? Hire a full-time internal recruiter once you’re hiring 5+ people per quarter consistently. Here’s the math: If you’re paying 20% placement fees on $150K hires,…</p>
-      </article>
       <article class="item" data-topic="AI" data-type="video">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">Matt Wolfe</span>
           <span class="date">14 Jul</span>
         </div>
         <h2 class="title"><a href="https://www.youtube.com/shorts/KzJkS00Ztd8" target="_blank" rel="noopener noreferrer">Try This Awesome AI Video Transition!</a></h2>
         <p class="teaser">How to &quot;Time Travel&quot; in your next video with this SUPER easy editing trick! You don&#x27;t need complex VFX software to create seamless, mind-bending transitions anymore. Here is a straightforward way to jump between locations using AI tools like Runway, Kling, or Leonardo: Step 1:…</p>
       </article>
-      <article class="item" data-topic="Startups" data-type="article">
-        <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
-          <span class="source">SaaStr</span>
-          <span class="date">14 Jul</span>
-        </div>
-        <h2 class="title"><a href="https://www.saastr.com/500m-arr-60-engineers-cash-flow-positive-how-higgsfield-actually-runs-with-ceo-alex-mashrabov/" target="_blank" rel="noopener noreferrer">$500M ARR, 60 Engineers, Cash-Flow Positive: How Higgsfield Actually Runs, With CEO Alex Mashrabov</a></h2>
-        <p class="teaser">We use Higgsfield almost every day at SaaStr AI. If you’ve watched any of our short videos, the intro to The Agents with me and Amelia, the event promos, the sponsorship teasers, all of it is built on Higgsfield. We’re also a proud early investor through SaaStr Fund. So when…</p>
-      </article>
       <article class="item" data-topic="AI" data-type="video">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">Corbin Brown</span>
           <span class="date">14 Jul</span>
         </div>
@@ -347,7 +454,7 @@
       </article>
       <article class="item" data-topic="PM" data-type="video">
         <div class="meta">
-          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <button class="flair" data-filter="PM">PM</button>
           <span class="source">Claire Vo (ChatPRD)</span>
           <span class="date">14 Jul</span>
         </div>
@@ -356,16 +463,7 @@
       </article>
       <article class="item" data-topic="AI" data-type="video">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
-          <span class="source">Matt Wolfe</span>
-          <span class="date">13 Jul</span>
-        </div>
-        <h2 class="title"><a href="https://www.youtube.com/shorts/BDWdp_fIOHk" target="_blank" rel="noopener noreferrer">Build A Custom Browser Extension [SUPER Easy!]</a></h2>
-        <p class="teaser">I built a fully functioning Chrome extension in about 10 minutes. I used the new GLM 5.2 model to build it. It&#x27;s open-weight, open-source and incredibly cost-effective for coding tasks while still being reliable and delivery high-quality outputs (not sponsored, just sharing…</p>
-      </article>
-      <article class="item" data-topic="AI" data-type="video">
-        <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">The AI Automators</span>
           <span class="date">13 Jul</span>
         </div>
@@ -374,7 +472,7 @@
       </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <button class="flair" data-filter="PM">PM</button>
           <span class="source">Lenny&#x27;s Newsletter</span>
           <span class="date">13 Jul</span>
         </div>
@@ -383,7 +481,7 @@
       </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <button class="flair" data-filter="PM">PM</button>
           <span class="source">Lenny&#x27;s Newsletter</span>
           <span class="date">13 Jul</span>
         </div>
@@ -392,7 +490,7 @@
       </article>
       <article class="item" data-topic="PM" data-type="video">
         <div class="meta">
-          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <button class="flair" data-filter="PM">PM</button>
           <span class="source">Claire Vo (ChatPRD)</span>
           <span class="date">13 Jul</span>
         </div>
@@ -401,7 +499,7 @@
       </article>
       <article class="item" data-topic="AI" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">Interconnects</span>
           <span class="date">12 Jul</span>
         </div>
@@ -410,7 +508,7 @@
       </article>
       <article class="item" data-topic="AI" data-type="video">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">Corbin Brown</span>
           <span class="date">12 Jul</span>
         </div>
@@ -419,7 +517,7 @@
       </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <button class="flair" data-filter="PM">PM</button>
           <span class="source">Lenny&#x27;s Newsletter</span>
           <span class="date">12 Jul</span>
         </div>
@@ -428,7 +526,7 @@
       </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <button class="flair" data-filter="PM">PM</button>
           <span class="source">Lenny&#x27;s Newsletter</span>
           <span class="date">11 Jul</span>
         </div>
@@ -437,7 +535,7 @@
       </article>
       <article class="item" data-topic="AI" data-type="video">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">Corbin Brown</span>
           <span class="date">11 Jul</span>
         </div>
@@ -446,7 +544,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="video">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Y Combinator (YouTube)</span>
           <span class="date">10 Jul</span>
         </div>
@@ -455,7 +553,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Newcomer</span>
           <span class="date">10 Jul</span>
         </div>
@@ -464,7 +562,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Not Boring</span>
           <span class="date">10 Jul</span>
         </div>
@@ -473,7 +571,7 @@
       </article>
       <article class="item" data-topic="AI" data-type="video">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">AI Explained</span>
           <span class="date">10 Jul</span>
         </div>
@@ -482,7 +580,7 @@
       </article>
       <article class="item" data-topic="AI" data-type="video">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">The AI Automators</span>
           <span class="date">10 Jul</span>
         </div>
@@ -491,7 +589,7 @@
       </article>
       <article class="item" data-topic="AI" data-type="video">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">Alex Finn</span>
           <span class="date">9 Jul</span>
         </div>
@@ -500,7 +598,7 @@
       </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <button class="flair" data-filter="PM">PM</button>
           <span class="source">Lenny&#x27;s Newsletter</span>
           <span class="date">9 Jul</span>
         </div>
@@ -509,7 +607,7 @@
       </article>
       <article class="item" data-topic="GTM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <button class="flair" data-filter="GTM">GTM</button>
           <span class="source">MKT1</span>
           <span class="date">9 Jul</span>
         </div>
@@ -518,7 +616,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="video">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Y Combinator (YouTube)</span>
           <span class="date">9 Jul</span>
         </div>
@@ -527,7 +625,7 @@
       </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <button class="flair" data-filter="PM">PM</button>
           <span class="source">Lenny&#x27;s Newsletter</span>
           <span class="date">9 Jul</span>
         </div>
@@ -536,7 +634,7 @@
       </article>
       <article class="item" data-topic="AI" data-type="video">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">Alex Finn</span>
           <span class="date">8 Jul</span>
         </div>
@@ -545,7 +643,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="video">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Y Combinator (YouTube)</span>
           <span class="date">8 Jul</span>
         </div>
@@ -554,7 +652,7 @@
       </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <button class="flair" data-filter="PM">PM</button>
           <span class="source">Lenny&#x27;s Newsletter</span>
           <span class="date">8 Jul</span>
         </div>
@@ -563,7 +661,7 @@
       </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <button class="flair" data-filter="PM">PM</button>
           <span class="source">Lenny&#x27;s Newsletter</span>
           <span class="date">7 Jul</span>
         </div>
@@ -572,25 +670,16 @@
       </article>
       <article class="item" data-topic="AI" data-type="video">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">The AI Automators</span>
           <span class="date">7 Jul</span>
         </div>
         <h2 class="title"><a href="https://www.youtube.com/watch?v=yvAHJZAf1xM" target="_blank" rel="noopener noreferrer">I Ran DeepSeek&#x27;s New DSpark and Doubled My Qwen3 Model’s Speed (Here’s How)</a></h2>
         
       </article>
-      <article class="item" data-topic="AI" data-type="video">
-        <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
-          <span class="source">Alex Finn</span>
-          <span class="date">6 Jul</span>
-        </div>
-        <h2 class="title"><a href="https://www.youtube.com/watch?v=_LYXbI6JY5M" target="_blank" rel="noopener noreferrer">The new Hermes Agent update officially ended OpenClaw</a></h2>
-        <p class="teaser">The new Hermes Agent update is incredible FULL Hermes Agent bootcamp in the Vibe Coding Academy coming up</p>
-      </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <button class="flair" data-filter="PM">PM</button>
           <span class="source">Lenny&#x27;s Newsletter</span>
           <span class="date">6 Jul</span>
         </div>
@@ -599,7 +688,7 @@
       </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <button class="flair" data-filter="PM">PM</button>
           <span class="source">Lenny&#x27;s Newsletter</span>
           <span class="date">6 Jul</span>
         </div>
@@ -608,7 +697,7 @@
       </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <button class="flair" data-filter="PM">PM</button>
           <span class="source">Lenny&#x27;s Newsletter</span>
           <span class="date">4 Jul</span>
         </div>
@@ -617,7 +706,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Not Boring</span>
           <span class="date">3 Jul</span>
         </div>
@@ -626,7 +715,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Newcomer</span>
           <span class="date">2 Jul</span>
         </div>
@@ -635,7 +724,7 @@
       </article>
       <article class="item" data-topic="AI" data-type="video">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">AI Explained</span>
           <span class="date">2 Jul</span>
         </div>
@@ -644,7 +733,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Not Boring</span>
           <span class="date">2 Jul</span>
         </div>
@@ -653,7 +742,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Newcomer</span>
           <span class="date">1 Jul</span>
         </div>
@@ -662,7 +751,7 @@
       </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <button class="flair" data-filter="PM">PM</button>
           <span class="source">Lenny&#x27;s Newsletter</span>
           <span class="date">30 Jun</span>
         </div>
@@ -671,7 +760,7 @@
       </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <button class="flair" data-filter="PM">PM</button>
           <span class="source">Marty Cagan (SVPG)</span>
           <span class="date">30 Jun</span>
         </div>
@@ -680,7 +769,7 @@
       </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <button class="flair" data-filter="PM">PM</button>
           <span class="source">Lenny&#x27;s Newsletter</span>
           <span class="date">30 Jun</span>
         </div>
@@ -689,7 +778,7 @@
       </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <button class="flair" data-filter="PM">PM</button>
           <span class="source">Lenny&#x27;s Newsletter</span>
           <span class="date">29 Jun</span>
         </div>
@@ -698,7 +787,7 @@
       </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <button class="flair" data-filter="PM">PM</button>
           <span class="source">Lenny&#x27;s Newsletter</span>
           <span class="date">29 Jun</span>
         </div>
@@ -707,25 +796,16 @@
       </article>
       <article class="item" data-topic="AI" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">Interconnects</span>
           <span class="date">28 Jun</span>
         </div>
         <h2 class="title"><a href="https://www.interconnects.ai/p/artifacts-22-zyphra-cohere-and-poolside" target="_blank" rel="noopener noreferrer">Latest open artifacts (#22): Zyphra, Cohere, and Poolside are expanding the breadth of the ecosystem</a></h2>
         <p class="teaser">An assessment of the open ecosystem and the motivations behind releasing models</p>
       </article>
-      <article class="item" data-topic="Startups" data-type="video">
-        <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
-          <span class="source">Y Combinator (YouTube)</span>
-          <span class="date">27 Jun</span>
-        </div>
-        <h2 class="title"><a href="https://www.youtube.com/watch?v=Ju8LVdvuxGM" target="_blank" rel="noopener noreferrer">India Can Create The Largest AI Companies</a></h2>
-        <p class="teaser">In this final panel from Startup School India, the hosts reflect on why India&#x27;s deep technical talent makes it uniquely positioned to produce some of the world&#x27;s largest companies in this new AI wave and how young founders can break out of conventional advice from traditional…</p>
-      </article>
       <article class="item" data-topic="AI" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">Ahead of AI</span>
           <span class="date">27 Jun</span>
         </div>
@@ -734,7 +814,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Newcomer</span>
           <span class="date">26 Jun</span>
         </div>
@@ -743,7 +823,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Not Boring</span>
           <span class="date">26 Jun</span>
         </div>
@@ -752,7 +832,7 @@
       </article>
       <article class="item" data-topic="GTM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <button class="flair" data-filter="GTM">GTM</button>
           <span class="source">MKT1</span>
           <span class="date">25 Jun</span>
         </div>
@@ -761,7 +841,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Newcomer</span>
           <span class="date">25 Jun</span>
         </div>
@@ -770,7 +850,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Newcomer</span>
           <span class="date">24 Jun</span>
         </div>
@@ -779,7 +859,7 @@
       </article>
       <article class="item" data-topic="AI" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">Interconnects</span>
           <span class="date">22 Jun</span>
         </div>
@@ -788,7 +868,7 @@
       </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <button class="flair" data-filter="PM">PM</button>
           <span class="source">Itamar Gilad</span>
           <span class="date">21 Jun</span>
         </div>
@@ -797,7 +877,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Newcomer</span>
           <span class="date">19 Jun</span>
         </div>
@@ -806,7 +886,7 @@
       </article>
       <article class="item" data-topic="AI" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">Interconnects</span>
           <span class="date">19 Jun</span>
         </div>
@@ -815,7 +895,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Not Boring</span>
           <span class="date">19 Jun</span>
         </div>
@@ -824,7 +904,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Newcomer</span>
           <span class="date">17 Jun</span>
         </div>
@@ -833,7 +913,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Newcomer</span>
           <span class="date">17 Jun</span>
         </div>
@@ -842,7 +922,7 @@
       </article>
       <article class="item" data-topic="AI" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">Interconnects</span>
           <span class="date">17 Jun</span>
         </div>
@@ -851,7 +931,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Newcomer</span>
           <span class="date">16 Jun</span>
         </div>
@@ -860,7 +940,7 @@
       </article>
       <article class="item" data-topic="AI" data-type="video">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">Andrej Karpathy</span>
           <span class="date">16 Jun</span>
         </div>
@@ -869,7 +949,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Y Combinator Blog</span>
           <span class="date">16 Jun</span>
         </div>
@@ -878,7 +958,7 @@
       </article>
       <article class="item" data-topic="AI" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">Interconnects</span>
           <span class="date">16 Jun</span>
         </div>
@@ -887,7 +967,7 @@
       </article>
       <article class="item" data-topic="AI" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">Interconnects</span>
           <span class="date">14 Jun</span>
         </div>
@@ -896,7 +976,7 @@
       </article>
       <article class="item" data-topic="AI" data-type="video">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">AI Explained</span>
           <span class="date">14 Jun</span>
         </div>
@@ -905,7 +985,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Newcomer</span>
           <span class="date">12 Jun</span>
         </div>
@@ -914,7 +994,7 @@
       </article>
       <article class="item" data-topic="AI" data-type="video">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">Andrej Karpathy</span>
           <span class="date">12 Jun</span>
         </div>
@@ -923,7 +1003,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Not Boring</span>
           <span class="date">12 Jun</span>
         </div>
@@ -932,7 +1012,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Y Combinator Blog</span>
           <span class="date">11 Jun</span>
         </div>
@@ -941,7 +1021,7 @@
       </article>
       <article class="item" data-topic="AI" data-type="video">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">AI Explained</span>
           <span class="date">10 Jun</span>
         </div>
@@ -950,7 +1030,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Not Boring</span>
           <span class="date">10 Jun</span>
         </div>
@@ -959,7 +1039,7 @@
       </article>
       <article class="item" data-topic="AI" data-type="video">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">Andrej Karpathy</span>
           <span class="date">10 Jun</span>
         </div>
@@ -968,7 +1048,7 @@
       </article>
       <article class="item" data-topic="AI" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">Interconnects</span>
           <span class="date">9 Jun</span>
         </div>
@@ -977,7 +1057,7 @@
       </article>
       <article class="item" data-topic="GTM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <button class="flair" data-filter="GTM">GTM</button>
           <span class="source">MKT1</span>
           <span class="date">9 Jun</span>
         </div>
@@ -986,7 +1066,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Newcomer</span>
           <span class="date">8 Jun</span>
         </div>
@@ -995,7 +1075,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Not Boring</span>
           <span class="date">8 Jun</span>
         </div>
@@ -1004,7 +1084,7 @@
       </article>
       <article class="item" data-topic="AI" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">Ahead of AI</span>
           <span class="date">6 Jun</span>
         </div>
@@ -1013,7 +1093,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Newcomer</span>
           <span class="date">5 Jun</span>
         </div>
@@ -1022,25 +1102,16 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Not Boring</span>
           <span class="date">5 Jun</span>
         </div>
         <h2 class="title"><a href="https://www.notboring.co/p/weekly-dose-of-optimism-196" target="_blank" rel="noopener noreferrer">Weekly Dose of Optimism #196</a></h2>
         <p class="teaser">Antares Goes Critical, NewLimit, BioWeapon Letter, Helion, Alzheimer&#x27;s x Mushrooms + Extra Doses</p>
       </article>
-      <article class="item" data-topic="Startups" data-type="article">
-        <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
-          <span class="source">Newcomer</span>
-          <span class="date">4 Jun</span>
-        </div>
-        <h2 class="title"><a href="https://www.newcomer.co/p/founders-funds-new-media-play-tech" target="_blank" rel="noopener noreferrer">Founders Fund&#x27;s New Media Play: Tech Celebrities Playing Mafia</a></h2>
-        <p class="teaser">Do people want to watch the likes of Sam Altman, Trae Stephens &amp; Palmer Luckey compete in a party game? We&#x27;ll soon find out.</p>
-      </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <button class="flair" data-filter="PM">PM</button>
           <span class="source">Itamar Gilad</span>
           <span class="date">3 Jun</span>
         </div>
@@ -1049,7 +1120,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Not Boring</span>
           <span class="date">2 Jun</span>
         </div>
@@ -1058,7 +1129,7 @@
       </article>
       <article class="item" data-topic="AI" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">Interconnects</span>
           <span class="date">2 Jun</span>
         </div>
@@ -1067,7 +1138,7 @@
       </article>
       <article class="item" data-topic="AI" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">Interconnects</span>
           <span class="date">1 Jun</span>
         </div>
@@ -1076,7 +1147,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Not Boring</span>
           <span class="date">29 May</span>
         </div>
@@ -1085,7 +1156,7 @@
       </article>
       <article class="item" data-topic="GTM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <button class="flair" data-filter="GTM">GTM</button>
           <span class="source">MKT1</span>
           <span class="date">29 May</span>
         </div>
@@ -1094,7 +1165,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Not Boring</span>
           <span class="date">27 May</span>
         </div>
@@ -1103,7 +1174,7 @@
       </article>
       <article class="item" data-topic="AI" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">Interconnects</span>
           <span class="date">26 May</span>
         </div>
@@ -1112,7 +1183,7 @@
       </article>
       <article class="item" data-topic="GTM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <button class="flair" data-filter="GTM">GTM</button>
           <span class="source">MKT1</span>
           <span class="date">22 May</span>
         </div>
@@ -1121,7 +1192,7 @@
       </article>
       <article class="item" data-topic="GTM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <button class="flair" data-filter="GTM">GTM</button>
           <span class="source">MKT1</span>
           <span class="date">22 May</span>
         </div>
@@ -1130,7 +1201,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Not Boring</span>
           <span class="date">22 May</span>
         </div>
@@ -1139,7 +1210,7 @@
       </article>
       <article class="item" data-topic="GTM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <button class="flair" data-filter="GTM">GTM</button>
           <span class="source">MKT1</span>
           <span class="date">19 May</span>
         </div>
@@ -1148,7 +1219,7 @@
       </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <button class="flair" data-filter="PM">PM</button>
           <span class="source">Itamar Gilad</span>
           <span class="date">18 May</span>
         </div>
@@ -1157,7 +1228,7 @@
       </article>
       <article class="item" data-topic="AI" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">Interconnects</span>
           <span class="date">16 May</span>
         </div>
@@ -1166,7 +1237,7 @@
       </article>
       <article class="item" data-topic="AI" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">Ahead of AI</span>
           <span class="date">16 May</span>
         </div>
@@ -1175,7 +1246,7 @@
       </article>
       <article class="item" data-topic="AI" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">Interconnects</span>
           <span class="date">12 May</span>
         </div>
@@ -1184,7 +1255,7 @@
       </article>
       <article class="item" data-topic="AI" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">Interconnects</span>
           <span class="date">7 May</span>
         </div>
@@ -1193,7 +1264,7 @@
       </article>
       <article class="item" data-topic="GTM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <button class="flair" data-filter="GTM">GTM</button>
           <span class="source">MKT1</span>
           <span class="date">6 May</span>
         </div>
@@ -1202,7 +1273,7 @@
       </article>
       <article class="item" data-topic="AI" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">Interconnects</span>
           <span class="date">4 May</span>
         </div>
@@ -1211,7 +1282,7 @@
       </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <button class="flair" data-filter="PM">PM</button>
           <span class="source">Marty Cagan (SVPG)</span>
           <span class="date">27 Apr</span>
         </div>
@@ -1220,7 +1291,7 @@
       </article>
       <article class="item" data-topic="GTM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <button class="flair" data-filter="GTM">GTM</button>
           <span class="source">MKT1</span>
           <span class="date">27 Apr</span>
         </div>
@@ -1229,7 +1300,7 @@
       </article>
       <article class="item" data-topic="GTM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <button class="flair" data-filter="GTM">GTM</button>
           <span class="source">MKT1</span>
           <span class="date">21 Apr</span>
         </div>
@@ -1238,7 +1309,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Elad Gil</span>
           <span class="date">20 Apr</span>
         </div>
@@ -1247,7 +1318,7 @@
       </article>
       <article class="item" data-topic="AI" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">Ahead of AI</span>
           <span class="date">18 Apr</span>
         </div>
@@ -1256,7 +1327,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Elad Gil</span>
           <span class="date">16 Apr</span>
         </div>
@@ -1265,7 +1336,7 @@
       </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <button class="flair" data-filter="PM">PM</button>
           <span class="source">Marty Cagan (SVPG)</span>
           <span class="date">16 Apr</span>
         </div>
@@ -1274,7 +1345,7 @@
       </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <button class="flair" data-filter="PM">PM</button>
           <span class="source">Marty Cagan (SVPG)</span>
           <span class="date">9 Apr</span>
         </div>
@@ -1283,7 +1354,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Y Combinator Blog</span>
           <span class="date">6 Apr</span>
         </div>
@@ -1292,7 +1363,7 @@
       </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <button class="flair" data-filter="PM">PM</button>
           <span class="source">Itamar Gilad</span>
           <span class="date">6 Apr</span>
         </div>
@@ -1301,7 +1372,7 @@
       </article>
       <article class="item" data-topic="GTM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <button class="flair" data-filter="GTM">GTM</button>
           <span class="source">MKT1</span>
           <span class="date">6 Apr</span>
         </div>
@@ -1310,7 +1381,7 @@
       </article>
       <article class="item" data-topic="AI" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">Ahead of AI</span>
           <span class="date">4 Apr</span>
         </div>
@@ -1319,7 +1390,7 @@
       </article>
       <article class="item" data-topic="GTM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <button class="flair" data-filter="GTM">GTM</button>
           <span class="source">MKT1</span>
           <span class="date">1 Apr</span>
         </div>
@@ -1328,7 +1399,7 @@
       </article>
       <article class="item" data-topic="AI" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">Ahead of AI</span>
           <span class="date">22 Mar</span>
         </div>
@@ -1337,7 +1408,7 @@
       </article>
       <article class="item" data-topic="GTM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <button class="flair" data-filter="GTM">GTM</button>
           <span class="source">MKT1</span>
           <span class="date">19 Mar</span>
         </div>
@@ -1346,7 +1417,7 @@
       </article>
       <article class="item" data-topic="GTM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <button class="flair" data-filter="GTM">GTM</button>
           <span class="source">MKT1</span>
           <span class="date">13 Mar</span>
         </div>
@@ -1355,7 +1426,7 @@
       </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <button class="flair" data-filter="PM">PM</button>
           <span class="source">Itamar Gilad</span>
           <span class="date">10 Mar</span>
         </div>
@@ -1364,7 +1435,7 @@
       </article>
       <article class="item" data-topic="GTM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="GTM" style="--c:#059669">GTM</button>
+          <button class="flair" data-filter="GTM">GTM</button>
           <span class="source">MKT1</span>
           <span class="date">2 Mar</span>
         </div>
@@ -1373,7 +1444,7 @@
       </article>
       <article class="item" data-topic="AI" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">Ahead of AI</span>
           <span class="date">25 Feb</span>
         </div>
@@ -1382,7 +1453,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Y Combinator Blog</span>
           <span class="date">5 Feb</span>
         </div>
@@ -1391,7 +1462,7 @@
       </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <button class="flair" data-filter="PM">PM</button>
           <span class="source">Marty Cagan (SVPG)</span>
           <span class="date">4 Feb</span>
         </div>
@@ -1400,7 +1471,7 @@
       </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <button class="flair" data-filter="PM">PM</button>
           <span class="source">Itamar Gilad</span>
           <span class="date">1 Feb</span>
         </div>
@@ -1409,7 +1480,7 @@
       </article>
       <article class="item" data-topic="AI" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">Ahead of AI</span>
           <span class="date">24 Jan</span>
         </div>
@@ -1418,7 +1489,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Y Combinator Blog</span>
           <span class="date">23 Jan</span>
         </div>
@@ -1427,7 +1498,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Y Combinator Blog</span>
           <span class="date">16 Jan</span>
         </div>
@@ -1436,7 +1507,7 @@
       </article>
       <article class="item" data-topic="AI" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">Ahead of AI</span>
           <span class="date">30 Dec</span>
         </div>
@@ -1445,7 +1516,7 @@
       </article>
       <article class="item" data-topic="AI" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">Ahead of AI</span>
           <span class="date">30 Dec</span>
         </div>
@@ -1454,7 +1525,7 @@
       </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <button class="flair" data-filter="PM">PM</button>
           <span class="source">Itamar Gilad</span>
           <span class="date">23 Dec</span>
         </div>
@@ -1463,7 +1534,7 @@
       </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <button class="flair" data-filter="PM">PM</button>
           <span class="source">Marty Cagan (SVPG)</span>
           <span class="date">19 Dec</span>
         </div>
@@ -1472,7 +1543,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Y Combinator Blog</span>
           <span class="date">18 Dec</span>
         </div>
@@ -1481,7 +1552,7 @@
       </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <button class="flair" data-filter="PM">PM</button>
           <span class="source">Itamar Gilad</span>
           <span class="date">10 Dec</span>
         </div>
@@ -1490,7 +1561,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Y Combinator Blog</span>
           <span class="date">10 Dec</span>
         </div>
@@ -1499,7 +1570,7 @@
       </article>
       <article class="item" data-topic="AI" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">Ahead of AI</span>
           <span class="date">3 Dec</span>
         </div>
@@ -1508,7 +1579,7 @@
       </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <button class="flair" data-filter="PM">PM</button>
           <span class="source">Marty Cagan (SVPG)</span>
           <span class="date">1 Dec</span>
         </div>
@@ -1517,7 +1588,7 @@
       </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <button class="flair" data-filter="PM">PM</button>
           <span class="source">Itamar Gilad</span>
           <span class="date">19 Nov</span>
         </div>
@@ -1526,7 +1597,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Y Combinator Blog</span>
           <span class="date">12 Nov</span>
         </div>
@@ -1535,7 +1606,7 @@
       </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <button class="flair" data-filter="PM">PM</button>
           <span class="source">Marty Cagan (SVPG)</span>
           <span class="date">7 Nov</span>
         </div>
@@ -1544,7 +1615,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Y Combinator Blog</span>
           <span class="date">6 Nov</span>
         </div>
@@ -1553,7 +1624,7 @@
       </article>
       <article class="item" data-topic="AI" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">Ahead of AI</span>
           <span class="date">4 Nov</span>
         </div>
@@ -1562,7 +1633,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Y Combinator Blog</span>
           <span class="date">14 Oct</span>
         </div>
@@ -1571,7 +1642,7 @@
       </article>
       <article class="item" data-topic="AI" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">Ahead of AI</span>
           <span class="date">5 Oct</span>
         </div>
@@ -1580,7 +1651,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Y Combinator Blog</span>
           <span class="date">23 Sep</span>
         </div>
@@ -1589,7 +1660,7 @@
       </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <button class="flair" data-filter="PM">PM</button>
           <span class="source">Marty Cagan (SVPG)</span>
           <span class="date">17 Sep</span>
         </div>
@@ -1598,7 +1669,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Y Combinator Blog</span>
           <span class="date">12 Sep</span>
         </div>
@@ -1607,7 +1678,7 @@
       </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <button class="flair" data-filter="PM">PM</button>
           <span class="source">Marty Cagan (SVPG)</span>
           <span class="date">12 Sep</span>
         </div>
@@ -1616,7 +1687,7 @@
       </article>
       <article class="item" data-topic="AI" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">Ahead of AI</span>
           <span class="date">6 Sep</span>
         </div>
@@ -1625,7 +1696,7 @@
       </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <button class="flair" data-filter="PM">PM</button>
           <span class="source">Marty Cagan (SVPG)</span>
           <span class="date">27 Aug</span>
         </div>
@@ -1634,7 +1705,7 @@
       </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <button class="flair" data-filter="PM">PM</button>
           <span class="source">Marty Cagan (SVPG)</span>
           <span class="date">19 Aug</span>
         </div>
@@ -1643,7 +1714,7 @@
       </article>
       <article class="item" data-topic="AI" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="AI" style="--c:#7c3aed">AI</button>
+          <button class="flair" data-filter="AI">AI</button>
           <span class="source">Ahead of AI</span>
           <span class="date">9 Aug</span>
         </div>
@@ -1652,7 +1723,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Elad Gil</span>
           <span class="date">22 Jul</span>
         </div>
@@ -1661,7 +1732,7 @@
       </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <button class="flair" data-filter="PM">PM</button>
           <span class="source">Marty Cagan (SVPG)</span>
           <span class="date">14 Jul</span>
         </div>
@@ -1670,7 +1741,7 @@
       </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <button class="flair" data-filter="PM">PM</button>
           <span class="source">Marty Cagan (SVPG)</span>
           <span class="date">2 Jul</span>
         </div>
@@ -1679,7 +1750,7 @@
       </article>
       <article class="item" data-topic="PM" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="PM" style="--c:#2563eb">PM</button>
+          <button class="flair" data-filter="PM">PM</button>
           <span class="source">Marty Cagan (SVPG)</span>
           <span class="date">15 Jun</span>
         </div>
@@ -1688,7 +1759,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Y Combinator Blog</span>
           <span class="date">12 Jun</span>
         </div>
@@ -1697,7 +1768,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Y Combinator Blog</span>
           <span class="date">21 May</span>
         </div>
@@ -1706,7 +1777,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Elad Gil</span>
           <span class="date">20 May</span>
         </div>
@@ -1715,7 +1786,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Elad Gil</span>
           <span class="date">8 Apr</span>
         </div>
@@ -1724,7 +1795,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Elad Gil</span>
           <span class="date">5 Feb</span>
         </div>
@@ -1733,7 +1804,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Elad Gil</span>
           <span class="date">22 Mar</span>
         </div>
@@ -1742,7 +1813,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Elad Gil</span>
           <span class="date">21 Feb</span>
         </div>
@@ -1751,7 +1822,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Elad Gil</span>
           <span class="date">31 Jan</span>
         </div>
@@ -1760,7 +1831,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Elad Gil</span>
           <span class="date">5 Dec</span>
         </div>
@@ -1769,7 +1840,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Elad Gil</span>
           <span class="date">4 Dec</span>
         </div>
@@ -1778,7 +1849,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Elad Gil</span>
           <span class="date">1 Dec</span>
         </div>
@@ -1787,7 +1858,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Elad Gil</span>
           <span class="date">8 Nov</span>
         </div>
@@ -1796,7 +1867,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Elad Gil</span>
           <span class="date">20 Sep</span>
         </div>
@@ -1805,7 +1876,7 @@
       </article>
       <article class="item" data-topic="Startups" data-type="article">
         <div class="meta">
-          <button class="flair" data-filter="Startups" style="--c:#ea580c">Startups</button>
+          <button class="flair" data-filter="Startups">Startups</button>
           <span class="source">Elad Gil</span>
           <span class="date">18 Sep</span>
         </div>
@@ -1853,29 +1924,60 @@
   <script>
     (function () {
       var countEl = document.getElementById('count');
-      var activeTopic = 'all';    // topic-chip / flair selection
-      var activeFormat = 'all';   // format-chip selection (article | video)
+      var topicResetEl = document.getElementById('topic-reset');
+      var formatResetEl = document.getElementById('format-reset');
+      var activeTopic = null;    // null = no topic selected (show all topics)
+      var activeFormat = null;   // null = no format selected (show all formats)
+
+      // Segment highlight: the SELECTED segment fills itself via the .seg.selected
+      // CSS rule (fill + flipped label) — no pill, no animation. paintBar toggles
+      // that class on the segment whose data-* value matches; a null value selects
+      // none (unselected segments stay red).
+      function paintBar(barId, attr, value) {
+        var bar = document.getElementById(barId);
+        if (!bar) return;
+        bar.querySelectorAll('.seg').forEach(function (s) {
+          s.classList.toggle('selected', value != null && s.getAttribute(attr) === value);
+        });
+      }
+
       function apply() {
         document.querySelectorAll('.item').forEach(function (el) {
-          var topicOk = activeTopic === 'all' || el.dataset.topic === activeTopic;
-          var formatOk = activeFormat === 'all' || el.dataset.type === activeFormat;
+          var topicOk = activeTopic === null || el.dataset.topic === activeTopic;
+          var formatOk = activeFormat === null || el.dataset.type === activeFormat;
           el.hidden = !(topicOk && formatOk);   // visible only if it matches BOTH axes
         });
-        document.querySelectorAll('.chip[data-filter]').forEach(function (c) {
-          c.classList.toggle('active', c.dataset.filter === activeTopic);
-        });
-        document.querySelectorAll('.chip[data-format]').forEach(function (c) {
-          c.classList.toggle('active', c.dataset.format === activeFormat);
-        });
+        // Each × shows only when its bar has an active selection.
+        if (topicResetEl) topicResetEl.hidden = activeTopic === null;
+        if (formatResetEl) formatResetEl.hidden = activeFormat === null;
         var n = document.querySelectorAll('.item:not([hidden])').length;
         if (countEl) countEl.textContent = n + (n === 1 ? ' item' : ' items');
+        // Highlight the selected segment in each bar (mode always has exactly one).
+        paintBar('topic-bar', 'data-filter', activeTopic);
+        paintBar('format-bar', 'data-format', activeFormat);
+        paintBar('mode-bar', 'data-theme-choice', document.documentElement.dataset.theme);
       }
+
+      // Topic segments AND card flair tags both carry data-filter and drive the topic toggle.
       document.querySelectorAll('[data-filter]').forEach(function (btn) {
         btn.addEventListener('click', function () { activeTopic = btn.dataset.filter; apply(); });
       });
       document.querySelectorAll('[data-format]').forEach(function (btn) {
         btn.addEventListener('click', function () { activeFormat = btn.dataset.format; apply(); });
       });
+      if (topicResetEl) topicResetEl.addEventListener('click', function () { activeTopic = null; apply(); });
+      if (formatResetEl) formatResetEl.addEventListener('click', function () { activeFormat = null; apply(); });
+
+      // Mode segments: flip data-theme, persist, repaint (mode bar always shows one selected).
+      document.querySelectorAll('[data-theme-choice]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var choice = btn.dataset.themeChoice;
+          document.documentElement.dataset.theme = choice;
+          localStorage.setItem('theme', choice);
+          apply();
+        });
+      });
+
       apply();
     })();
   </script>

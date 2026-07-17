@@ -55,15 +55,6 @@ MIN_TEASER_CHARS = 40                          # drop teasers shorter than this 
 RECENCY_DAYS = 15                              # LIVE front page only: hide items older than this many days
 SUMMARIES_PER_SECTION = 4                      # v3 Phase 1: top N most-recent ARTICLE items per topic get an AI summary (LIVE only)
 
-# Topic → accent color for the flair pills. Anything not listed falls back to grey.
-TOPIC_COLORS = {
-    "PM":       "#2563eb",   # blue
-    "GTM":      "#059669",   # green
-    "AI":       "#7c3aed",   # purple
-    "Startups": "#ea580c",   # orange
-}
-DEFAULT_COLOR = "#475569"
-
 # Preferred left-to-right order for the filter chips; unknown topics get appended.
 TOPIC_ORDER = ["PM", "GTM", "AI", "Startups"]
 
@@ -282,10 +273,6 @@ def esc(text: str) -> str:
     return html.escape(text or "")
 
 
-def color_for(topic: str) -> str:
-    return TOPIC_COLORS.get(topic, DEFAULT_COLOR)
-
-
 def render_item(item: dict, is_index: bool = False) -> str:
     topic = item["topic"]
     item_type = item["type"]
@@ -310,7 +297,7 @@ def render_item(item: dict, is_index: bool = False) -> str:
 
     return f"""      <article class="item" data-topic="{esc(topic)}" data-type="{esc(item_type)}">
         <div class="meta">
-          <button class="flair" data-filter="{esc(topic)}" style="--c:{color_for(topic)}">{esc(topic)}</button>
+          <button class="flair" data-filter="{esc(topic)}">{esc(topic)}</button>
           <span class="source">{esc(item["source"])}</span>
           {date_html}
         </div>
@@ -432,18 +419,31 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Morning News — {date_label}</title>
-  <style>
-    :root {{
-      --bg:#f8fafc; --card:#ffffff; --text:#0f172a; --muted:#64748b;
-      --border:#e2e8f0; --chip-bg:#ffffff;
-      --seg-red:#9b2020; --seg-fill:#f7e6e6;
-    }}
-    @media (prefers-color-scheme: dark) {{
-      :root {{
-        --bg:#0f172a; --card:#1e293b; --text:#e2e8f0; --muted:#94a3b8;
-        --border:#334155; --chip-bg:#1e293b;
-        --seg-red:#e0645c; --seg-fill:#3a201e;
+  <script>
+    // No-flash theme: set data-theme BEFORE the stylesheet paints. Stored choice
+    // wins; otherwise fall back to the OS preference.
+    (function () {{
+      var t = localStorage.getItem('theme');
+      if (t !== 'light' && t !== 'dark') {{
+        t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
       }}
+      document.documentElement.dataset.theme = t;
+    }})();
+  </script>
+  <style>
+    /* Editorial palette — warm off-white light / tinted off-black dark. Single
+       accent is the red (--seg-red). Dark mode is driven by data-theme, set by
+       the no-flash script above and flipped by the mode toggle in the filter row.
+       --chip-bg tracks --card so the archive calendar keeps its surface. */
+    :root {{
+      --bg:#faf8f3; --card:#ffffff; --text:#1c1a17; --text-secondary:#4a463e;
+      --muted:#6b6459; --border:#ddd6c8; --chip-bg:#ffffff;
+      --seg-red:#9b2020; --seg-fill:#1c1a17; --seg-on:#faf8f3;
+    }}
+    :root[data-theme="dark"] {{
+      --bg:#161410; --card:#1f1c17; --text:#efe8da; --text-secondary:#cabfae;
+      --muted:#9a9081; --border:#33302a; --chip-bg:#1f1c17;
+      --seg-red:#e0645c; --seg-fill:#efe8da; --seg-on:#161410;
     }}
     * {{ box-sizing: border-box; }}
     body {{
@@ -454,61 +454,91 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     .wrap {{ max-width:1400px; margin:0 auto; padding:24px 32px 72px; }}
     header {{ margin-bottom:16px; }}
     header .top {{ display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap; }}
-    h1 {{ font-size:1.7rem; margin:0; letter-spacing:-0.02em; }}
-    .subtitle {{ color:var(--muted); font-size:.95rem; margin:4px 0 0; }}
-    #count {{ color:var(--muted); font-size:.85rem; white-space:nowrap; }}
+    h1 {{ font-family:Georgia,"Times New Roman",serif; font-size:1.7rem; font-weight:600; margin:0; letter-spacing:-0.02em; }}
+    .subtitle {{ color:var(--muted); font-size:.95rem; margin:4px 0 0; font-variant-numeric:tabular-nums; }}
+    #count {{ color:var(--muted); font-size:.85rem; white-space:nowrap; font-variant-numeric:tabular-nums; }}
     .backlink {{ display:inline-block; margin-bottom:12px; color:var(--muted); text-decoration:none; font-size:.9rem; }}
     .backlink:hover {{ color:var(--text); }}
 
     .filters {{
-      position:sticky; top:0; z-index:10; display:flex; flex-direction:column; gap:8px;
-      padding:12px 0; margin-bottom:8px; background:var(--bg);
+      position:sticky; top:0; z-index:10; display:flex; flex-direction:column;
+      padding:0 0 12px; margin-bottom:8px; background:var(--bg);
       border-bottom:1px solid var(--border);
     }}
-    .filter-row {{ display:flex; flex-wrap:wrap; align-items:center; gap:8px; }}
-    /* Connected segmented control: one rounded border around the group, thin
-       dividers between segments. Labels are always red; selection is shown by a
-       tinted fill (var(--seg-fill)) behind the chosen segment, never by colour. */
+    /* One row of three toggle groups (topic · format · mode) split by thin
+       vertical dividers, above a top hairline. */
+    .filter-row {{
+      display:flex; flex-wrap:nowrap; align-items:center; gap:16px;
+      border-top:1px solid var(--border); padding-top:16px; overflow-x:auto;
+    }}
+    .filter-div {{ width:1px; align-self:stretch; background:var(--border); }}
+    .grp {{ display:inline-flex; align-items:center; gap:6px; }}
+    /* Segmented bar: red OUTER border with faint neutral internal dividers. The
+       SELECTED segment fills itself directly (--seg-fill) with a flipped label
+       (--seg-on), so the fill always matches the segment shape exactly — no pill,
+       no slide, instant selection. */
+    .segbar {{
+      display:inline-flex; border:1.5px solid var(--seg-red);
+      border-radius:8px; overflow:hidden;
+    }}
     .seg {{
-      display:inline-flex; border:1.5px solid var(--seg-red); border-radius:999px;
-      overflow:hidden;
+      font:inherit; font-size:13.5px; font-weight:500;
+      cursor:pointer; padding:7px 15px; background:transparent; color:var(--seg-red);
+      border:none; border-left:1px solid var(--border); line-height:1;
+      display:inline-flex; align-items:center;
     }}
-    .seg-btn {{
-      font:inherit; font-size:.85rem; font-weight:600; cursor:pointer;
-      padding:5px 14px; background:transparent; color:var(--seg-red);
-      border:none; border-left:1px solid var(--seg-red);
-    }}
-    .seg-btn:first-child {{ border-left:none; }}
-    .seg-btn.selected {{ background:var(--seg-fill); }}
+    .seg:first-child {{ border-left:none; }}
+    .seg.selected {{ background:var(--seg-fill); color:var(--seg-on); }}
+    /* End segments round their fill to follow the bar's inner corners (8px bar,
+       1.5px border → 6px inner). */
+    .seg:first-child.selected {{ border-top-left-radius:6px; border-bottom-left-radius:6px; }}
+    .seg:last-child.selected {{ border-top-right-radius:6px; border-bottom-right-radius:6px; }}
+    .seg-mode {{ padding:7px 13px; }}
+    .seg-mode svg {{ width:15px; height:15px; display:block; }}
     /* Per-bar reset: a muted × shown only when that bar has an active selection. */
     .seg-reset {{
       font:inherit; font-size:1rem; line-height:1; cursor:pointer;
-      background:transparent; border:none; color:var(--muted); padding:0 4px;
+      background:transparent; border:none; color:var(--muted); padding:0 2px;
     }}
     .seg-reset[hidden] {{ display:none; }}
 
     .item {{
       background:var(--card); border:1px solid var(--border); border-radius:12px;
-      padding:16px 18px; margin-bottom:14px;
+      padding:18px 20px; margin-bottom:14px;
     }}
-    .meta {{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:8px; }}
+    .meta {{
+      display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:8px;
+      font-variant-numeric:tabular-nums;
+    }}
+    /* Neutral card tags: identical for every topic; still clickable (data-filter). */
     .flair {{
-      font:inherit; font-size:.72rem; font-weight:700; letter-spacing:.03em;
-      text-transform:uppercase; cursor:pointer; padding:2px 9px; border-radius:999px;
-      background:transparent; color:var(--c); border:1.5px solid var(--c);
+      font:inherit; font-size:.72rem; font-weight:600; letter-spacing:.03em;
+      text-transform:uppercase; cursor:pointer; padding:2px 9px; border-radius:6px;
+      background:transparent; color:var(--text-secondary); border:1px solid var(--border);
     }}
-    .flair:hover {{ background:var(--c); color:#fff; }}
-    .source {{ font-size:.85rem; font-weight:600; color:var(--muted); }}
+    .flair:hover {{ border-color:var(--text-secondary); color:var(--text); }}
+    .source {{ font-size:.85rem; font-weight:500; color:var(--text-secondary); }}
     .date {{ font-size:.8rem; color:var(--muted); margin-left:auto; }}
-    .title {{ font-size:1.1rem; margin:0 0 6px; line-height:1.35; }}
+    /* Editorial headline: serif, high-contrast (never red), tighter tracking. */
+    .title {{
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:1.2rem; font-weight:600; letter-spacing:-0.01em;
+      margin:0 0 6px; line-height:1.3;
+    }}
     .title a {{ color:var(--text); text-decoration:none; }}
     .title a:hover {{ text-decoration:underline; }}
-    .teaser {{ margin:0; color:var(--muted); font-size:.95rem; }}
+    .teaser {{
+      margin:0; max-width:65ch; color:var(--text-secondary); font-size:.95rem;
+      font-variant-numeric:tabular-nums;
+    }}
     /* AI summary (LIVE only): slightly more prominent than a teaser (full text
        colour), prefixed by a small tag so it reads as our summary, not the feed's. */
-    .summary {{ margin:0; color:var(--text); font-size:.95rem; }}
+    .summary {{
+      margin:0; max-width:65ch; color:var(--text); font-size:.95rem;
+      font-variant-numeric:tabular-nums;
+    }}
     .summary-tag {{
-      display:inline-block; font-size:.62rem; font-weight:700; letter-spacing:.05em;
+      display:inline-block; font-size:.62rem; font-weight:600; letter-spacing:.05em;
       text-transform:uppercase; color:var(--muted);
       border:1px solid var(--border); border-radius:4px;
       padding:1px 6px; margin-right:8px; vertical-align:middle;
@@ -573,21 +603,31 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     <div class="layout">
       <div class="content">
         <nav class="filters" aria-label="Filter items">
-          <div class="filter-row" aria-label="Filter by topic">
-            <div class="seg">
-              <button class="seg-btn" data-filter="AI">AI</button>
-              <button class="seg-btn" data-filter="PM">PM</button>
-              <button class="seg-btn" data-filter="GTM">GTM</button>
-              <button class="seg-btn" data-filter="Startups">Startups</button>
+          <div class="filter-row">
+            <div class="grp" aria-label="Filter by topic">
+              <div class="segbar" id="topic-bar">
+                <button class="seg" data-filter="AI">AI</button>
+                <button class="seg" data-filter="PM">PM</button>
+                <button class="seg" data-filter="GTM">GTM</button>
+                <button class="seg" data-filter="Startups">Startups</button>
+              </div>
+              <button class="seg-reset" id="topic-reset" aria-label="Clear topic filter" hidden>&times;</button>
             </div>
-            <button class="seg-reset" id="topic-reset" aria-label="Clear topic filter" hidden>&times;</button>
-          </div>
-          <div class="filter-row" aria-label="Filter by format">
-            <div class="seg">
-              <button class="seg-btn" data-format="article">Articles</button>
-              <button class="seg-btn" data-format="video">Videos</button>
+            <div class="filter-div" aria-hidden="true"></div>
+            <div class="grp" aria-label="Filter by format">
+              <div class="segbar" id="format-bar">
+                <button class="seg" data-format="article">Articles</button>
+                <button class="seg" data-format="video">Videos</button>
+              </div>
+              <button class="seg-reset" id="format-reset" aria-label="Clear format filter" hidden>&times;</button>
             </div>
-            <button class="seg-reset" id="format-reset" aria-label="Clear format filter" hidden>&times;</button>
+            <div class="filter-div" aria-hidden="true"></div>
+            <div class="grp" aria-label="Color theme">
+              <div class="segbar" id="mode-bar">
+                <button class="seg seg-mode" data-theme-choice="light" aria-label="Light mode"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"></circle><line x1="12" y1="2" x2="12" y2="4"></line><line x1="12" y1="20" x2="12" y2="22"></line><line x1="2" y1="12" x2="4" y2="12"></line><line x1="20" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="6.3" y2="6.3"></line><line x1="17.7" y1="17.7" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="6.3" y2="17.7"></line><line x1="17.7" y1="6.3" x2="19.1" y2="4.9"></line></svg></button>
+                <button class="seg seg-mode" data-theme-choice="dark" aria-label="Dark mode"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg></button>
+              </div>
+            </div>
           </div>
         </nav>
 
@@ -612,25 +652,36 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
       var formatResetEl = document.getElementById('format-reset');
       var activeTopic = null;    // null = no topic selected (show all topics)
       var activeFormat = null;   // null = no format selected (show all formats)
+
+      // Segment highlight: the SELECTED segment fills itself via the .seg.selected
+      // CSS rule (fill + flipped label) — no pill, no animation. paintBar toggles
+      // that class on the segment whose data-* value matches; a null value selects
+      // none (unselected segments stay red).
+      function paintBar(barId, attr, value) {{
+        var bar = document.getElementById(barId);
+        if (!bar) return;
+        bar.querySelectorAll('.seg').forEach(function (s) {{
+          s.classList.toggle('selected', value != null && s.getAttribute(attr) === value);
+        }});
+      }}
+
       function apply() {{
         document.querySelectorAll('.item').forEach(function (el) {{
           var topicOk = activeTopic === null || el.dataset.topic === activeTopic;
           var formatOk = activeFormat === null || el.dataset.type === activeFormat;
           el.hidden = !(topicOk && formatOk);   // visible only if it matches BOTH axes
         }});
-        // Tinted-fill highlight on the selected segment in each bar.
-        document.querySelectorAll('.seg-btn[data-filter]').forEach(function (b) {{
-          b.classList.toggle('selected', b.dataset.filter === activeTopic);
-        }});
-        document.querySelectorAll('.seg-btn[data-format]').forEach(function (b) {{
-          b.classList.toggle('selected', b.dataset.format === activeFormat);
-        }});
         // Each × shows only when its bar has an active selection.
         if (topicResetEl) topicResetEl.hidden = activeTopic === null;
         if (formatResetEl) formatResetEl.hidden = activeFormat === null;
         var n = document.querySelectorAll('.item:not([hidden])').length;
         if (countEl) countEl.textContent = n + (n === 1 ? ' item' : ' items');
+        // Highlight the selected segment in each bar (mode always has exactly one).
+        paintBar('topic-bar', 'data-filter', activeTopic);
+        paintBar('format-bar', 'data-format', activeFormat);
+        paintBar('mode-bar', 'data-theme-choice', document.documentElement.dataset.theme);
       }}
+
       // Topic segments AND card flair tags both carry data-filter and drive the topic toggle.
       document.querySelectorAll('[data-filter]').forEach(function (btn) {{
         btn.addEventListener('click', function () {{ activeTopic = btn.dataset.filter; apply(); }});
@@ -640,6 +691,17 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
       }});
       if (topicResetEl) topicResetEl.addEventListener('click', function () {{ activeTopic = null; apply(); }});
       if (formatResetEl) formatResetEl.addEventListener('click', function () {{ activeFormat = null; apply(); }});
+
+      // Mode segments: flip data-theme, persist, repaint (mode bar always shows one selected).
+      document.querySelectorAll('[data-theme-choice]').forEach(function (btn) {{
+        btn.addEventListener('click', function () {{
+          var choice = btn.dataset.themeChoice;
+          document.documentElement.dataset.theme = choice;
+          localStorage.setItem('theme', choice);
+          apply();
+        }});
+      }});
+
       apply();
     }})();
   </script>

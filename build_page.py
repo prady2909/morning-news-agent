@@ -173,14 +173,6 @@ def collect_items() -> list:
     return items
 
 
-def topics_present(items: list) -> list:
-    """Ordered list of the topics that actually appear in today's items."""
-    seen = {it["topic"] for it in items}
-    ordered = [t for t in TOPIC_ORDER if t in seen]
-    ordered += sorted(t for t in seen if t not in TOPIC_ORDER)
-    return ordered
-
-
 def filter_recent(items: list, today: datetime) -> list:
     """Keep only items published within RECENCY_DAYS of `today`. Items with NO
     parseable date are KEPT — we drop only what we can positively confirm is
@@ -292,11 +284,6 @@ def esc(text: str) -> str:
 
 def color_for(topic: str) -> str:
     return TOPIC_COLORS.get(topic, DEFAULT_COLOR)
-
-
-def render_chip(topic: str) -> str:
-    return (f'<button class="chip" data-filter="{esc(topic)}" '
-            f'style="--c:{color_for(topic)}">{esc(topic)}</button>')
 
 
 def render_item(item: dict, is_index: bool = False) -> str:
@@ -449,11 +436,13 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     :root {{
       --bg:#f8fafc; --card:#ffffff; --text:#0f172a; --muted:#64748b;
       --border:#e2e8f0; --chip-bg:#ffffff;
+      --seg-red:#9b2020; --seg-fill:#f7e6e6;
     }}
     @media (prefers-color-scheme: dark) {{
       :root {{
         --bg:#0f172a; --card:#1e293b; --text:#e2e8f0; --muted:#94a3b8;
         --border:#334155; --chip-bg:#1e293b;
+        --seg-red:#e0645c; --seg-fill:#3a201e;
       }}
     }}
     * {{ box-sizing: border-box; }}
@@ -476,15 +465,27 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
       padding:12px 0; margin-bottom:8px; background:var(--bg);
       border-bottom:1px solid var(--border);
     }}
-    .filter-row {{ display:flex; flex-wrap:wrap; gap:8px; }}
-    .chip {{
-      font:inherit; font-size:.85rem; font-weight:600; cursor:pointer;
-      padding:5px 12px; border-radius:999px; background:var(--chip-bg);
-      border:1.5px solid var(--border); color:var(--text); transition:all .12s ease;
+    .filter-row {{ display:flex; flex-wrap:wrap; align-items:center; gap:8px; }}
+    /* Connected segmented control: one rounded border around the group, thin
+       dividers between segments. Labels are always red; selection is shown by a
+       tinted fill (var(--seg-fill)) behind the chosen segment, never by colour. */
+    .seg {{
+      display:inline-flex; border:1.5px solid var(--seg-red); border-radius:999px;
+      overflow:hidden;
     }}
-    .chip[data-filter="all"] {{ --c:var(--text); }}
-    .chip:hover {{ border-color:var(--c); }}
-    .chip.active {{ background:var(--c); border-color:var(--c); color:#fff; }}
+    .seg-btn {{
+      font:inherit; font-size:.85rem; font-weight:600; cursor:pointer;
+      padding:5px 14px; background:transparent; color:var(--seg-red);
+      border:none; border-left:1px solid var(--seg-red);
+    }}
+    .seg-btn:first-child {{ border-left:none; }}
+    .seg-btn.selected {{ background:var(--seg-fill); }}
+    /* Per-bar reset: a muted × shown only when that bar has an active selection. */
+    .seg-reset {{
+      font:inherit; font-size:1rem; line-height:1; cursor:pointer;
+      background:transparent; border:none; color:var(--muted); padding:0 4px;
+    }}
+    .seg-reset[hidden] {{ display:none; }}
 
     .item {{
       background:var(--card); border:1px solid var(--border); border-radius:12px;
@@ -573,13 +574,20 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
       <div class="content">
         <nav class="filters" aria-label="Filter items">
           <div class="filter-row" aria-label="Filter by topic">
-            <button class="chip active" data-filter="all">All</button>
-{chips}
+            <div class="seg">
+              <button class="seg-btn" data-filter="AI">AI</button>
+              <button class="seg-btn" data-filter="PM">PM</button>
+              <button class="seg-btn" data-filter="GTM">GTM</button>
+              <button class="seg-btn" data-filter="Startups">Startups</button>
+            </div>
+            <button class="seg-reset" id="topic-reset" aria-label="Clear topic filter" hidden>&times;</button>
           </div>
           <div class="filter-row" aria-label="Filter by format">
-            <button class="chip active" data-format="all">All</button>
-            <button class="chip" data-format="article" style="--c:var(--text)">Articles</button>
-            <button class="chip" data-format="video" style="--c:var(--text)">Videos</button>
+            <div class="seg">
+              <button class="seg-btn" data-format="article">Articles</button>
+              <button class="seg-btn" data-format="video">Videos</button>
+            </div>
+            <button class="seg-reset" id="format-reset" aria-label="Clear format filter" hidden>&times;</button>
           </div>
         </nav>
 
@@ -600,29 +608,38 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   <script>
     (function () {{
       var countEl = document.getElementById('count');
-      var activeTopic = 'all';    // topic-chip / flair selection
-      var activeFormat = 'all';   // format-chip selection (article | video)
+      var topicResetEl = document.getElementById('topic-reset');
+      var formatResetEl = document.getElementById('format-reset');
+      var activeTopic = null;    // null = no topic selected (show all topics)
+      var activeFormat = null;   // null = no format selected (show all formats)
       function apply() {{
         document.querySelectorAll('.item').forEach(function (el) {{
-          var topicOk = activeTopic === 'all' || el.dataset.topic === activeTopic;
-          var formatOk = activeFormat === 'all' || el.dataset.type === activeFormat;
+          var topicOk = activeTopic === null || el.dataset.topic === activeTopic;
+          var formatOk = activeFormat === null || el.dataset.type === activeFormat;
           el.hidden = !(topicOk && formatOk);   // visible only if it matches BOTH axes
         }});
-        document.querySelectorAll('.chip[data-filter]').forEach(function (c) {{
-          c.classList.toggle('active', c.dataset.filter === activeTopic);
+        // Tinted-fill highlight on the selected segment in each bar.
+        document.querySelectorAll('.seg-btn[data-filter]').forEach(function (b) {{
+          b.classList.toggle('selected', b.dataset.filter === activeTopic);
         }});
-        document.querySelectorAll('.chip[data-format]').forEach(function (c) {{
-          c.classList.toggle('active', c.dataset.format === activeFormat);
+        document.querySelectorAll('.seg-btn[data-format]').forEach(function (b) {{
+          b.classList.toggle('selected', b.dataset.format === activeFormat);
         }});
+        // Each × shows only when its bar has an active selection.
+        if (topicResetEl) topicResetEl.hidden = activeTopic === null;
+        if (formatResetEl) formatResetEl.hidden = activeFormat === null;
         var n = document.querySelectorAll('.item:not([hidden])').length;
         if (countEl) countEl.textContent = n + (n === 1 ? ' item' : ' items');
       }}
+      // Topic segments AND card flair tags both carry data-filter and drive the topic toggle.
       document.querySelectorAll('[data-filter]').forEach(function (btn) {{
         btn.addEventListener('click', function () {{ activeTopic = btn.dataset.filter; apply(); }});
       }});
       document.querySelectorAll('[data-format]').forEach(function (btn) {{
         btn.addEventListener('click', function () {{ activeFormat = btn.dataset.format; apply(); }});
       }});
+      if (topicResetEl) topicResetEl.addEventListener('click', function () {{ activeTopic = null; apply(); }});
+      if (formatResetEl) formatResetEl.addEventListener('click', function () {{ activeFormat = null; apply(); }});
       apply();
     }})();
   </script>
@@ -633,7 +650,6 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 
 def render_page(items: list, date_label: str, is_index: bool,
                 today: datetime, snapshot_dates: set) -> str:
-    chips = "\n".join("      " + render_chip(t) for t in topics_present(items))
     items_html = "\n".join(render_item(it, is_index) for it in items)
     source_count = len({it["source"] for it in items})
     backlink = "" if is_index else '    <a class="backlink" href="index.html">← Latest</a>\n'
@@ -642,7 +658,6 @@ def render_page(items: list, date_label: str, is_index: bool,
         date_label=esc(date_label),
         item_count=len(items),
         source_count=source_count,
-        chips=chips,
         items=items_html,
         calendar=render_calendar(today, snapshot_dates),
         backlink=backlink,

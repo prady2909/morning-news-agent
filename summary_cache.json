@@ -112,5 +112,11 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Nue is a revenue platform designed for B2B + AI companies transitioning from per-seat pricing to usage, consumption, or outcome-based models. It unifies quoting, billing, usage metering, and revenue recognition on a single data model. This allows companies to quickly launch and change pricing models without complex engineering projects."
+  },
+  "https://www.saastr.com/sales-rep-annual-quotas-what-high-performers-are-actually-carrying/": {
+    "created_at": "2026-07-19T12:00:58.433079+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "ICONIQ's 2026 GTM benchmark report shows increased annual sales quotas for high performers, with enterprise AEs carrying $2.25M, Mid-Market at $1.35M, and SMB at $750K. These higher quotas are supported by AI-driven pipeline generation and are accompanied by increased attainment rates and a shift in AE compensation towards expansion activities like cross-sell and renewals."
   }
 }

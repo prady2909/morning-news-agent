@@ -35,6 +35,18 @@
     "prompt_version": 1,
     "summary": "An annual Tech Worker Sentiment Survey, now in its second year, gathered responses from thousands of workers across various tech roles. The study explores how people in tech feel about their jobs, AI, burnout, and career futures, revealing that AI has split the workforce. Key findings include an 11-point jump in burnout and a sentiment that no one in tech would recommend their job to new industry entrants."
   },
+  "https://www.lennysnewsletter.com/p/how-the-founder-of-morning-brew-built": {
+    "created_at": "2026-07-20T13:08:44.275209+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Alex Lieberman, founder and CEO of Tenex, rebuilt his content process around AI to create a \"Content Machine\" that avoids generic output. This six-step machine uses an Oracle to identify content spikes and an interview panel to capture his unique voice and ideas. The goal is to eliminate the \"blank page\" as the biggest friction point in content creation."
+  },
+  "https://www.lennysnewsletter.com/p/netflix-cpto-on-ai-and-the-future": {
+    "created_at": "2026-07-20T13:08:59.314735+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Netflix Chief Product and Technology Officer Elizabeth Stone, who oversees Engineering, Product, and Design, discusses AI and the future of product and tech roles. The conversation covers key skills like \"systems thinking,\" managing AI-generated output quality, and Netflix's expectation of AI fluency."
+  },
   "https://www.lennysnewsletter.com/p/this-solo-builder-runs-247-local": {
     "created_at": "2026-07-15T12:17:35.322750+00:00",
     "model": "gemini-2.5-flash",
@@ -107,6 +119,12 @@
     "prompt_version": 1,
     "summary": "Software is not dead, but winning in the industry has become much harder due to AI, which is currently in a massive \"invest mode\" with spending significantly outpacing revenue. New software companies must build strong, defensible moats, such as proprietary non-public data or integration with physical sensors, to differentiate themselves from core foundation models. Founders need to understand their specific layer in the AI stack, ensure real growth, and manage compute costs efficiently."
   },
+  "https://www.saastr.com/jasons-takes-on-this-weeks-20vc-the-token-governor-the-net-new-logo-test-and-why-renewal-stopped-being-safe/": {
+    "created_at": "2026-07-20T13:09:15.806380+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "For B2B companies, net new logo growth, specifically above 15% annually, is presented as the critical survival metric in the current environment. Key insights also include the necessity of governing AI token spend as a significant new cost center and the accelerated collapse of switching costs, which makes customer renewals less certain."
+  },
   "https://www.saastr.com/saastr-ai-app-of-the-week-nue-the-revenue-platform-built-for-how-b2b-ai-actually-prices-now/": {
     "created_at": "2026-07-18T11:54:35.865831+00:00",
     "model": "gemini-2.5-flash",
@@ -118,5 +136,11 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "ICONIQ's 2026 GTM benchmark report shows increased annual sales quotas for high performers, with enterprise AEs carrying $2.25M, Mid-Market at $1.35M, and SMB at $750K. These higher quotas are supported by AI-driven pipeline generation and are accompanied by increased attainment rates and a shift in AE compensation towards expansion activities like cross-sell and renewals."
+  },
+  "https://www.saastr.com/what-a-great-vp-sales-does-in-their-first-week-watch-for-it/": {
+    "created_at": "2026-07-20T13:09:31.789717+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "A great VP of Sales in their first week immediately brings in 2-4 sales executives from their network and identifies top existing talent for retention. They also begin the process of moving out underperformers and jump into critical deals to understand problems and help close them."
   }
 }

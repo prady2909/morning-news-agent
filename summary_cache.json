@@ -23,11 +23,23 @@
     "prompt_version": 1,
     "summary": "Open-source AI models are facing a serious viability test due to new regulations being discussed at the White House. There is a likely action to ban or delay open-weights models above certain capability levels within the next six months, driven by concerns about frontier capabilities and calls to restrict Chinese open-weight models."
   },
+  "https://www.interconnects.ai/p/kimi-k3-the-open-weights-escalation": {
+    "created_at": "2026-07-21T12:25:13.949261+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Moonshot AI released their flagship model Kimi K3 on Thursday, July 16th, with its weights slated for release on July 27th. K3 is a 2.8T parameter MoE model described as a true frontier model and the strongest open model ever released. It ranks #2 on the Vals AI index and #3 on Artificial Analysis's Intelligence Index."
+  },
   "https://www.lennysnewsletter.com/p/how-i-ai-gpt-56-review-how-a-solo": {
     "created_at": "2026-07-15T12:17:28.899389+00:00",
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Claire benchmarked GPT-5.6 Sol against Claude Fable and other models for real product work, finding Sol to be the most practically effective. Sol became her new daily driver due to its ability to produce functional prototypes, easier-to-work-with writing, and practical flexibility for building products. It also excels at video editing via Codex and browser use with @Chrome for agentic workflows."
+  },
+  "https://www.lennysnewsletter.com/p/how-i-ai-how-the-founder-of-morning": {
+    "created_at": "2026-07-21T12:24:58.537922+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Alex Lieberman built an AI content system using Claude to generate content ideas and drafts. The system uses an AI Oracle to find content ideas from various sources and interviews Lieberman with multiple personas to extract specifics. It drafts content based on a personal voice guide and employs a \"Writer's Council\" to revise drafts to a high standard, with a reinforcement loop for continuous improvement."
   },
   "https://www.lennysnewsletter.com/p/how-tech-workers-actually-feel-about": {
     "created_at": "2026-07-15T12:17:43.485256+00:00",
@@ -76,6 +88,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Apple sued OpenAI this week over alleged trade secret theft involving physical prototypes and former employees, which signaled Apple's intent to make poaching expensive. The discussion also noted the start of a \"token-maxing\" era, driven by rapidly increasing AI spend and a shift towards two-tier model strategies for token consumption. A central, unresolved question was the total addressable market for AI coding, with concerns that leading AI companies could quickly reach the ceiling of the US developer wage market."
+  },
+  "https://www.saastr.com/5-4m-impressions-driving-11749-to-their-signup-form-what-advertising-on-saastr-ai-media-actually-delivers/": {
+    "created_at": "2026-07-21T12:25:31.318087+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "SaaStr AI provides advertisers with live dashboards and reconciled performance numbers, tracked in real-time by an AI VP of Marketing. One campaign delivered over 5.4 million impressions across 67 newsletter editions, resulting in 11,749 visits from B2B buyers to a sponsor's signup form. This advertising targets B2B decision-makers with budget authority across multiple channels, leading to measurable revenue and renewals for sponsors."
   },
   "https://www.saastr.com/5-interesting-learnings-from-zoom-at-5-billion-in-arr-re-accelerating-growth-real-ai-monetization-and-a-25x-anthropic-windfall/": {
     "created_at": "2026-07-17T12:11:43.855879+00:00",
@@ -136,6 +154,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "ICONIQ's 2026 GTM benchmark report shows increased annual sales quotas for high performers, with enterprise AEs carrying $2.25M, Mid-Market at $1.35M, and SMB at $750K. These higher quotas are supported by AI-driven pipeline generation and are accompanied by increased attainment rates and a shift in AE compensation towards expansion activities like cross-sell and renewals."
+  },
+  "https://www.saastr.com/the-sub-5-club-the-terminal-state-of-software/": {
+    "created_at": "2026-07-21T12:25:51.619253+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Many B2B software companies are entering a \"terminal state\" with growth rates under 5%, as the market no longer views them as reliable annuities. This shift is driven by AI, which directly impacts the seat-based model that previously sustained growth and high net revenue retention. Consequently, the premium once paid for these software economics has vanished, and the market now questions the long-term durability of their cash flows."
   },
   "https://www.saastr.com/what-a-great-vp-sales-does-in-their-first-week-watch-for-it/": {
     "created_at": "2026-07-20T13:09:31.789717+00:00",

@@ -29,6 +29,12 @@
     "prompt_version": 1,
     "summary": "Moonshot AI released their flagship model Kimi K3 on Thursday, July 16th, with its weights slated for release on July 27th. K3 is a 2.8T parameter MoE model described as a true frontier model and the strongest open model ever released. It ranks #2 on the Vals AI index and #3 on Artificial Analysis's Intelligence Index."
   },
+  "https://www.lennysnewsletter.com/p/computer-and-browser-use-in-codex": {
+    "created_at": "2026-07-22T12:26:42.937439+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "This item explores browser and computer use through Codex, the ChatGPT desktop app, detailing specific workflows. Examples include QA testing onboarding flows, persona impersonation, managing a LinkedIn inbox, AI personal shopping, and controlling iPhone mirroring. The discussion also covers why the Codex desktop app with a Chrome extension is the preferred combination and suggests under-prompting for better results."
+  },
   "https://www.lennysnewsletter.com/p/how-i-ai-gpt-56-review-how-a-solo": {
     "created_at": "2026-07-15T12:17:28.899389+00:00",
     "model": "gemini-2.5-flash",
@@ -52,6 +58,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Alex Lieberman, founder and CEO of Tenex, rebuilt his content process around AI to create a \"Content Machine\" that avoids generic output. This six-step machine uses an Oracle to identify content spikes and an interview panel to capture his unique voice and ideas. The goal is to eliminate the \"blank page\" as the biggest friction point in content creation."
+  },
+  "https://www.lennysnewsletter.com/p/how-to-take-a-sabbatical": {
+    "created_at": "2026-07-22T12:26:59.855988+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "The text explores the transformative power of sabbaticals, featuring personal experiences from the author and guest author DJ DiDonna. DiDonna's book, \"Big Time Off,\" identifies three sabbatical archetypes—Achiever, Seeker, and Explorer—and offers guidance. Key advice includes ensuring sufficient time off, ideally 6-12 months, and setting impenetrable boundaries for true disconnection from routine life."
   },
   "https://www.lennysnewsletter.com/p/netflix-cpto-on-ai-and-the-future": {
     "created_at": "2026-07-20T13:08:59.314735+00:00",
@@ -88,6 +100,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Apple sued OpenAI this week over alleged trade secret theft involving physical prototypes and former employees, which signaled Apple's intent to make poaching expensive. The discussion also noted the start of a \"token-maxing\" era, driven by rapidly increasing AI spend and a shift towards two-tier model strategies for token consumption. A central, unresolved question was the total addressable market for AI coding, with concerns that leading AI companies could quickly reach the ceiling of the US developer wage market."
+  },
+  "https://www.saastr.com/3-humans-20-ai-agents-and-yes-we-still-need-real-b2b-software/": {
+    "created_at": "2026-07-22T12:27:15.435438+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Even with a significant number of AI agents in operation, B2B software like CRM remains necessary because humans need structured interfaces for their work. AI agents also require a shared system of record to maintain consistent logic and prevent data inconsistencies. Additionally, enterprise software provides essential safety nets, compliance features, and a central source of truth for integration with other business systems."
   },
   "https://www.saastr.com/5-4m-impressions-driving-11749-to-their-signup-form-what-advertising-on-saastr-ai-media-actually-delivers/": {
     "created_at": "2026-07-21T12:25:31.318087+00:00",
@@ -154,6 +172,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "ICONIQ's 2026 GTM benchmark report shows increased annual sales quotas for high performers, with enterprise AEs carrying $2.25M, Mid-Market at $1.35M, and SMB at $750K. These higher quotas are supported by AI-driven pipeline generation and are accompanied by increased attainment rates and a shift in AE compensation towards expansion activities like cross-sell and renewals."
+  },
+  "https://www.saastr.com/the-20-minute-test-in-vp-hiring-maybe-all-hiring/": {
+    "created_at": "2026-07-22T12:27:34.390073+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "The \"20 Minute Test\" suggests that if a candidate does not impress as a VP within the first 20 minutes of their initial Zoom interview, one should pass. This test is proposed to counter less diligent hiring practices that have emerged in recruiting, as VPs often fail when there wasn't initial conviction about their capabilities."
   },
   "https://www.saastr.com/the-sub-5-club-the-terminal-state-of-software/": {
     "created_at": "2026-07-21T12:25:51.619253+00:00",

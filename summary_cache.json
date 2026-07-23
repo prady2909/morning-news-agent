@@ -29,6 +29,12 @@
     "prompt_version": 1,
     "summary": "Moonshot AI released their flagship model Kimi K3 on Thursday, July 16th, with its weights slated for release on July 27th. K3 is a 2.8T parameter MoE model described as a true frontier model and the strongest open model ever released. It ranks #2 on the Vals AI index and #3 on Artificial Analysis's Intelligence Index."
   },
+  "https://www.interconnects.ai/p/open-models-recap-more-on-kimi-k3": {
+    "created_at": "2026-07-23T12:25:18.179194+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "A discussion reviewed recent developments in open models, highlighting the impact of Kimi K3's release, China's commitment to openness, and Qwen's plan for an open-weight model. The conversation covered the performance of various Chinese and US open models and debated the increasing or decreasing impact of distillation from closed models. Predictions for the year included continued growth in model capabilities, with Kimi and Zhipu considered frontier models, and the possibility of a US company entering the top cluster."
+  },
   "https://www.lennysnewsletter.com/p/computer-and-browser-use-in-codex": {
     "created_at": "2026-07-22T12:26:42.937439+00:00",
     "model": "gemini-2.5-flash",
@@ -76,6 +82,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Alex Finn, an AI builder, runs an ambitious local AI setup on his own hardware. His system includes three Mac Studio machines, a DGX Spark, and a custom RTX 5090 build, all coordinated through a self-built fleet dashboard. Finn has spent five months optimizing model allocation, integrating with Claude Code loops, and establishing a self-running software factory."
+  },
+  "https://www.newcomer.co/p/announcing-the-machine-earning-ai": {
+    "created_at": "2026-07-23T12:25:53.439410+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "The Machine Earning AI Summit, a one-day, invite-only event, will be held on Tuesday, Sept. 29 in San Francisco. It will focus on AI commerce and finance, exploring questions about online shopping with agents, banking with language models, and intelligent payment rails. The summit is aimed at top founders, investors, media, and other AI insiders."
   },
   "https://www.newcomer.co/p/ipo-party-faces-down-volatility-and": {
     "created_at": "2026-07-17T22:41:15.981737+00:00",
@@ -149,6 +161,12 @@
     "prompt_version": 1,
     "summary": "AI agents should be deployed on \"B leads\" rather than \"A leads\" for outbound sales efforts. B leads have real signal but are often ignored by human sales representatives who prioritize \"A leads.\" Deploying AI agents on these neglected B leads can unlock significant revenue by leveraging the agents' patience to work leads humans typically skip."
   },
+  "https://www.saastr.com/how-a-mediocre-sales-team-loses-you-deals-ones-you-could-have-won/": {
+    "created_at": "2026-07-23T12:25:34.732185+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "A prospect who had signaled interest in a potential six-figure deal received generic sales outreach lacking customization or research. The vendor's emails failed to address specific needs or show how they could improve upon the prospect's current provider. This approach is described as wasting valuable leads and disqualifying the vendor, even when tools exist to create tailored communication."
+  },
   "https://www.saastr.com/is-software-dead-no-it-just-got-a-lot-harder-to-win-the-saastr-ai-deep-dive-with-rory-odriscoll/": {
     "created_at": "2026-07-16T12:21:54.955379+00:00",
     "model": "gemini-2.5-flash",
@@ -160,6 +178,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "For B2B companies, net new logo growth, specifically above 15% annually, is presented as the critical survival metric in the current environment. Key insights also include the necessity of governing AI token spend as a significant new cost center and the accelerated collapse of switching costs, which makes customer renewals less certain."
+  },
+  "https://www.saastr.com/rfp-lost-small-size/": {
+    "created_at": "2026-07-23T12:26:08.751800+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "An item provides advice for startups that lost a large Request for Proposal (RFP) because they were considered too small. The advice includes maintaining relationships with lost prospects for future opportunities, using lost RFPs to guide product and security development, and evolving team culture to be more enterprise-focused. It also suggests that some larger companies may still engage with smaller vendors for less mission-critical projects."
   },
   "https://www.saastr.com/saastr-ai-app-of-the-week-nue-the-revenue-platform-built-for-how-b2b-ai-actually-prices-now/": {
     "created_at": "2026-07-18T11:54:35.865831+00:00",

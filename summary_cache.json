@@ -95,6 +95,12 @@
     "prompt_version": 1,
     "summary": "US IPOs have seen their biggest year since 2021, with total proceeds nearly matching the 2021 annual record. However, aftermarket performance has been disappointing, with many, including SpaceX, slumping since their debut and trading below offering prices."
   },
+  "https://www.newcomer.co/p/scoop-fundraising-documents-reveal": {
+    "created_at": "2026-07-24T12:21:10.547498+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "IVP is currently raising $1.8 billion for its 19th flagship fund. The firm is telling prospective limited partners it has generated a 31.1% net internal rate of return since its founding in 1980. Its recent funds regularly produce above-average performance, often falling in the top half and sometimes the top quartile of venture capital funds."
+  },
   "https://www.newcomer.co/p/scoop-menlo-ventures-sees-irr-of": {
     "created_at": "2026-07-17T12:12:37.036222+00:00",
     "model": "gemini-2.5-flash",
@@ -125,6 +131,12 @@
     "prompt_version": 1,
     "summary": "SaaStr AI provides advertisers with live dashboards and reconciled performance numbers, tracked in real-time by an AI VP of Marketing. One campaign delivered over 5.4 million impressions across 67 newsletter editions, resulting in 11,749 visits from B2B buyers to a sponsor's signup form. This advertising targets B2B decision-makers with budget authority across multiple channels, leading to measurable revenue and renewals for sponsors."
   },
+  "https://www.saastr.com/5-interesting-learnings-from-stripe-at-6-8-billion-in-revenue-33-growth-47-free-cash-flow-margins-and-a-53b-bid-for-paypal/": {
+    "created_at": "2026-07-24T12:21:27.585226+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Stripe reported re-accelerated growth in 2025, with revenue hitting $6.8 billion, up 33%, and free cash flow surging 52% to $3.2 billion. This growth is partly attributed to its position in the AI market, processing payments for AI labs. The company also made a $53 billion bid for PayPal to acquire consumer wallets, though the offer was rejected."
+  },
   "https://www.saastr.com/5-interesting-learnings-from-zoom-at-5-billion-in-arr-re-accelerating-growth-real-ai-monetization-and-a-25x-anthropic-windfall/": {
     "created_at": "2026-07-17T12:11:43.855879+00:00",
     "model": "gemini-2.5-flash",
@@ -136,6 +148,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Higgsfield reached a $500M annualized revenue run rate in June, approximately 15 months after launching in March 2025, and is cash-flow positive. The company operates with about 150 people, including a core engineering team of 60, and now aggregates various AI models, with approximately 70% of its revenue coming from agencies."
+  },
+  "https://www.saastr.com/ai-wont-kill-saas-but-it-will-kill-vendors-that-stopped-shipping-point-solutions-are-most-at-risk/": {
+    "created_at": "2026-07-24T12:21:43.789468+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "AI is making point solutions that have stopped evolving vulnerable to in-house replacements, even though buying software is generally still preferred. This shift occurs when vendors of single-purpose tools fail to ship new material features, as customers can now use AI to build custom tools that offer significant workflow savings."
   },
   "https://www.saastr.com/an-hour-with-our-top-ai-agent-cost-13-42-you-cant-hire-anyone-for-that/": {
     "created_at": "2026-07-16T12:22:04.101022+00:00",
@@ -214,5 +232,11 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "A great VP of Sales in their first week immediately brings in 2-4 sales executives from their network and identifies top existing talent for retention. They also begin the process of moving out underperformers and jump into critical deals to understand problems and help close them."
+  },
+  "https://www.svpg.com/the-ai-productivity-paradox/": {
+    "created_at": "2026-07-24T12:20:54.305797+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Product teams are leveraging AI to deliver faster, yet their outcomes are not improving. This phenomenon, known as the \"AI Productivity Paradox,\" has been recognized by people from across the industry. The business world is grappling with this paradox."
   }
 }

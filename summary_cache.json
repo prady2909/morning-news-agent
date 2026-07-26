@@ -119,6 +119,12 @@
     "prompt_version": 1,
     "summary": "Menlo Ventures is seeing an Internal Rate of Return (IRR) of over 40% on its recent funds, largely driven by its substantial investment in the AI lab Anthropic. The firm committed around $1 billion to Anthropic across different vehicles, with this stake now worth $14 billion, contributing to the firm's recent success and its largest fundraise to date."
   },
+  "https://www.notboring.co/p/ai-is-oil-not-god": {
+    "created_at": "2026-07-26T12:05:04.809835+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Tech leaders, including Satya Nadella and Jensen Huang, signed a letter supporting open-weight models, which the author interprets as a capitalist strategy where signatories benefit from models becoming cheaper and more plentiful. The author argues that AI is more akin to \"Oil\"—an economically useful commodity—than a dangerous, god-like entity, though acknowledging concerns about potential misuse like the removal of safeguards."
+  },
   "https://www.notboring.co/p/weekly-dose-of-optimism-202": {
     "created_at": "2026-07-17T12:12:00.847721+00:00",
     "model": "gemini-2.5-flash",
@@ -172,6 +178,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "An AI marketing agent, 10K, completed a one-hour work session at a cost of $13.42, which is less than human minimum wages and significantly below the hourly equivalent of a human VP of Marketing. This particular cost was for a \"build-and-analyze session,\" while the marginal cost to simply run 10K is much lower, estimated at $30-$60 per month. The low running cost is attributed to architectural choices, shifting the primary constraint from cost to the ability of teams to effectively direct AI agents."
+  },
+  "https://www.saastr.com/build-on-the-stack-you-have-how-anthropics-head-of-industries-atlassians-head-of-ai-and-scales-rory-odriscoll-landed-on-the-same-ai-playbook/": {
+    "created_at": "2026-07-26T12:05:21.411188+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Leaders from Atlassian, Anthropic, and Scale Venture Partners presented a common AI playbook at SaaStr AI 2026, emphasizing building on existing software stacks. Their shared lesson was to avoid binary choices in AI implementation, instead integrating AI as a \"skill layer\" that turns raw models into dependable business systems. This approach allows companies to thread AI through current workflows and leverage existing investments, with differentiation found in the skill layer rather than the raw model."
   },
   "https://www.saastr.com/claude-became-our-ai-vp-of-product-we-moved-10-years-off-marketo-for-14-our-agent-killed-a-10k-app-in-an-hour-the-agents-010/": {
     "created_at": "2026-07-17T22:40:57.029584+00:00",

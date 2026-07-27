@@ -11,6 +11,12 @@
     "prompt_version": 1,
     "summary": "Reasoning models in LLMs can be developed with multiple effort modes, allowing control over their response length and accuracy. These models output an intermediate reasoning trace to work through tasks step-by-step. Such effort settings are implemented during post-training, often through system prompts, reinforcement learning with varying length penalties, or supervised fine-tuning."
   },
+  "https://newsletter.mkt1.co/p/multiplayer-claude-1": {
+    "created_at": "2026-07-27T13:41:16.546775+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Many marketing teams use AI in \"single-player mode,\" where individual efficiency gains are not consistently shared across the team. The article introduces \"multiplayer Claude\" as an AI and agentic team system designed for shared context and capabilities. This approach aims to create a living source of truth and allow individual improvements to make the entire team move faster."
+  },
   "https://newsletter.mkt1.co/p/mutiny-growth-lessons": {
     "created_at": "2026-07-15T12:17:56.427950+00:00",
     "model": "gemini-2.5-flash",
@@ -35,6 +41,12 @@
     "prompt_version": 1,
     "summary": "A discussion reviewed recent developments in open models, highlighting the impact of Kimi K3's release, China's commitment to openness, and Qwen's plan for an open-weight model. The conversation covered the performance of various Chinese and US open models and debated the increasing or decreasing impact of distillation from closed models. Predictions for the year included continued growth in model capabilities, with Kimi and Zhipu considered frontier models, and the possibility of a US company entering the top cluster."
   },
+  "https://www.lennysnewsletter.com/p/anthropics-first-technical-pm-on": {
+    "created_at": "2026-07-27T13:41:00.127553+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Dianne Penn, Anthropic's first technical product manager, is Head of Product for the company's AI Research and Labs teams. The conversation explores Anthropic's early days, how Claude became proficient in coding, and the team's pioneering eval-driven development loop. It also discusses finding joy in fast-paced AI and the continued importance of human judgment."
+  },
   "https://www.lennysnewsletter.com/p/claude-opus-5-review-this-model-is": {
     "created_at": "2026-07-25T12:04:21.346675+00:00",
     "model": "gemini-2.5-flash",
@@ -46,6 +58,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "This item explores browser and computer use through Codex, the ChatGPT desktop app, detailing specific workflows. Examples include QA testing onboarding flows, persona impersonation, managing a LinkedIn inbox, AI personal shopping, and controlling iPhone mirroring. The discussion also covers why the Codex desktop app with a Chrome extension is the preferred combination and suggests under-prompting for better results."
+  },
+  "https://www.lennysnewsletter.com/p/from-zero-coding-background-to-hardware": {
+    "created_at": "2026-07-27T13:40:42.941596+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Maddie Reese is a hardware tinkerer and builder who creates projects at the intersection of software and hardware, including a thermal receipt printer and a Twitter pager built with a Raspberry Pi. She uses Cursor to brainstorm hardware projects and manage her building process. Her approach also involves building a personal API and focusing on fun to ship physical projects."
   },
   "https://www.lennysnewsletter.com/p/how-i-ai-gpt-56-review-how-a-solo": {
     "created_at": "2026-07-15T12:17:28.899389+00:00",
@@ -226,6 +244,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "For B2B companies, net new logo growth, specifically above 15% annually, is presented as the critical survival metric in the current environment. Key insights also include the necessity of governing AI token spend as a significant new cost center and the accelerated collapse of switching costs, which makes customer renewals less certain."
+  },
+  "https://www.saastr.com/our-new-ai-vp-of-finance-closes-the-deal-sends-the-invoice-and-chases-the-cash-it-took-4-deals-to-train-it/": {
+    "created_at": "2026-07-27T13:41:35.094103+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "An existing AI agent, named 10K and previously focused on marketing, was expanded to serve as an \"AI VP Revenue\" to automate various finance tasks. This agent now handles post-deal closure processes, including invoice generation, customer communication, payment reminders, and sales commission calculations. The system was trained and refined over four deals with human oversight, learning to apply corrections as general rules."
   },
   "https://www.saastr.com/rfp-lost-small-size/": {
     "created_at": "2026-07-23T12:26:08.751800+00:00",

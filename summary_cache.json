@@ -65,6 +65,12 @@
     "prompt_version": 1,
     "summary": "Maddie Reese is a hardware tinkerer and builder who creates projects at the intersection of software and hardware, including a thermal receipt printer and a Twitter pager built with a Raspberry Pi. She uses Cursor to brainstorm hardware projects and manage her building process. Her approach also involves building a personal API and focusing on fun to ship physical projects."
   },
+  "https://www.lennysnewsletter.com/p/how-i-ai-claude-opus-5-review-browser": {
+    "created_at": "2026-07-28T12:56:18.801556+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "A review of Claude Opus 5 found it produced some of the best work among leading AI models, winning a seven-model blind benchmark. Despite its strong performance, the model was described as frustrating to use, exhibiting timid and overly cautious behavior, often deferring decisions or seeking human approval. Its output was also noted for being too long, overly cautious, and filled with unnecessary adjectives."
+  },
   "https://www.lennysnewsletter.com/p/how-i-ai-gpt-56-review-how-a-solo": {
     "created_at": "2026-07-15T12:17:28.899389+00:00",
     "model": "gemini-2.5-flash",
@@ -281,6 +287,12 @@
     "prompt_version": 1,
     "summary": "Many B2B software companies are entering a \"terminal state\" with growth rates under 5%, as the market no longer views them as reliable annuities. This shift is driven by AI, which directly impacts the seat-based model that previously sustained growth and high net revenue retention. Consequently, the premium once paid for these software economics has vanished, and the market now questions the long-term durability of their cash flows."
   },
+  "https://www.saastr.com/the-top-sales-lessons-from-saastr-ai-2026-gamma-owner-stripe-salesforce-cloudflare-and-monaco/": {
+    "created_at": "2026-07-28T12:56:49.977757+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Future sales organizations are becoming smaller, more senior, and AI-native. They focus on pipeline humans previously wrote off, allow buyers who don't need a rep to close on their own, and are ready for buyers that are software rather than people. Compensation and hiring practices must be rebuilt to align with these changes."
+  },
   "https://www.saastr.com/we-peaked-at-30-ai-agents-now-were-coming-back-down-to-20-heres-what-consolidation-actually-looks-like-the-agents-011-live/": {
     "created_at": "2026-07-25T12:05:13.258889+00:00",
     "model": "gemini-2.5-flash",
@@ -298,6 +310,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Companies should aim to collect at least 100% of their Monthly Recurring Revenue (MRR) in cash each month, ideally 110%+. Many B2B startups struggle with cash collection from invoices, often collecting only 60-70% of MRR, which significantly shortens their financial runway. Dedicated collection efforts, annual deals, prepaid upsells, and annual renewals can help improve this rate."
+  },
+  "https://www.saastr.com/your-agents-are-about-to-start-firing-your-vendors-ours-fired-marketo/": {
+    "created_at": "2026-07-28T12:56:34.206614+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "The author's company migrated from Marketo after their agent encountered severe API limitations, repeatedly stalling and recommending alternatives. This decision, driven by the agent's functional assessment rather than a human procurement process, highlights a shift where API quality becomes a primary churn factor. Vendors face a new challenge as agents, without loyalty or political reasons, surface product failures and suggest replacements."
   },
   "https://www.svpg.com/the-ai-productivity-paradox/": {
     "created_at": "2026-07-24T12:20:54.305797+00:00",

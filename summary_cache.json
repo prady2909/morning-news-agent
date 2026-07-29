@@ -107,6 +107,12 @@
     "prompt_version": 1,
     "summary": "Netflix Chief Product and Technology Officer Elizabeth Stone, who oversees Engineering, Product, and Design, discusses AI and the future of product and tech roles. The conversation covers key skills like \"systems thinking,\" managing AI-generated output quality, and Netflix's expectation of AI fluency."
   },
+  "https://www.lennysnewsletter.com/p/productpass-summer2026launch": {
+    "created_at": "2026-07-29T13:02:09.030385+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Lenny's Product Pass has been expanded with the addition of 11 new products, bringing the total number of offerings to 34. Subscribers, including Annual and Insider members, can receive a free year of access to these tools, which include both work-related and personal applications. The pass provides over $36,000 in value for Annual subscribers and over $40,000 for Insiders, aiming to provide access to expensive tools and bridge a gap in career success."
+  },
   "https://www.lennysnewsletter.com/p/this-solo-builder-runs-247-local": {
     "created_at": "2026-07-15T12:17:35.322750+00:00",
     "model": "gemini-2.5-flash",

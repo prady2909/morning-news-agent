@@ -197,6 +197,12 @@
     "prompt_version": 1,
     "summary": "Higgsfield reached a $500M annualized revenue run rate in June, approximately 15 months after launching in March 2025, and is cash-flow positive. The company operates with about 150 people, including a core engineering team of 60, and now aggregates various AI models, with approximately 70% of its revenue coming from agencies."
   },
+  "https://www.saastr.com/ai-isnt-killing-saas-saas-is-killing-itself/": {
+    "created_at": "2026-07-30T12:46:21.425978+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Many B2B software companies are failing due to internal neglect and a lack of modernization, not directly because of AI. The author's experience with Adobe Marketo, which had significant downtime, a broken unsubscribe link, and an outdated API that hindered AI agents, exemplifies how vendors are raising prices on degrading products and failing to adapt."
+  },
   "https://www.saastr.com/ai-wont-kill-saas-but-it-will-kill-vendors-that-stopped-shipping-point-solutions-are-most-at-risk/": {
     "created_at": "2026-07-24T12:21:43.789468+00:00",
     "model": "gemini-2.5-flash",
@@ -226,6 +232,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "A startup should consider hiring an internal recruiter when consistently hiring five or more people per quarter. This approach becomes more cost-effective than paying external recruiter fees for multiple placements and allows for a better focus on culture and specific candidate profiles. External recruiters are recommended for early-stage or hard-to-fill roles before regular, high-volume hiring begins."
+  },
+  "https://www.saastr.com/dear-saastr-whats-the-best-advice-founders-never-hear/": {
+    "created_at": "2026-07-30T12:46:39.565646+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Founders often miss crucial advice, such as the importance of securing a great, committed co-founder before starting and for the long term. It is also vital to develop a thicker skin to accept un-sugarcoated advice from successful mentors and investors. Additionally, founders must be willing to commit for 10 years, stay the course through periods of no revenue, and be wary of bad investors who can seriously harm a start-up."
   },
   "https://www.saastr.com/dear-saastr-when-should-we-start-pushing-for-multi-year-contracts/": {
     "created_at": "2026-07-25T12:04:39.197145+00:00",

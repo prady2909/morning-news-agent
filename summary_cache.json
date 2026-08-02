@@ -257,6 +257,12 @@
     "prompt_version": 1,
     "summary": "A startup should consider hiring an internal recruiter when consistently hiring five or more people per quarter. This approach becomes more cost-effective than paying external recruiter fees for multiple placements and allows for a better focus on culture and specific candidate profiles. External recruiters are recommended for early-stage or hard-to-fill roles before regular, high-volume hiring begins."
   },
+  "https://www.saastr.com/dear-saastr-i-fired-my-vp-of-sales-what-now/": {
+    "created_at": "2026-08-02T12:04:41.212727+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "After firing a VP of Sales, it is important to act fast and smart to stabilize and rebuild the sales organization. This involves having a plan, potentially stepping in as an interim VP or promoting from within, and auditing the sales process. It is also crucial to start the search for a new VP immediately, focus on the team's morale, keep the sales pipeline moving, and ensure the new hire comes with a clear plan."
+  },
   "https://www.saastr.com/dear-saastr-whats-the-best-advice-founders-never-hear/": {
     "created_at": "2026-07-30T12:46:39.565646+00:00",
     "model": "gemini-2.5-flash",
@@ -328,6 +334,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "ICONIQ's 2026 GTM benchmark report shows increased annual sales quotas for high performers, with enterprise AEs carrying $2.25M, Mid-Market at $1.35M, and SMB at $750K. These higher quotas are supported by AI-driven pipeline generation and are accompanied by increased attainment rates and a shift in AE compensation towards expansion activities like cross-sell and renewals."
+  },
+  "https://www.saastr.com/the-1-most-important-thing-to-understand-about-ai-sdrs/": {
+    "created_at": "2026-08-02T12:04:26.168159+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "AI Sales Development Representatives (SDRs) are powerful multipliers for existing go-to-market strategies, capable of significantly scaling proven playbooks. However, they do not create strategy or determine what works, requiring companies to first establish a successful, documented human-run process to avoid yielding zero results."
   },
   "https://www.saastr.com/the-20-minute-test-in-vp-hiring-maybe-all-hiring/": {
     "created_at": "2026-07-22T12:27:34.390073+00:00",

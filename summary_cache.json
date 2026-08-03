@@ -35,6 +35,12 @@
     "prompt_version": 1,
     "summary": "Moonshot AI released their flagship model Kimi K3 on Thursday, July 16th, with its weights slated for release on July 27th. K3 is a 2.8T parameter MoE model described as a true frontier model and the strongest open model ever released. It ranks #2 on the Vals AI index and #3 on Artificial Analysis's Intelligence Index."
   },
+  "https://www.interconnects.ai/p/latest-open-artifacts-23-laguna-s21": {
+    "created_at": "2026-08-03T13:43:24.671153+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Contrary to earlier predictions of industry consolidation, more companies are training and openly releasing strong models, identifying value in building \"token machines.\" Recent open model releases include Inkling, a multimodal model from Thinking Machines, and Laguna-S-2.1 from Poolside, which adopted the OpenMDW license. Kimi-K3, a significant open model from MoonshotAI, was released under a noncommercial license requiring commercial agreements for providers."
+  },
   "https://www.interconnects.ai/p/open-models-recap-more-on-kimi-k3": {
     "created_at": "2026-07-23T12:25:18.179194+00:00",
     "model": "gemini-2.5-flash",
@@ -46,6 +52,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Dianne Penn, Anthropic's first technical product manager, is Head of Product for the company's AI Research and Labs teams. The conversation explores Anthropic's early days, how Claude became proficient in coding, and the team's pioneering eval-driven development loop. It also discusses finding joy in fast-paced AI and the continued importance of human judgment."
+  },
+  "https://www.lennysnewsletter.com/p/chatgpt-codex-voice-browser-sites": {
+    "created_at": "2026-08-03T13:42:52.675616+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Nick Baumann from OpenAI's Developer Experience team details the capabilities of ChatGPT Codex and ChatGPT Work. He discusses new features like the voice interface, the Heartbeats automation system, and the live ChatGPT Sites deployment feature. The episode also covers AI-assisted UGC video editing and how to delegate tasks to Codex through a single voice conversation."
   },
   "https://www.lennysnewsletter.com/p/claude-opus-5-review-this-model-is": {
     "created_at": "2026-07-25T12:04:21.346675+00:00",
@@ -113,6 +125,12 @@
     "prompt_version": 1,
     "summary": "Lenny's Product Pass has been expanded with the addition of 11 new products, bringing the total number of offerings to 34. Subscribers, including Annual and Insider members, can receive a free year of access to these tools, which include both work-related and personal applications. The pass provides over $36,000 in value for Annual subscribers and over $40,000 for Insiders, aiming to provide access to expensive tools and bridge a gap in career success."
   },
+  "https://www.lennysnewsletter.com/p/this-cpo-regrets-that-product-management": {
+    "created_at": "2026-08-03T13:43:09.571412+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "This text lists discussion topics for a podcast episode with Tom Verrilli, CPO of Whatnot. It details subjects such as why Whatnot's product team was founded on the premise \"we regret that product management exists,\" how AI is reshaping the PM role, and Tom's hiring criteria. The source does not provide the actual content or conclusions from the conversation."
+  },
   "https://www.lennysnewsletter.com/p/this-solo-builder-runs-247-local": {
     "created_at": "2026-07-15T12:17:35.322750+00:00",
     "model": "gemini-2.5-flash",
@@ -172,6 +190,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "A company named Enigma has emerged from stealth with a $71 million seed round and made over 100 real AI-powered robots available online for public control. Users can command these physical machines in facilities in Israel and California to perform various tasks, allowing Enigma to observe human interaction patterns. The company is building robot-agnostic software and foundation models, aiming to produce better interfaces and potentially a different kind of robotic brain through this public experiment."
+  },
+  "https://www.saastr.com/2026-is-the-biggest-ipo-year-in-history-but-take-out-one-company-and-its-one-of-the-worst/": {
+    "created_at": "2026-08-03T13:43:45.186286+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Through July 28, 2026, US VC-backed IPO value totaled $1,786.8 billion, primarily driven by SpaceX's $1.77 trillion valuation. Without SpaceX, the other 43 IPOs combined are worth roughly $17 billion, and many capital-intensive AI infrastructure companies have seen significant post-IPO stock declines. Furthermore, no venture-backed B2B software unicorns have filed for IPOs this year, as public markets are evaluating B2B companies based on AI's impact on their necessity."
   },
   "https://www.saastr.com/20vc-x-saastr-jensens-first-tweet-ever-the-agent-that-rewrote-my-code-without-telling-me-and-why-the-pe-turnaround-playbook-is-out-of-road/": {
     "created_at": "2026-07-31T12:58:29.709824+00:00",
@@ -305,6 +329,12 @@
     "prompt_version": 1,
     "summary": "Software is not dead, but winning in the industry has become much harder due to AI, which is currently in a massive \"invest mode\" with spending significantly outpacing revenue. New software companies must build strong, defensible moats, such as proprietary non-public data or integration with physical sensors, to differentiate themselves from core foundation models. Founders need to understand their specific layer in the AI stack, ensure real growth, and manage compute costs efficiently."
   },
+  "https://www.saastr.com/jasons-takes-on-this-weeks-20vc-the-toggle-is-a-permission-grant-the-blame-test-decides-the-deal-and-why-five-years-of-price-increases-is-a-countdown/": {
+    "created_at": "2026-08-03T13:44:20.286521+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "This week's 20VC discussed how AI connector toggles can grant agents extensive access, leading to unintended code modifications and security risks. Key takeaways also included the \"blame test\" influencing enterprise AI deals and the need for significant price differentiation to secure sales. Additionally, the brief noted that relying on five years of price increases without new customer acquisition is unsustainable."
+  },
   "https://www.saastr.com/jasons-takes-on-this-weeks-20vc-the-token-governor-the-net-new-logo-test-and-why-renewal-stopped-being-safe/": {
     "created_at": "2026-07-20T13:09:15.806380+00:00",
     "model": "gemini-2.5-flash",
@@ -346,6 +376,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "The \"20 Minute Test\" suggests that if a candidate does not impress as a VP within the first 20 minutes of their initial Zoom interview, one should pass. This test is proposed to counter less diligent hiring practices that have emerged in recruiting, as VPs often fail when there wasn't initial conviction about their capabilities."
+  },
+  "https://www.saastr.com/the-ai-board-member-why-yours-should-chair-the-next-meeting-for-real/": {
+    "created_at": "2026-08-03T13:44:00.632067+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Many board meetings are inefficient, with significant time spent reviewing unread materials and making non-actionable comments. An AI agent could address this by analyzing market data, reviewing financials, benchmarking competitors, and identifying key discussion points before human input. This allows human board members to focus on judgment, relationships, and strategic decisions, leading to more productive and higher-quality conversations."
   },
   "https://www.saastr.com/the-one-hire-you-just-cant-make-chief-product-technology-officer/": {
     "created_at": "2026-07-31T12:58:46.867909+00:00",

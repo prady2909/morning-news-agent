@@ -29,6 +29,12 @@
     "prompt_version": 1,
     "summary": "Open-source AI models are facing a serious viability test due to new regulations being discussed at the White House. There is a likely action to ban or delay open-weights models above certain capability levels within the next six months, driven by concerns about frontier capabilities and calls to restrict Chinese open-weight models."
   },
+  "https://www.interconnects.ai/p/introducing-our-artifacts-hub-and": {
+    "created_at": "2026-08-04T13:04:37.448827+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Interconnects has introduced two new free sources of data: the Artifacts Hub and the Adoption Dashboard. The Artifacts Hub provides a curated view of models trending on Hugging Face, highlighting inference tokens, model intelligence, and tailored adoption metrics for hundreds of models. The Adoption Dashboard offers a living view of download and derivative model numbers by geography and organization, spotlighting the US-China gap and emerging players in the open ecosystem."
+  },
   "https://www.interconnects.ai/p/kimi-k3-the-open-weights-escalation": {
     "created_at": "2026-07-21T12:25:13.949261+00:00",
     "model": "gemini-2.5-flash",
@@ -76,6 +82,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Maddie Reese is a hardware tinkerer and builder who creates projects at the intersection of software and hardware, including a thermal receipt printer and a Twitter pager built with a Raspberry Pi. She uses Cursor to brainstorm hardware projects and manage her building process. Her approach also involves building a personal API and focusing on fun to ship physical projects."
+  },
+  "https://www.lennysnewsletter.com/p/how-i-ai-chatgpt-codex-voice-browser": {
+    "created_at": "2026-08-04T13:04:21.079562+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Nick Baumann from OpenAI demonstrated his AI workflow using ChatGPT, Codex, and Voice to automate significant parts of his work and life. He showed how these tools manage tasks, monitor emails, book travel, build websites, and edit videos, with Codex operating his computer and managing parallel tasks. The demonstration also highlighted Voice as a method for giving AI more context, often leading to better results."
   },
   "https://www.lennysnewsletter.com/p/how-i-ai-claude-opus-5-review-browser": {
     "created_at": "2026-07-28T12:56:18.801556+00:00",
@@ -323,6 +335,12 @@
     "prompt_version": 1,
     "summary": "To steal customers from a market leader, businesses should actively appear where competitors are, attending the same events and sponsoring similar services. Additionally, it is essential to \"do the work\" for potential customers by making the switch effortless, such as buying out existing contracts, migrating data, and onboarding teams at no extra cost. This strategy requires patience, as it often takes years to succeed."
   },
+  "https://www.saastr.com/i-was-wrong-about-marketing-roi-heres-what-100000000-in-sponsorships-taught-me/": {
+    "created_at": "2026-08-04T13:05:11.516765+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "The author initially believed companies with slowing growth should increase marketing efforts, but reviewing years of data changed this perspective. Marketing is most effective as an amplifier, accelerating existing momentum and converting demand that already exists. Therefore, companies experiencing strong growth should increase marketing to maximize returns, while those with declining growth should first focus on improving their product to regain market fit."
+  },
   "https://www.saastr.com/is-software-dead-no-it-just-got-a-lot-harder-to-win-the-saastr-ai-deep-dive-with-rory-odriscoll/": {
     "created_at": "2026-07-16T12:21:54.955379+00:00",
     "model": "gemini-2.5-flash",
@@ -340,6 +358,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "For B2B companies, net new logo growth, specifically above 15% annually, is presented as the critical survival metric in the current environment. Key insights also include the necessity of governing AI token spend as a significant new cost center and the accelerated collapse of switching costs, which makes customer renewals less certain."
+  },
+  "https://www.saastr.com/nues-guided-selling-playbook-took-2-minutes-to-build-the-implementation-still-takes-90-days/": {
+    "created_at": "2026-08-04T13:04:55.555311+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Nue.io demonstrated an AI agent capable of building a guided selling playbook in about two minutes from plain English, significantly reducing the time for this specific task. However, the full system implementation still averages about 90 days, potentially taking up to a year, due to dependencies on product catalog and data quality."
   },
   "https://www.saastr.com/our-new-ai-vp-of-finance-closes-the-deal-sends-the-invoice-and-chases-the-cash-it-took-4-deals-to-train-it/": {
     "created_at": "2026-07-27T13:41:35.094103+00:00",

@@ -359,6 +359,12 @@
     "prompt_version": 1,
     "summary": "To steal customers from a market leader, businesses should actively appear where competitors are, attending the same events and sponsoring similar services. Additionally, it is essential to \"do the work\" for potential customers by making the switch effortless, such as buying out existing contracts, migrating data, and onboarding teams at no extra cost. This strategy requires patience, as it often takes years to succeed."
   },
+  "https://www.saastr.com/i-bought-30-apis-this-year-only-exa-asked-how-it-went-copy-them/": {
+    "created_at": "2026-08-07T11:47:52.856360+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "The author signed up for over 30 APIs this year, but only Exa effectively sought feedback on their product usage. Exa sent a short email from a product team member, offering an incentive for a \"one-liner\" response after actual usage, rather than relying on automated sequences or sales pitches. This approach led to detailed product feedback and specific, helpful replies, which the author contrasts with the other vendors' ineffective or absent outreach."
+  },
   "https://www.saastr.com/i-was-wrong-about-marketing-roi-heres-what-100000000-in-sponsorships-taught-me/": {
     "created_at": "2026-08-04T13:05:11.516765+00:00",
     "model": "gemini-2.5-flash",

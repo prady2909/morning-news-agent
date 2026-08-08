@@ -179,6 +179,12 @@
     "prompt_version": 1,
     "summary": "US IPOs have seen their biggest year since 2021, with total proceeds nearly matching the 2021 annual record. However, aftermarket performance has been disappointing, with many, including SpaceX, slumping since their debut and trading below offering prices."
   },
+  "https://www.newcomer.co/p/saas-shudders-after-airtables-humbling": {
+    "created_at": "2026-08-08T11:31:09.380016+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Airtable has agreed to be acquired by Bending Spoons for an enterprise value of $1.285 billion. This sale represents a steep discount from Airtable's pandemic-era $11.7 billion valuation. Despite the lower overall valuation, some early investors still made significant returns by selling shares at opportune times."
+  },
   "https://www.newcomer.co/p/scoop-fundraising-documents-reveal": {
     "created_at": "2026-07-24T12:21:10.547498+00:00",
     "model": "gemini-2.5-flash",
@@ -196,6 +202,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "The rapid retreat of AI and chip stocks has exposed the fragility of the AI funding boom, which is increasingly reliant on debt. Situational Awareness, an AI-centric hedge fund, was forced to sell its public stock portfolio due to a liquidity crisis from margin calls. This served as an object lesson in the risks of leveraged bets and how quickly fortunes can turn in the AI trade."
+  },
+  "https://www.newcomer.co/p/the-big-cheese-hits-theaters-today": {
+    "created_at": "2026-08-08T11:30:52.834788+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "\"The Big Cheese,\" a feature-length documentary about American cheesemongers, is having its theatrical premiere starting tonight at the IFC Center in New York City. The film will run all week at the IFC Center and begin screening in Los Angeles on August 14. Reviews have described it as a \"satisfyingly tender story\" and \"bright, tangy, and bold.\""
   },
   "https://www.notboring.co/p/ai-is-oil-not-god": {
     "created_at": "2026-07-26T12:05:04.809835+00:00",
@@ -257,6 +269,12 @@
     "prompt_version": 1,
     "summary": "Procore achieved its first GAAP operating profit, with revenue growing 16% to $375M, exceeding its guide. The company announced an $845 million all-cash acquisition of DroneDeploy, funded largely by a committed bridge facility, to provide visual intelligence and a new expansion vector. This comes as net revenue retention has declined to 106%, indicating slower expansion from the installed customer base."
   },
+  "https://www.saastr.com/5-interesting-learnings-from-shopify-at-14b-in-revenue-34-growth-18-free-cash-flow-margins-and-ai-orders-up-3x/": {
+    "created_at": "2026-08-08T11:31:27.148603+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Shopify reported 34% year-over-year revenue growth in Q2 2026, achieving $654 million in free cash flow with an 18% margin. The company saw AI traffic and orders triple, with AI shoppers converting into new buyers at twice the rate of traditional channels."
+  },
   "https://www.saastr.com/5-interesting-learnings-from-stripe-at-6-8-billion-in-revenue-33-growth-47-free-cash-flow-margins-and-a-53b-bid-for-paypal/": {
     "created_at": "2026-07-24T12:21:27.585226+00:00",
     "model": "gemini-2.5-flash",
@@ -298,6 +316,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "An AI marketing agent, 10K, completed a one-hour work session at a cost of $13.42, which is less than human minimum wages and significantly below the hourly equivalent of a human VP of Marketing. This particular cost was for a \"build-and-analyze session,\" while the marginal cost to simply run 10K is much lower, estimated at $30-$60 per month. The low running cost is attributed to architectural choices, shifting the primary constraint from cost to the ability of teams to effectively direct AI agents."
+  },
+  "https://www.saastr.com/backstory-retiered-its-entire-customer-base-in-3-days-the-same-exercise-used-to-take-five-teams-a-quarter/": {
+    "created_at": "2026-08-08T11:30:36.448767+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Backstory, led by Haya Kamola, re-tiered its entire customer base in 3-4 days, a process that previously took five teams a full quarter. This was achieved by defining a \"golden customer,\" building previously unmeasured signals like AI maturity scores, using four connectors for data pulls, and iteratively refining the scoring framework."
   },
   "https://www.saastr.com/build-on-the-stack-you-have-how-anthropics-head-of-industries-atlassians-head-of-ai-and-scales-rory-odriscoll-landed-on-the-same-ai-playbook/": {
     "created_at": "2026-07-26T12:05:21.411188+00:00",

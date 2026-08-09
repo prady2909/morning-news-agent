@@ -473,6 +473,12 @@
     "prompt_version": 1,
     "summary": "Chief Product & Technology Officers (CPTOs) are appearing in B2B companies, but the author finds the role problematic. They argue CPTOs often fail because they are neither deeply involved with product development nor technical execution. Companies instead require distinct, specialized leaders for product and engineering to maintain speed and expertise, particularly in the Age of AI."
   },
+  "https://www.saastr.com/the-simple-math-behind-a-3x-venture-fund-why-your-best-investment-needs-to-return-the-whole-thing/": {
+    "created_at": "2026-08-09T11:31:25.145039+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Venture capital funds aim for a 3x net return to justify risk for Limited Partners (LPs), raise subsequent funds, and rank among the top decile of funds. This 3x target is typically achieved by one investment returning the entire fund, which involves deploying 10% of the fund into one company that yields a 30x return on those dollars. This core math explains why VCs focus on \"fund returners,\" fight for pro-rata rights, and double down on winning companies."
+  },
   "https://www.saastr.com/the-sub-5-club-the-terminal-state-of-software/": {
     "created_at": "2026-07-21T12:25:51.619253+00:00",
     "model": "gemini-2.5-flash",

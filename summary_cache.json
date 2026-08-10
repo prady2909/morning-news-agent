@@ -47,6 +47,12 @@
     "prompt_version": 1,
     "summary": "Contrary to earlier predictions of industry consolidation, more companies are training and openly releasing strong models, identifying value in building \"token machines.\" Recent open model releases include Inkling, a multimodal model from Thinking Machines, and Laguna-S-2.1 from Poolside, which adopted the OpenMDW license. Kimi-K3, a significant open model from MoonshotAI, was released under a noncommercial license requiring commercial agreements for providers."
   },
+  "https://www.interconnects.ai/p/lessons-from-the-hacks": {
+    "created_at": "2026-08-10T11:48:53.215578+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Recent cyberattacks by in-development frontier models reveal that current incentive systems for rapidly growing technology companies and the slow-moving federal government are not well suited for fast technological transitions. This leads to a lack of transparency and preparedness for new AI risks, with frontier labs not closely watching models and governments expected to act only after measurable harms occur. The AI industry is considered \"wildly, collectively unprepared\" for handling the challenges ahead, underscoring a significant concern about safety."
+  },
   "https://www.interconnects.ai/p/open-models-recap-more-on-kimi-k3": {
     "created_at": "2026-07-23T12:25:18.179194+00:00",
     "model": "gemini-2.5-flash",
@@ -142,6 +148,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Lenny's Product Pass has been expanded with the addition of 11 new products, bringing the total number of offerings to 34. Subscribers, including Annual and Insider members, can receive a free year of access to these tools, which include both work-related and personal applications. The pass provides over $36,000 in value for Annual subscribers and over $40,000 for Insiders, aiming to provide access to expensive tools and bridge a gap in career success."
+  },
+  "https://www.lennysnewsletter.com/p/the-playbook-for-building-high-talent": {
+    "created_at": "2026-08-10T11:48:36.943307+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Adam Ward, Head of Talent at Cursor, has over 20 years of experience building elite, high-talent-density teams. A discussion with him covers the current talent market, reasons traditional recruiting funnels lead to mediocre hires, and his three-step playbook for talent acquisition. It also explores common hiring mistakes and the rise of the forward-deployed engineer."
   },
   "https://www.lennysnewsletter.com/p/this-cpo-regrets-that-product-management": {
     "created_at": "2026-08-03T13:43:09.571412+00:00",
@@ -316,6 +328,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "An AI marketing agent, 10K, completed a one-hour work session at a cost of $13.42, which is less than human minimum wages and significantly below the hourly equivalent of a human VP of Marketing. This particular cost was for a \"build-and-analyze session,\" while the marginal cost to simply run 10K is much lower, estimated at $30-$60 per month. The low running cost is attributed to architectural choices, shifting the primary constraint from cost to the ability of teams to effectively direct AI agents."
+  },
+  "https://www.saastr.com/atlassian-just-deleted-looms-free-seats-it-was-also-looms-distribution/": {
+    "created_at": "2026-08-10T11:49:09.048704+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Atlassian has eliminated Loom's free \"Creator Lite\" seats within paid workspaces, automatically converting these users to full paid Creator seats. Previously, these individuals could watch, comment, and record in a limited way at no cost, but now their presence incurs a charge. This change means workspaces pay for all users, including those who were formerly free watchers, potentially increasing costs significantly."
   },
   "https://www.saastr.com/backstory-retiered-its-entire-customer-base-in-3-days-the-same-exercise-used-to-take-five-teams-a-quarter/": {
     "created_at": "2026-08-08T11:30:36.448767+00:00",
@@ -502,6 +520,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "A great VP of Sales in their first week immediately brings in 2-4 sales executives from their network and identifies top existing talent for retention. They also begin the process of moving out underperformers and jump into critical deals to understand problems and help close them."
+  },
+  "https://www.saastr.com/what-is-a-good-demo-conversion-rate-for-saas-startup/": {
+    "created_at": "2026-08-10T11:49:27.315247+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "A good demo conversion rate for a SaaS startup is 10%-20%, with rates below 8%-10% potentially causing sales team burnout from too many demos. Conversion rates are influenced by lead quality, as attracting more general interest can cause metrics to fall as a brand scales. Therefore, it's advised to measure but not obsess over absolute funnel metrics."
   },
   "https://www.saastr.com/you-should-be-collecting-at-least-100-of-your-mrr-each-month-in-cash-ideally-110/": {
     "created_at": "2026-07-25T12:05:28.633013+00:00",

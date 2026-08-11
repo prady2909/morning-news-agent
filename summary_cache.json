@@ -23,6 +23,12 @@
     "prompt_version": 1,
     "summary": "The MKT1 newsletter offers an inside look at how Growth Marketing Lead Matt Ratchford is building Mutiny's growth engine. His updates for the AI agent for GTM teams include improving conversion with a headline change, re-orienting outbound efforts to focus on high-quality accounts, and noting that 50% of new users come from word of mouth."
   },
+  "https://www.interconnects.ai/p/5-useful-things-youll-learn-in-my": {
+    "created_at": "2026-08-11T11:46:39.291371+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "The new post-training textbook, titled \"Reinforcement Learning from Human Feedback: Aligning and Post-training LLMs,\" documents lessons from training open models. It aims to explain why post-training works, the trade-offs involved, and common misconceptions, covering methods like rejection sampling, outcome reward models, and character training. The book is shipping now and is tailored for someone with a bachelor's degree in CS."
+  },
   "https://www.interconnects.ai/p/6-months-to-live-for-open-models": {
     "created_at": "2026-07-15T12:18:05.685808+00:00",
     "model": "gemini-2.5-flash",
@@ -77,6 +83,12 @@
     "prompt_version": 1,
     "summary": "Nick Baumann from OpenAI's Developer Experience team details the capabilities of ChatGPT Codex and ChatGPT Work. He discusses new features like the voice interface, the Heartbeats automation system, and the live ChatGPT Sites deployment feature. The episode also covers AI-assisted UGC video editing and how to delegate tasks to Codex through a single voice conversation."
   },
+  "https://www.lennysnewsletter.com/p/claude-code-for-normal-people-skills": {
+    "created_at": "2026-08-11T11:46:21.281385+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Grace Clarke, an AI educator, runs her entire service business using tools she built with Claude Code, such as a pipeline operator and a Gmail replacement. She teaches individuals and teams to build similar systems, including an hourly pipeline and interactive HTML proposals, and how to use a \"voice guide\" skill file for personalized outputs. The content also covers \"intent engineering\" and using Claude for diverse tasks from client work to personal tracking."
+  },
   "https://www.lennysnewsletter.com/p/claude-opus-5-review-this-model-is": {
     "created_at": "2026-07-25T12:04:21.346675+00:00",
     "model": "gemini-2.5-flash",
@@ -94,6 +106,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Maddie Reese is a hardware tinkerer and builder who creates projects at the intersection of software and hardware, including a thermal receipt printer and a Twitter pager built with a Raspberry Pi. She uses Cursor to brainstorm hardware projects and manage her building process. Her approach also involves building a personal API and focusing on fun to ship physical projects."
+  },
+  "https://www.lennysnewsletter.com/p/how-i-ai-build-an-ai-code-review": {
+    "created_at": "2026-08-11T11:45:13.983211+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "An AI code review bot built with Vercel Eve can review pull requests, score their risk, and automatically approve low-risk changes. This enables faster PR approvals with lower revert rates compared to human-reviewed ones, while preserving human accountability for final merges. The system uses a specific risk model and logs all decisions for audit trails."
   },
   "https://www.lennysnewsletter.com/p/how-i-ai-chatgpt-codex-voice-browser": {
     "created_at": "2026-08-04T13:04:21.079562+00:00",
@@ -401,6 +419,12 @@
     "prompt_version": 1,
     "summary": "To steal customers from a market leader, businesses should actively appear where competitors are, attending the same events and sponsoring similar services. Additionally, it is essential to \"do the work\" for potential customers by making the switch effortless, such as buying out existing contracts, migrating data, and onboarding teams at no extra cost. This strategy requires patience, as it often takes years to succeed."
   },
+  "https://www.saastr.com/how-mailchimp-went-from-1b-arr-and-20-growth-to-shrinking-inside-intuit/": {
+    "created_at": "2026-08-11T11:47:16.659017+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Mailchimp's parent company, Intuit, has confirmed a year-over-year revenue decline for the product, leading to a 17% workforce reduction for \"rightsizing\" in Mailchimp. Intuit now publishes its overall growth rates both with and without Mailchimp, indicating reduced investment and a strategy to run the asset for cash rather than growth."
+  },
   "https://www.saastr.com/i-bought-30-apis-this-year-only-exa-asked-how-it-went-copy-them/": {
     "created_at": "2026-08-07T11:47:52.856360+00:00",
     "model": "gemini-2.5-flash",
@@ -448,6 +472,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "An existing AI agent, named 10K and previously focused on marketing, was expanded to serve as an \"AI VP Revenue\" to automate various finance tasks. This agent now handles post-deal closure processes, including invoice generation, customer communication, payment reminders, and sales commission calculations. The system was trained and refined over four deals with human oversight, learning to apply corrections as general rules."
+  },
+  "https://www.saastr.com/pylons-founders-at-saastr-ai-day-a-1000-person-support-team-deflected-50-of-its-tickets-headcount-didnt-change/": {
+    "created_at": "2026-08-11T11:46:55.605263+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Pylon co-founders Marty Kausas and Advith Chelikani argued that focusing on deflection rates in customer support AI has been misguided, noting that a 50% deflection rate at a 1,000-person support team produced no headcount change because it only automated easy tickets. They propose \"agentic customer support,\" where AI helps humans with complex tasks, aiming to make the support job unrecognizable by efficiently handling escalated work. Beta results from customers report benefits such as 70% fewer escalations and 64.5% faster first response times."
   },
   "https://www.saastr.com/rfp-lost-small-size/": {
     "created_at": "2026-07-23T12:26:08.751800+00:00",
@@ -538,6 +568,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "The author's company migrated from Marketo after their agent encountered severe API limitations, repeatedly stalling and recommending alternatives. This decision, driven by the agent's functional assessment rather than a human procurement process, highlights a shift where API quality becomes a primary churn factor. Vendors face a new challenge as agents, without loyalty or political reasons, surface product failures and suggest replacements."
+  },
+  "https://www.svpg.com/a-fresh-definition-of-the-product-role/": {
+    "created_at": "2026-08-11T11:45:33.478554+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Many different definitions of the product role, such as product manager or product owner, have been observed over the years. This issue is partly due to various operating models that require different responsibilities."
   },
   "https://www.svpg.com/the-ai-productivity-paradox/": {
     "created_at": "2026-07-24T12:20:54.305797+00:00",

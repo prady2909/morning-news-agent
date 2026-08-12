@@ -11,6 +11,12 @@
     "prompt_version": 1,
     "summary": "Reasoning models in LLMs can be developed with multiple effort modes, allowing control over their response length and accuracy. These models output an intermediate reasoning trace to work through tasks step-by-step. Such effort settings are implemented during post-training, often through system prompts, reinforcement learning with varying length penalties, or supervised fine-tuning."
   },
+  "https://newsletter.mkt1.co/p/mcp-showcase-recap": {
+    "created_at": "2026-08-12T11:48:01.790366+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "This article discusses Model Context Protocols (MCPs) and Command Line Interfaces (CLIs) as mechanisms to connect AI models like Claude to Go-To-Market (GTM) tools. It explains that connecting Claude to other tools makes it more useful by integrating existing context and data, helping to solve common limitations of standalone AI. The newsletter details various workflows from seven GTM tools, demonstrating how these connectors enable more robust AI-native systems for work."
+  },
   "https://newsletter.mkt1.co/p/multiplayer-claude-1": {
     "created_at": "2026-07-27T13:41:16.546775+00:00",
     "model": "gemini-2.5-flash",
@@ -149,6 +155,12 @@
     "prompt_version": 1,
     "summary": "Alex Lieberman, founder and CEO of Tenex, rebuilt his content process around AI to create a \"Content Machine\" that avoids generic output. This six-step machine uses an Oracle to identify content spikes and an interview panel to capture his unique voice and ideas. The goal is to eliminate the \"blank page\" as the biggest friction point in content creation."
   },
+  "https://www.lennysnewsletter.com/p/how-to-make-people-care-about-your": {
+    "created_at": "2026-08-12T11:47:45.467342+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Startups face increasing difficulty in gaining attention, making founder-led communication a low-cost, high-leverage tool to engage people. An effective strategy starts with answering \"Why did I start this company?\" This \"why\" aligns founders with one of three archetypes—Problem, Insight, or Vision—each guiding specific communication goals, voice, and messaging."
+  },
   "https://www.lennysnewsletter.com/p/how-to-take-a-sabbatical": {
     "created_at": "2026-07-22T12:26:59.855988+00:00",
     "model": "gemini-2.5-flash",
@@ -197,6 +209,12 @@
     "prompt_version": 1,
     "summary": "The Machine Earning AI Summit, a one-day, invite-only event, will be held on Tuesday, Sept. 29 in San Francisco. It will focus on AI commerce and finance, exploring questions about online shopping with agents, banking with language models, and intelligent payment rails. The summit is aimed at top founders, investors, media, and other AI insiders."
   },
+  "https://www.newcomer.co/p/decagon-hit-100-million-betting-against": {
+    "created_at": "2026-08-12T11:48:33.461129+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Decagon has crossed $100 million in annualized revenue in AI customer service, with CEO Jesse Zhang emphasizing product speed and ease of customization. The company takes a strong stance against forward deployed engineers, viewing reliance on them as a sign of a weak product. This approach has helped Decagon secure major airlines and credit card companies as customers."
+  },
   "https://www.newcomer.co/p/high-stakes-battle-over-china-policy": {
     "created_at": "2026-07-25T12:04:55.227056+00:00",
     "model": "gemini-2.5-flash",
@@ -208,6 +226,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "US IPOs have seen their biggest year since 2021, with total proceeds nearly matching the 2021 annual record. However, aftermarket performance has been disappointing, with many, including SpaceX, slumping since their debut and trading below offering prices."
+  },
+  "https://www.newcomer.co/p/kirsten-green-katie-haun-and-the": {
+    "created_at": "2026-08-12T11:48:17.838019+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Three new speakers have been announced for the inaugural Machine Earning AI Summit: Kirsten Green, Katie Haun, and Ilan Zerbib, CEO of Sapiom. This one-day, invite-only event will cover the new AI economy, including how AI is reshaping commerce and finance, and its impact on banking, payments, and online shopping."
   },
   "https://www.newcomer.co/p/saas-shudders-after-airtables-humbling": {
     "created_at": "2026-08-08T11:31:09.380016+00:00",
@@ -292,6 +316,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Palantir reported 93% year-over-year revenue growth to $1.935 billion, marking its twelfth consecutive quarter of accelerating growth. The company achieved a net revenue retention of 157% and a Rule of 40 score of 155%. Full-year guidance was raised, and 73 deals of at least $10 million were closed in the quarter."
+  },
+  "https://www.saastr.com/5-interesting-learnings-from-palo-alto-networks-at-11-4-billion-in-revenue-60-arr-growth-120-nrr-and-a-25b-acquisition-that-doubled-the-stock/": {
+    "created_at": "2026-08-12T11:48:52.706331+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Palo Alto Networks, with an $11.4 billion revenue run rate, saw its stock double over the past twelve months. The company's Next-Gen Security ARR grew 60%, with AI acting as a tailwind by increasing demand for security services and data inspection. This has led to rapid scaling of new products and a resurgence in its hardware business."
   },
   "https://www.saastr.com/5-interesting-learnings-from-procore-at-1-5-billion-in-arr-16-growth-its-first-gaap-operating-profit-and-845m-for-dronedeploy/": {
     "created_at": "2026-08-01T12:04:02.948530+00:00",

@@ -215,6 +215,12 @@
     "prompt_version": 1,
     "summary": "This item introduces the concept of \"emergence\" as an alternative to conventional long-term career planning. It suggests building a career by focusing on clear principles and taking the right next step, rather than optimizing toward a fixed destination. This approach involves defining \"local rules\" based on what energizes you, trusting that a complex and unique path will reveal itself over time."
   },
+  "https://www.newcomer.co/p/ai-frenzy-brings-dual-valuation-deals": {
+    "created_at": "2026-08-14T11:46:05.500480+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Dual valuation deals are increasingly common in funding rounds, particularly during the current AI frenzy. This practice sees prestige firms receiving significantly better prices than other investors within essentially the same funding round. While some view it as reflecting market reality for influential investors, critics describe such structures as problematic and deceptive, with some investors reporting them as pervasive."
+  },
   "https://www.newcomer.co/p/announcing-the-machine-earning-ai": {
     "created_at": "2026-07-23T12:25:53.439410+00:00",
     "model": "gemini-2.5-flash",
@@ -401,6 +407,12 @@
     "prompt_version": 1,
     "summary": "Atlassian has eliminated Loom's free \"Creator Lite\" seats within paid workspaces, automatically converting these users to full paid Creator seats. Previously, these individuals could watch, comment, and record in a limited way at no cost, but now their presence incurs a charge. This change means workspaces pay for all users, including those who were formerly free watchers, potentially increasing costs significantly."
   },
+  "https://www.saastr.com/b2b-for-physical-products-is-crushing-it-shopify-34-toast-23/": {
+    "created_at": "2026-08-14T11:45:49.479909+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "B2B companies that service the physical world, such as Shopify, Toast, and Samsara, are reporting strong growth, often outperforming the median public B2B company. This success is primarily due to their pricing models being tied to customer throughput rather than employee seats, and because their customers' physical end products are not affected by AI's impact on knowledge work."
+  },
   "https://www.saastr.com/backstory-retiered-its-entire-customer-base-in-3-days-the-same-exercise-used-to-take-five-teams-a-quarter/": {
     "created_at": "2026-08-08T11:30:36.448767+00:00",
     "model": "gemini-2.5-flash",
@@ -419,11 +431,23 @@
     "prompt_version": 1,
     "summary": "Leaders from Atlassian, Anthropic, and Scale Venture Partners presented a common AI playbook at SaaStr AI 2026, emphasizing building on existing software stacks. Their shared lesson was to avoid binary choices in AI implementation, instead integrating AI as a \"skill layer\" that turns raw models into dependable business systems. This approach allows companies to thread AI through current workflows and leverage existing investments, with differentiation found in the skill layer rather than the raw model."
   },
+  "https://www.saastr.com/canva-cuts-2026-growth-by-a-third-jeff-dean-walks-out-of-google-and-elon-builds-his-own-fab-20vc-x-saastr/": {
+    "created_at": "2026-08-14T11:45:32.037500+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Jeff Dean left Google after 27 years with three researchers, causing Google's stock to drop by hundreds of billions in market cap. His departure was due to compute allocation issues, as his work was consistently prioritized lower than projects for Cloud or Gemini. This move reflects a growing venture appetite for science-based moonshot labs, enabling such teams to secure significant funding."
+  },
   "https://www.saastr.com/claude-became-our-ai-vp-of-product-we-moved-10-years-off-marketo-for-14-our-agent-killed-a-10k-app-in-an-hour-the-agents-010/": {
     "created_at": "2026-07-17T22:40:57.029584+00:00",
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Episode #010 of The Agents describes how Claude integrated with Replit to function as an AI VP of Product, managing feature builds. The team also used an LLM to migrate 10 years of Marketo data for $14.28 and an agent autonomously replaced a $10,000/year app in one hour."
+  },
+  "https://www.saastr.com/dear-saastr-at-what-acv-size-do-i-need-an-account-manager-in-b2b/": {
+    "created_at": "2026-08-14T11:46:21.717808+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "The need for an account manager in B2B varies by Annual Contract Value (ACV). Below $8K-$10K ACV, dedicated account managers are generally not affordable, requiring systematized onboarding and support. At $10K+ ACV, pooled account management starts to make sense, while customers with $50K+ ACV typically warrant a dedicated person."
   },
   "https://www.saastr.com/dear-saastr-at-what-point-should-we-hire-an-internal-recruiter/": {
     "created_at": "2026-07-15T12:18:14.526254+00:00",

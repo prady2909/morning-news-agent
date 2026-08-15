@@ -47,6 +47,12 @@
     "prompt_version": 1,
     "summary": "Open-source AI models are facing a serious viability test due to new regulations being discussed at the White House. There is a likely action to ban or delay open-weights models above certain capability levels within the next six months, driven by concerns about frontier capabilities and calls to restrict Chinese open-weight models."
   },
+  "https://www.interconnects.ai/p/glm-53-how-chinese-labs-keep-stride": {
+    "created_at": "2026-08-15T11:22:05.672868+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Z.ai has announced its GLM-5.3 model, which shows exceptional performance and has surpassed other leading models on many benchmarks, particularly in agentic coding. The company attributes this to substantially extended post-training and is taking a staged release approach due to the model's advanced cybersecurity capabilities and associated dual-use risks."
+  },
   "https://www.interconnects.ai/p/i-wrote-an-ai-textbook-how-long-until": {
     "created_at": "2026-08-13T11:50:20.738559+00:00",
     "model": "gemini-2.5-flash",
@@ -281,6 +287,12 @@
     "prompt_version": 1,
     "summary": "\"The Big Cheese,\" a feature-length documentary about American cheesemongers, is having its theatrical premiere starting tonight at the IFC Center in New York City. The film will run all week at the IFC Center and begin screening in Los Angeles on August 14. Reviews have described it as a \"satisfyingly tender story\" and \"bright, tangy, and bold.\""
   },
+  "https://www.newcomer.co/p/thrive-capital-finds-its-lane-as": {
+    "created_at": "2026-08-15T11:22:25.922463+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Thrive Capital recently raised $2 billion for Thrive Holdings, its AI roll-up vehicle, and announced it will own a piece of the Los Angeles Lakers. These actions exemplify founder Joshua Kushner's strategy of moving beyond traditional Silicon Valley venture capital norms. The firm now focuses on three core theses, including AI, company transformation, and investments in live events and cultural institutions."
+  },
   "https://www.notboring.co/p/ai-is-oil-not-god": {
     "created_at": "2026-07-26T12:05:04.809835+00:00",
     "model": "gemini-2.5-flash",
@@ -304,6 +316,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "A company named Enigma has emerged from stealth with a $71 million seed round and made over 100 real AI-powered robots available online for public control. Users can command these physical machines in facilities in Israel and California to perform various tasks, allowing Enigma to observe human interaction patterns. The company is building robot-agnostic software and foundation models, aiming to produce better interfaces and potentially a different kind of robotic brain through this public experiment."
+  },
+  "https://www.notboring.co/p/weekly-dose-of-optimism-206": {
+    "created_at": "2026-08-15T11:23:17.426796+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "A Canadian company called Avidrone won the DARPA Heavy Lift Challenge with its Katana uncrewed aircraft. The competition required a drone to complete a course while lifting four times its own weight. Avidrone's 29.3 lb drone successfully carried 112.4 lbs, achieving a 3.84:1 lift ratio, which was the best performance."
   },
   "https://www.saastr.com/2026-is-the-biggest-ipo-year-in-history-but-take-out-one-company-and-its-one-of-the-worst/": {
     "created_at": "2026-08-03T13:43:45.186286+00:00",
@@ -443,6 +461,12 @@
     "prompt_version": 1,
     "summary": "Episode #010 of The Agents describes how Claude integrated with Replit to function as an AI VP of Product, managing feature builds. The team also used an LLM to migrate 10 years of Marketo data for $14.28 and an agent autonomously replaced a $10,000/year app in one hour."
   },
+  "https://www.saastr.com/databricks-just-crossed-7b-arr-growing-80-a-30-point-acceleration-a-190b-valuation-and-the-margin-bill-for-agents/": {
+    "created_at": "2026-08-15T11:23:33.507577+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Databricks announced it crossed a $7 billion revenue run-rate in Q2, growing over 80% year over year, and closed a $5 billion strategic round at a $190 billion valuation. This growth is largely from expansion within existing accounts, with key products like Lakehouse also showing significant growth. The company reports positive adjusted free cash flow but anticipates margin compression due to increased query volume from agentic AI, and has no immediate plans for an IPO."
+  },
   "https://www.saastr.com/dear-saastr-at-what-acv-size-do-i-need-an-account-manager-in-b2b/": {
     "created_at": "2026-08-14T11:46:21.717808+00:00",
     "model": "gemini-2.5-flash",
@@ -532,6 +556,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "For B2B companies, net new logo growth, specifically above 15% annually, is presented as the critical survival metric in the current environment. Key insights also include the necessity of governing AI token spend as a significant new cost center and the accelerated collapse of switching costs, which makes customer renewals less certain."
+  },
+  "https://www.saastr.com/klaviyos-ceo-on-building-at-1-5b-with-agents-dark-factory-composer-and-why-every-single-employee-had-to-hit-l3-by-june/": {
+    "created_at": "2026-08-15T11:23:01.340432+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Klaviyo's CEO outlined the company's approach to building AI products, including a mandate for all 2,300 employees to achieve \"L3\" AI autonomy by June, which involves constantly running multiple AI sessions or teams of agents. This system utilizes an internal \"Dark Factory\" where agents build other agents by decomposing problems and defining API interfaces, while also treating external agents as power users that interact with software via robust APIs."
   },
   "https://www.saastr.com/nues-guided-selling-playbook-took-2-minutes-to-build-the-implementation-still-takes-90-days/": {
     "created_at": "2026-08-04T13:04:55.555311+00:00",

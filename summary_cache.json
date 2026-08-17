@@ -197,6 +197,12 @@
     "prompt_version": 1,
     "summary": "Netflix Chief Product and Technology Officer Elizabeth Stone, who oversees Engineering, Product, and Design, discusses AI and the future of product and tech roles. The conversation covers key skills like \"systems thinking,\" managing AI-generated output quality, and Netflix's expectation of AI fluency."
   },
+  "https://www.lennysnewsletter.com/p/openais-head-of-design-this-is-the": {
+    "created_at": "2026-08-17T11:28:21.828507+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Ian Silber, OpenAI’s head of product design, discusses how OpenAI designs products like ChatGPT and Codex, and the future of human interaction with AI. He shares why he believes this is the best time to be a product designer and offers advice to his designers."
+  },
   "https://www.lennysnewsletter.com/p/productpass-summer2026launch": {
     "created_at": "2026-07-29T13:02:09.030385+00:00",
     "model": "gemini-2.5-flash",
@@ -485,6 +491,12 @@
     "prompt_version": 1,
     "summary": "A startup should consider hiring an internal recruiter when consistently hiring five or more people per quarter. This approach becomes more cost-effective than paying external recruiter fees for multiple placements and allows for a better focus on culture and specific candidate profiles. External recruiters are recommended for early-stage or hard-to-fill roles before regular, high-volume hiring begins."
   },
+  "https://www.saastr.com/dear-saastr-how-can-i-become-a-better-vp-of-sales/": {
+    "created_at": "2026-08-17T11:28:36.435712+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Becoming a better VP of Sales involves consistently hitting sales targets and building a machine for future success. This primary role emphasizes two jobs: hiring and improving sales talent, and actively participating in closing deals, particularly for earlier-stage companies. Successful VPs also set clear, believed-in goals, treat pipeline as oxygen, act as product experts, own their misses, and focus on accountability for results."
+  },
   "https://www.saastr.com/dear-saastr-i-fired-my-vp-of-sales-what-now/": {
     "created_at": "2026-08-02T12:04:41.212727+00:00",
     "model": "gemini-2.5-flash",
@@ -563,6 +575,12 @@
     "prompt_version": 1,
     "summary": "Software is not dead, but winning in the industry has become much harder due to AI, which is currently in a massive \"invest mode\" with spending significantly outpacing revenue. New software companies must build strong, defensible moats, such as proprietary non-public data or integration with physical sensors, to differentiate themselves from core foundation models. Founders need to understand their specific layer in the AI stack, ensure real growth, and manage compute costs efficiently."
   },
+  "https://www.saastr.com/jasons-takes-on-this-weeks-20vc-the-agents-never-suggested-canva-the-meme-you-cant-outrun-and-why-i-only-underwrite-founders-now/": {
+    "created_at": "2026-08-17T11:28:53.546458+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "\"Jason's Takes\" discusses the impact of AI and agents on the tech industry, highlighting how AI agents can render existing prosumer products obsolete and necessitate a re-evaluation of company valuations based on current growth rates. The author emphasizes the need for an \"S-tier\" compensation for top AI talent and states a preference for underwriting founder-run companies due to their willingness to adapt during platform shifts."
+  },
   "https://www.saastr.com/jasons-takes-on-this-weeks-20vc-the-toggle-is-a-permission-grant-the-blame-test-decides-the-deal-and-why-five-years-of-price-increases-is-a-countdown/": {
     "created_at": "2026-08-03T13:44:20.286521+00:00",
     "model": "gemini-2.5-flash",
@@ -622,6 +640,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "ICONIQ's 2026 GTM benchmark report shows increased annual sales quotas for high performers, with enterprise AEs carrying $2.25M, Mid-Market at $1.35M, and SMB at $750K. These higher quotas are supported by AI-driven pipeline generation and are accompanied by increased attainment rates and a shift in AE compensation towards expansion activities like cross-sell and renewals."
+  },
+  "https://www.saastr.com/the-0-quota-club-and-why-the-same-mediocre-rep-hits-70-at-one-company-and-0-at-yours/": {
+    "created_at": "2026-08-17T11:29:11.764404+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Mediocre sales reps can achieve 50-90% of their quota in sales organizations with extreme product-market fit, tight processes, and substantial support. However, in organizations missing any of these three elements, the same reps often hit 0% of quota, forming the \"0% Quota Club.\" This happens because reps in such environments are forced to invent sales processes, pricing strategies, and technical stories, which are typically not responsibilities for average account executives."
   },
   "https://www.saastr.com/the-1-most-important-thing-to-understand-about-ai-sdrs/": {
     "created_at": "2026-08-02T12:04:26.168159+00:00",

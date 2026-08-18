@@ -95,6 +95,12 @@
     "prompt_version": 1,
     "summary": "A discussion reviewed recent developments in open models, highlighting the impact of Kimi K3's release, China's commitment to openness, and Qwen's plan for an open-weight model. The conversation covered the performance of various Chinese and US open models and debated the increasing or decreasing impact of distillation from closed models. Predictions for the year included continued growth in model capabilities, with Kimi and Zhipu considered frontier models, and the possibility of a US company entering the top cluster."
   },
+  "https://www.interconnects.ai/p/teaching-everyone-to-fish-for-tokens": {
+    "created_at": "2026-08-18T11:28:18.752564+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "The future of open models is discussed, with analogies drawn to foundational open-source software like Linux. Nvidia is significantly investing in nearly open-source models to create demand for their chips and prevent the monopolization of intelligence. However, if this approach is not financially viable, open models may shift to focus on efficiency, modifiability, and specialization for a long-tail ecosystem."
+  },
   "https://www.lennysnewsletter.com/p/anthropics-first-technical-pm-on": {
     "created_at": "2026-07-27T13:41:00.127553+00:00",
     "model": "gemini-2.5-flash",
@@ -137,6 +143,12 @@
     "prompt_version": 1,
     "summary": "Maddie Reese is a hardware tinkerer and builder who creates projects at the intersection of software and hardware, including a thermal receipt printer and a Twitter pager built with a Raspberry Pi. She uses Cursor to brainstorm hardware projects and manage her building process. Her approach also involves building a personal API and focusing on fun to ship physical projects."
   },
+  "https://www.lennysnewsletter.com/p/how-a-solo-founder-used-codex-and": {
+    "created_at": "2026-08-18T11:28:00.951324+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Yana Welinder launched Yana Bana, an AI-native fashion brand, as a solo founder without engineers, utilizing tools like Codex and ChatGPT. She develops garments from hand-drawn sketches to runway photos, CAD files, and a live pre-order site with Stripe integration. Her method includes using a detailed \"fashion prompt\" as a technical specification and leveraging AI to operate 3D design software she has not personally learned."
+  },
   "https://www.lennysnewsletter.com/p/how-i-ai-build-an-ai-code-review": {
     "created_at": "2026-08-11T11:45:13.983211+00:00",
     "model": "gemini-2.5-flash",
@@ -160,6 +172,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Claire benchmarked GPT-5.6 Sol against Claude Fable and other models for real product work, finding Sol to be the most practically effective. Sol became her new daily driver due to its ability to produce functional prototypes, easier-to-work-with writing, and practical flexibility for building products. It also excels at video editing via Codex and browser use with @Chrome for agentic workflows."
+  },
+  "https://www.lennysnewsletter.com/p/how-i-ai-how-a-solo-founder-used": {
+    "created_at": "2026-08-18T11:27:25.317415+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Solo founder Yana Welinder launched an AI-native fashion brand, Yana Bana, without an engineering team. She uses ChatGPT and Codex to transform hand-drawn sketches into product images, operate 3D fashion software, research manufacturers, and build an e-commerce site. This approach allows specialized software to be accessible without training and makes previously impractical design ideas possible."
   },
   "https://www.lennysnewsletter.com/p/how-i-ai-how-the-founder-of-morning": {
     "created_at": "2026-07-21T12:24:58.537922+00:00",
@@ -688,6 +706,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Future sales organizations are becoming smaller, more senior, and AI-native. They focus on pipeline humans previously wrote off, allow buyers who don't need a rep to close on their own, and are ready for buyers that are software rather than people. Compensation and hiring practices must be rebuilt to align with these changes."
+  },
+  "https://www.saastr.com/we-churned-notion-after-7-years-our-ai-agent-took-its-last-job/": {
+    "created_at": "2026-08-18T11:28:33.824491+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "A company canceled its Notion subscription after seven years because they stopped needing the product, despite having no complaints or issues with it. An internally developed AI agent gradually absorbed Notion's last remaining function, such as running staff meetings. A re-engagement email from Notion ultimately prompted the cancellation, illustrating a type of churn where satisfied, low-touch accounts are replaced by internal AI agents."
   },
   "https://www.saastr.com/we-peaked-at-30-ai-agents-now-were-coming-back-down-to-20-heres-what-consolidation-actually-looks-like-the-agents-011-live/": {
     "created_at": "2026-07-25T12:05:13.258889+00:00",

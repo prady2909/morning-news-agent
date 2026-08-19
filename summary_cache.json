@@ -101,6 +101,12 @@
     "prompt_version": 1,
     "summary": "The future of open models is discussed, with analogies drawn to foundational open-source software like Linux. Nvidia is significantly investing in nearly open-source models to create demand for their chips and prevent the monopolization of intelligence. However, if this approach is not financially viable, open models may shift to focus on efficiency, modifiability, and specialization for a long-tail ecosystem."
   },
+  "https://www.lennysnewsletter.com/p/announcing-lennys-jobs-the-best-place": {
+    "created_at": "2026-08-19T11:27:05.569996+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Lenny's Jobs has launched as a new platform designed to help users find, vet, and land their dream jobs within four builder roles at tech companies: product management, engineering, design, and growth/marketing. The platform aggregates vetted open roles from top startups and big tech, including unlisted positions, and features custom-built AI tools for interview preparation, resume customization, and an AI career coach."
+  },
   "https://www.lennysnewsletter.com/p/anthropics-first-technical-pm-on": {
     "created_at": "2026-07-27T13:41:00.127553+00:00",
     "model": "gemini-2.5-flash",
@@ -208,6 +214,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "The text explores the transformative power of sabbaticals, featuring personal experiences from the author and guest author DJ DiDonna. DiDonna's book, \"Big Time Off,\" identifies three sabbatical archetypes—Achiever, Seeker, and Explorer—and offers guidance. Key advice includes ensuring sufficient time off, ideally 6-12 months, and setting impenetrable boundaries for true disconnection from routine life."
+  },
+  "https://www.lennysnewsletter.com/p/i-tested-grok-bot-grok-46-and-cursor": {
+    "created_at": "2026-08-19T11:26:48.065260+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "This item presents an honest take on Grok Bot, Grok 4.6, and Cursor Origin, recent shipments from xAI and Cursor. The author performed a solo breakdown, including setting up five Grok Bots, running Grok 4.6 through a Claire Weighted Index, and using Origin as a GitHub replacement. The review highlights what is worth attention, what is overhyped, and where the author is personally focusing time."
   },
   "https://www.lennysnewsletter.com/p/netflix-cpto-on-ai-and-the-future": {
     "created_at": "2026-07-20T13:08:59.314735+00:00",
@@ -623,6 +635,12 @@
     "prompt_version": 1,
     "summary": "Nue.io demonstrated an AI agent capable of building a guided selling playbook in about two minutes from plain English, significantly reducing the time for this specific task. However, the full system implementation still averages about 90 days, potentially taking up to a year, due to dependencies on product catalog and data quality."
   },
+  "https://www.saastr.com/on-your-next-big-deal-double-your-pricing/": {
+    "created_at": "2026-08-19T11:27:42.380621+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "A recommended exercise for businesses is to double the price quoted for their next large deal with a new prospect, rather than for existing customers. This strategy aims to drive deal size up and encourages thinking about providing a true solution to a big problem. Achieving the doubled price might require building new features, improving customer success, or upgrading the sales team."
+  },
   "https://www.saastr.com/our-ai-agent-rewrote-our-app-without-telling-us-the-agents-12-is-here/": {
     "created_at": "2026-08-06T12:58:30.117772+00:00",
     "model": "gemini-2.5-flash",
@@ -646,6 +664,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "An item provides advice for startups that lost a large Request for Proposal (RFP) because they were considered too small. The advice includes maintaining relationships with lost prospects for future opportunities, using lost RFPs to guide product and security development, and evolving team culture to be more enterprise-focused. It also suggests that some larger companies may still engage with smaller vendors for less mission-critical projects."
+  },
+  "https://www.saastr.com/rippling-ran-2100-scored-agent-runs-per-model-on-real-payroll-data-the-cheapest-model-tied-the-most-expensive-one/": {
+    "created_at": "2026-08-19T11:27:26.682108+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Rippling tested 15 AI models by running approximately 2,100 scored attempts per model on real payroll data within a production system. The study revealed that quality flattened among top models, with the cheapest model achieving a pass rate nearly identical to more expensive options."
   },
   "https://www.saastr.com/saastr-ai-app-of-the-week-nue-the-revenue-platform-built-for-how-b2b-ai-actually-prices-now/": {
     "created_at": "2026-07-18T11:54:35.865831+00:00",

@@ -395,6 +395,12 @@
     "prompt_version": 1,
     "summary": "SaaStr AI provides advertisers with live dashboards and reconciled performance numbers, tracked in real-time by an AI VP of Marketing. One campaign delivered over 5.4 million impressions across 67 newsletter editions, resulting in 11,749 visits from B2B buyers to a sponsor's signup form. This advertising targets B2B decision-makers with budget authority across multiple channels, leading to measurable revenue and renewals for sponsors."
   },
+  "https://www.saastr.com/5-interesting-learnings-from-atlassian-at-6-6-billion-in-arr-28-growth-44-rpo-growth-and-a-35-one-day-stock-pop/": {
+    "created_at": "2026-08-20T11:29:21.702667+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Atlassian reported Q4 results with total revenue up 28% and cloud revenue accelerating 31%, resulting in a 35% single-day stock increase. The company is bundling new AI capabilities for free, impacting future operating margins as costs are incurred before revenue. Remaining performance obligations (RPO) grew 44%, indicating growth from long, multi-year enterprise contracts."
+  },
   "https://www.saastr.com/5-interesting-learnings-from-palantir-at-7-7-billion-arr-93-growth-157-nrr-and-a-rule-of-40-score-of-155/": {
     "created_at": "2026-08-05T12:55:22.780714+00:00",
     "model": "gemini-2.5-flash",
@@ -532,6 +538,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "After firing a VP of Sales, it is important to act fast and smart to stabilize and rebuild the sales organization. This involves having a plan, potentially stepping in as an interim VP or promoting from within, and auditing the sales process. It is also crucial to start the search for a new VP immediately, focus on the team's morale, keep the sales pipeline moving, and ensure the new hire comes with a clear plan."
+  },
+  "https://www.saastr.com/dear-saastr-one-of-our-most-respected-team-members-quit-and-folks-are-leaving-what-do-i-do/": {
+    "created_at": "2026-08-20T11:29:36.115394+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "When a highly respected team member quits, it often leads to a quick exodus of other employees. The recommended strategy for this situation is to immediately promote one of their best and most respected team members into a leadership position. This approach can help rebuild more quickly, retain domain knowledge, and keep a chunk of the best staff."
   },
   "https://www.saastr.com/dear-saastr-whats-the-best-advice-founders-never-hear/": {
     "created_at": "2026-07-30T12:46:39.565646+00:00",

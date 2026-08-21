@@ -317,6 +317,12 @@
     "prompt_version": 1,
     "summary": "Menlo Ventures is seeing an Internal Rate of Return (IRR) of over 40% on its recent funds, largely driven by its substantial investment in the AI lab Anthropic. The firm committed around $1 billion to Anthropic across different vehicles, with this stake now worth $14 billion, contributing to the firm's recent success and its largest fundraise to date."
   },
+  "https://www.newcomer.co/p/sources-poolside-strikes-6-billion": {
+    "created_at": "2026-08-21T11:28:25.063180+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Poolside AI, an artificial intelligence model-building startup, has secured a $6 billion non-exclusive licensing deal with Nvidia. Additionally, Nvidia invested $1 billion in Poolside at a $12 billion pre-money valuation."
+  },
   "https://www.newcomer.co/p/the-abrupt-fall-of-situational-awareness": {
     "created_at": "2026-08-01T12:03:44.812063+00:00",
     "model": "gemini-2.5-flash",
@@ -328,6 +334,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "\"The Big Cheese,\" a feature-length documentary about American cheesemongers, is having its theatrical premiere starting tonight at the IFC Center in New York City. The film will run all week at the IFC Center and begin screening in Los Angeles on August 14. Reviews have described it as a \"satisfyingly tender story\" and \"bright, tangy, and bold.\""
+  },
+  "https://www.newcomer.co/p/the-story-of-a-cap-table-openrouter": {
+    "created_at": "2026-08-21T11:28:49.392392+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Stripe announced its agreement to purchase OpenRouter, the model routing platform co-founded by Alex Atallah in 2023. Atallah and AI investor Anjney Midha became friends 13 years ago at Stanford, with Midha later backing the team in 2025 while a general partner at Andreessen Horowitz. This deal represents a rapid founding-to-multibillion-dollar-exit story, supercharged by the AI boom in Silicon Valley."
   },
   "https://www.newcomer.co/p/thrive-capital-finds-its-lane-as": {
     "created_at": "2026-08-15T11:22:25.922463+00:00",
@@ -742,6 +754,18 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Future sales organizations are becoming smaller, more senior, and AI-native. They focus on pipeline humans previously wrote off, allow buyers who don't need a rep to close on their own, and are ready for buyers that are software rather than people. Compensation and hiring practices must be rebuilt to align with these changes."
+  },
+  "https://www.saastr.com/top-10-mistakes-i-see-new-vp-of-sales-make-the-first-week-on-the-job/": {
+    "created_at": "2026-08-21T11:29:20.465276+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "New VPs of Sales and CROs often make several avoidable mistakes in their first week on the job, which can lead to mis-hires. Common errors include not knowing the product cold, failing to start preparations before the official start date, and insisting on their own methods without first understanding existing successful strategies. Other mistakes involve not having reps lined up, not asking enough questions, not starting outbound outreach, and not being able to demo the product themselves."
+  },
+  "https://www.saastr.com/vertical-b2b-leader-owner-acclerated-after-100m-arr-with-agents-the-key-insight-every-time-a-customer-logs-in-owner-has-failed/": {
+    "created_at": "2026-08-21T11:29:06.153227+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Owner, a platform providing websites and online ordering for restaurants, accelerated its growth after reaching $100M ARR by embracing AI agents. Over 83% of new customers now start their journey in a free AI product that automates online presence setup for restaurants. A key insight from Owner's experience is that customer logins are now considered a failure signal, indicating the agent-based software did not fully accomplish its task without manual intervention."
   },
   "https://www.saastr.com/we-churned-notion-after-7-years-our-ai-agent-took-its-last-job/": {
     "created_at": "2026-08-18T11:28:33.824491+00:00",

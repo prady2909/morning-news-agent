@@ -17,6 +17,12 @@
     "prompt_version": 1,
     "summary": "This project focuses on building an AI text detector from scratch to explain how such systems work. It aims to demonstrate an applied end-to-end LLM project, including its use as a verifier to train a small language model to produce text that avoids detection. The project will result in an AI-detector API and a user-friendly interface."
   },
+  "https://magazine.sebastianraschka.com/p/claude-watermarking": {
+    "created_at": "2026-08-22T11:22:19.720115+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Claude's text watermarking aims to identify AI-generated content by making text generation more deterministic at certain positions. This is achieved by using a secret watermarking key to set a specific random seed during token sampling. While only Anthropic can detect these watermarks (unless an API is provided), a watermark could be removed by editing the text, though the specific watermarked positions are unknown to the user."
+  },
   "https://magazine.sebastianraschka.com/p/controlling-reasoning-effort-in-llms": {
     "created_at": "2026-07-18T11:54:20.780856+00:00",
     "model": "gemini-2.5-flash",
@@ -347,6 +353,12 @@
     "prompt_version": 1,
     "summary": "Thrive Capital recently raised $2 billion for Thrive Holdings, its AI roll-up vehicle, and announced it will own a piece of the Los Angeles Lakers. These actions exemplify founder Joshua Kushner's strategy of moving beyond traditional Silicon Valley venture capital norms. The firm now focuses on three core theses, including AI, company transformation, and investments in live events and cultural institutions."
   },
+  "https://www.newcomer.co/p/two-huge-exits-show-the-power-of": {
+    "created_at": "2026-08-22T11:22:41.118107+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "SpaceX acquired Cursor for $60 billion in stock, marking the largest buyout ever of a venture-backed startup, while Stripe agreed to acquire OpenRouter for around $8 billion. These deals generated combined outcomes north of $8 billion for a16z from total investments of about $320 million. Such mega-exits are noted as critical to powering a16z's megafund model."
+  },
   "https://www.notboring.co/p/ai-is-oil-not-god": {
     "created_at": "2026-07-26T12:05:04.809835+00:00",
     "model": "gemini-2.5-flash",
@@ -376,6 +388,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "A Canadian company called Avidrone won the DARPA Heavy Lift Challenge with its Katana uncrewed aircraft. The competition required a drone to complete a course while lifting four times its own weight. Avidrone's 29.3 lb drone successfully carried 112.4 lbs, achieving a 3.84:1 lift ratio, which was the best performance."
+  },
+  "https://www.notboring.co/p/weekly-dose-of-optimism-207": {
+    "created_at": "2026-08-22T11:22:57.872104+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Merck and Moderna's mRNA cancer vaccine successfully prevented melanoma from recurring in a Phase III trial. Given with Keytruda after surgery in high-risk melanoma patients, the vaccine significantly reduced the risk that cancer would return or spread compared with Keytruda alone. This marks the first successful late-stage trial for a personalized mRNA cancer therapy and could lead to approval and launch around 2027."
   },
   "https://www.saastr.com/2026-is-the-biggest-ipo-year-in-history-but-take-out-one-company-and-its-one-of-the-worst/": {
     "created_at": "2026-08-03T13:43:45.186286+00:00",
@@ -508,6 +526,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Leaders from Atlassian, Anthropic, and Scale Venture Partners presented a common AI playbook at SaaStr AI 2026, emphasizing building on existing software stacks. Their shared lesson was to avoid binary choices in AI implementation, instead integrating AI as a \"skill layer\" that turns raw models into dependable business systems. This approach allows companies to thread AI through current workflows and leverage existing investments, with differentiation found in the skill layer rather than the raw model."
+  },
+  "https://www.saastr.com/build-relevant-exit-strategy/": {
+    "created_at": "2026-08-22T11:23:31.528558+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Building a real exit strategy for startups involves several key actions to increase acquisition odds. These include developing the best product in an important space, actively gaining attention from potential acquirers, and building long-term relationships with their senior leadership. Additionally, engaging with private equity firms that approach the company, particularly after reaching $10m-$20m ARR, is advised."
   },
   "https://www.saastr.com/canva-cuts-2026-growth-by-a-third-jeff-dean-walks-out-of-google-and-elon-builds-his-own-fab-20vc-x-saastr/": {
     "created_at": "2026-08-14T11:45:32.037500+00:00",
@@ -706,6 +730,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "ICONIQ's 2026 GTM benchmark report shows increased annual sales quotas for high performers, with enterprise AEs carrying $2.25M, Mid-Market at $1.35M, and SMB at $750K. These higher quotas are supported by AI-driven pipeline generation and are accompanied by increased attainment rates and a shift in AE compensation towards expansion activities like cross-sell and renewals."
+  },
+  "https://www.saastr.com/servicetitan-just-shut-off-podiums-integration-for-1000-shared-customers-agents-turned-a-9-year-partner-into-a-direct-competitor/": {
+    "created_at": "2026-08-22T11:23:16.063691+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "ServiceTitan has ended its nine-year integration with Podium for approximately 1,000 shared customers, providing about 30 days' notice. This decision occurred after Podium's AI agents began to directly compete with ServiceTitan's core services, which ServiceTitan's updated policies and API terms disallow for partners."
   },
   "https://www.saastr.com/the-0-quota-club-and-why-the-same-mediocre-rep-hits-70-at-one-company-and-0-at-yours/": {
     "created_at": "2026-08-17T11:29:11.764404+00:00",

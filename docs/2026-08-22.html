@@ -1,0 +1,1985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Morning News — Saturday, 22 Aug 2026</title>
+  <script>
+    // No-flash theme: set data-theme BEFORE the stylesheet paints. Stored choice
+    // wins; otherwise fall back to the OS preference.
+    (function () {
+      var t = localStorage.getItem('theme');
+      if (t !== 'light' && t !== 'dark') {
+        t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      document.documentElement.dataset.theme = t;
+    })();
+  </script>
+  <style>
+    /* Editorial palette — warm off-white light / tinted off-black dark. Single
+       accent is the red (--seg-red). Dark mode is driven by data-theme, set by
+       the no-flash script above and flipped by the mode toggle in the filter row.
+       --chip-bg tracks --card so the archive calendar keeps its surface. */
+    :root {
+      --bg:#faf8f3; --card:#ffffff; --text:#1c1a17; --text-secondary:#4a463e;
+      --muted:#6b6459; --border:#ddd6c8; --chip-bg:#ffffff;
+      --seg-red:#9b2020; --seg-fill:#1c1a17; --seg-on:#faf8f3;
+    }
+    :root[data-theme="dark"] {
+      --bg:#161410; --card:#1f1c17; --text:#efe8da; --text-secondary:#cabfae;
+      --muted:#9a9081; --border:#33302a; --chip-bg:#1f1c17;
+      --seg-red:#e0645c; --seg-fill:#efe8da; --seg-on:#161410;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin:0; background:var(--bg); color:var(--text); line-height:1.55;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      -webkit-text-size-adjust:100%;
+    }
+    .wrap { max-width:1400px; margin:0 auto; padding:24px 32px 72px; }
+    header { margin-bottom:16px; }
+    header .top { display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+    h1 { font-family:Georgia,"Times New Roman",serif; font-size:1.7rem; font-weight:600; margin:0; letter-spacing:-0.02em; }
+    .subtitle { color:var(--muted); font-size:.95rem; margin:4px 0 0; font-variant-numeric:tabular-nums; }
+    #count { color:var(--muted); font-size:.85rem; white-space:nowrap; font-variant-numeric:tabular-nums; }
+    .backlink { display:inline-block; margin-bottom:12px; color:var(--muted); text-decoration:none; font-size:.9rem; }
+    .backlink:hover { color:var(--text); }
+
+    .filters {
+      position:sticky; top:0; z-index:10; display:flex; flex-direction:column;
+      padding:0 0 12px; margin-bottom:8px; background:var(--bg);
+      border-bottom:1px solid var(--border);
+    }
+    /* One row of three toggle groups (topic · format · mode) split by thin
+       vertical dividers, above a top hairline. */
+    .filter-row {
+      display:flex; flex-wrap:nowrap; align-items:center; gap:16px;
+      border-top:1px solid var(--border); padding-top:16px; overflow-x:auto;
+    }
+    .filter-div { width:1px; align-self:stretch; background:var(--border); }
+    .grp { display:inline-flex; align-items:center; gap:6px; }
+    /* Segmented bar: red OUTER border with faint neutral internal dividers. The
+       SELECTED segment fills itself directly (--seg-fill) with a flipped label
+       (--seg-on), so the fill always matches the segment shape exactly — no pill,
+       no slide, instant selection. */
+    .segbar {
+      display:inline-flex; border:1.5px solid var(--seg-red);
+      border-radius:8px; overflow:hidden;
+    }
+    .seg {
+      font:inherit; font-size:13.5px; font-weight:500;
+      cursor:pointer; padding:7px 15px; background:transparent; color:var(--seg-red);
+      border:none; border-left:1px solid var(--border); line-height:1;
+      display:inline-flex; align-items:center;
+    }
+    .seg:first-child { border-left:none; }
+    .seg.selected { background:var(--seg-fill); color:var(--seg-on); }
+    /* End segments round their fill to follow the bar's inner corners (8px bar,
+       1.5px border → 6px inner). */
+    .seg:first-child.selected { border-top-left-radius:6px; border-bottom-left-radius:6px; }
+    .seg:last-child.selected { border-top-right-radius:6px; border-bottom-right-radius:6px; }
+    .seg-mode { padding:7px 13px; }
+    .seg-mode svg { width:15px; height:15px; display:block; }
+    /* Per-bar reset: a muted × shown only when that bar has an active selection. */
+    .seg-reset {
+      font:inherit; font-size:1rem; line-height:1; cursor:pointer;
+      background:transparent; border:none; color:var(--muted); padding:0 2px;
+    }
+    .seg-reset[hidden] { display:none; }
+
+    .item {
+      background:var(--card); border:1px solid var(--border); border-radius:12px;
+      padding:18px 20px; margin-bottom:14px;
+    }
+    .meta {
+      display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:8px;
+      font-variant-numeric:tabular-nums;
+    }
+    /* Neutral card tags: identical for every topic; still clickable (data-filter). */
+    .flair {
+      font:inherit; font-size:.72rem; font-weight:600; letter-spacing:.03em;
+      text-transform:uppercase; cursor:pointer; padding:2px 9px; border-radius:6px;
+      background:transparent; color:var(--text-secondary); border:1px solid var(--border);
+    }
+    .flair:hover { border-color:var(--text-secondary); color:var(--text); }
+    .source { font-size:.85rem; font-weight:500; color:var(--text-secondary); }
+    .date { font-size:.8rem; color:var(--muted); margin-left:auto; }
+    /* Editorial headline: serif, high-contrast (never red), tighter tracking. */
+    .title {
+      font-family:Georgia,"Times New Roman",serif;
+      font-size:1.2rem; font-weight:600; letter-spacing:-0.01em;
+      margin:0 0 6px; line-height:1.3;
+    }
+    .title a { color:var(--text); text-decoration:none; }
+    .title a:hover { text-decoration:underline; }
+    .teaser {
+      margin:0; max-width:65ch; color:var(--text-secondary); font-size:.95rem;
+      font-variant-numeric:tabular-nums;
+    }
+    /* AI summary (LIVE only): slightly more prominent than a teaser (full text
+       colour), prefixed by a small tag so it reads as our summary, not the feed's. */
+    .summary {
+      margin:0; max-width:65ch; color:var(--text); font-size:.95rem;
+      font-variant-numeric:tabular-nums;
+    }
+    .summary-tag {
+      display:inline-block; font-size:.62rem; font-weight:600; letter-spacing:.05em;
+      text-transform:uppercase; color:var(--muted);
+      border:1px solid var(--border); border-radius:4px;
+      padding:1px 6px; margin-right:8px; vertical-align:middle;
+    }
+
+    /* Two-column layout: article content on the left, archive rail on the right. */
+    .layout { display:grid; grid-template-columns:minmax(0,700px) 300px; gap:32px; justify-content:space-between; align-items:start; }
+    .content { min-width:0; }   /* let the left column shrink instead of overflowing the grid */
+    .rail-box {
+      background:var(--card); border:1px solid var(--border); border-radius:12px;
+      padding:16px 18px; position:sticky; top:12px;
+    }
+    .rail-box h2 { font-size:1rem; margin:0 0 8px; }
+
+    /* Archive calendar: month grid inside the rail, with client-side month paging. */
+    .cal-nav { display:flex; align-items:center; gap:8px; margin:0 0 8px; }
+    .cal-title { font-size:.9rem; font-weight:600; margin:0; }
+    .cal-back {
+      font:inherit; font-size:1rem; line-height:1; cursor:pointer;
+      background:var(--chip-bg); color:var(--text); border:1px solid var(--border);
+      border-radius:6px; padding:1px 9px;
+    }
+    .cal-back:hover:not(:disabled) { border-color:var(--text); }
+    .cal-back:disabled { opacity:.35; cursor:default; }
+    .cal-grid { display:grid; grid-template-columns:repeat(7,1fr); gap:2px; text-align:center; }
+    .cal-dow { font-size:.7rem; font-weight:700; color:var(--muted); padding:4px 0; }
+    .cal-day {
+      display:flex; align-items:center; justify-content:center;
+      aspect-ratio:1; font-size:.8rem; border-radius:6px;
+    }
+    .cal-off { color:var(--muted); opacity:.45; }            /* no snapshot / future / today: inert */
+    .cal-today { outline:1.5px solid var(--border); outline-offset:-1.5px; opacity:.7; }
+    .cal-on {                                                 /* has a snapshot: clickable */
+      color:var(--text); font-weight:600; text-decoration:none;
+      background:var(--chip-bg); border:1px solid var(--border); cursor:pointer;
+    }
+    .cal-on:hover { border-color:var(--text); }
+
+    /* Narrow screens: drop the rail below the content instead of beside it. */
+    @media (max-width:860px) {
+      .layout { grid-template-columns:1fr; }
+      .rail-box { position:static; }
+    }
+
+    @media (max-width:480px) {
+      h1 { font-size:1.4rem; }
+      .wrap { padding:16px 12px 56px; }
+      .item { padding:14px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="backlink" href="index.html">← Latest</a>
+    <header>
+      <div class="top">
+        <h1>Morning News</h1>
+        <span id="count"></span>
+      </div>
+      <p class="subtitle">Saturday, 22 Aug 2026 · 185 items from 19 sources</p>
+    </header>
+
+    <div class="layout">
+      <div class="content">
+        <nav class="filters" aria-label="Filter items">
+          <div class="filter-row">
+            <div class="grp" aria-label="Filter by topic">
+              <div class="segbar" id="topic-bar">
+                <button class="seg" data-filter="AI">AI</button>
+                <button class="seg" data-filter="PM">PM</button>
+                <button class="seg" data-filter="GTM">GTM</button>
+                <button class="seg" data-filter="Startups">Startups</button>
+              </div>
+              <button class="seg-reset" id="topic-reset" aria-label="Clear topic filter" hidden>&times;</button>
+            </div>
+            <div class="filter-div" aria-hidden="true"></div>
+            <div class="grp" aria-label="Filter by format">
+              <div class="segbar" id="format-bar">
+                <button class="seg" data-format="article">Articles</button>
+                <button class="seg" data-format="video">Videos</button>
+              </div>
+              <button class="seg-reset" id="format-reset" aria-label="Clear format filter" hidden>&times;</button>
+            </div>
+            <div class="filter-div" aria-hidden="true"></div>
+            <div class="grp" aria-label="Color theme">
+              <div class="segbar" id="mode-bar">
+                <button class="seg seg-mode" data-theme-choice="light" aria-label="Light mode"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"></circle><line x1="12" y1="2" x2="12" y2="4"></line><line x1="12" y1="20" x2="12" y2="22"></line><line x1="2" y1="12" x2="4" y2="12"></line><line x1="20" y1="12" x2="22" y2="12"></line><line x1="4.9" y1="4.9" x2="6.3" y2="6.3"></line><line x1="17.7" y1="17.7" x2="19.1" y2="19.1"></line><line x1="4.9" y1="19.1" x2="6.3" y2="17.7"></line><line x1="17.7" y1="6.3" x2="19.1" y2="4.9"></line></svg></button>
+                <button class="seg seg-mode" data-theme-choice="dark" aria-label="Dark mode"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg></button>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+        <main id="items">
+      <article class="item" data-topic="AI" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Ahead of AI</span>
+          <span class="date">22 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://magazine.sebastianraschka.com/p/claude-watermarking" target="_blank" rel="noopener noreferrer">How Claude Watermarks AI-Generated Text</a></h2>
+        <p class="teaser">A 48-minute video walkthrough of token sampling, watermark detection, and removal</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="video">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Matt Wolfe</span>
+          <span class="date">21 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.youtube.com/shorts/1m5Ee9QbLF0" target="_blank" rel="noopener noreferrer">This Pyramid Could Be Your Next Intern</a></h2>
+        <p class="teaser">Your next intern might be a tiny pyramid-shaped computer 🤖 The Autonomous Intern 2 is built specifically to run AI agents. You can connect it to Slack, Telegram, or Discord, give it tasks just by talking to it, and keep things like its memory, project files, writing style, and…</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Newcomer</span>
+          <span class="date">21 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.newcomer.co/p/two-huge-exits-show-the-power-of" target="_blank" rel="noopener noreferrer">Two Huge Exits Show the Power of a16z’s Megafund Model</a></h2>
+        <p class="teaser">Plus, the latest on OpenAI &amp; Anthropic financials &amp; the data center backlash builds.</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="video">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Matt Wolfe</span>
+          <span class="date">21 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.youtube.com/watch?v=EfGF7QbJItA" target="_blank" rel="noopener noreferrer">AI News: OpenAI Pauses, AI Cancer Vaccine, and Qwen3.8</a></h2>
+        <p class="teaser">Here&#x27;s the AI News you might have missed this week. Get $100 in free credits for @Hyperagent when you sign up for a paid here</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Not Boring</span>
+          <span class="date">21 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.notboring.co/p/weekly-dose-of-optimism-207" target="_blank" rel="noopener noreferrer">Weekly Dose of Optimism #207</a></h2>
+        <p class="teaser">Cancer Vaccine, Attention, Generalist Robot, Routers, Drones + Extra Doses + HBD Puj!</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="video">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Corbin Brown</span>
+          <span class="date">21 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.youtube.com/shorts/whSVidv0xRg" target="_blank" rel="noopener noreferrer">Firebase Explained in 35 seconds (for beginners)</a></h2>
+        
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">SaaStr</span>
+          <span class="date">21 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.saastr.com/servicetitan-just-shut-off-podiums-integration-for-1000-shared-customers-agents-turned-a-9-year-partner-into-a-direct-competitor/" target="_blank" rel="noopener noreferrer">ServiceTitan Just Shut Off Podium’s Integration for ~1,000 Shared Customers. Why? Agents Turned a 9-Year Partner Into a Direct Competitor.</a></h2>
+        <p class="teaser">When a 9 year partnership … breaks down in the Agent Era. Podium co-founder and CEO Eric Rea posted last week that ServiceTitan gave roughly 1,000 shared customers about 30 days’ notice that the Podium integration was being switched off, in the middle of peak HVAC season, after…</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">SaaStr</span>
+          <span class="date">21 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.saastr.com/build-relevant-exit-strategy/" target="_blank" rel="noopener noreferrer">Dear SaaStr: How Do You Build a Real Exit Strategy?</a></h2>
+        <p class="teaser">Dear SaaStr: How Do You Build a Real Exit Strategy? First, bear in mind acquisitions are relatively rare. The vast majority of startups will never get one strong acquisition offer. Still, it’s not random. I’ve been through it twice as a founder and about ten times as an…</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="video">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Alex Finn</span>
+          <span class="date">20 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.youtube.com/watch?v=x8KP4MdvM1k" target="_blank" rel="noopener noreferrer">8 Grok Bot use cases I promise will change your life</a></h2>
+        <p class="teaser">Grok Bot uses cases I promise will amaze you FULL Grok Bot bootcamp in the Vibe Coding Academy coming up</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Newcomer</span>
+          <span class="date">20 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.newcomer.co/p/sources-poolside-strikes-6-billion" target="_blank" rel="noopener noreferrer">SOURCES: Poolside Strikes $6 Billion Licensing Deal with Nvidia &amp; Raises $1 Billion for Remaining Company at $12 Billion Valuation</a></h2>
+        
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Newcomer</span>
+          <span class="date">20 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.newcomer.co/p/the-story-of-a-cap-table-openrouter" target="_blank" rel="noopener noreferrer">The Story of a Cap Table: OpenRouter</a></h2>
+        <p class="teaser">A16z won big, while Menlo Ventures and CapitalG also scored strong returns</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="video">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Corbin Brown</span>
+          <span class="date">20 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.youtube.com/watch?v=1ppiXvhp4eg" target="_blank" rel="noopener noreferrer">How To Use Cursor Origin For Beginners</a></h2>
+        
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">SaaStr</span>
+          <span class="date">20 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.saastr.com/vertical-b2b-leader-owner-acclerated-after-100m-arr-with-agents-the-key-insight-every-time-a-customer-logs-in-owner-has-failed/" target="_blank" rel="noopener noreferrer">Vertical B2B Leader Owner Acclerated After $100M ARR With Agents. The Key Insight: Every Time a Customer Logs In, Owner Has Failed.</a></h2>
+        <p class="teaser">Everyone agrees you have to build with AI now. That argument is over. The unsettled questions are what a product built on agents is supposed to measure, and what stops a foundation model from doing to you next quarter what you just did to your own category. Adam Guild has been…</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="video">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Y Combinator (YouTube)</span>
+          <span class="date">20 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.youtube.com/watch?v=IfoPg2QefF8" target="_blank" rel="noopener noreferrer">Going In Deep On Data | YC Paper Club</a></h2>
+        <p class="teaser">This week&#x27;s YC Paper Club is focused on data. Three domain experts give talks to break down the challenges and frontiers of training data, benchmarks, and multilingual pre-training. Apply to Y Combinator</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="video">
+        <div class="meta">
+          <button class="flair" data-filter="PM">PM</button>
+          <span class="source">Claire Vo (ChatPRD)</span>
+          <span class="date">20 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.youtube.com/shorts/U5GGhDW28mI" target="_blank" rel="noopener noreferrer">This sets Grok Bot apart</a></h2>
+        <p class="teaser">Every other agent platform assumes you have one Gmail and one Slack. I have four email addresses and seven Slack workspaces. Grok Bot lets me connect all of them to a single bot, and that alone made the product feel genuinely useful on day one in a way that Codex and Claude…</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="video">
+        <div class="meta">
+          <button class="flair" data-filter="PM">PM</button>
+          <span class="source">Claire Vo (ChatPRD)</span>
+          <span class="date">20 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.youtube.com/shorts/MXNabLUNNQI" target="_blank" rel="noopener noreferrer">Voice-first async is already a viable workflow at small scale</a></h2>
+        <p class="teaser">Yana kicks off a deep research task, walks away to drape fabric or sew, comes back, and picks up the thread via voice. She&#x27;s described a workflow where the AI is running in the background while she does hands-on work, and she connects the two with natural language when she&#x27;s…</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="video">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Matt Wolfe</span>
+          <span class="date">20 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.youtube.com/shorts/O-8TbMFOAfg" target="_blank" rel="noopener noreferrer">Claude’s Text Watermark Could Follow It Everywhere</a></h2>
+        <p class="teaser">Anthropic is working on a watermark for Claude-generated text that could follow the text even after you copy, paste, or edit it 👀 They haven&#x27;t revealed exactly how this watermark works yet, but one way could be by creating a statistical pattern in Claude&#x27;s word choices that…</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">SaaStr</span>
+          <span class="date">20 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.saastr.com/top-10-mistakes-i-see-new-vp-of-sales-make-the-first-week-on-the-job/" target="_blank" rel="noopener noreferrer">Top 10 Mistakes I See New CROs and VP Sales Make The First Week on the Job</a></h2>
+        <p class="teaser">&quot;The top mistakes CROs make when they pick their next role: #1. Needing to be too passionate about the space#2. Don&#x27;t do enough diligence on fit for their skills#3. Don&#x27;t listen to enough calls before they start&quot; pic.twitter.com/XaVCGouUnJ — Jason ✨👾SaaStr.Ai✨ Lemkin (@jasonlk)…</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">SaaStr</span>
+          <span class="date">20 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.saastr.com/can-a-good-salesman-sell-anything/" target="_blank" rel="noopener noreferrer">Dear SaaStr:  Can A Great Sales Rep Sell Any Product?</a></h2>
+        <p class="teaser">Dear SaaStr: Can A Great Sales Rep Sell Any B2B Product? No. Not really in software. At least not well. Although many think they can. Too many. The very, very best in SaaS that are truly curious can often sell almost any product well. But this is a narrow group of the best of…</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Newcomer</span>
+          <span class="date">19 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.newcomer.co/p/is-ains-the-next-saas" target="_blank" rel="noopener noreferrer">Is AINS the Next SaaS?</a></h2>
+        <p class="teaser">Roll-ups vs. AI-Native Services. Here’s the download on why some VCs are betting that startups will build AI-native law firms &amp; insurance companies.</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">SaaStr</span>
+          <span class="date">19 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.saastr.com/5-interesting-learnings-from-atlassian-at-6-6-billion-in-arr-28-growth-44-rpo-growth-and-a-35-one-day-stock-pop/" target="_blank" rel="noopener noreferrer">5 Interesting Learnings from Atlassian at $6.6 Billion in ARR: 28% Growth, 44% RPO Growth, and a 35% One-Day Stock Pop</a></h2>
+        <p class="teaser">Atlassian closed its fiscal year on June 30 and reported on August 6. Going in, it was one of the most doubted names in enterprise software. The bear case was simple: AI agents write the code, AI agents file the tickets, and the tools that track the work get squeezed out of the…</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="video">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Matt Wolfe</span>
+          <span class="date">19 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.youtube.com/shorts/r-ORCmsRHOE" target="_blank" rel="noopener noreferrer">Your New Backup Brain Is Here</a></h2>
+        <p class="teaser">The amount of times I’ve said “I’ll remember that later” and absolutely did not… 😅 @MemoketAI Gem is basically designed to catch all those little follow-ups, ideas, and action items that disappear the second a meeting ends. It can remember context across multiple conversations,…</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="video">
+        <div class="meta">
+          <button class="flair" data-filter="PM">PM</button>
+          <span class="source">Claire Vo (ChatPRD)</span>
+          <span class="date">19 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.youtube.com/shorts/i9YcX5BM-o8" target="_blank" rel="noopener noreferrer">AI generated fashion pieces from start to finish</a></h2>
+        <p class="teaser">Yana&#x27;s Ruth Asawa-inspired gown, with large sculptural ball elements, is a garment that couldn&#x27;t have been practically executed before. Not because 3D printing didn&#x27;t exist, but because the CAD work was too onerous to justify. AI eliminated that bottleneck, and similar hidden…</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">SaaStr</span>
+          <span class="date">19 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.saastr.com/dear-saastr-one-of-our-most-respected-team-members-quit-and-folks-are-leaving-what-do-i-do/" target="_blank" rel="noopener noreferrer">Dear SaaStr:  One of Our Most Respected Team Members Quit and Folks Are Leaving.  What Do I Do?</a></h2>
+        <p class="teaser">Dear SaaStr: One of Our Most Respected Team Members Quit and Folks Are Leaving. What Do I Do? Promote someone great that everyone respects into a leadership role. Right now. This is really the only answer I’ve seen to this situation. We’ve all been in it at least to some extent,…</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="video">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Alex Finn</span>
+          <span class="date">18 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.youtube.com/watch?v=1udtpl43iv8" target="_blank" rel="noopener noreferrer">Hermes just released their biggest update ever (Hermes Bot)</a></h2>
+        <p class="teaser">Hermes agent just released Hermes Bot, a direct attack on Grok Bot. Which should you be using? FULL Hermes Agent bootcamp in the Vibe Coding Academy coming up</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="video">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Y Combinator (YouTube)</span>
+          <span class="date">18 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.youtube.com/watch?v=zLUZclThLhU" target="_blank" rel="noopener noreferrer">Michael Kratsios: Inside the White House&#x27;s AI Strategy</a></h2>
+        <p class="teaser">Michael Kratsios has seen the AI boom from both sides: as COO of Scale AI and inside the White House. Today, as the director of the White House Office of Science and Technology Policy, he helps shape America’s national strategy on AI, science, and emerging technology. At Startup…</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM">PM</button>
+          <span class="source">Lenny&#x27;s Newsletter</span>
+          <span class="date">18 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.lennysnewsletter.com/p/i-tested-grok-bot-grok-46-and-cursor" target="_blank" rel="noopener noreferrer">I tested Grok Bot, Grok 4.6, and Cursor Origin - here’s my honest take</a></h2>
+        <p class="teaser">Watch now | 🎙️ I tested Grok Bot, Cursor Origin, and Grok 4.6 head-to-head against my favorite models and ranked them on the Claire Index: here&#x27;s what actually moved the needle</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="video">
+        <div class="meta">
+          <button class="flair" data-filter="PM">PM</button>
+          <span class="source">Claire Vo (ChatPRD)</span>
+          <span class="date">18 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.youtube.com/watch?v=8ONFvAtboZ4" target="_blank" rel="noopener noreferrer">Grok Bot + Grok 4.6  + Cursor Origin - is Claude Code dead?</a></h2>
+        <p class="teaser">This week I’m doing a solo breakdown of everything xAI and Cursor have shipped recently, including Grok Bot, Cursor Origin, and the Grok 4.6 model. I set up five Grok Bots, ran Grok 4.6 through my Claire Weighted Index against GPT-5.6 Sol, Claude Sonnet 5, and Opus 5, and spent…</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM">PM</button>
+          <span class="source">Lenny&#x27;s Newsletter</span>
+          <span class="date">18 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.lennysnewsletter.com/p/announcing-lennys-jobs-the-best-place" target="_blank" rel="noopener noreferrer">Announcing Lenny’s Jobs: The best place in the world to find, vet, and land your dream job</a></h2>
+        <p class="teaser">Where product managers, engineers, designers, and growth/marketing professionals discover high-quality open roles at tech companies</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="video">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Andrej Karpathy</span>
+          <span class="date">18 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.youtube.com/shorts/rYyJm1tD3d0" target="_blank" rel="noopener noreferrer">The jumping pegs puzzle</a></h2>
+        <p class="teaser">Part of a series of monthly puzzles with MoMath.</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="video">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Corbin Brown</span>
+          <span class="date">18 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.youtube.com/watch?v=9Jd1aUcdpxc" target="_blank" rel="noopener noreferrer">How to Cut Your AI Costs by 87% (One Prompt)</a></h2>
+        <p class="teaser">Let your agent connect to anything via Zapier SDK👇</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="video">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Corbin Brown</span>
+          <span class="date">18 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.youtube.com/shorts/kHoDS0C7UCA" target="_blank" rel="noopener noreferrer">CSS Explained in 33 seconds (for beginners)</a></h2>
+        
+      </article>
+      <article class="item" data-topic="AI" data-type="video">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Alex Finn</span>
+          <span class="date">17 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.youtube.com/watch?v=vrgO4D_mUlA" target="_blank" rel="noopener noreferrer">Grok Bot is the best AI agent ever. Here&#x27;s how to set it up</a></h2>
+        <p class="teaser">Grok Bot just released, and it might have just killed Hermes and OpenClaw FULL Grok Bot bootcamp in the Vibe Coding Academy coming up</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Interconnects</span>
+          <span class="date">17 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.interconnects.ai/p/teaching-everyone-to-fish-for-tokens" target="_blank" rel="noopener noreferrer">Teaching Everyone to Fish for Tokens</a></h2>
+        <p class="teaser">Nvidia wants you building your own model, not buying from Anthropic/OpenAI.</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM">PM</button>
+          <span class="source">Lenny&#x27;s Newsletter</span>
+          <span class="date">17 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.lennysnewsletter.com/p/how-i-ai-how-a-solo-founder-used" target="_blank" rel="noopener noreferrer">🎙️ How I AI: How a solo founder used Codex and ChatGPT to launch a fashion brand without engineers</a></h2>
+        <p class="teaser">Your weekly listens from How I AI, part of the Lenny&#x27;s Podcast Network</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM">PM</button>
+          <span class="source">Lenny&#x27;s Newsletter</span>
+          <span class="date">17 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.lennysnewsletter.com/p/how-a-solo-founder-used-codex-and" target="_blank" rel="noopener noreferrer">How a solo founder used Codex and ChatGPT to launch a fashion brand without engineers | Yana Welinder</a></h2>
+        <p class="teaser">Watch now | 🎙️From hand-drawn sketch to 3D-printed gown, Yana Welinder shows how Codex plus computer use makes previously unmanufacturable garments and full e-commerce builds possible for a solo founder</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM">PM</button>
+          <span class="source">Lenny&#x27;s Newsletter</span>
+          <span class="date">16 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.lennysnewsletter.com/p/openais-head-of-design-this-is-the" target="_blank" rel="noopener noreferrer">OpenAI’s Head of Design: This is the best time in history to be a designer | Ian Silber</a></h2>
+        <p class="teaser">Listen now | OpenAI’s head of product design on why this is the best time in history to be a designer, where humans still beat AI, and how to escape the overwhelm</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM">PM</button>
+          <span class="source">Lenny&#x27;s Newsletter</span>
+          <span class="date">15 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.lennysnewsletter.com/p/community-wisdom-recovering-from" target="_blank" rel="noopener noreferrer">🧠 Community Wisdom: Recovering from burnout, what Airtable’s sale says about the ceiling on a startup, keeping architecture docs up to date, running competitor analysis, and more</a></h2>
+        
+      </article>
+      <article class="item" data-topic="AI" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Ahead of AI</span>
+          <span class="date">15 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://magazine.sebastianraschka.com/p/ai-detector-from-scratch" target="_blank" rel="noopener noreferrer">Building an AI Text Detector From Scratch</a></h2>
+        <p class="teaser">An End-to-End Project With Dataset Construction, Model Training, Local Deployment, and RLVR</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Interconnects</span>
+          <span class="date">14 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.interconnects.ai/p/glm-53-how-chinese-labs-keep-stride" target="_blank" rel="noopener noreferrer">GLM-5.3: How Chinese labs keep stride with the frontier</a></h2>
+        <p class="teaser">Hint: It’s really not a distillation story.</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="video">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Y Combinator (YouTube)</span>
+          <span class="date">14 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.youtube.com/watch?v=YEvLKzsEwMw" target="_blank" rel="noopener noreferrer">Susan Kare: Designing Icons &amp; Graphics For the Original Mac</a></h2>
+        <p class="teaser">Susan Kare joined Apple as an art history PhD who barely knew anything about computers. She went on to design many of the icons, typefaces, and symbols that helped make the original Macintosh feel understandable and human, defining a visual language for personal computing that…</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Newcomer</span>
+          <span class="date">14 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.newcomer.co/p/thrive-capital-finds-its-lane-as" target="_blank" rel="noopener noreferrer">Thrive Capital Finds its Lane as a New Kind of Venture Investor</a></h2>
+        <p class="teaser">Plus, the dubious business of prediction markets &amp; the White House targets an OpenAI policy exec</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Not Boring</span>
+          <span class="date">14 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.notboring.co/p/weekly-dose-of-optimism-206" target="_blank" rel="noopener noreferrer">Weekly Dose of Optimism #206</a></h2>
+        <p class="teaser">Drones, Lakers, Recast, Fuse neutrons, and Rick Rubin + Extra Doses</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Newcomer</span>
+          <span class="date">13 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.newcomer.co/p/ai-frenzy-brings-dual-valuation-deals" target="_blank" rel="noopener noreferrer">AI Frenzy Brings Dual Valuation Deals into the Mainstream</a></h2>
+        <p class="teaser">Prestige firms are monetizing their brand names by getting better prices than others in the same funding round</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="video">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Alex Finn</span>
+          <span class="date">13 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.youtube.com/watch?v=3-ahsHfFjwk" target="_blank" rel="noopener noreferrer">Grok 4.6 is Claude Fable 5, but dirt cheap</a></h2>
+        <p class="teaser">Grok 4.6 just released, and it actually beats chatgpt and claude fable. Here&#x27;s how to use it FULL Grok Bot bootcamp in the Vibe Coding Academy coming up</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="video">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Y Combinator (YouTube)</span>
+          <span class="date">12 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.youtube.com/watch?v=cRZNwgvcWUg" target="_blank" rel="noopener noreferrer">Chelsea Finn: This is the State of the Art in Robotics</a></h2>
+        <p class="teaser">Robots can already fold laundry, make espresso, clean kitchens, and assemble things. The harder problem is getting them to do those tasks reliably, for long periods of time, without a human babysitting them. At Startup School 2026, Physical Intelligence cofounder Chelsea Finn…</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Not Boring</span>
+          <span class="date">12 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.notboring.co/p/base-power-company-chapter-3" target="_blank" rel="noopener noreferrer">Base Power Company: Chapter 3</a></h2>
+        
+      </article>
+      <article class="item" data-topic="AI" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Interconnects</span>
+          <span class="date">12 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.interconnects.ai/p/i-wrote-an-ai-textbook-how-long-until" target="_blank" rel="noopener noreferrer">I wrote an AI textbook — how long until AI can do it better?</a></h2>
+        <p class="teaser">Reflections on AI&#x27;s writing ability and how AI models get more capable.</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM">PM</button>
+          <span class="source">Itamar Gilad</span>
+          <span class="date">12 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://itamargilad.com/artificial-competence/" target="_blank" rel="noopener noreferrer">The AI Competence/Judgement Gap</a></h2>
+        <p class="teaser">Can you perform every task in your organization? Unless you’re a solopreneur, the answer is likely No. You’re probably very good at some types of tasks, OK or so-so at others, and have low or zero proficiency levels at most. As a product manager at Google, I could write decent…</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM">GTM</button>
+          <span class="source">MKT1</span>
+          <span class="date">12 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://newsletter.mkt1.co/p/mcp-showcase-recap" target="_blank" rel="noopener noreferrer">24 MCP Workflows to Bring Your GTM Stack into Claude</a></h2>
+        <p class="teaser">Plus a recap of the MKT1 MCP Showcase, with live demos from Zapier, Framer, Softr, Attio, Airtable, Profound &amp; Mutiny</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Newcomer</span>
+          <span class="date">11 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.newcomer.co/p/kirsten-green-katie-haun-and-the" target="_blank" rel="noopener noreferrer">Kirsten Green, Katie Haun &amp; the CEO of Sapiom Join the Machine Earning AI Summit</a></h2>
+        <p class="teaser">The summit takes place Sept. 29 in San Francisco. Apply today to secure a spot.</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Newcomer</span>
+          <span class="date">11 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.newcomer.co/p/decagon-hit-100-million-betting-against" target="_blank" rel="noopener noreferrer">Decagon Hit $100 Million Betting Against Forward Deployed Engineers</a></h2>
+        <p class="teaser">Embedding software engineers long term just means your software doesn’t work, Jesse Zhang argues</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM">PM</button>
+          <span class="source">Lenny&#x27;s Newsletter</span>
+          <span class="date">11 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.lennysnewsletter.com/p/how-to-make-people-care-about-your" target="_blank" rel="noopener noreferrer">How to make people care about your startup</a></h2>
+        <p class="teaser">Three founder archetypes—and how to turn your origin story into a communications strategy</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM">PM</button>
+          <span class="source">Lenny&#x27;s Newsletter</span>
+          <span class="date">10 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.lennysnewsletter.com/p/how-i-ai-build-an-ai-code-review" target="_blank" rel="noopener noreferrer">🎙️ How I AI: Build an AI code review bot in 30 minutes + Claude Code for normal people</a></h2>
+        <p class="teaser">Your weekly listens from How I AI, part of the Lenny&#x27;s Podcast Network</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Interconnects</span>
+          <span class="date">10 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.interconnects.ai/p/5-useful-things-youll-learn-in-my" target="_blank" rel="noopener noreferrer">5 useful things you&#x27;ll learn in my new post-training textbook (shipping now!)</a></h2>
+        <p class="teaser">After a few long years of finding time to document my lessons from training open models, my post-training book is done!</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM">PM</button>
+          <span class="source">Marty Cagan (SVPG)</span>
+          <span class="date">10 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.svpg.com/a-fresh-definition-of-the-product-role/" target="_blank" rel="noopener noreferrer">A Fresh Definition of The Product Role</a></h2>
+        <p class="teaser">I’m just guessing here, but I’d say over the years I’ve seen at least one hundred different definitions of the product role (i.e. product manager/product owner). I’m pretty sure that anyone reading this would have seen at least several. Part of the problem is that there are…</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM">PM</button>
+          <span class="source">Lenny&#x27;s Newsletter</span>
+          <span class="date">10 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.lennysnewsletter.com/p/claude-code-for-normal-people-skills" target="_blank" rel="noopener noreferrer">Claude Code for normal people: skills, voice mode, and how to collaborate with AI</a></h2>
+        <p class="teaser">Listen now | 🎙️ Grace Clarke rebuilt her service business in Claude, turning 20 hours of weekly admin into one automated pipeline for proposals, client tracking, and email</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Interconnects</span>
+          <span class="date">9 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.interconnects.ai/p/lessons-from-the-hacks" target="_blank" rel="noopener noreferrer">Lessons from the hacks</a></h2>
+        <p class="teaser">Musings on model alignment, what determines safety, and where we go from here.</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM">PM</button>
+          <span class="source">Lenny&#x27;s Newsletter</span>
+          <span class="date">9 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.lennysnewsletter.com/p/the-playbook-for-building-high-talent" target="_blank" rel="noopener noreferrer">The playbook for building high-talent-density teams | Adam Ward, Head of Talent at Cursor</a></h2>
+        <p class="teaser">Listen now | Cursor’s Adam Ward on “funnel of doom” hiring, treating every hire like an executive search, and why caring is the biggest unfair advantage in recruiting</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM">PM</button>
+          <span class="source">Lenny&#x27;s Newsletter</span>
+          <span class="date">8 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.lennysnewsletter.com/p/community-wisdom-crafting-outreach" target="_blank" rel="noopener noreferrer">🧠 Community Wisdom: Crafting outreach that reads as authentic, finding design partners, what counts as a moat when anyone can build, making a product vision stick, and more</a></h2>
+        
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Newcomer</span>
+          <span class="date">7 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.newcomer.co/p/the-big-cheese-hits-theaters-today" target="_blank" rel="noopener noreferrer">The Big Cheese Hits Theaters Today in NYC</a></h2>
+        <p class="teaser">In my spare time, I&#x27;m an associate producer for a documentary... that just so happens to be directed by my wife. Go see it at the IFC Center in New York starting tonight.</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="video">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">The AI Automators</span>
+          <span class="date">7 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.youtube.com/watch?v=M3gHlwHKsBI" target="_blank" rel="noopener noreferrer">OpenAI Just Announced The New Plugin Standard for AI Agents</a></h2>
+        
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Newcomer</span>
+          <span class="date">7 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.newcomer.co/p/saas-shudders-after-airtables-humbling" target="_blank" rel="noopener noreferrer">SaaS Shudders After Airtable&#x27;s Humbling Sale to Italian Grim Reaper Bending Spoons</a></h2>
+        <p class="teaser">Plus, Google shakes up DeepMind leadership &amp; hardware startups raise billions</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Not Boring</span>
+          <span class="date">7 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.notboring.co/p/weekly-dose-of-optimism-205" target="_blank" rel="noopener noreferrer">Weekly Dose of Optimism #205</a></h2>
+        <p class="teaser">Terraform, Billion-Dollar Rounds, Oklo Goes Critical, Astra Math, Terafab + Extra Doses</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="video">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">AI Explained</span>
+          <span class="date">6 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.youtube.com/watch?v=xGzseSSStnw" target="_blank" rel="noopener noreferrer">AI is getting a little out of control</a></h2>
+        <p class="teaser">Wow. Mathematical breakthroughs that would be called genius if done by humans. A secret message-board w/ AI agent swarms leaving notes read by future versions. Hassabis leaves CEO position, or was pushed out? Not to mention news of constitutional breakdowns, Gemini 4 and Jeff…</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM">PM</button>
+          <span class="source">Lenny&#x27;s Newsletter</span>
+          <span class="date">5 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.lennysnewsletter.com/p/build-an-ai-code-review-bot-in-30" target="_blank" rel="noopener noreferrer">Build an AI code review bot in 30 minutes with Vercel Eve</a></h2>
+        <p class="teaser">Watch now | 🎙️ I used Vercel Eve agents and Codex to build Merge Mommy: a PR review bot that scores risk, auto-approves the easy ones, and pings me in Slack for the rest</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM">PM</button>
+          <span class="source">Lenny&#x27;s Newsletter</span>
+          <span class="date">4 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.lennysnewsletter.com/p/what-if-youre-not-supposed-to-have" target="_blank" rel="noopener noreferrer">What if you’re not supposed to have a long-term plan?</a></h2>
+        
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM">PM</button>
+          <span class="source">Lenny&#x27;s Newsletter</span>
+          <span class="date">3 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.lennysnewsletter.com/p/how-i-ai-chatgpt-codex-voice-browser" target="_blank" rel="noopener noreferrer">🎙️ How I AI: ChatGPT Codex Voice + browser + Sites: an expert’s AI workflow | Nick Baumann (OpenAI)</a></h2>
+        <p class="teaser">Your weekly listens from How I AI, part of the Lenny&#x27;s Podcast Network</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Interconnects</span>
+          <span class="date">3 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.interconnects.ai/p/introducing-our-artifacts-hub-and" target="_blank" rel="noopener noreferrer">Introducing our Artifacts Hub and Adoption Dashboard</a></h2>
+        <p class="teaser">Scaling our curation and measurement of the open ecosystem.</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM">PM</button>
+          <span class="source">Lenny&#x27;s Newsletter</span>
+          <span class="date">3 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.lennysnewsletter.com/p/chatgpt-codex-voice-browser-sites" target="_blank" rel="noopener noreferrer">ChatGPT Codex Voice + browser + Sites: an expert’s AI workflow | Nick Baumann (OpenAI)</a></h2>
+        <p class="teaser">Watch now | 🎙️ChatGPT Voice now manages multiple threads, reads your screen, and runs background tasks, and Nick Baumann walks me through the whole workflow live</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Interconnects</span>
+          <span class="date">2 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.interconnects.ai/p/latest-open-artifacts-23-laguna-s21" target="_blank" rel="noopener noreferrer">Latest open artifacts (#23): Laguna S2.1, Inkling, &amp; Kimi K3 show the utility of open models on the Pareto frontier</a></h2>
+        <p class="teaser">Capacity to train strong models is proliferating.</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="video">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">The AI Automators</span>
+          <span class="date">2 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.youtube.com/watch?v=V1khxZL-yVA" target="_blank" rel="noopener noreferrer">Langfuse is Free + Gives You X-Ray Vision Into Your Coding Agents &amp; AI Apps</a></h2>
+        
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Newcomer</span>
+          <span class="date">31 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://www.newcomer.co/p/the-abrupt-fall-of-situational-awareness" target="_blank" rel="noopener noreferrer">The Abrupt Fall of Situational Awareness Is a Warning Sign. So Is Nvidia’s Vendor Financing.</a></h2>
+        <p class="teaser">Plus, a look inside Leading the Future &amp; a Thinking Machines Lab co-founder defects back to OpenAI</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Not Boring</span>
+          <span class="date">31 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://www.notboring.co/p/weekly-dose-of-optimism-204" target="_blank" rel="noopener noreferrer">Weekly Dose of Optimism #204</a></h2>
+        <p class="teaser">Enigma, Robots Covered, DoorDash Air, Zoox Approval, Free ChatGPT + HT + Extra Doses</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="video">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">The AI Automators</span>
+          <span class="date">30 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://www.youtube.com/watch?v=HWEy91kb-8w" target="_blank" rel="noopener noreferrer">Boris Cherny Just Told Us To Delete Our CLAUDE.md Files</a></h2>
+        
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Newcomer</span>
+          <span class="date">29 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://www.newcomer.co/p/dario-amodei-ali-ghodsi-and-nikesh" target="_blank" rel="noopener noreferrer">Dario Amodei, Ali Ghodsi &amp; Nikesh Arora to Speak at Our 8th Cerebral Valley AI Summit</a></h2>
+        <p class="teaser">CVAI will be back in San Francisco Thursday, Nov. 12</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM">GTM</button>
+          <span class="source">MKT1</span>
+          <span class="date">27 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://newsletter.mkt1.co/p/multiplayer-claude-1" target="_blank" rel="noopener noreferrer">Marketing teams are stuck in single-player Claude mode. Here&#x27;s how to go multiplayer.</a></h2>
+        <p class="teaser">The 4 Cs framework for sharing context and skills across your team</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Not Boring</span>
+          <span class="date">25 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://www.notboring.co/p/ai-is-oil-not-god" target="_blank" rel="noopener noreferrer">AI is Oil, Not God</a></h2>
+        
+      </article>
+      <article class="item" data-topic="AI" data-type="video">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Andrej Karpathy</span>
+          <span class="date">24 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://www.youtube.com/shorts/6XPlmCDNLNc" target="_blank" rel="noopener noreferrer">The 64 sugar cubes puzzle</a></h2>
+        
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Newcomer</span>
+          <span class="date">24 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://www.newcomer.co/p/high-stakes-battle-over-china-policy" target="_blank" rel="noopener noreferrer">High-Stakes Battle Over China Policy &amp; Open Source AI Pits LLM Giants Against Their Customers</a></h2>
+        <p class="teaser">Plus, corporate VC investment skyrockets &amp; Mistral preps for its next phase</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Not Boring</span>
+          <span class="date">24 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://www.notboring.co/p/weekly-dose-of-optimism-203" target="_blank" rel="noopener noreferrer">Weekly Dose of Optimism #203</a></h2>
+        <p class="teaser">Travis is Back, Jacobian Conjecture Falls, Skyroot, Star Axis, Thunder + Extra Doses</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="video">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">The AI Automators</span>
+          <span class="date">24 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://www.youtube.com/watch?v=PZsJfBVDZZc" target="_blank" rel="noopener noreferrer">Learn Every AI Agent Pattern From One Video (I Actually Ran All 35)</a></h2>
+        
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Newcomer</span>
+          <span class="date">23 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://www.newcomer.co/p/scoop-fundraising-documents-reveal" target="_blank" rel="noopener noreferrer">SCOOP: Fundraising Documents Reveal IVP Quietly Raising $1.8 Billion, Boasting 31.1% Net IRR Since Firm&#x27;s Inception</a></h2>
+        <p class="teaser">The firm&#x27;s 2015 fund has returned 2.0x DPI to investors, making it a top quartile fund</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM">PM</button>
+          <span class="source">Marty Cagan (SVPG)</span>
+          <span class="date">23 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://www.svpg.com/the-ai-productivity-paradox/" target="_blank" rel="noopener noreferrer">The AI Productivity Paradox</a></h2>
+        <p class="teaser">We’ve been writing a lot lately about product teams that are clearly leveraging AI to deliver faster, yet their outcomes are not improving. Today, this phenomenon, known as the “AI Productivity Paradox,” has been recognized by people from across the industry. From the latest…</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="video">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">AI Explained</span>
+          <span class="date">22 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://www.youtube.com/watch?v=wzY2fV4Mp3U" target="_blank" rel="noopener noreferrer">GPT-6 Goes Rogue? The HuggingFace Incident, Sans Hype</a></h2>
+        <p class="teaser">An unreleased internal OpenAI model, very likely to be called GPT-6, was able to autonomously break out of its sandbox AND break into HuggingFace, just to score higher on a benchmark prompt. This video has the details you may have missed, a layperson analogy, whether this is…</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Interconnects</span>
+          <span class="date">22 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://www.interconnects.ai/p/open-models-recap-more-on-kimi-k3" target="_blank" rel="noopener noreferrer">Open models recap: more on Kimi K3, Qwen 3.8, Xi&#x27;s WAIC speech, distillation, the open-closed gap, and what&#x27;s next</a></h2>
+        
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Newcomer</span>
+          <span class="date">22 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://www.newcomer.co/p/announcing-the-machine-earning-ai" target="_blank" rel="noopener noreferrer">Announcing the Machine Earning AI Summit, Our New AI Commerce &amp; Finance Event</a></h2>
+        <p class="teaser">Hear from Airwallex&#x27;s Jack Zhang, Lead Bank&#x27;s Jackie Reses, Faire&#x27;s Max Rhodes, OnePay&#x27;s Omer Ismail &amp; more on Sept. 29.</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Interconnects</span>
+          <span class="date">20 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://www.interconnects.ai/p/kimi-k3-the-open-weights-escalation" target="_blank" rel="noopener noreferrer">Kimi K3: The open-weights escalation</a></h2>
+        <p class="teaser">The global implications on the AI ecosystem.</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Ahead of AI</span>
+          <span class="date">18 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://magazine.sebastianraschka.com/p/controlling-reasoning-effort-in-llms" target="_blank" rel="noopener noreferrer">Controlling Reasoning Effort in LLMs</a></h2>
+        <p class="teaser">How LLMs Learn Low-, Medium-, and High-Effort Reasoning Modes</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Not Boring</span>
+          <span class="date">17 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://www.notboring.co/p/weekly-dose-of-optimism-202" target="_blank" rel="noopener noreferrer">Weekly Dose of Optimism #202</a></h2>
+        <p class="teaser">Saronic, Austin Week, Walden + Sunday Robots, Lipfendra, Kimi + Inkling + Extra Doses</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM">PM</button>
+          <span class="source">Itamar Gilad</span>
+          <span class="date">16 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://itamargilad.com/ai-pm-jobs/" target="_blank" rel="noopener noreferrer">Will AI Eliminate PM Jobs?</a></h2>
+        <p class="teaser">“The Product Manager role as we know it will be obsolete by 2030.” That is the conclusion of the 2026 CPO Insights Report, a survey of 1,500+ Chief Product Officers. Some prominent founders, executives, and investors agree — AI is going to eliminate or drastically change the PM…</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Not Boring</span>
+          <span class="date">16 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://www.notboring.co/p/senra-systems-harnessing-human-skill" target="_blank" rel="noopener noreferrer">Senra Systems: Harnessing Human Skill</a></h2>
+        <p class="teaser">A Co-Written Essay with Senra Systems CEO Jordan Black</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="video">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Andrej Karpathy</span>
+          <span class="date">16 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://www.youtube.com/watch?v=GlYgs6v2YfU" target="_blank" rel="noopener noreferrer">But what is cross-entropy? | Compression is Intelligence Part 2</a></h2>
+        <p class="teaser">Where the loss function for training LLMs comes from. Job opportunities aligned to this audience</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Interconnects</span>
+          <span class="date">12 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://www.interconnects.ai/p/6-months-to-live-for-open-models" target="_blank" rel="noopener noreferrer">6 months to live for open models</a></h2>
+        <p class="teaser">The most serious test to date of open source AI’s viability is happening right now.</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Not Boring</span>
+          <span class="date">10 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://www.notboring.co/p/weekly-dose-of-optimism-201" target="_blank" rel="noopener noreferrer">Weekly Dose of Optimism #201</a></h2>
+        <p class="teaser">Aalo, Data Centers, American Turbines, OXMAN Ink, Neo Hands + Extra Doses</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="video">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">AI Explained</span>
+          <span class="date">10 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://www.youtube.com/watch?v=mWlCituW7wo" target="_blank" rel="noopener noreferrer">A Model Explosion: GPT 5.6 Sol, Grok 4.5 and Meta Muse Rewrite the Rules</a></h2>
+        <p class="teaser">What a week in AI, for real. GPT 5.6 may actually beat Claude Fable, in what you get for your money, while the new Grok 4.5 and Meta Muse Spark 1.1 make the choice even harder. Uncovering a dozen nuggets of gold you may have missed from all the viral headlines, I can also assure…</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM">GTM</button>
+          <span class="source">MKT1</span>
+          <span class="date">9 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://newsletter.mkt1.co/p/mutiny-growth-lessons" target="_blank" rel="noopener noreferrer">An inside look at Mutiny&#x27;s growth engine</a></h2>
+        <p class="teaser">Matt Ratchford is building Mutiny&#x27;s marketing in public. Excerpts from his newsletter series with Emily Kramer&#x27;s takeaways for B2B marketing leaders.</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Not Boring</span>
+          <span class="date">3 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://www.notboring.co/p/weekly-dose-of-optimism-200" target="_blank" rel="noopener noreferrer">Weekly Dose of Optimism #200</a></h2>
+        <p class="teaser">Conception, Synthetic Cell, Brain2Qwerty, Nuclear Updates, America&#x27;s Next 250 + Extra Doses</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="video">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">AI Explained</span>
+          <span class="date">2 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://www.youtube.com/watch?v=y24lF1q4SFY" target="_blank" rel="noopener noreferrer">Fable 5 vs GPT 5.6 Sol: The Early Results</a></h2>
+        <p class="teaser">Fable 5 (newly re-released) vs GPT 5.6 Sol, what comparisons can we unearth? Plus, Sonnet 5, a 5% equity seizure by US Govt, the ‘largest heist’, Beetlejuice and more… Exclusive Vids in AI Insiders ($9!)</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Not Boring</span>
+          <span class="date">2 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://www.notboring.co/p/americas-next-250" target="_blank" rel="noopener noreferrer">America&#x27;s Next 250</a></h2>
+        <p class="teaser">An Essay with Scott Nolan, General Matter CEO and Founders Fund Partner</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM">PM</button>
+          <span class="source">Marty Cagan (SVPG)</span>
+          <span class="date">30 Jun</span>
+        </div>
+        <h2 class="title"><a href="https://www.svpg.com/great-products-bad-companies/" target="_blank" rel="noopener noreferrer">Great Products, Bad Companies</a></h2>
+        <p class="teaser">I have long argued that great products are what powers great companies. And while I still believe that great products are necessary for great companies, it’s become quite clear over the years that great products are not sufficient. In fact, as counter-intuitive as this sounds, I…</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Interconnects</span>
+          <span class="date">28 Jun</span>
+        </div>
+        <h2 class="title"><a href="https://www.interconnects.ai/p/artifacts-22-zyphra-cohere-and-poolside" target="_blank" rel="noopener noreferrer">Latest open artifacts (#22): Zyphra, Cohere, and Poolside are expanding the breadth of the ecosystem</a></h2>
+        <p class="teaser">An assessment of the open ecosystem and the motivations behind releasing models</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Ahead of AI</span>
+          <span class="date">27 Jun</span>
+        </div>
+        <h2 class="title"><a href="https://magazine.sebastianraschka.com/p/using-local-coding-agents" target="_blank" rel="noopener noreferrer">Using Local Coding Agents</a></h2>
+        <p class="teaser">Using Open-Weight Models in Local Coding Harnesses as an Alternative to Claude Code and Codex Subscriptions</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Not Boring</span>
+          <span class="date">26 Jun</span>
+        </div>
+        <h2 class="title"><a href="https://www.notboring.co/p/weekly-dose-of-optimism-199" target="_blank" rel="noopener noreferrer">Weekly Dose of Optimism #199</a></h2>
+        <p class="teaser">Stripe Intercept, Housing Act, Nuclear Loans, Brain Ultrasound, Soviet Papers + Science Breakthroughs + Extra Doses</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM">GTM</button>
+          <span class="source">MKT1</span>
+          <span class="date">25 Jun</span>
+        </div>
+        <h2 class="title"><a href="https://newsletter.mkt1.co/p/billboard-drive-by-2" target="_blank" rel="noopener noreferrer">How to make highway-worthy billboard creative</a></h2>
+        <p class="teaser">A 4-step framework for B2B billboard creative, plus reviews of real billboards (Rippling, Framer, Baseten, Braintrust, ChatGPT), and a Claude skill to grade OOH creative</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Interconnects</span>
+          <span class="date">22 Jun</span>
+        </div>
+        <h2 class="title"><a href="https://www.interconnects.ai/p/glm-52-is-the-step-change-for-open" target="_blank" rel="noopener noreferrer">GLM-5.2 is the step change for open agents</a></h2>
+        <p class="teaser">A capability threshold I&#x27;ve been carefully monitoring.</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM">PM</button>
+          <span class="source">Itamar Gilad</span>
+          <span class="date">21 Jun</span>
+        </div>
+        <h2 class="title"><a href="https://itamargilad.com/how-dev-productivity/" target="_blank" rel="noopener noreferrer">How To Measure Development Productivity?</a></h2>
+        <p class="teaser">Last week I published this cartoon on LinkedIn. It went instantly viral: Tokens spent (as well as the other metrics shown) are of course not meaningless, but everyone got the joke: The latter point generated some interesting conversation. One commenter threw the ball back into…</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Interconnects</span>
+          <span class="date">19 Jun</span>
+        </div>
+        <h2 class="title"><a href="https://www.interconnects.ai/p/banning-open-source-ai-would-be-a" target="_blank" rel="noopener noreferrer">Banning Open Source AI Would Be A Mistake</a></h2>
+        <p class="teaser">This post was originally an op-ed co-authored with Kevin Xu of Interconnected for a general, non-technical audience.</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Not Boring</span>
+          <span class="date">19 Jun</span>
+        </div>
+        <h2 class="title"><a href="https://www.notboring.co/p/weekly-dose-of-optimism-198" target="_blank" rel="noopener noreferrer">Weekly Dose of Optimism #198</a></h2>
+        <p class="teaser">Midjourney Scanner, Laser Phase Plate, Valar Goes Critical, Anduril CCA, Reindustrialize + Extra Doses</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Interconnects</span>
+          <span class="date">17 Jun</span>
+        </div>
+        <h2 class="title"><a href="https://www.interconnects.ai/p/state-of-the-blog-mid-2026" target="_blank" rel="noopener noreferrer">State of the blog, mid-2026</a></h2>
+        <p class="teaser">About 3 years since I started writing weekly.</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="video">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Andrej Karpathy</span>
+          <span class="date">16 Jun</span>
+        </div>
+        <h2 class="title"><a href="https://www.youtube.com/shorts/wGffBCfrAsE" target="_blank" rel="noopener noreferrer">100 random chords, how many intersections?</a></h2>
+        <p class="teaser">Part of a series of monthly puzzles done in collaboration with MoMath.</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Y Combinator Blog</span>
+          <span class="date">16 Jun</span>
+        </div>
+        <h2 class="title"><a href="https://www.ycombinator.com/blog/chris-golda-and-grey-baker-general-partners/" target="_blank" rel="noopener noreferrer">Christopher Golda and Grey Baker Join YC as General Partners</a></h2>
+        <p class="teaser">We&#x27;re excited to announce that Christopher Golda and Grey Baker are joining YC as General Partners.</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Interconnects</span>
+          <span class="date">16 Jun</span>
+        </div>
+        <h2 class="title"><a href="https://www.interconnects.ai/p/frontier-post-training-recipe-review" target="_blank" rel="noopener noreferrer">Frontier post-training recipe review with Finbarr Timbers</a></h2>
+        
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Not Boring</span>
+          <span class="date">12 Jun</span>
+        </div>
+        <h2 class="title"><a href="https://www.notboring.co/p/weekly-dose-of-optimism-197" target="_blank" rel="noopener noreferrer">Weekly Dose of Optimism #197</a></h2>
+        <p class="teaser">La Sagrada Família, Life Bio Trial, Saronic, Doudna CRISPR, Standard Bots + Science Breakthroughs + Extra Doses</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Y Combinator Blog</span>
+          <span class="date">11 Jun</span>
+        </div>
+        <h2 class="title"><a href="https://www.ycombinator.com/blog/diana-hu-managing-partner/" target="_blank" rel="noopener noreferrer">Diana Hu Is YC&#x27;s Newest Managing Partner</a></h2>
+        <p class="teaser">We&#x27;re thrilled to announce that Diana Hu has been promoted to Managing Partner at Y Combinator. Few people have built a startup from zero and also shipped tech to 100 million people. Diana has done both.</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM">GTM</button>
+          <span class="source">MKT1</span>
+          <span class="date">9 Jun</span>
+        </div>
+        <h2 class="title"><a href="https://newsletter.mkt1.co/p/sf-billboard-drive-by-1" target="_blank" rel="noopener noreferrer">Should you buy a billboard on a Bay Area Freeway?</a></h2>
+        <p class="teaser">Watch Maya Spivak &amp; Emily Kramer do a billboard drive by, plus everything you need to know about OOH in SF &amp; beyond | Part 1 of 2</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Ahead of AI</span>
+          <span class="date">6 Jun</span>
+        </div>
+        <h2 class="title"><a href="https://magazine.sebastianraschka.com/p/llm-research-papers-2026-part1" target="_blank" rel="noopener noreferrer">LLM Research Papers: The 2026 List (January to May)</a></h2>
+        <p class="teaser">A curated roundup of notable LLM research papers that came out this year</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM">PM</button>
+          <span class="source">Itamar Gilad</span>
+          <span class="date">3 Jun</span>
+        </div>
+        <h2 class="title"><a href="https://itamargilad.com/code-first-discovery/" target="_blank" rel="noopener noreferrer">Skateboards, Cars, and the Return of Code-First Discovery</a></h2>
+        <p class="teaser">There’s a certain type of meme, often called “how to create a minimal viable product”, that’s been making the rounds in the product web for years. I must have seen at least 5 original versions and they all disagree with each other. Not very originally, I felt that they all…</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM">GTM</button>
+          <span class="source">MKT1</span>
+          <span class="date">29 May</span>
+        </div>
+        <h2 class="title"><a href="https://newsletter.mkt1.co/p/buildathon-recap-mkt1-mcp-server-claude" target="_blank" rel="noopener noreferrer">Buildathon Recap: How to use the MKT1 MCP Server in Claude</a></h2>
+        <p class="teaser">Full video &amp; ready-to-use prompts from our paid-only Buildathon on 5/27</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM">GTM</button>
+          <span class="source">MKT1</span>
+          <span class="date">22 May</span>
+        </div>
+        <h2 class="title"><a href="https://newsletter.mkt1.co/p/ads" target="_blank" rel="noopener noreferrer">Paid isn&#x27;t dead. But your playbooks need an upgrade.</a></h2>
+        <p class="teaser">The future of paid is audience-first and AI-powered (and I don&#x27;t just mean ChatGPT ads)</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM">GTM</button>
+          <span class="source">MKT1</span>
+          <span class="date">22 May</span>
+        </div>
+        <h2 class="title"><a href="https://newsletter.mkt1.co/p/mkt1-unboxing-primer" target="_blank" rel="noopener noreferrer">MKT1 Unboxing: Primer</a></h2>
+        <p class="teaser">Listen now | Get 10% off an annual Primer subscription with code MKT110.</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM">GTM</button>
+          <span class="source">MKT1</span>
+          <span class="date">19 May</span>
+        </div>
+        <h2 class="title"><a href="https://newsletter.mkt1.co/p/buildathon-mkt1-mcp-in-claude" target="_blank" rel="noopener noreferrer">MKT1 Buildathon: How to use our MCP in Claude</a></h2>
+        <p class="teaser">Join me to explore the marketing skills in the MKT1 MCP Server on 5/27, plus other MCP updates</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM">PM</button>
+          <span class="source">Itamar Gilad</span>
+          <span class="date">18 May</span>
+        </div>
+        <h2 class="title"><a href="https://itamargilad.com/ai-pm-future/" target="_blank" rel="noopener noreferrer">3 Trendy AI PM Archetypes, and 1 We Actually Need</a></h2>
+        <p class="teaser">There’s no shortage of AI hype at the moment and that includes lots of speculation about the future (or lack there of) of product management. In this article I’ll review three PM predictions that are circulating in the product-sphere — The AI-PM, Developer PM, and No-PM futures.…</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Ahead of AI</span>
+          <span class="date">16 May</span>
+        </div>
+        <h2 class="title"><a href="https://magazine.sebastianraschka.com/p/recent-developments-in-llm-architectures" target="_blank" rel="noopener noreferrer">Recent Developments in LLM Architectures: KV Sharing, mHC, and Compressed Attention</a></h2>
+        <p class="teaser">From Gemma 4 to DeepSeek V4, How New Open-Weight LLMs Are Reducing Long-Context Costs</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM">GTM</button>
+          <span class="source">MKT1</span>
+          <span class="date">6 May</span>
+        </div>
+        <h2 class="title"><a href="https://newsletter.mkt1.co/p/state-of-marketing-report-part-3-how-to-research-in-claude-code" target="_blank" rel="noopener noreferrer">The Claude Code research playbook behind my State of Marketing Reports</a></h2>
+        <p class="teaser">State of Marketing Report Series Part 3 of 3 | Learnings, advice &amp; prompts based on researching 10,000 data points</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM">PM</button>
+          <span class="source">Marty Cagan (SVPG)</span>
+          <span class="date">27 Apr</span>
+        </div>
+        <h2 class="title"><a href="https://www.svpg.com/build-to-learn-faq/" target="_blank" rel="noopener noreferrer">Build To Learn FAQ</a></h2>
+        <p class="teaser">In our last article, we argued that especially in the age of AI, we are all builders, but that there is a very meaningful difference between building to learn (known as product discovery) versus building to earn (known as product delivery). Moreover, we argued that as the cost…</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM">GTM</button>
+          <span class="source">MKT1</span>
+          <span class="date">27 Apr</span>
+        </div>
+        <h2 class="title"><a href="https://newsletter.mkt1.co/p/state-of-marketing-report-web-social-content-part-2" target="_blank" rel="noopener noreferrer">100 B2B startups, 100+ stats, and 14 graphs on web, social, and content</a></h2>
+        <p class="teaser">The State of B2B Marketing Report, Part 2 of 3. Built with Claude Code.</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM">GTM</button>
+          <span class="source">MKT1</span>
+          <span class="date">21 Apr</span>
+        </div>
+        <h2 class="title"><a href="https://newsletter.mkt1.co/p/state-of-marketing-report-teams-part-1" target="_blank" rel="noopener noreferrer">I Analyzed 100 B2B Marketing Teams with Claude Code. Here&#x27;s the full report.</a></h2>
+        <p class="teaser">I analyzed 100 B2B companies with Claude Code. Part 1 of a 3 part series.</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Elad Gil</span>
+          <span class="date">20 Apr</span>
+        </div>
+        <h2 class="title"><a href="https://blog.eladgil.com/p/random-thoughts-while-gazing-at-the" target="_blank" rel="noopener noreferrer">Random thoughts while gazing at the misty AI Frontier</a></h2>
+        <p class="teaser">A bunch of random things I have been thinking about, some of which are probably wrong</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Ahead of AI</span>
+          <span class="date">18 Apr</span>
+        </div>
+        <h2 class="title"><a href="https://magazine.sebastianraschka.com/p/workflow-for-understanding-llms" target="_blank" rel="noopener noreferrer">My Workflow for Understanding LLM Architectures</a></h2>
+        <p class="teaser">A learning-oriented workflow for understanding new open-weight model releases</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Elad Gil</span>
+          <span class="date">16 Apr</span>
+        </div>
+        <h2 class="title"><a href="https://blog.eladgil.com/p/unicorn-market-cap-2026-sf-is-the" target="_blank" rel="noopener noreferrer">Unicorn Market Cap 2026: SF is the GenAI Super Cluster</a></h2>
+        <p class="teaser">The San Francisco Bay area has morphed into a massive AI supercluster with 91% of market cap</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM">PM</button>
+          <span class="source">Marty Cagan (SVPG)</span>
+          <span class="date">16 Apr</span>
+        </div>
+        <h2 class="title"><a href="https://www.svpg.com/build-to-learn-vs-build-to-earn/" target="_blank" rel="noopener noreferrer">Build to Learn vs Build to Earn</a></h2>
+        <p class="teaser">We have long argued that there have always been at least two major ways to develop product. The most common way, even today in the age of AI, is the project model, which is all about output. This is where stakeholders or executives come up with a prioritized roadmap of features…</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM">PM</button>
+          <span class="source">Marty Cagan (SVPG)</span>
+          <span class="date">9 Apr</span>
+        </div>
+        <h2 class="title"><a href="https://www.svpg.com/commercial-vs-internal-products/" target="_blank" rel="noopener noreferrer">Commercial vs Internal Products</a></h2>
+        <p class="teaser">Internal Products Are Hard; Commercial Products Are Harder We have spent a lot of time trying to convince product people and especially product leaders of the importance of internal products. We’re talking about services or solutions that are used by our own employees to take…</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Y Combinator Blog</span>
+          <span class="date">6 Apr</span>
+        </div>
+        <h2 class="title"><a href="https://www.ycombinator.com/blog/welcome-harshita/" target="_blank" rel="noopener noreferrer">Harshita Arora Joins YC as General Partner</a></h2>
+        <p class="teaser">We&#x27;re thrilled to announce that Harshita Arora is joining Y Combinator as a General Partner. She brings deep fintech and infrastructure experience, a founder&#x27;s instinct for product, and the perspective of someone who&#x27;s been building companies since she was a teenager.</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM">PM</button>
+          <span class="source">Itamar Gilad</span>
+          <span class="date">6 Apr</span>
+        </div>
+        <h2 class="title"><a href="https://itamargilad.com/discovery-problems2/" target="_blank" rel="noopener noreferrer">5 Ways Product Discovery Breaks Down (Part 2)</a></h2>
+        <p class="teaser">Why is product discovery — the practice of identifying the right things to build before switching to delivery — so hard to implement? In my previous article I described two systemic problems: must-have features and weak goals. In this article I’ll focus on three key challenges…</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM">GTM</button>
+          <span class="source">MKT1</span>
+          <span class="date">6 Apr</span>
+        </div>
+        <h2 class="title"><a href="https://newsletter.mkt1.co/p/buildathon-recap-marketing-strategy-skill" target="_blank" rel="noopener noreferrer">Buildathon Recap: How to build a marketing-strategy skill in Claude Code</a></h2>
+        
+      </article>
+      <article class="item" data-topic="AI" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Ahead of AI</span>
+          <span class="date">4 Apr</span>
+        </div>
+        <h2 class="title"><a href="https://magazine.sebastianraschka.com/p/components-of-a-coding-agent" target="_blank" rel="noopener noreferrer">Components of A Coding Agent</a></h2>
+        <p class="teaser">How coding agents use tools, memory, and repo context to make LLMs work better in practice</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM">GTM</button>
+          <span class="source">MKT1</span>
+          <span class="date">1 Apr</span>
+        </div>
+        <h2 class="title"><a href="https://newsletter.mkt1.co/p/website-examples-2026" target="_blank" rel="noopener noreferrer">Your website still matters. Here&#x27;s what to prioritize now.</a></h2>
+        <p class="teaser">30+ examples from B2B websites, with Casey Hill of DoWhatWorks</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Ahead of AI</span>
+          <span class="date">22 Mar</span>
+        </div>
+        <h2 class="title"><a href="https://magazine.sebastianraschka.com/p/visual-attention-variants" target="_blank" rel="noopener noreferrer">A Visual Guide to Attention Variants in Modern LLMs</a></h2>
+        <p class="teaser">From MHA and GQA to MLA, sparse attention, and hybrid architectures</p>
+      </article>
+      <article class="item" data-topic="GTM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="GTM">GTM</button>
+          <span class="source">MKT1</span>
+          <span class="date">19 Mar</span>
+        </div>
+        <h2 class="title"><a href="https://newsletter.mkt1.co/p/build-marketing-strategy-skill-in-claude-code" target="_blank" rel="noopener noreferrer">How to build your marketing strategy in Claude</a></h2>
+        <p class="teaser">How to build a /marketing-strategy skill in Claude that your team works from every day—and speed up the process with our new MKT1 MCP Server.</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM">PM</button>
+          <span class="source">Itamar Gilad</span>
+          <span class="date">10 Mar</span>
+        </div>
+        <h2 class="title"><a href="https://itamargilad.com/discovery-problems/" target="_blank" rel="noopener noreferrer">5 Ways Product Discovery Breaks Down (part 1)</a></h2>
+        <p class="teaser">Many companies recognize it’s better to develop products through research, experimentation, and evidence-guided decisions, yet few are able to make product discovery truly work. While the concept has been around for a long time, implementation is often half-hearted, partial and…</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Ahead of AI</span>
+          <span class="date">25 Feb</span>
+        </div>
+        <h2 class="title"><a href="https://magazine.sebastianraschka.com/p/a-dream-of-spring-for-open-weight" target="_blank" rel="noopener noreferrer">A Dream of Spring for Open-Weight LLMs: 10 Architectures from Jan-Feb 2026</a></h2>
+        <p class="teaser">A Round Up And Comparison of 10 Open-Weight LLM Releases in Spring 2026</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Y Combinator Blog</span>
+          <span class="date">5 Feb</span>
+        </div>
+        <h2 class="title"><a href="https://www.ycombinator.com/blog/adding-canada-back/" target="_blank" rel="noopener noreferrer">Adding Canada Back to Our List of Accepted Countries of Incorporation</a></h2>
+        <p class="teaser">After hearing feedback from Canadian founders in our network, we are adding Canada back to our list of accepted countries of incorporation.</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM">PM</button>
+          <span class="source">Marty Cagan (SVPG)</span>
+          <span class="date">4 Feb</span>
+        </div>
+        <h2 class="title"><a href="https://www.svpg.com/product-coaching-and-ai/" target="_blank" rel="noopener noreferrer">Product Coaching and AI</a></h2>
+        <p class="teaser">This article represents a significant change to what we have been advocating for the past two decades. But hopefully you will agree it is necessary, and that it also represents a substantial step forward. We have been gradually but consistently raising the alarm about the need…</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM">PM</button>
+          <span class="source">Itamar Gilad</span>
+          <span class="date">1 Feb</span>
+        </div>
+        <h2 class="title"><a href="https://itamargilad.com/ai-disruption/" target="_blank" rel="noopener noreferrer">Is AI Disrupting Product Development?</a></h2>
+        <p class="teaser">We are regularly told that AI has caused a deep shift in product development. The old patterns are no longer relevant, and you have to either adapt or die. In this article I’ll try to assess if that’s indeed the case. Have we fundamentally changed the way we develop and sell…</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Ahead of AI</span>
+          <span class="date">24 Jan</span>
+        </div>
+        <h2 class="title"><a href="https://magazine.sebastianraschka.com/p/categories-of-inference-time-scaling" target="_blank" rel="noopener noreferrer">Categories of Inference-Time Scaling for Improved LLM Reasoning</a></h2>
+        <p class="teaser">And an Overview of Recent Inference-Scaling Papers</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Y Combinator Blog</span>
+          <span class="date">23 Jan</span>
+        </div>
+        <h2 class="title"><a href="https://www.ycombinator.com/blog/congratulations-to-equipmentshare/" target="_blank" rel="noopener noreferrer">Congratulations to EquipmentShare on Going Public</a></h2>
+        <p class="teaser">Today, EquipmentShare (YC W15) goes public. From Missouri to 373 locations nationwide, they&#x27;ve built the operating system construction has been missing—built by contractors, for contractors. Congrats to Jabbok, Willy, and the EquipmentShare team on a huge milestone.</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Y Combinator Blog</span>
+          <span class="date">16 Jan</span>
+        </div>
+        <h2 class="title"><a href="https://www.ycombinator.com/blog/the-yc-ai-student-starter-pack/" target="_blank" rel="noopener noreferrer">Announcing the YC AI Stack</a></h2>
+        <p class="teaser">We&#x27;ve partnered with nearly two dozen companies to offer students who attend YC events a suite of over $25,000 in free credits for AI devtools.</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Ahead of AI</span>
+          <span class="date">30 Dec</span>
+        </div>
+        <h2 class="title"><a href="https://magazine.sebastianraschka.com/p/state-of-llms-2025" target="_blank" rel="noopener noreferrer">The State Of LLMs 2025: Progress, Problems, and Predictions</a></h2>
+        <p class="teaser">A 2025 review of large language models, from DeepSeek R1 and RLVR to inference-time scaling, benchmarks, architectures, and predictions for 2026.</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Ahead of AI</span>
+          <span class="date">30 Dec</span>
+        </div>
+        <h2 class="title"><a href="https://magazine.sebastianraschka.com/p/llm-research-papers-2025-part2" target="_blank" rel="noopener noreferrer">LLM Research Papers: The 2025 List (July to December)</a></h2>
+        <p class="teaser">In June, I shared a bonus article with my curated and bookmarked research paper lists to the paid subscribers who make this Substack possible.</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM">PM</button>
+          <span class="source">Itamar Gilad</span>
+          <span class="date">23 Dec</span>
+        </div>
+        <h2 class="title"><a href="https://itamargilad.com/google-product-model/" target="_blank" rel="noopener noreferrer">The Product Operating Model at Google – A Critical View</a></h2>
+        <p class="teaser">Marty Kagan and Elias Lieberich, just published an article titled “The Product Model at Google”. It’s a good article that gets many things right, but I think there’s also a more nuanced picture that’s worth talking about. I see Google as an example of a company that used to have…</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM">PM</button>
+          <span class="source">Marty Cagan (SVPG)</span>
+          <span class="date">19 Dec</span>
+        </div>
+        <h2 class="title"><a href="https://www.svpg.com/the-product-model-at-google/" target="_blank" rel="noopener noreferrer">The Product Model at Google</a></h2>
+        <p class="teaser">By Marty Cagan and Elias Lieberich Marty’s Note: Recently I co-authored articles on The Product Model at Spotify, and The Product Model at Amazon. In this article, we hope to do the same by describing how the product model manifests at Google. My co-author in this case is the…</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Y Combinator Blog</span>
+          <span class="date">18 Dec</span>
+        </div>
+        <h2 class="title"><a href="https://www.ycombinator.com/blog/2026-demo-days/" target="_blank" rel="noopener noreferrer">2026 Demo Day Dates</a></h2>
+        <p class="teaser">We’re excited to share the Demo Day dates for 2026 so founders, investors, and our broader community can plan ahead.</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM">PM</button>
+          <span class="source">Itamar Gilad</span>
+          <span class="date">10 Dec</span>
+        </div>
+        <h2 class="title"><a href="https://itamargilad.com/discovery-ai/" target="_blank" rel="noopener noreferrer">Why Not Just Launch It? (AI Edition)</a></h2>
+        <p class="teaser">Whenever I teach product discovery, someone will raise their hand and ask a variant of this question: “This feels slow. Wouldn’t it be faster to just launch it and see what happens?” The answer is No. If you skip product discovery you may get bits into production faster, but…</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Y Combinator Blog</span>
+          <span class="date">10 Dec</span>
+        </div>
+        <h2 class="title"><a href="https://www.ycombinator.com/blog/meesho-goes-public/" target="_blank" rel="noopener noreferrer">Meesho Goes Public</a></h2>
+        <p class="teaser">Meesho goes public today. From S16 to IPO, they’ve built one of India’s largest e-commerce platforms—empowering millions of small merchants to grow their businesses. Congrats to Vidit and Sanjeev on a decade of relentless building and listening to users!</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Ahead of AI</span>
+          <span class="date">3 Dec</span>
+        </div>
+        <h2 class="title"><a href="https://magazine.sebastianraschka.com/p/technical-deepseek" target="_blank" rel="noopener noreferrer">From DeepSeek V3 to V3.2: Architecture, Sparse Attention, and RL Updates</a></h2>
+        <p class="teaser">Understanding How DeepSeek&#x27;s Flagship Open-Weight Models Evolved</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM">PM</button>
+          <span class="source">Marty Cagan (SVPG)</span>
+          <span class="date">1 Dec</span>
+        </div>
+        <h2 class="title"><a href="https://www.svpg.com/stakeholders-and-the-product-model/" target="_blank" rel="noopener noreferrer">Stakeholders and the Product Model</a></h2>
+        <p class="teaser">By Chris Jones and Marty Cagan Moving to the product operating model is about moving from shipping roadmaps of features (output), to solving problems for your customers and your business, as measured by achieving business results (outcomes). But the changes required to do this…</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Y Combinator Blog</span>
+          <span class="date">12 Nov</span>
+        </div>
+        <h2 class="title"><a href="https://www.ycombinator.com/blog/groww/" target="_blank" rel="noopener noreferrer">Congratulations to Groww</a></h2>
+        <p class="teaser">Today, Groww, India&#x27;s leading digital investing platform, goes public. Tens of millions use Groww to invest simply and confidently in stocks, mutual funds, and ETFs. As YC&#x27;s first company to list in India, we couldn&#x27;t be more proud.</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM">PM</button>
+          <span class="source">Marty Cagan (SVPG)</span>
+          <span class="date">7 Nov</span>
+        </div>
+        <h2 class="title"><a href="https://www.svpg.com/prototypes-vs-products/" target="_blank" rel="noopener noreferrer">Prototypes vs Products</a></h2>
+        <p class="teaser">Note: This is part of the product creator series of articles, based on the overview article, The Era of the Product Creator. This series is intended for anyone that wants to create a successful product, whether or not the person has had professional training or experience in…</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Y Combinator Blog</span>
+          <span class="date">6 Nov</span>
+        </div>
+        <h2 class="title"><a href="https://www.ycombinator.com/blog/billiontoone/" target="_blank" rel="noopener noreferrer">BillionToOne Goes Public — The Startup That Made Genetic Testing Universal</a></h2>
+        <p class="teaser">Today, BillionToOne goes public, becoming YC&#x27;s fourth publicly traded biotech company. More importantly, they have built one of the most important genetic tests in the U.S. Today, 1 in 11 babies born in the US are tested with BillionToOne&#x27;s fetal genetic test.</p>
+      </article>
+      <article class="item" data-topic="AI" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="AI">AI</button>
+          <span class="source">Ahead of AI</span>
+          <span class="date">4 Nov</span>
+        </div>
+        <h2 class="title"><a href="https://magazine.sebastianraschka.com/p/beyond-standard-llms" target="_blank" rel="noopener noreferrer">Beyond Standard LLMs</a></h2>
+        <p class="teaser">Linear Attention Hybrids, Text Diffusion, Code World Models, and Small Recursive Transformers</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Y Combinator Blog</span>
+          <span class="date">14 Oct</span>
+        </div>
+        <h2 class="title"><a href="https://www.ycombinator.com/blog/ycs-newest-visiting-partners/" target="_blank" rel="noopener noreferrer">Meet YC&#x27;s Newest Visiting Partners</a></h2>
+        <p class="teaser">We&#x27;re excited to announce that nine exceptional founders are joining us as Visiting Partners at YC: Matt Riley, Harshita Arora, Grey Baker, Christopher Golda, Raphael Schaad, Christina Gilbert, Francois Chaubard, Vivian Shen, and James Evans.</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Y Combinator Blog</span>
+          <span class="date">23 Sep</span>
+        </div>
+        <h2 class="title"><a href="https://www.ycombinator.com/blog/build-onchain/" target="_blank" rel="noopener noreferrer">YC x Coinbase RFS: Build Onchain</a></h2>
+        <p class="teaser">We are entering the era of Fintech 3.0. Regulatory clarity, growing consumer adoption, and low-cost chains have paved the way for a golden age of building in crypto — and at YC, Base, and Coinbase, we want to fund builders to seize this moment.</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM">PM</button>
+          <span class="source">Marty Cagan (SVPG)</span>
+          <span class="date">17 Sep</span>
+        </div>
+        <h2 class="title"><a href="https://www.svpg.com/forward-deployed-engineers/" target="_blank" rel="noopener noreferrer">Forward Deployed Engineers</a></h2>
+        <p class="teaser">Note: This is part of the product creator series of articles, based on the overview article, The Era of the Product Creator. This series is intended for anyone that wants to create a successful product, whether or not the person has had professional training or experience in…</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Y Combinator Blog</span>
+          <span class="date">12 Sep</span>
+        </div>
+        <h2 class="title"><a href="https://www.ycombinator.com/blog/welcome-ankit/" target="_blank" rel="noopener noreferrer">Ankit Gupta Joins YC as General Partner, Bringing Deep ML Expertise</a></h2>
+        <p class="teaser">We’re thrilled to announce that Ankit Gupta is joining YC as our newest General Partner. Ankit has already worked with dozens of YC founders as a visiting partner in recent batches. He has a rare blend of deep machine learning expertise and firsthand startup experience that make…</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM">PM</button>
+          <span class="source">Marty Cagan (SVPG)</span>
+          <span class="date">12 Sep</span>
+        </div>
+        <h2 class="title"><a href="https://www.svpg.com/the-purpose-of-prototypes/" target="_blank" rel="noopener noreferrer">The Purpose of Prototypes</a></h2>
+        <p class="teaser">Note: This is part of the product creator series of articles, based on the overview article, The Era of the Product Creator. This series is intended for anyone that wants to create a successful product, whether or not the person has had professional training or experience in…</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM">PM</button>
+          <span class="source">Marty Cagan (SVPG)</span>
+          <span class="date">27 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.svpg.com/product-leadership-archetypes/" target="_blank" rel="noopener noreferrer">Product Leadership Archetypes</a></h2>
+        <p class="teaser">Just recently SVPG Partner Christian Idiodi hosted Shreyas Doshi on his Product Therapy podcast, where they discussed the role of product leadership. If you haven’t yet listened to this interview, I would strongly encourage it, as I loved hearing Shreyas’ thoughts on this…</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM">PM</button>
+          <span class="source">Marty Cagan (SVPG)</span>
+          <span class="date">19 Aug</span>
+        </div>
+        <h2 class="title"><a href="https://www.svpg.com/article-build-vs-buy-in-the-age-of-ai/" target="_blank" rel="noopener noreferrer">Build vs Buy in the Age of AI</a></h2>
+        <p class="teaser">One topic that has been around since the beginning of the tech industry, is whether we should build or buy in order to solve some problem? This question applies to traditional IT, as well as to every product team. There are often one or more buy alternatives, but each comes with…</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Elad Gil</span>
+          <span class="date">22 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://blog.eladgil.com/p/ai-market-clarity" target="_blank" rel="noopener noreferrer">AI Market Clarity</a></h2>
+        <p class="teaser">A subset of AI markets have crystalized in the last 12 months, with the likely market leaders for the next year or two suddenly clear</p>
+      </article>
+      <article class="item" data-topic="PM" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="PM">PM</button>
+          <span class="source">Marty Cagan (SVPG)</span>
+          <span class="date">14 Jul</span>
+        </div>
+        <h2 class="title"><a href="https://www.svpg.com/the-politics-of-pilot-teams/" target="_blank" rel="noopener noreferrer">The Politics of Pilot Teams</a></h2>
+        <p class="teaser">From what I can tell, more companies than ever before are working on transforming to the product model. I don’t know all the reasons for this, but I do know some of them. I’m seeing company boards taking a more active role in pushing the CEO in this direction. Their interest is…</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Y Combinator Blog</span>
+          <span class="date">12 Jun</span>
+        </div>
+        <h2 class="title"><a href="https://www.ycombinator.com/blog/dalton-caldwell-partner-emeritus/" target="_blank" rel="noopener noreferrer">Dalton Caldwell’s Move to Partner Emeritus</a></h2>
+        <p class="teaser">After 12+ years, 25 batches, and working with more than a thousand startups, Dalton Caldwell is transitioning to Partner Emeritus at YC. Dalton joined YC in 2011 and has contributed in a number of roles over the years, most recently as a Managing Partner. During his time here,…</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Y Combinator Blog</span>
+          <span class="date">21 May</span>
+        </div>
+        <h2 class="title"><a href="https://www.ycombinator.com/blog/welcome-jon-and-andrew/" target="_blank" rel="noopener noreferrer">Welcoming Jon Xu and Andrew Miklas as YC’s Newest General Partners</a></h2>
+        <p class="teaser">Over the last few batches, visiting partners Jon Xu and Andrew Miklas have become two of the most trusted voices in the YC community. They were both founders in YC’s Summer 2010 batch, and now, 15 years and two industry-shaping companies later, they’re back in a new role:…</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Elad Gil</span>
+          <span class="date">20 May</span>
+        </div>
+        <h2 class="title"><a href="https://blog.eladgil.com/p/biotech-companies-i-wish-existed" target="_blank" rel="noopener noreferrer">Biotech companies I wish existed</a></h2>
+        <p class="teaser">While one off companies may exist, I am surprised there is not more biotech activity in these areas</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Elad Gil</span>
+          <span class="date">8 Apr</span>
+        </div>
+        <h2 class="title"><a href="https://blog.eladgil.com/p/market-ending-moves" target="_blank" rel="noopener noreferrer">Market Ending Moves</a></h2>
+        <p class="teaser">Startup CEOs should ask themselves what crazy ideas can turn into a move that just ends a market&#x27;s competitive dynamic</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Elad Gil</span>
+          <span class="date">5 Feb</span>
+        </div>
+        <h2 class="title"><a href="https://blog.eladgil.com/p/leaving-delaware" target="_blank" rel="noopener noreferrer">Leaving Delaware</a></h2>
+        <p class="teaser">This post covers why companies are considering reincorporating from Delaware to Nevada &amp; Texas</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Elad Gil</span>
+          <span class="date">22 Mar</span>
+        </div>
+        <h2 class="title"><a href="https://blog.eladgil.com/p/discussion-w-arthur-mensch-ceo-of" target="_blank" rel="noopener noreferrer">Discussion w Arthur Mensch, CEO of Mistral AI</a></h2>
+        <p class="teaser">Mistral launched multiple LLM models in less then 1 year from founding. We discuss</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Elad Gil</span>
+          <span class="date">21 Feb</span>
+        </div>
+        <h2 class="title"><a href="https://blog.eladgil.com/p/things-i-dont-know-about-ai" target="_blank" rel="noopener noreferrer">Things I Don&#x27;t Know About AI</a></h2>
+        <p class="teaser">The more I learn about AI markets, the less I think I know. I list questions and some thoughts.</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Elad Gil</span>
+          <span class="date">31 Jan</span>
+        </div>
+        <h2 class="title"><a href="https://blog.eladgil.com/p/a-return-to-company-core-mission" target="_blank" rel="noopener noreferrer">A return to company core mission &amp; values</a></h2>
+        <p class="teaser">If you want to refocus on your core mission, and end political discourse at work, now is a window of time to do it</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Elad Gil</span>
+          <span class="date">5 Dec</span>
+        </div>
+        <h2 class="title"><a href="https://blog.eladgil.com/p/altimeters-brad-gerstner-on-macro" target="_blank" rel="noopener noreferrer">Altimeter&#x27;s Brad Gerstner on Macro, Tech and Startups</a></h2>
+        <p class="teaser">Video and transcript from a fireside chat with Brad Gerstner of Altimeter</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Elad Gil</span>
+          <span class="date">4 Dec</span>
+        </div>
+        <h2 class="title"><a href="https://blog.eladgil.com/p/capital-efficient-businesses" target="_blank" rel="noopener noreferrer">Capital Efficient Businesses</a></h2>
+        <p class="teaser">Many of the biggest companies in the world started off as capital efficient businesses. We discuss.</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Elad Gil</span>
+          <span class="date">1 Dec</span>
+        </div>
+        <h2 class="title"><a href="https://blog.eladgil.com/p/video-and-transcript-apoorva-metha" target="_blank" rel="noopener noreferrer">Video &amp; transcript: Apoorva Metha, founder &amp; former CEO, Instacart</a></h2>
+        <p class="teaser">Full video &amp; transcript from Fireside chat with Apoorva Metha</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Elad Gil</span>
+          <span class="date">8 Nov</span>
+        </div>
+        <h2 class="title"><a href="https://blog.eladgil.com/p/fireside-chat-with-satya-nadella" target="_blank" rel="noopener noreferrer">Fireside chat with Satya Nadella, CEO of Microsoft</a></h2>
+        <p class="teaser">Video and transcript of our fireside chat at Stripe from Monday</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Elad Gil</span>
+          <span class="date">20 Sep</span>
+        </div>
+        <h2 class="title"><a href="https://blog.eladgil.com/p/unicorn-market-cap-2023-rise-of-ai" target="_blank" rel="noopener noreferrer">Unicorn Market Cap 2023: Rise of AI</a></h2>
+        <p class="teaser">We analyze growth in unicorn market cap by region. We also compare # of Barry&#x27;s Bootcamps to # of unicorns for key cities.</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">Elad Gil</span>
+          <span class="date">18 Sep</span>
+        </div>
+        <h2 class="title"><a href="https://blog.eladgil.com/p/ai-regulation" target="_blank" rel="noopener noreferrer">AI Regulation</a></h2>
+        <p class="teaser">There have been multiple call to regulate AI. It is too early to do so.</p>
+      </article>
+      <article class="item" data-topic="Startups" data-type="article">
+        <div class="meta">
+          <button class="flair" data-filter="Startups">Startups</button>
+          <span class="source">SaaStr</span>
+          <span class="date">14 Dec</span>
+        </div>
+        <h2 class="title"><a href="https://www.saastr.com/5-tips-to-closing-more-bigger-deals/" target="_blank" rel="noopener noreferrer">9 Tips To Closing More Bigger Deals</a></h2>
+        <p class="teaser">If you already have a few bigger deals under your belt, but most are smaller … and you want to build on that and close more “bigger” / enterprise deals … a few higher-level suggestions: Hire a Very Good CRO / VP of Sales that has sold at your “high end” price point. She will...…</p>
+      </article>
+        </main>
+      </div>
+
+      <aside class="rail" aria-label="Archive">
+        <div class="rail-box">
+          <h2>Archive</h2>
+          <div class="cal-nav">
+            <button type="button" class="cal-back" id="cal-back" aria-label="Previous month">&lsaquo;</button>
+            <div class="cal-title" id="cal-title">August 2026</div>
+          </div>
+          <div class="cal-grid" id="cal-grid"><span class="cal-dow">S</span><span class="cal-dow">M</span><span class="cal-dow">T</span><span class="cal-dow">W</span><span class="cal-dow">T</span><span class="cal-dow">F</span><span class="cal-dow">S</span><span class="cal-day cal-empty"></span><span class="cal-day cal-empty"></span><span class="cal-day cal-empty"></span><span class="cal-day cal-empty"></span><span class="cal-day cal-empty"></span><span class="cal-day cal-empty"></span><a class="cal-day cal-on" href="2026-08-01.html">1</a><a class="cal-day cal-on" href="2026-08-02.html">2</a><a class="cal-day cal-on" href="2026-08-03.html">3</a><a class="cal-day cal-on" href="2026-08-04.html">4</a><a class="cal-day cal-on" href="2026-08-05.html">5</a><a class="cal-day cal-on" href="2026-08-06.html">6</a><a class="cal-day cal-on" href="2026-08-07.html">7</a><a class="cal-day cal-on" href="2026-08-08.html">8</a><a class="cal-day cal-on" href="2026-08-09.html">9</a><a class="cal-day cal-on" href="2026-08-10.html">10</a><a class="cal-day cal-on" href="2026-08-11.html">11</a><a class="cal-day cal-on" href="2026-08-12.html">12</a><a class="cal-day cal-on" href="2026-08-13.html">13</a><a class="cal-day cal-on" href="2026-08-14.html">14</a><a class="cal-day cal-on" href="2026-08-15.html">15</a><a class="cal-day cal-on" href="2026-08-16.html">16</a><a class="cal-day cal-on" href="2026-08-17.html">17</a><a class="cal-day cal-on" href="2026-08-18.html">18</a><a class="cal-day cal-on" href="2026-08-19.html">19</a><a class="cal-day cal-on" href="2026-08-20.html">20</a><a class="cal-day cal-on" href="2026-08-21.html">21</a><span class="cal-day cal-off cal-today">22</span><span class="cal-day cal-off">23</span><span class="cal-day cal-off">24</span><span class="cal-day cal-off">25</span><span class="cal-day cal-off">26</span><span class="cal-day cal-off">27</span><span class="cal-day cal-off">28</span><span class="cal-day cal-off">29</span><span class="cal-day cal-off">30</span><span class="cal-day cal-off">31</span><span class="cal-day cal-empty"></span><span class="cal-day cal-empty"></span><span class="cal-day cal-empty"></span><span class="cal-day cal-empty"></span><span class="cal-day cal-empty"></span></div>
+          <script>
+            (function () {
+              var MONTHS = {"2026-07": {"title": "July 2026", "grid": "<span class=\"cal-dow\">S</span><span class=\"cal-dow\">M</span><span class=\"cal-dow\">T</span><span class=\"cal-dow\">W</span><span class=\"cal-dow\">T</span><span class=\"cal-dow\">F</span><span class=\"cal-dow\">S</span><span class=\"cal-day cal-empty\"></span><span class=\"cal-day cal-empty\"></span><span class=\"cal-day cal-empty\"></span><span class=\"cal-day cal-off\">1</span><span class=\"cal-day cal-off\">2</span><span class=\"cal-day cal-off\">3</span><a class=\"cal-day cal-on\" href=\"2026-07-04.html\">4</a><a class=\"cal-day cal-on\" href=\"2026-07-05.html\">5</a><a class=\"cal-day cal-on\" href=\"2026-07-06.html\">6</a><a class=\"cal-day cal-on\" href=\"2026-07-07.html\">7</a><a class=\"cal-day cal-on\" href=\"2026-07-08.html\">8</a><a class=\"cal-day cal-on\" href=\"2026-07-09.html\">9</a><a class=\"cal-day cal-on\" href=\"2026-07-10.html\">10</a><a class=\"cal-day cal-on\" href=\"2026-07-11.html\">11</a><a class=\"cal-day cal-on\" href=\"2026-07-12.html\">12</a><a class=\"cal-day cal-on\" href=\"2026-07-13.html\">13</a><a class=\"cal-day cal-on\" href=\"2026-07-14.html\">14</a><a class=\"cal-day cal-on\" href=\"2026-07-15.html\">15</a><a class=\"cal-day cal-on\" href=\"2026-07-16.html\">16</a><a class=\"cal-day cal-on\" href=\"2026-07-17.html\">17</a><a class=\"cal-day cal-on\" href=\"2026-07-18.html\">18</a><a class=\"cal-day cal-on\" href=\"2026-07-19.html\">19</a><a class=\"cal-day cal-on\" href=\"2026-07-20.html\">20</a><a class=\"cal-day cal-on\" href=\"2026-07-21.html\">21</a><a class=\"cal-day cal-on\" href=\"2026-07-22.html\">22</a><a class=\"cal-day cal-on\" href=\"2026-07-23.html\">23</a><a class=\"cal-day cal-on\" href=\"2026-07-24.html\">24</a><a class=\"cal-day cal-on\" href=\"2026-07-25.html\">25</a><a class=\"cal-day cal-on\" href=\"2026-07-26.html\">26</a><a class=\"cal-day cal-on\" href=\"2026-07-27.html\">27</a><a class=\"cal-day cal-on\" href=\"2026-07-28.html\">28</a><a class=\"cal-day cal-on\" href=\"2026-07-29.html\">29</a><a class=\"cal-day cal-on\" href=\"2026-07-30.html\">30</a><a class=\"cal-day cal-on\" href=\"2026-07-31.html\">31</a><span class=\"cal-day cal-empty\"></span>"}, "2026-08": {"title": "August 2026", "grid": "<span class=\"cal-dow\">S</span><span class=\"cal-dow\">M</span><span class=\"cal-dow\">T</span><span class=\"cal-dow\">W</span><span class=\"cal-dow\">T</span><span class=\"cal-dow\">F</span><span class=\"cal-dow\">S</span><span class=\"cal-day cal-empty\"></span><span class=\"cal-day cal-empty\"></span><span class=\"cal-day cal-empty\"></span><span class=\"cal-day cal-empty\"></span><span class=\"cal-day cal-empty\"></span><span class=\"cal-day cal-empty\"></span><a class=\"cal-day cal-on\" href=\"2026-08-01.html\">1</a><a class=\"cal-day cal-on\" href=\"2026-08-02.html\">2</a><a class=\"cal-day cal-on\" href=\"2026-08-03.html\">3</a><a class=\"cal-day cal-on\" href=\"2026-08-04.html\">4</a><a class=\"cal-day cal-on\" href=\"2026-08-05.html\">5</a><a class=\"cal-day cal-on\" href=\"2026-08-06.html\">6</a><a class=\"cal-day cal-on\" href=\"2026-08-07.html\">7</a><a class=\"cal-day cal-on\" href=\"2026-08-08.html\">8</a><a class=\"cal-day cal-on\" href=\"2026-08-09.html\">9</a><a class=\"cal-day cal-on\" href=\"2026-08-10.html\">10</a><a class=\"cal-day cal-on\" href=\"2026-08-11.html\">11</a><a class=\"cal-day cal-on\" href=\"2026-08-12.html\">12</a><a class=\"cal-day cal-on\" href=\"2026-08-13.html\">13</a><a class=\"cal-day cal-on\" href=\"2026-08-14.html\">14</a><a class=\"cal-day cal-on\" href=\"2026-08-15.html\">15</a><a class=\"cal-day cal-on\" href=\"2026-08-16.html\">16</a><a class=\"cal-day cal-on\" href=\"2026-08-17.html\">17</a><a class=\"cal-day cal-on\" href=\"2026-08-18.html\">18</a><a class=\"cal-day cal-on\" href=\"2026-08-19.html\">19</a><a class=\"cal-day cal-on\" href=\"2026-08-20.html\">20</a><a class=\"cal-day cal-on\" href=\"2026-08-21.html\">21</a><span class=\"cal-day cal-off cal-today\">22</span><span class=\"cal-day cal-off\">23</span><span class=\"cal-day cal-off\">24</span><span class=\"cal-day cal-off\">25</span><span class=\"cal-day cal-off\">26</span><span class=\"cal-day cal-off\">27</span><span class=\"cal-day cal-off\">28</span><span class=\"cal-day cal-off\">29</span><span class=\"cal-day cal-off\">30</span><span class=\"cal-day cal-off\">31</span><span class=\"cal-day cal-empty\"></span><span class=\"cal-day cal-empty\"></span><span class=\"cal-day cal-empty\"></span><span class=\"cal-day cal-empty\"></span><span class=\"cal-day cal-empty\"></span>"}};
+              var ORDER = ["2026-07", "2026-08"];
+              var EARLIEST = "2026-07";
+              var current = "2026-08";
+              var backEl = document.getElementById("cal-back");
+              var titleEl = document.getElementById("cal-title");
+              var gridEl = document.getElementById("cal-grid");
+              function render() {
+                var data = MONTHS[current];
+                titleEl.textContent = data.title;
+                gridEl.innerHTML = data.grid;
+                backEl.disabled = (current === EARLIEST);
+              }
+              backEl.addEventListener("click", function () {
+                var i = ORDER.indexOf(current);
+                if (i > 0) { current = ORDER[i - 1]; render(); }
+              });
+              render();
+            })();
+          </script>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var countEl = document.getElementById('count');
+      var topicResetEl = document.getElementById('topic-reset');
+      var formatResetEl = document.getElementById('format-reset');
+      var activeTopic = null;    // null = no topic selected (show all topics)
+      var activeFormat = null;   // null = no format selected (show all formats)
+
+      // Segment highlight: the SELECTED segment fills itself via the .seg.selected
+      // CSS rule (fill + flipped label) — no pill, no animation. paintBar toggles
+      // that class on the segment whose data-* value matches; a null value selects
+      // none (unselected segments stay red).
+      function paintBar(barId, attr, value) {
+        var bar = document.getElementById(barId);
+        if (!bar) return;
+        bar.querySelectorAll('.seg').forEach(function (s) {
+          s.classList.toggle('selected', value != null && s.getAttribute(attr) === value);
+        });
+      }
+
+      function apply() {
+        document.querySelectorAll('.item').forEach(function (el) {
+          var topicOk = activeTopic === null || el.dataset.topic === activeTopic;
+          var formatOk = activeFormat === null || el.dataset.type === activeFormat;
+          el.hidden = !(topicOk && formatOk);   // visible only if it matches BOTH axes
+        });
+        // Each × shows only when its bar has an active selection.
+        if (topicResetEl) topicResetEl.hidden = activeTopic === null;
+        if (formatResetEl) formatResetEl.hidden = activeFormat === null;
+        var n = document.querySelectorAll('.item:not([hidden])').length;
+        if (countEl) countEl.textContent = n + (n === 1 ? ' item' : ' items');
+        // Highlight the selected segment in each bar (mode always has exactly one).
+        paintBar('topic-bar', 'data-filter', activeTopic);
+        paintBar('format-bar', 'data-format', activeFormat);
+        paintBar('mode-bar', 'data-theme-choice', document.documentElement.dataset.theme);
+      }
+
+      // Topic segments AND card flair tags both carry data-filter and drive the topic toggle.
+      document.querySelectorAll('[data-filter]').forEach(function (btn) {
+        btn.addEventListener('click', function () { activeTopic = btn.dataset.filter; apply(); });
+      });
+      document.querySelectorAll('[data-format]').forEach(function (btn) {
+        btn.addEventListener('click', function () { activeFormat = btn.dataset.format; apply(); });
+      });
+      if (topicResetEl) topicResetEl.addEventListener('click', function () { activeTopic = null; apply(); });
+      if (formatResetEl) formatResetEl.addEventListener('click', function () { activeFormat = null; apply(); });
+
+      // Mode segments: flip data-theme, persist, repaint (mode bar always shows one selected).
+      document.querySelectorAll('[data-theme-choice]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var choice = btn.dataset.themeChoice;
+          document.documentElement.dataset.theme = choice;
+          localStorage.setItem('theme', choice);
+          apply();
+        });
+      });
+
+      apply();
+    })();
+  </script>
+</body>
+</html>

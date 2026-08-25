@@ -185,6 +185,12 @@
     "prompt_version": 1,
     "summary": "Claire benchmarked GPT-5.6 Sol against Claude Fable and other models for real product work, finding Sol to be the most practically effective. Sol became her new daily driver due to its ability to produce functional prototypes, easier-to-work-with writing, and practical flexibility for building products. It also excels at video editing via Codex and browser use with @Chrome for agentic workflows."
   },
+  "https://www.lennysnewsletter.com/p/how-i-ai-grok-bot-grok-46whats-great": {
+    "created_at": "2026-08-25T11:29:50.504847+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Claire evaluates AI tools like Grok Bot and Grok 4.6, finding Grok Bot useful for managing multiple accounts and Grok 4.6 to be a competitive frontier model. Separately, Ryan Carson shares how he manages numerous AI agents, including Devin, for diverse tasks from engineering to customer success. Both perspectives highlight that while AI agents offer significant leverage, human judgment and customer insight remain essential for product success."
+  },
   "https://www.lennysnewsletter.com/p/how-i-ai-how-a-solo-founder-used": {
     "created_at": "2026-08-18T11:27:25.317415+00:00",
     "model": "gemini-2.5-flash",
@@ -226,6 +232,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "The text explores the transformative power of sabbaticals, featuring personal experiences from the author and guest author DJ DiDonna. DiDonna's book, \"Big Time Off,\" identifies three sabbatical archetypes—Achiever, Seeker, and Explorer—and offers guidance. Key advice includes ensuring sufficient time off, ideally 6-12 months, and setting impenetrable boundaries for true disconnection from routine life."
+  },
+  "https://www.lennysnewsletter.com/p/i-spent-20000-on-devin-in-a-month": {
+    "created_at": "2026-08-25T11:30:09.465137+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Ryan Carson, a solo founder, shares lessons learned from spending $20,000 on Devin in a month for his B2B SaaS platform. He details how he manages 15 concurrent Devin agents using a folder system and paper, alongside specific AI-driven workflows like the Watchdog playbook for customer success and the LAN PR skill. Carson also discusses his design workflow using Claude Design and Codex, and his approach to hiring without traditional interviews, emphasizing that more AI output is not always the goal."
   },
   "https://www.lennysnewsletter.com/p/i-tested-grok-bot-grok-46-and-cursor": {
     "created_at": "2026-08-19T11:26:48.065260+00:00",
@@ -533,6 +545,12 @@
     "prompt_version": 1,
     "summary": "The trend of \"Mediocre Recycled\" executives is accelerating in B2B + AI startups, where these individuals have impressive resumes but often lack actual accomplishment or current AI skills. They tend to operate with outdated playbooks, which can significantly slow down fast-paced AI-native companies. The article details how to identify these executives and suggests rigorous hiring practices for founders."
   },
+  "https://www.saastr.com/bigcommerce-vs-shopify-when-second-place-is-a-very-tough-place-to-be/": {
+    "created_at": "2026-08-25T11:30:28.628349+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Six years ago, BigCommerce was a credible number two to Shopify in ecommerce software. However, its market position significantly decayed, with its growth rate decelerating over consecutive years while Shopify's held steady at a larger scale. This outcome is attributed to BigCommerce's subscription revenue model being less effective than Shopify's transaction-based model in capturing market growth."
+  },
   "https://www.saastr.com/build-on-the-stack-you-have-how-anthropics-head-of-industries-atlassians-head-of-ai-and-scales-rory-odriscoll-landed-on-the-same-ai-playbook/": {
     "created_at": "2026-07-26T12:05:21.411188+00:00",
     "model": "gemini-2.5-flash",
@@ -646,6 +664,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "To steal customers from a market leader, businesses should actively appear where competitors are, attending the same events and sponsoring similar services. Additionally, it is essential to \"do the work\" for potential customers by making the switch effortless, such as buying out existing contracts, migrating data, and onboarding teams at no extra cost. This strategy requires patience, as it often takes years to succeed."
+  },
+  "https://www.saastr.com/how-long-is-each-venture-funding-supposed-to-last-for-the-company-being-funded/": {
+    "created_at": "2026-08-25T11:30:44.230910+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "The classic rule for how long a venture round should last is 18-24 months, though in boom times, VCs may care less about this duration due to the speed of subsequent rounds. The real answer is that a round should last until a startup achieves the traction and metrics necessary to secure a larger follow-on investment. Founders are advised to find out what it will take to be fundable and stretch their cash to reach those goals."
   },
   "https://www.saastr.com/how-mailchimp-went-from-1b-arr-and-20-growth-to-shrinking-inside-intuit/": {
     "created_at": "2026-08-11T11:47:16.659017+00:00",

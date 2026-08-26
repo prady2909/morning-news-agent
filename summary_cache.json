@@ -221,6 +221,12 @@
     "prompt_version": 1,
     "summary": "Jen Abel, co-founder of JJellyfish and GM of enterprise sales at State Affairs, details a step-by-step approach to closing $100K+ enterprise deals. She outlines a 15-step enterprise sales cycle, contrasting it with standard CRM pipelines, and discusses topics like landing initial meetings, crafting messages, running intro calls, structuring pilots, and navigating negotiations to the final signature."
   },
+  "https://www.lennysnewsletter.com/p/how-to-figure-out-your-next-career": {
+    "created_at": "2026-08-26T11:32:27.482950+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "This guide provides a step-by-step approach for professionals to figure out their next career move amidst the changing tech landscape. Developed by Cliff Maxwell and Bobby Moesta, it draws on insights from over 1,000 interviews to help individuals connect with what they truly want from work and life. The method focuses on defining personal \"progress\" and identifying core motivations, or \"quests,\" rather than traditional career progression."
+  },
   "https://www.lennysnewsletter.com/p/how-to-make-people-care-about-your": {
     "created_at": "2026-08-12T11:47:45.467342+00:00",
     "model": "gemini-2.5-flash",
@@ -382,6 +388,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Tech leaders, including Satya Nadella and Jensen Huang, signed a letter supporting open-weight models, which the author interprets as a capitalist strategy where signatories benefit from models becoming cheaper and more plentiful. The author argues that AI is more akin to \"Oil\"—an economically useful commodity—than a dangerous, god-like entity, though acknowledging concerns about potential misuse like the removal of safeguards."
+  },
+  "https://www.notboring.co/p/an-american-engineer-in-china": {
+    "created_at": "2026-08-26T11:33:02.318025+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "An American engineer, using a pseudonym, began an extended trip to China to learn about energy, AI, and hardware companies and factories. During his first 11 days, he observed the immense scale and density of Hong Kong and Shenzhen, encountered cultural and infrastructural differences, and explored electronics markets. He concluded that China is rapidly changing, heterogeneous, and not centered on America."
   },
   "https://www.notboring.co/p/base-power-company-chapter-3": {
     "created_at": "2026-08-13T11:50:54.549503+00:00",
@@ -802,6 +814,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "The \"20 Minute Test\" suggests that if a candidate does not impress as a VP within the first 20 minutes of their initial Zoom interview, one should pass. This test is proposed to counter less diligent hiring practices that have emerged in recruiting, as VPs often fail when there wasn't initial conviction about their capabilities."
+  },
+  "https://www.saastr.com/the-3-new-pricing-models-in-b2b-pick-one-because-the-old-one-just-seats-is-dying/": {
+    "created_at": "2026-08-26T11:32:44.302922+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "B2B seat-based software pricing models are facing growing pressure and are considered to be dying due to aggressive price increases, CIOs reallocating budgets to AI, and a disconnect between headcount and software value. Three new models—Consumption, Outcome, and Resolution—are emerging, but incumbents are advised to transition by adding new pricing lines in segments rather than a full conversion."
   },
   "https://www.saastr.com/the-ai-board-member-why-yours-should-chair-the-next-meeting-for-real/": {
     "created_at": "2026-08-03T13:44:00.632067+00:00",

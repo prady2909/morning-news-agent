@@ -335,6 +335,12 @@
     "prompt_version": 1,
     "summary": "Three new speakers have been announced for the inaugural Machine Earning AI Summit: Kirsten Green, Katie Haun, and Ilan Zerbib, CEO of Sapiom. This one-day, invite-only event will cover the new AI economy, including how AI is reshaping commerce and finance, and its impact on banking, payments, and online shopping."
   },
+  "https://www.newcomer.co/p/nvidia-is-carrying-the-ai-economy": {
+    "created_at": "2026-08-28T21:20:53.938131+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Nvidia recently reported soaring revenue and earnings, establishing itself as a significant technical and financial engine of the AI economy. The company acquired Hugging Face for $13 billion and much of Poolside for $6 billion, resulting in large VC exits. These actions are raising questions about Nvidia's expanding reach and potential competition with its own customers through building open-source models."
+  },
   "https://www.newcomer.co/p/saas-shudders-after-airtables-humbling": {
     "created_at": "2026-08-08T11:31:09.380016+00:00",
     "model": "gemini-2.5-flash",
@@ -430,6 +436,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Merck and Moderna's mRNA cancer vaccine successfully prevented melanoma from recurring in a Phase III trial. Given with Keytruda after surgery in high-risk melanoma patients, the vaccine significantly reduced the risk that cancer would return or spread compared with Keytruda alone. This marks the first successful late-stage trial for a personalized mRNA cancer therapy and could lead to approval and launch around 2027."
+  },
+  "https://www.notboring.co/p/weekly-dose-of-optimism-208": {
+    "created_at": "2026-08-28T21:22:41.561119+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "The FDA has approved Revolution Medicines’ Rasonque, a new targeted therapy for metastatic pancreatic cancer. This drug targets a specific mutation that causes runaway cell growth. In a late-stage study, subjects lived over 13 months, compared to about 6.7 months for those on chemotherapy alone."
   },
   "https://www.saastr.com/2026-is-the-biggest-ipo-year-in-history-but-take-out-one-company-and-its-one-of-the-worst/": {
     "created_at": "2026-08-03T13:43:45.186286+00:00",
@@ -910,6 +922,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "A good demo conversion rate for a SaaS startup is 10%-20%, with rates below 8%-10% potentially causing sales team burnout from too many demos. Conversion rates are influenced by lead quality, as attracting more general interest can cause metrics to fall as a brand scales. Therefore, it's advised to measure but not obsess over absolute funnel metrics."
+  },
+  "https://www.saastr.com/when-agents-take-over-the-system-of-record-40gb-nobody-typed-a-renewal-agent-built-in-half-a-day-and-why-our-agents-love-clay-the-agents-013/": {
+    "created_at": "2026-08-28T21:20:37.902004+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Agents are rapidly generating significant data volumes within systems of record, leading to unexpected storage overages and higher costs in traditional CRM platforms. This shift can enable partners to become competitors by having agents take over core functions, as demonstrated by ServiceTitan cutting off Podium. Agents also integrate various data sources to build complex tools, such as a renewal agent created in half a day, which enhances system utility but also presents new challenges for data accuracy and vendor relationships."
   },
   "https://www.saastr.com/you-should-be-collecting-at-least-100-of-your-mrr-each-month-in-cash-ideally-110/": {
     "created_at": "2026-07-25T12:05:28.633013+00:00",

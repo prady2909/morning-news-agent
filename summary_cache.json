@@ -521,6 +521,12 @@
     "prompt_version": 1,
     "summary": "Zoom reported re-accelerating revenue growth in Q1 FY2027, reaching $1.239 billion, up 5.5% year-over-year. The company has become a \"cash machine,\" with free cash flow margins over 40%, driven by enterprise sales and successful AI monetization. Additionally, its Anthropic stake is carried at $1.27 billion, representing a significant gain and potential additional value."
   },
+  "https://www.saastr.com/50-of-the-work-created-in-linear-is-now-created-by-agents-a-year-ago-it-was-3/": {
+    "created_at": "2026-08-29T15:32:24.288138+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Linear reported that 50% of the work in their system is now created by agents, a significant increase from 3% a year ago. This shift occurred over twelve months, with agents installed in 95% of paid Linear workspaces. The company also noted a correlation between agent usage and account expansion."
+  },
   "https://www.saastr.com/500m-arr-60-engineers-cash-flow-positive-how-higgsfield-actually-runs-with-ceo-alex-mashrabov/": {
     "created_at": "2026-07-16T12:22:13.873301+00:00",
     "model": "gemini-2.5-flash",
@@ -802,6 +808,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Rippling tested 15 AI models by running approximately 2,100 scored attempts per model on real payroll data within a production system. The study revealed that quality flattened among top models, with the cheapest model achieving a pass rate nearly identical to more expensive options."
+  },
+  "https://www.saastr.com/rule-of-40-is-half-dead-growth-is-all-that-matters-margins-above-25-dont-help-and-category-beats-both-the-latest-from-kroll/": {
+    "created_at": "2026-08-29T15:32:03.353328+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Kroll's Summer 2026 Global Software Sector Update reveals a concentrated M&A market, with deal volume high but one transaction accounting for half the annualized deal value, resulting in near-record-low aggregate prices for other deals. Valuation drivers have shifted, with category and positioning now more impactful than growth or margins above 25-30%. Strategic buyers are paying significantly higher multiples than public markets, favoring specific, defensible positions over company size."
   },
   "https://www.saastr.com/saastr-ai-app-of-the-week-nue-the-revenue-platform-built-for-how-b2b-ai-actually-prices-now/": {
     "created_at": "2026-07-18T11:54:35.865831+00:00",

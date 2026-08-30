@@ -107,6 +107,12 @@
     "prompt_version": 1,
     "summary": "The future of open models is discussed, with analogies drawn to foundational open-source software like Linux. Nvidia is significantly investing in nearly open-source models to create demand for their chips and prevent the monopolization of intelligence. However, if this approach is not financially viable, open models may shift to focus on efficiency, modifiability, and specialization for a long-tail ecosystem."
   },
+  "https://www.lennysnewsletter.com/p/ais-third-era-the-rise-of-persistent": {
+    "created_at": "2026-08-30T15:13:06.339844+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Tara Seshan, OpenAI’s product lead, discussed the shift from humans \"rowing\" to \"steering\" as AI takes on execution. She noted that human judgment and ambition will become differentiators, and ambition is now the new bottleneck for companies. Elevating others’ ambitions is presented as a key part of the product manager's role in this context."
+  },
   "https://www.lennysnewsletter.com/p/announcing-lennys-jobs-the-best-place": {
     "created_at": "2026-08-19T11:27:05.569996+00:00",
     "model": "gemini-2.5-flash",
@@ -790,6 +796,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "An existing AI agent, named 10K and previously focused on marketing, was expanded to serve as an \"AI VP Revenue\" to automate various finance tasks. This agent now handles post-deal closure processes, including invoice generation, customer communication, payment reminders, and sales commission calculations. The system was trained and refined over four deals with human oversight, learning to apply corrections as general rules."
+  },
+  "https://www.saastr.com/owner-com-did-an-ai-rebuild-to-accelerate-past-100m-arr-6-lessons-and-what-it-costs-to-apply-them/": {
+    "created_at": "2026-08-30T15:13:22.626758+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Owner.com, a company providing websites and online ordering for independent restaurants, underwent an AI-driven rebuild of its product and acquisition path. This strategic shift, initiated despite previous customer research indicating fears of AI, led the company past $100M ARR and now sees over 83% of new customers starting their journey within an AI product."
   },
   "https://www.saastr.com/pylons-founders-at-saastr-ai-day-a-1000-person-support-team-deflected-50-of-its-tickets-headcount-didnt-change/": {
     "created_at": "2026-08-11T11:46:55.605263+00:00",

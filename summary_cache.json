@@ -209,6 +209,18 @@
     "prompt_version": 1,
     "summary": "Alex Lieberman built an AI content system using Claude to generate content ideas and drafts. The system uses an AI Oracle to find content ideas from various sources and interviews Lieberman with multiple personas to extract specifics. It drafts content based on a personal voice guide and employs a \"Writer's Council\" to revise drafts to a high standard, with a reinforcement loop for continuous improvement."
   },
+  "https://www.lennysnewsletter.com/p/how-i-ai-how-this-pm-uses-claude": {
+    "created_at": "2026-08-31T17:56:30.495028+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "A product manager at Melio, Daniel Blum, built a self-improving AI system using Claude and Cowork that manages 70% to 80% of his workday. This system handles tasks like managing Notion boards, preparing for the week, and scanning communications, allowing him to accomplish a week's worth of work in a single day. The system also learns from his edits without explicit feedback and includes a 15-minute onboarding for other employees."
+  },
+  "https://www.lennysnewsletter.com/p/how-i-turned-claude-into-a-self-improving": {
+    "created_at": "2026-08-31T17:56:46.804034+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Daniel Blum, a product manager at Melio, developed a Claude- and Cowork-based productivity system to manage his Notion board and process Slack and email. This system runs weekly self-improvement loops without prompts, allowing him to run 70% to 80% of his workday through it. He also built a \"Workstation\" onboarding plugin to provide personalized Claude setups for other Melio employees."
+  },
   "https://www.lennysnewsletter.com/p/how-tech-workers-actually-feel-about": {
     "created_at": "2026-07-15T12:17:43.485256+00:00",
     "model": "gemini-2.5-flash",
@@ -653,6 +665,12 @@
     "prompt_version": 1,
     "summary": "After firing a VP of Sales, it is important to act fast and smart to stabilize and rebuild the sales organization. This involves having a plan, potentially stepping in as an interim VP or promoting from within, and auditing the sales process. It is also crucial to start the search for a new VP immediately, focus on the team's morale, keep the sales pipeline moving, and ensure the new hire comes with a clear plan."
   },
+  "https://www.saastr.com/dear-saastr-my-sales-rep-is-grossly-underperforming-but-is-involved-in-a-key-deal-should-i-fire-him-or-wait-for-the-deal-to-close/": {
+    "created_at": "2026-08-31T17:57:19.597983+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "It is advised to move on from a grossly underperforming sales rep immediately, even if they are involved in a key deal, as keeping them is almost always a mistake. Such a rep is unlikely to be adding value to the deal and their underperformance can drag the team down. Additional reasons for letting them go include costly mishandled leads and the rep likely not being a fit for the company."
+  },
   "https://www.saastr.com/dear-saastr-one-of-our-most-respected-team-members-quit-and-folks-are-leaving-what-do-i-do/": {
     "created_at": "2026-08-20T11:29:36.115394+00:00",
     "model": "gemini-2.5-flash",
@@ -928,6 +946,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "An eight-figure B2B business found that managing nearly 30 human-interfaced AI agents became unsustainable due to high attention, context, and maintenance costs. They consolidated their AI agents from close to 30 down towards 20, resulting in roughly a 4x increase in output. This was achieved as improved AI models allowed for greater generalization, enabling fewer agents to handle diverse tasks and leverage cross-functional data access."
+  },
+  "https://www.saastr.com/weve-been-running-salesforce-headless-and-our-own-claudeforce-for-6-months-were-never-going-back/": {
+    "created_at": "2026-08-31T17:57:03.861240+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "SaaStr has been running Salesforce \"headless\" for six months, accessing data through the Salesforce API with an AI agent built on Claude instead of the user interface. This system, internally called Claudeforce, integrates CRM data with marketing and financial systems to create a \"meta CRM.\" SaaStr reports a 10x increase in Salesforce data usage and a 40% rise in their bill, stating they would not revert to the previous method."
   },
   "https://www.saastr.com/what-a-great-vp-sales-does-in-their-first-week-watch-for-it/": {
     "created_at": "2026-07-20T13:09:31.789717+00:00",

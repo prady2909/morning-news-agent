@@ -161,6 +161,12 @@
     "prompt_version": 1,
     "summary": "Maddie Reese is a hardware tinkerer and builder who creates projects at the intersection of software and hardware, including a thermal receipt printer and a Twitter pager built with a Raspberry Pi. She uses Cursor to brainstorm hardware projects and manage her building process. Her approach also involves building a personal API and focusing on fun to ship physical projects."
   },
+  "https://www.lennysnewsletter.com/p/grok-bot-vs-openclaw-how-i-replaced": {
+    "created_at": "2026-09-02T15:01:00.925044+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "This item details the replacement of an entire agent stack, specifically migrating from OpenClaw to a Grok Bot setup. It breaks down the full Grok Bot setup, its comparison to OpenClaw, and nine specific bots built for work and personal use. The discussion includes bots like a chief-of-staff bot, a family agent, engineering bots, and Holly Helpdesk, along with the script used to migrate agents."
+  },
   "https://www.lennysnewsletter.com/p/how-a-solo-founder-used-codex-and": {
     "created_at": "2026-08-18T11:28:00.951324+00:00",
     "model": "gemini-2.5-flash",
@@ -826,6 +832,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "An existing AI agent, named 10K and previously focused on marketing, was expanded to serve as an \"AI VP Revenue\" to automate various finance tasks. This agent now handles post-deal closure processes, including invoice generation, customer communication, payment reminders, and sales commission calculations. The system was trained and refined over four deals with human oversight, learning to apply corrections as general rules."
+  },
+  "https://www.saastr.com/our-newest-ai-agent-is-a-renewal-agent-it-builds-a-better-renewal-deck-than-any-human-could-for-every-single-account-not-just-the-big-ones/": {
+    "created_at": "2026-09-02T15:01:17.102718+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "A new AI renewal agent has been developed to create custom renewal emails and decks for every single account, not just the largest ones. The agent gathers extensive data from various sources, including CRM systems, social accounts, podcast mentions, and event attendance, to build personalized renewal pitches. This allows companies to offer detailed, customized renewals to all customers, leading to increased engagement, especially from smaller accounts that previously received generic templates."
   },
   "https://www.saastr.com/owner-com-did-an-ai-rebuild-to-accelerate-past-100m-arr-6-lessons-and-what-it-costs-to-apply-them/": {
     "created_at": "2026-08-30T15:13:22.626758+00:00",

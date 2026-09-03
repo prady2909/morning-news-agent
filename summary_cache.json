@@ -35,6 +35,12 @@
     "prompt_version": 1,
     "summary": "This article discusses Model Context Protocols (MCPs) and Command Line Interfaces (CLIs) as mechanisms to connect AI models like Claude to Go-To-Market (GTM) tools. It explains that connecting Claude to other tools makes it more useful by integrating existing context and data, helping to solve common limitations of standalone AI. The newsletter details various workflows from seven GTM tools, demonstrating how these connectors enable more robust AI-native systems for work."
   },
+  "https://newsletter.mkt1.co/p/multiplayer-ai-mintlify-langchain-buffer": {
+    "created_at": "2026-09-03T14:55:07.241205+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "This newsletter details how three companies—Mintlify, LangChain, and Buffer—are building and running multiplayer AI systems for their marketing teams. It explores their distinct approaches to managing AI capabilities, context, and collaboration, offering insights into each setup. The article also addresses common questions about multiplayer AI, such as ownership and how to maintain system freshness."
+  },
   "https://newsletter.mkt1.co/p/multiplayer-claude-1": {
     "created_at": "2026-07-27T13:41:16.546775+00:00",
     "model": "gemini-2.5-flash",
@@ -353,6 +359,12 @@
     "prompt_version": 1,
     "summary": "The high-performing Kimi K3 open-weight model from China's Moonshot AI has exposed deep rifts in the AI industry by approaching the performance of top US models. This situation pits vendors like OpenAI and Anthropic, who advocate for regulations and a global regulatory body, against consumers including startups and business customers. Many AI users and over 200 startups, forming the \"Little Tech Alliance,\" fear losing access to open source models from China and are opposing any bans."
   },
+  "https://www.newcomer.co/p/investors-are-betting-on-agents-that": {
+    "created_at": "2026-09-03T14:55:41.854955+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Venture capitalists are investing in AI agents to reshape e-commerce and payments, primarily focusing on building the infrastructure and tools needed for these agents to be trusted with customer credit cards and shopping choices. Consumer use of AI for online shopping has increased significantly, with startups developing various categories of agents including multipurpose personal agents, shopping assistants, marketing technology, smart payment systems, and underlying transaction infrastructure."
+  },
   "https://www.newcomer.co/p/ipo-party-faces-down-volatility-and": {
     "created_at": "2026-07-17T22:41:15.981737+00:00",
     "model": "gemini-2.5-flash",
@@ -532,6 +544,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Procore achieved its first GAAP operating profit, with revenue growing 16% to $375M, exceeding its guide. The company announced an $845 million all-cash acquisition of DroneDeploy, funded largely by a committed bridge facility, to provide visual intelligence and a new expansion vector. This comes as net revenue retention has declined to 106%, indicating slower expansion from the installed customer base."
+  },
+  "https://www.saastr.com/5-interesting-learnings-from-salesforce-at-45-billion-arr-14-crpo-growth-6-organic-growth-and-2-53-of-eps-from-its-anthropic-stake/": {
+    "created_at": "2026-09-03T14:55:26.022679+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Salesforce reported Q2 FY27 results with revenue up 11% to $11.345B and current remaining performance obligation (cRPO) up 14%, leading to a 23% increase in its stock. Non-GAAP EPS grew 103% to $5.90, significantly boosted by investment gains from its Anthropic stake and a $25B buyback, while organic business growth was about 6%. The company raised its FY27 guidance to $46.1B-$46.4B."
   },
   "https://www.saastr.com/5-interesting-learnings-from-shopify-at-14b-in-revenue-34-growth-18-free-cash-flow-margins-and-ai-orders-up-3x/": {
     "created_at": "2026-08-08T11:31:27.148603+00:00",
@@ -922,6 +940,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Many board meetings are inefficient, with significant time spent reviewing unread materials and making non-actionable comments. An AI agent could address this by analyzing market data, reviewing financials, benchmarking competitors, and identifying key discussion points before human input. This allows human board members to focus on judgment, relationships, and strategic decisions, leading to more productive and higher-quality conversations."
+  },
+  "https://www.saastr.com/the-cpos-of-harvey-glean-and-rubrik-on-what-it-actually-takes-to-ship-a-category-winning-agent/": {
+    "created_at": "2026-09-03T14:55:59.567161+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Shipping category-winning AI agents in B2B is effectively a second build of the entire product, requiring careful planning. It is recommended to start with agents that cannot break anything, and to ensure human approval for agent plans before execution. New product requirements emerge around accountability for agent behavior and minimizing the context users must provide."
   },
   "https://www.saastr.com/the-one-hire-you-just-cant-make-chief-product-technology-officer/": {
     "created_at": "2026-07-31T12:58:46.867909+00:00",

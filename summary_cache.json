@@ -443,6 +443,12 @@
     "prompt_version": 1,
     "summary": "Thrive Capital recently raised $2 billion for Thrive Holdings, its AI roll-up vehicle, and announced it will own a piece of the Los Angeles Lakers. These actions exemplify founder Joshua Kushner's strategy of moving beyond traditional Silicon Valley venture capital norms. The firm now focuses on three core theses, including AI, company transformation, and investments in live events and cultural institutions."
   },
+  "https://www.newcomer.co/p/tim-cook-was-a-great-ceo-the-tech": {
+    "created_at": "2026-09-05T13:44:05.261505+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Data from the Ramp Economics Lab indicates that a small portion of customers generate most enterprise revenue for OpenAI and Anthropic. Specifically, 1% of their customers on Ramp's platform account for 80% of enterprise revenues. This concentration could pose a risk to the growth projections of these companies."
+  },
   "https://www.newcomer.co/p/two-huge-exits-show-the-power-of": {
     "created_at": "2026-08-22T11:22:41.118107+00:00",
     "model": "gemini-2.5-flash",

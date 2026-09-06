@@ -683,6 +683,12 @@
     "prompt_version": 1,
     "summary": "Building a real exit strategy for startups involves several key actions to increase acquisition odds. These include developing the best product in an important space, actively gaining attention from potential acquirers, and building long-term relationships with their senior leadership. Additionally, engaging with private equity firms that approach the company, particularly after reaching $10m-$20m ARR, is advised."
   },
+  "https://www.saastr.com/california-is-taxing-saas-and-ai-tools-and-is-about-to-make-your-software-8-10-more-expensive-heres-what-sb-122-does-to-buyers-and-vendors/": {
+    "created_at": "2026-09-06T14:00:27.954739+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Effective January 1, 2027, California will begin applying its sales and use tax to prewritten software and SaaS, regardless of delivery method, by amending the definition of \"tangible personal property\" to include \"digital products.\" This change is projected to make software 8-10% more expensive for most customers and introduces new compliance obligations for vendors, though custom software and digital infrastructure are excluded."
+  },
   "https://www.saastr.com/canva-cuts-2026-growth-by-a-third-jeff-dean-walks-out-of-google-and-elon-builds-his-own-fab-20vc-x-saastr/": {
     "created_at": "2026-08-14T11:45:32.037500+00:00",
     "model": "gemini-2.5-flash",

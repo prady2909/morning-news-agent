@@ -95,6 +95,12 @@
     "prompt_version": 1,
     "summary": "Contrary to earlier predictions of industry consolidation, more companies are training and openly releasing strong models, identifying value in building \"token machines.\" Recent open model releases include Inkling, a multimodal model from Thinking Machines, and Laguna-S-2.1 from Poolside, which adopted the OpenMDW license. Kimi-K3, a significant open model from MoonshotAI, was released under a noncommercial license requiring commercial agreements for providers."
   },
+  "https://www.interconnects.ai/p/latest-open-artifacts-24-motif-3": {
+    "created_at": "2026-09-08T14:58:33.940702+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "The landscape of open model licenses is evolving, with some Western model makers adopting Apache 2.0. In contrast, certain Chinese model makers are implementing more restrictive custom licenses. Zhipu's GLM-5.3, for instance, now requires a security review for Model as a Service providers exceeding a $10 billion revenue threshold, and the term \"affiliates\" is undefined in its English version."
+  },
   "https://www.interconnects.ai/p/lessons-from-the-hacks": {
     "created_at": "2026-08-10T11:48:53.215578+00:00",
     "model": "gemini-2.5-flash",
@@ -293,6 +299,12 @@
     "prompt_version": 1,
     "summary": "AI models, while capable of creativity, tend to produce generic designs due to their training to make safe and predictable choices. To achieve world-class designs, users must push AI beyond these patterns by exploring broad ideas through varied prompts and seed strings. Further refinement involves using \"design critic\" subagents to provide objective feedback, incorporating image and video generation for enriched visuals, and polishing the final product by removing non-essential elements."
   },
+  "https://www.lennysnewsletter.com/p/how-we-built-grok-bot-in-a-month": {
+    "created_at": "2026-09-08T14:58:12.329925+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Roman Ugarte of SpaceXAI helped incubate and build Grok Bot, a popular new knowledge-work agent. A small team developed it from the first line of code to an internal product in four weeks, achieving a successful public launch three weeks later. The discussion covers Grok Bot's origin story, key development decisions, and early product choices that contributed to its success."
+  },
   "https://www.lennysnewsletter.com/p/i-spent-20000-on-devin-in-a-month": {
     "created_at": "2026-08-25T11:30:09.465137+00:00",
     "model": "gemini-2.5-flash",
@@ -490,6 +502,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Base Power Company recently raised $1 billion in a Series D round, bringing its post-money valuation to $13 billion. The company has pivoted its manufacturing strategy, canceling its Gen 2 battery program to focus on developing and producing its new Base Core residential battery system in Texas. Base Core is positioned as the highest-capacity and cheapest residential battery on the market, supporting Base Power Company's expansion into new states and growing utility partnerships, though it currently faces high demand and supply constraints."
+  },
+  "https://www.notboring.co/p/everyone-is-reading-lonesome-dove": {
+    "created_at": "2026-09-08T14:59:10.371928+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "The book \"Lonesome Dove,\" a Pulitzer Prize winner from 1985, is experiencing a widespread resurgence in popularity. This phenomenon is attributed to factors like media discussions, celebrity recommendations, the rise of Western-themed entertainment, and organized read-alongs. The article suggests that Large Language Models (LLMs) such as Claude and ChatGPT are also significantly contributing to its rediscovery by recommending the book to numerous readers."
   },
   "https://www.notboring.co/p/weekly-dose-of-optimism-202": {
     "created_at": "2026-07-17T12:12:00.847721+00:00",
@@ -904,6 +922,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Klaviyo's CEO outlined the company's approach to building AI products, including a mandate for all 2,300 employees to achieve \"L3\" AI autonomy by June, which involves constantly running multiple AI sessions or teams of agents. This system utilizes an internal \"Dark Factory\" where agents build other agents by decomposing problems and defining API interfaces, while also treating external agents as power users that interact with software via robust APIs."
+  },
+  "https://www.saastr.com/meet-our-agents-what-all-20-actually-do-what-they-refuse-to-do-and-every-place-theyve-failed-us/": {
+    "created_at": "2026-09-08T14:58:49.873914+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "SaaStr operates using roughly three humans and 20 AI agents, which handle various operational roles and are connected to real systems. The article details what specific agents do, what they refuse to do, and where they have failed. Common issues noted include verification taking longer than building, agents fixing only pointed-at issues, and accidental visibility into agent changes."
   },
   "https://www.saastr.com/nues-guided-selling-playbook-took-2-minutes-to-build-the-implementation-still-takes-90-days/": {
     "created_at": "2026-08-04T13:04:55.555311+00:00",

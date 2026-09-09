@@ -119,6 +119,12 @@
     "prompt_version": 1,
     "summary": "The future of open models is discussed, with analogies drawn to foundational open-source software like Linux. Nvidia is significantly investing in nearly open-source models to create demand for their chips and prevent the monopolization of intelligence. However, if this approach is not financially viable, open models may shift to focus on efficiency, modifiability, and specialization for a long-tail ecosystem."
   },
+  "https://www.interconnects.ai/p/when-will-average-people-feel-ais": {
+    "created_at": "2026-09-09T15:03:04.942227+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Average people currently experience few tangible benefits from AI, unlike the direct, life-changing outcomes of past industrial revolutions. The article suggests AI's early positive impacts are too indirect for most people to feel, and it faces challenges like political backlash and being perceived as primarily a tool for the elite. Therefore, the widespread diffusion of AI's impacts across society is expected to be a long process, potentially taking decades."
+  },
   "https://www.lennysnewsletter.com/p/ais-third-era-the-rise-of-persistent": {
     "created_at": "2026-08-30T15:13:06.339844+00:00",
     "model": "gemini-2.5-flash",
@@ -388,6 +394,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Decagon has crossed $100 million in annualized revenue in AI customer service, with CEO Jesse Zhang emphasizing product speed and ease of customization. The company takes a strong stance against forward deployed engineers, viewing reliance on them as a sign of a weak product. This approach has helped Decagon secure major airlines and credit card companies as customers."
+  },
+  "https://www.newcomer.co/p/founders-of-chime-and-town-join-as": {
+    "created_at": "2026-09-09T15:03:41.633680+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "The Machine Earning AI Summit, focused on AI finance and commerce, has announced new speakers including Ryan King, co-founder of Chime, and Jean-Denis Greze, co-founder of Town. A first set of discussion group leaders, comprising various founders, CEOs, and partners, has also been revealed for the summit's breakout sessions."
   },
   "https://www.newcomer.co/p/high-stakes-battle-over-china-policy": {
     "created_at": "2026-07-25T12:04:55.227056+00:00",
@@ -1126,6 +1138,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "A good demo conversion rate for a SaaS startup is 10%-20%, with rates below 8%-10% potentially causing sales team burnout from too many demos. Conversion rates are influenced by lead quality, as attracting more general interest can cause metrics to fall as a brand scales. Therefore, it's advised to measure but not obsess over absolute funnel metrics."
+  },
+  "https://www.saastr.com/what-vcs-are-looking-for-now-25b-exits-the-new-decacorn/": {
+    "created_at": "2026-09-09T15:03:23.141407+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Venture capitalists are now seeking $25B+ exits and valuations, a target that has become more predictable with 81 such companies existing globally. This shift means a credible path to a $25B outcome is essential for startups pitching large venture funds, as smaller outcomes are largely irrelevant to their returns."
   },
   "https://www.saastr.com/when-agents-take-over-the-system-of-record-40gb-nobody-typed-a-renewal-agent-built-in-half-a-day-and-why-our-agents-love-clay-the-agents-013/": {
     "created_at": "2026-08-28T21:20:37.902004+00:00",

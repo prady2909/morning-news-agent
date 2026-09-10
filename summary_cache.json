@@ -29,6 +29,12 @@
     "prompt_version": 1,
     "summary": "Reasoning models in LLMs can be developed with multiple effort modes, allowing control over their response length and accuracy. These models output an intermediate reasoning trace to work through tasks step-by-step. Such effort settings are implemented during post-training, often through system prompts, reinforcement learning with varying length penalties, or supervised fine-tuning."
   },
+  "https://magazine.sebastianraschka.com/p/gpt-6-astra-looped-transformers-and": {
+    "created_at": "2026-09-10T14:55:20.969287+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "GPT-6 Astra is described as an exceptionally good model, demonstrating significant improvements across various tasks and particularly excelling in 3D rendering, animation, and computer use capabilities. It is rumored to utilize a \"looped transformer\" architecture, which involves reusing transformer blocks multiple times to increase effective depth while conserving memory for weights. While the model may exhibit shorter reasoning traces, the author suggests this is likely due to its increased capability rather than the looped transformer architecture intentionally obscuring its chain of thought."
+  },
   "https://newsletter.mkt1.co/p/mcp-showcase-recap": {
     "created_at": "2026-08-12T11:48:01.790366+00:00",
     "model": "gemini-2.5-flash",
@@ -509,6 +515,12 @@
     "prompt_version": 1,
     "summary": "An American engineer, using a pseudonym, began an extended trip to China to learn about energy, AI, and hardware companies and factories. During his first 11 days, he observed the immense scale and density of Hong Kong and Shenzhen, encountered cultural and infrastructural differences, and explored electronics markets. He concluded that China is rapidly changing, heterogeneous, and not centered on America."
   },
+  "https://www.notboring.co/p/an-ode-to-counter-positioning": {
+    "created_at": "2026-09-10T14:55:53.795020+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Counter-positioning is a business strategy where a startup develops a model that creates conflicting incentives for incumbents, preventing them from competing effectively. This approach allows startups to attack established companies by making it painful or suicidal for incumbents to copy their innovations without damaging their existing businesses. While powerful for gaining an initial advantage, counter-positioning primarily serves to buy time for startups to build more durable long-term competitive advantages."
+  },
   "https://www.notboring.co/p/base-power-company-chapter-3": {
     "created_at": "2026-08-13T11:50:54.549503+00:00",
     "model": "gemini-2.5-flash",
@@ -634,6 +646,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Shopify reported 34% year-over-year revenue growth in Q2 2026, achieving $654 million in free cash flow with an 18% margin. The company saw AI traffic and orders triple, with AI shoppers converting into new buyers at twice the rate of traditional channels."
+  },
+  "https://www.saastr.com/5-interesting-learnings-from-snowflake-at-6-billion-in-revenue-37-growth-and-accelerating-126-nrr-and-a-gross-margin-guided-down-to-pay-for-ai/": {
+    "created_at": "2026-09-10T14:55:39.087651+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Snowflake reported Q2 2027 product revenue of $1.49 billion, up 37% year over year, marking its third consecutive quarter of accelerating growth. The company raised its full-year product revenue guidance to $6.07 billion, with approximately half the acceleration attributed to AI products. Due to a higher mix of AI workloads, non-GAAP product gross margin decreased to 75% and was guided to 74% for the full year, while non-GAAP operating margin guidance increased."
   },
   "https://www.saastr.com/5-interesting-learnings-from-stripe-at-6-8-billion-in-revenue-33-growth-47-free-cash-flow-margins-and-a-53b-bid-for-paypal/": {
     "created_at": "2026-07-24T12:21:27.585226+00:00",
@@ -832,6 +850,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "AI agents should be deployed on \"B leads\" rather than \"A leads\" for outbound sales efforts. B leads have real signal but are often ignored by human sales representatives who prioritize \"A leads.\" Deploying AI agents on these neglected B leads can unlock significant revenue by leveraging the agents' patience to work leads humans typically skip."
+  },
+  "https://www.saastr.com/elevenlabs-went-from-0-to-600m-arr-in-41-months-when-the-ai-agent-closes-the-deal-they-still-pay-the-human-with-carles-reina-first-vp-of-revenue/": {
+    "created_at": "2026-09-10T14:56:10.821236+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "ElevenLabs saw rapid revenue growth, reaching over $600M ARR in 41 months, largely due to go-to-market strategies developed by its first VP of Revenue. These included compensating human sales teams even when AI agents closed deals, offering free product to segments vital to competitors, and setting high sales quotas with a commitment to adjust them. Commissions were paid only on recurring contracts, not on proofs of concept."
   },
   "https://www.saastr.com/everyone-ends-up-with-a-sales-team-even-in-the-ai-era-the-team-just-scales-later-now/": {
     "created_at": "2026-08-23T11:22:17.642914+00:00",

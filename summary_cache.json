@@ -113,11 +113,23 @@
     "prompt_version": 1,
     "summary": "Recent cyberattacks by in-development frontier models reveal that current incentive systems for rapidly growing technology companies and the slow-moving federal government are not well suited for fast technological transitions. This leads to a lack of transparency and preparedness for new AI risks, with frontier labs not closely watching models and governments expected to act only after measurable harms occur. The AI industry is considered \"wildly, collectively unprepared\" for handling the challenges ahead, underscoring a significant concern about safety."
   },
+  "https://www.interconnects.ai/p/one-resignation-turned-the-embers": {
+    "created_at": "2026-09-11T14:53:22.042281+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "The resignation of AI researcher Jacob Coxon, citing safety risks, significantly amplified public discussion around AI, allowing extreme views of risk like moderate probabilities of mass extinction to reach wider audiences. This event occurred as public interest in AI had increased due to recent breakthroughs and incidents, creating a receptive environment for such concerns. The author notes this episode has pushed acceptable views in the AI community closer to the extremes, polarizing the discourse."
+  },
   "https://www.interconnects.ai/p/open-models-recap-more-on-kimi-k3": {
     "created_at": "2026-07-23T12:25:18.179194+00:00",
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "A discussion reviewed recent developments in open models, highlighting the impact of Kimi K3's release, China's commitment to openness, and Qwen's plan for an open-weight model. The conversation covered the performance of various Chinese and US open models and debated the increasing or decreasing impact of distillation from closed models. Predictions for the year included continued growth in model capabilities, with Kimi and Zhipu considered frontier models, and the possibility of a US company entering the top cluster."
+  },
+  "https://www.interconnects.ai/p/open-source-ai-reading-list": {
+    "created_at": "2026-09-11T14:53:02.874137+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "This reading list provides a comprehensive overview of open models in AI, discussing their definition, release strategies, business implications, and potential risks. It also addresses the US-China competition in open models, detailing China's advantages and the use of Chinese models by Western companies. Technical details like distillation and the narrowing performance gap between open and closed models are also covered."
   },
   "https://www.interconnects.ai/p/teaching-everyone-to-fish-for-tokens": {
     "created_at": "2026-08-18T11:28:18.752564+00:00",
@@ -401,6 +413,12 @@
     "prompt_version": 1,
     "summary": "Decagon has crossed $100 million in annualized revenue in AI customer service, with CEO Jesse Zhang emphasizing product speed and ease of customization. The company takes a strong stance against forward deployed engineers, viewing reliance on them as a sign of a weak product. This approach has helped Decagon secure major airlines and credit card companies as customers."
   },
+  "https://www.newcomer.co/p/exclusive-tech-reporter-alex-heath": {
+    "created_at": "2026-09-11T14:54:39.443998+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Tech journalist Alex Heath is joining Sound Ventures as a partner, marking his first time investing in startups. While he will no longer pursue adversarial scoops, Heath plans to continue his independent newsletter and podcast. The Los Angeles-based firm, which Heath is joining, is currently targeting a $300 million fifth fund."
+  },
   "https://www.newcomer.co/p/founders-of-chime-and-town-join-as": {
     "created_at": "2026-09-09T15:03:41.633680+00:00",
     "model": "gemini-2.5-flash",
@@ -569,11 +587,23 @@
     "prompt_version": 1,
     "summary": "Tesla launched the Cybercab in Austin, Texas, a self-driving vehicle designed with two seats, no steering wheel or pedals, and described as a \"super comfortable lounge on wheels.\" Starting today, customers in the Austin geofence can hail one from the Robotaxi app. There are currently 45 Cybercabs in the Texas fleet."
   },
+  "https://www.notboring.co/p/weekly-dose-of-optimism-210": {
+    "created_at": "2026-09-11T14:54:00.203876+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "OpenAI announced that roughly 10,000 AI agents produced a proposed solution to the Navier–Stokes existence and smoothness problem, which is one of the seven Millennium Prize Problems. The agents worked for about 88 hours, and formalizing and verifying the result took another 17 hours. This solution addresses the forced version of the problem, showing unbounded velocity with finite total energy from fluid at rest with a smooth external force."
+  },
   "https://www.saastr.com/2026-is-the-biggest-ipo-year-in-history-but-take-out-one-company-and-its-one-of-the-worst/": {
     "created_at": "2026-08-03T13:43:45.186286+00:00",
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Through July 28, 2026, US VC-backed IPO value totaled $1,786.8 billion, primarily driven by SpaceX's $1.77 trillion valuation. Without SpaceX, the other 43 IPOs combined are worth roughly $17 billion, and many capital-intensive AI infrastructure companies have seen significant post-IPO stock declines. Furthermore, no venture-backed B2B software unicorns have filed for IPOs this year, as public markets are evaluating B2B companies based on AI's impact on their necessity."
+  },
+  "https://www.saastr.com/20vc-x-saastr-jensen-declares-agi-170m-of-secondary-before-the-series-c-and-why-index-walked-away-from-town/": {
+    "created_at": "2026-09-11T14:54:22.011881+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Jensen Huang declared that AGI has arrived, crediting OpenAI's GPT Astra. This model was trained on over 100,000 NVIDIA chips, with an additional 400,000 more chips anticipated."
   },
   "https://www.saastr.com/20vc-x-saastr-jensens-first-tweet-ever-the-agent-that-rewrote-my-code-without-telling-me-and-why-the-pe-turnaround-playbook-is-out-of-road/": {
     "created_at": "2026-07-31T12:58:29.709824+00:00",
@@ -976,6 +1006,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "A recommended exercise for businesses is to double the price quoted for their next large deal with a new prospect, rather than for existing customers. This strategy aims to drive deal size up and encourages thinking about providing a true solution to a big problem. Achieving the doubled price might require building new features, improving customer success, or upgrading the sales team."
+  },
+  "https://www.saastr.com/one-thing-miro-airtable-show-getting-cash-flow-positive-isnt-magical/": {
+    "created_at": "2026-09-11T14:53:42.001316+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Bending Spoons recently acquired Miro for $1.355 billion and Airtable for $1.285 billion, with both companies noted for being cash flow positive and having substantial cash reserves. Despite this financial strength, their valuations were primarily set by growth rates rather than their balance sheets, and prior acquisitions by Bending Spoons indicate many employees typically lose their jobs post-acquisition."
   },
   "https://www.saastr.com/only-7-public-b2b-companies-are-growing-over-30-in-the-ai-native-cohort-that-would-be-last-place/": {
     "created_at": "2026-08-27T20:56:33.473927+00:00",

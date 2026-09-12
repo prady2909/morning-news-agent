@@ -419,6 +419,12 @@
     "prompt_version": 1,
     "summary": "Tech journalist Alex Heath is joining Sound Ventures as a partner, marking his first time investing in startups. While he will no longer pursue adversarial scoops, Heath plans to continue his independent newsletter and podcast. The Los Angeles-based firm, which Heath is joining, is currently targeting a $300 million fifth fund."
   },
+  "https://www.newcomer.co/p/for-startups-facing-the-ai-safety": {
+    "created_at": "2026-09-12T13:55:15.933659+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Amid the recent uproar over AI safety, many in the tech industry are viewing it primarily as a cybersecurity challenge. Top-tier AI models are proving highly effective at identifying and exploiting vulnerabilities in computer systems. This capability positions cyber-defense as a major new business opportunity for leading model providers like OpenAI and Anthropic, helping them sustain revenue growth."
+  },
   "https://www.newcomer.co/p/founders-of-chime-and-town-join-as": {
     "created_at": "2026-09-09T15:03:41.633680+00:00",
     "model": "gemini-2.5-flash",
@@ -1228,6 +1234,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Many different definitions of the product role, such as product manager or product owner, have been observed over the years. This issue is partly due to various operating models that require different responsibilities."
+  },
+  "https://www.svpg.com/strong-opinions-loosely-held/": {
+    "created_at": "2026-09-12T13:54:58.803393+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "This item is the narrative version of a keynote talk titled \"Strong Opinions, Loosely Held,\" delivered for the Lenny & Friends Summit. It addresses a question about beliefs that have changed in light of new circumstances. This content was originally posted by the Silicon Valley Product Group."
   },
   "https://www.svpg.com/the-ai-productivity-paradox/": {
     "created_at": "2026-07-24T12:20:54.305797+00:00",

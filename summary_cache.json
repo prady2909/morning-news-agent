@@ -917,6 +917,12 @@
     "prompt_version": 1,
     "summary": "The Silicon Valley Bank (SVB) brand will be retired starting in early October, with its services transitioning under First Citizens' new brand names, marking the end of a 43-year-old institution crucial to the startup economy. SVB failed in March 2023 due to mismanagement, including issues with interest rate risk and concentrated deposits, and its acquirer, First Citizens, is still paying the FDIC for the deal and facing a trademark lawsuit."
   },
+  "https://www.saastr.com/harvey-puts-a-former-practicing-lawyer-in-every-deployment-about-180-of-them-heres-how-that-model-works/": {
+    "created_at": "2026-09-13T14:49:55.105719+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Harvey employs approximately 180 legal engineers, all of whom are former practicing attorneys with significant experience. These legal engineers are present in every deployment, working with law firms and in-house teams. They provide subject matter expertise, help customers build agents, and shape the product roadmap based on real-world legal needs."
+  },
   "https://www.saastr.com/how-a-mediocre-sales-team-loses-you-deals-ones-you-could-have-won/": {
     "created_at": "2026-07-23T12:25:34.732185+00:00",
     "model": "gemini-2.5-flash",

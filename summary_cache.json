@@ -221,6 +221,12 @@
     "prompt_version": 1,
     "summary": "Yana Welinder launched Yana Bana, an AI-native fashion brand, as a solo founder without engineers, utilizing tools like Codex and ChatGPT. She develops garments from hand-drawn sketches to runway photos, CAD files, and a live pre-order site with Stripe integration. Her method includes using a detailed \"fashion prompt\" as a technical specification and leveraging AI to operate 3D design software she has not personally learned."
   },
+  "https://www.lennysnewsletter.com/p/how-grok-bot-designers-use-ai-agents": {
+    "created_at": "2026-09-14T16:50:05.576066+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Grok Bot designers John Bai and Peng Zheng utilize AI agents to build personal sites and product prototypes. Peng built a self-updating personal website with Grok Bot as the backend and uses a check-in bot to automatically update his portfolio. John uses a Figma Bro bot for production design tasks, directs Figma work with voice memos, and employs DevBot for a \"shower thought to prototype\" workflow to test interaction ideas."
+  },
   "https://www.lennysnewsletter.com/p/how-i-ai-build-an-ai-code-review": {
     "created_at": "2026-08-11T11:45:13.983211+00:00",
     "model": "gemini-2.5-flash",
@@ -274,6 +280,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "A product manager at Melio, Daniel Blum, built a self-improving AI system using Claude and Cowork that manages 70% to 80% of his workday. This system handles tasks like managing Notion boards, preparing for the week, and scanning communications, allowing him to accomplish a week's worth of work in a single day. The system also learns from his edits without explicit feedback and includes a 15-minute onboarding for other employees."
+  },
+  "https://www.lennysnewsletter.com/p/how-i-ai-how-two-spacexai-designers": {
+    "created_at": "2026-09-14T16:49:47.189828+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Two designers on the Grok Bot team at SpaceXAI use AI agents to enhance their work. Peng Zheng employs Grok Bot to build a self-updating personal site, automating tasks like location lookups and 3D art generation for new check-ins. John Bai uses voice memos and Grok Bot, connected to Figma MCP, to complete design work remotely and turn ideas into working prototypes with natural-language instructions."
   },
   "https://www.lennysnewsletter.com/p/how-i-turned-claude-into-a-self-improving": {
     "created_at": "2026-08-31T17:56:46.804034+00:00",
@@ -971,6 +983,12 @@
     "prompt_version": 1,
     "summary": "Software is not dead, but winning in the industry has become much harder due to AI, which is currently in a massive \"invest mode\" with spending significantly outpacing revenue. New software companies must build strong, defensible moats, such as proprietary non-public data or integration with physical sensors, to differentiate themselves from core foundation models. Founders need to understand their specific layer in the AI stack, ensure real growth, and manage compute costs efficiently."
   },
+  "https://www.saastr.com/is-the-era-of-the-sales-guy-ceo-over-in-b2b/": {
+    "created_at": "2026-09-14T16:51:00.186192+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "The leadership archetype for fast-growing B2B and AI companies is shifting, with 82 out of 100 fastest-growing AI-native startups now led by technical CEOs or domain experts. These leaders can pivot faster by directly evaluating new models, while sales organizations, though still critical, are built later and report to a technical CEO."
+  },
   "https://www.saastr.com/jasons-takes-on-this-weeks-20vc-locks-beat-guardrails-agents-pick-your-software-and-building-with-448-open-tasks/": {
     "created_at": "2026-09-07T16:20:57.973175+00:00",
     "model": "gemini-2.5-flash",
@@ -1085,6 +1103,12 @@
     "prompt_version": 1,
     "summary": "Nue is a revenue platform designed for B2B + AI companies transitioning from per-seat pricing to usage, consumption, or outcome-based models. It unifies quoting, billing, usage metering, and revenue recognition on a single data model. This allows companies to quickly launch and change pricing models without complex engineering projects."
   },
+  "https://www.saastr.com/saastr-ai-app-of-the-week-sumble-the-kaggle-founders-rebuilt-sales-intelligence-around-context-not-contacts/": {
+    "created_at": "2026-09-14T16:50:39.966167+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Sumble is an AI app that provides sales intelligence by creating a knowledge graph of what is happening inside target accounts. Built by the founders of Kaggle, it offers detailed context on internal teams, specific technologies they use, and active projects by crawling public sources and using LLMs."
+  },
   "https://www.saastr.com/sales-rep-annual-quotas-what-high-performers-are-actually-carrying/": {
     "created_at": "2026-07-19T12:00:58.433079+00:00",
     "model": "gemini-2.5-flash",
@@ -1186,6 +1210,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "An eight-figure B2B business found that managing nearly 30 human-interfaced AI agents became unsustainable due to high attention, context, and maintenance costs. They consolidated their AI agents from close to 30 down towards 20, resulting in roughly a 4x increase in output. This was achieved as improved AI models allowed for greater generalization, enabling fewer agents to handle diverse tasks and leverage cross-functional data access."
+  },
+  "https://www.saastr.com/we-run-21-ai-agents-and-theyve-closed-millions-but-there-still-isnt-a-good-ai-account-executive-yet/": {
+    "created_at": "2026-09-14T16:50:21.062101+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "AI agents are effectively used for tasks such as booking meetings, resurrecting leads, and processing invoices, generating millions in revenue for the company. While these agents excel at the \"easy half\" of functions like SDR, support, and account management, they primarily handle situations where buyers are already engaged or for leads humans wouldn't pursue. A good AI Account Executive capable of closing complex deals by persuading hesitant buyers or exercising concession authority does not yet exist."
   },
   "https://www.saastr.com/weve-been-running-salesforce-headless-and-our-own-claudeforce-for-6-months-were-never-going-back/": {
     "created_at": "2026-08-31T17:57:03.861240+00:00",

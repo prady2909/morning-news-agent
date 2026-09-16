@@ -359,6 +359,12 @@
     "prompt_version": 1,
     "summary": "This item presents an honest take on Grok Bot, Grok 4.6, and Cursor Origin, recent shipments from xAI and Cursor. The author performed a solo breakdown, including setting up five Grok Bots, running Grok 4.6 through a Claire Weighted Index, and using Origin as a GitHub replacement. The review highlights what is worth attention, what is overhyped, and where the author is personally focusing time."
   },
+  "https://www.lennysnewsletter.com/p/muse-review-the-personal-ai-agent": {
+    "created_at": "2026-09-16T15:21:34.189392+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Muse, Meta's new personal AI agent, was tested across functions like onboarding, calendar management, goal setting, creating a family morning newsletter, and browser-based shopping. The review noted its strong consumer UX design and covered its permission model, an animated avatar, and both its successes and failures in various tasks."
+  },
   "https://www.lennysnewsletter.com/p/netflix-cpto-on-ai-and-the-future": {
     "created_at": "2026-07-20T13:08:59.314735+00:00",
     "model": "gemini-2.5-flash",
@@ -1210,6 +1216,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "A company canceled its Notion subscription after seven years because they stopped needing the product, despite having no complaints or issues with it. An internally developed AI agent gradually absorbed Notion's last remaining function, such as running staff meetings. A re-engagement email from Notion ultimately prompted the cancellation, illustrating a type of churn where satisfied, low-touch accounts are replaced by internal AI agents."
+  },
+  "https://www.saastr.com/we-mentioned-replit-in-214-articles-last-year-for-free-most-vendors-have-no-plan-for-customers-like-that/": {
+    "created_at": "2026-09-16T15:21:54.822301+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "SaaStr AI provided extensive free promotion for Replit over the past year, mentioning it in 214 articles and 40+ podcasts, which generated over 5.9 million impressions. This organic advocacy came from the author's daily use of Replit to build production software, reaching an audience of approximately 450,000 B2B executives. Replit later sponsored events and provided dedicated engineering support, actions the article highlights as effective responses to unprompted customer praise."
   },
   "https://www.saastr.com/we-peaked-at-30-ai-agents-now-were-coming-back-down-to-20-heres-what-consolidation-actually-looks-like-the-agents-011-live/": {
     "created_at": "2026-07-25T12:05:13.258889+00:00",

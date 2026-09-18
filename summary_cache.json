@@ -47,6 +47,12 @@
     "prompt_version": 1,
     "summary": "This newsletter details how three companies—Mintlify, LangChain, and Buffer—are building and running multiplayer AI systems for their marketing teams. It explores their distinct approaches to managing AI capabilities, context, and collaboration, offering insights into each setup. The article also addresses common questions about multiplayer AI, such as ownership and how to maintain system freshness."
   },
+  "https://newsletter.mkt1.co/p/multiplayer-ai-team-mkt1": {
+    "created_at": "2026-09-18T14:49:10.741293+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "The MKT1 team of three \"Gen Marketers\" utilizes a multiplayer AI setup, defined as a shared system where everyone works off the same skills, routines, and agents, connected to up-to-date context. This approach helped them move past a \"single-player trap\" of individualized workflows. Their system is evaluated using a \"Multiplayer AI Vacation Test\" and a \"New Computer Test\" to ensure operations continue effectively regardless of individual presence or computer changes."
+  },
   "https://newsletter.mkt1.co/p/multiplayer-claude-1": {
     "created_at": "2026-07-27T13:41:16.546775+00:00",
     "model": "gemini-2.5-flash",
@@ -557,6 +563,12 @@
     "prompt_version": 1,
     "summary": "SpaceX acquired Cursor for $60 billion in stock, marking the largest buyout ever of a venture-backed startup, while Stripe agreed to acquire OpenRouter for around $8 billion. These deals generated combined outcomes north of $8 billion for a16z from total investments of about $320 million. Such mega-exits are noted as critical to powering a16z's megafund model."
   },
+  "https://www.newcomer.co/p/war-in-the-middle-east-and-rising": {
+    "created_at": "2026-09-18T14:49:28.779507+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Geopolitical conflicts in the Middle East and rising interest rates are increasingly threatening the funding for the AI build-out, though the frenzied AI trade has not slowed much yet. Middle Eastern wealth funds are largely continuing to invest heavily in AI despite declining oil revenues, but geopolitical risks, such as drone attacks on data centers, are making development more expensive. Rising interest rates further contribute to the increased cost of financing data center infrastructure."
+  },
   "https://www.notboring.co/p/ai-is-oil-not-god": {
     "created_at": "2026-07-26T12:05:04.809835+00:00",
     "model": "gemini-2.5-flash",
@@ -628,6 +640,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "OpenAI announced that roughly 10,000 AI agents produced a proposed solution to the Navier–Stokes existence and smoothness problem, which is one of the seven Millennium Prize Problems. The agents worked for about 88 hours, and formalizing and verifying the result took another 17 hours. This solution addresses the forced version of the problem, showing unbounded velocity with finite total energy from fluid at rest with a smooth external force."
+  },
+  "https://www.notboring.co/p/weekly-dose-of-optimism-211": {
+    "created_at": "2026-09-18T14:50:03.155142+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Ben Wilson, diagnosed with stage 4 cancer, found encouraging news regarding the treatment tarlatamab. A Phase III trial reported positive results, showing that a combination of durvalumab and tarlatamab significantly improved overall survival and the time patients lived without their cancer progressing. Tarlatamab helps the immune system attack cancer cells, while durvalumab blocks mechanisms tumors use to suppress the immune response."
   },
   "https://www.saastr.com/2026-is-the-biggest-ipo-year-in-history-but-take-out-one-company-and-its-one-of-the-worst/": {
     "created_at": "2026-08-03T13:43:45.186286+00:00",
@@ -1282,6 +1300,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "An analysis suggests that an independent Slack today would likely be valued between $16 billion and $20 billion, significantly less than the $27.7 billion Salesforce paid for it. This lower valuation is attributed to its single-product strategy, in contrast to multi-product companies like Atlassian that can expand customer spending. The real-world case of Figma also demonstrates that despite substantial revenue growth after its acquisition was blocked, its market cap ended up below the initial offer due to multiple compression."
+  },
+  "https://www.saastr.com/whats-truly-great-now-in-b2b-ai-per-iconiq-115-growth-at-100m-55-gross-margins-and-655k-in-revenue-per-employee/": {
+    "created_at": "2026-09-18T14:49:46.407723+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "ICONIQ has published \"The Pacesetter Index,\" which updates benchmarks for fast-growing, AI-native or AI-driven B2B companies, replacing their Enterprise Five Scorecard. This index is built from top-quartile revenue growth companies within ICONIQ's portfolio and public comps, defining \"Pacesetters\" as a subset of outliers. Key findings include a median 115% growth at $100M+ ARR, starting gross margins of 55%, and $655K in revenue per employee at $100M+ ARR."
   },
   "https://www.saastr.com/when-agents-take-over-the-system-of-record-40gb-nobody-typed-a-renewal-agent-built-in-half-a-day-and-why-our-agents-love-clay-the-agents-013/": {
     "created_at": "2026-08-28T21:20:37.902004+00:00",

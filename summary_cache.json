@@ -149,11 +149,23 @@
     "prompt_version": 1,
     "summary": "Average people currently experience few tangible benefits from AI, unlike the direct, life-changing outcomes of past industrial revolutions. The article suggests AI's early positive impacts are too indirect for most people to feel, and it faces challenges like political backlash and being perceived as primarily a tool for the elite. Therefore, the widespread diffusion of AI's impacts across society is expected to be a long process, potentially taking decades."
   },
+  "https://www.interconnects.ai/p/where-i-stand-on-rsi": {
+    "created_at": "2026-09-20T14:35:36.943857+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "The author observes that the use of thousands of AI agents in frontier labs is raising anxiety and driving a \"singularity soon\" view, which exaggerates AI risk timelines and severity. However, the author's perspective, called \"lossy self-improvement,\" suggests that automatable research is too narrow and diminishing returns, along with resource bottlenecks, limit a massive acceleration in intelligence. While AI can improve efficiency and make models cheaper, there are no clear signs of dramatic acceleration in peak intelligence, leading the author to view discussions of extinction risk as misplaced."
+  },
   "https://www.lennysnewsletter.com/p/60-creative-growth-ideas": {
     "created_at": "2026-09-15T15:28:54.610266+00:00",
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "This item presents a collection of 64 creative growth tactics, compiled from successful and unexpected strategies used by various companies. These ideas are designed to help businesses generate buzz, make product launches noisy, encourage word-of-mouth, and increase leads and conversions. The tactics offer an alternative to traditional marketing playbooks, enabling companies to stand out from competitors."
+  },
+  "https://www.lennysnewsletter.com/p/90-minutes-of-unfiltered-product": {
+    "created_at": "2026-09-20T14:35:16.490059+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Peter Sellis, the first product manager at Snapchat and former Head of Product at Discord, shares unfiltered product advice. The conversation delves into topics like designing teams, why growth comes from the core product, and the median product manager. It also includes insights on Snapchat's ads business and Peter's three \"oxymorons\" of great product management."
   },
   "https://www.lennysnewsletter.com/p/ais-third-era-the-rise-of-persistent": {
     "created_at": "2026-08-30T15:13:06.339844+00:00",
@@ -676,6 +688,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "OpenAI's CFO, Sarah Friar, informed employees that the company plans to go public by 2027. The company's GAAP revenue grew approximately 18% quarter-over-quarter from Q1 to Q2, with Q2 revenue roughly in the $5 billion to $6 billion range. This growth was seen as spectacular in isolation but a disappointment compared to market expectations and a faster-growing competitor."
+  },
+  "https://www.saastr.com/20vc-x-saastr-pacing-the-frontier-meta-ships-muse-and-its-great-and-miro-sells-for-1-35b-after-a-17-5b-mark/": {
+    "created_at": "2026-09-20T14:35:56.587122+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Miro was acquired by Bending Spoons for $1.35 billion, after its last valuation in 2021 was $17.5 billion. The company, which has roughly $600 million in annual recurring revenue and is cash flow positive, sold for approximately 2.7 times its revenue."
   },
   "https://www.saastr.com/20vc-x-saastr-this-week-apple-sues-openai-the-token-maxing-era-begins-and-the-tam-question-hanging-over-ai-coding/": {
     "created_at": "2026-07-17T12:12:20.026491+00:00",

@@ -143,6 +143,12 @@
     "prompt_version": 1,
     "summary": "The future of open models is discussed, with analogies drawn to foundational open-source software like Linux. Nvidia is significantly investing in nearly open-source models to create demand for their chips and prevent the monopolization of intelligence. However, if this approach is not financially viable, open models may shift to focus on efficiency, modifiability, and specialization for a long-tail ecosystem."
   },
+  "https://www.interconnects.ai/p/the-current-balance-of-power-in-open": {
+    "created_at": "2026-09-21T16:51:57.254992+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Chinese AI companies are currently the clear leaders in open-weight models, surpassing American models in metrics like Hugging Face downloads and popular capability benchmarks. This leadership is also evident in academic research and commercial adoption, with Chinese open-weight models showing greater usage and mention in papers compared to their American counterparts."
+  },
   "https://www.interconnects.ai/p/when-will-average-people-feel-ais": {
     "created_at": "2026-09-09T15:03:04.942227+00:00",
     "model": "gemini-2.5-flash",
@@ -311,6 +317,12 @@
     "prompt_version": 1,
     "summary": "Two designers on the Grok Bot team at SpaceXAI use AI agents to enhance their work. Peng Zheng employs Grok Bot to build a self-updating personal site, automating tasks like location lookups and 3D art generation for new check-ins. John Bai uses voice memos and Grok Bot, connected to Figma MCP, to complete design work remotely and turn ideas into working prototypes with natural-language instructions."
   },
+  "https://www.lennysnewsletter.com/p/how-i-ai-metas-muse-review-how-warp": {
+    "created_at": "2026-09-21T16:51:17.310296+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Meta's Muse is a personal AI agent designed for everyday users, tested for tasks like managing family calendars and creating morning newsletters. Its consumer design expertise provides a frictionless and trustworthy experience, avoiding technical jargon and proactively identifying useful information. While it performs well in many areas, Muse struggles with browser-based shopping, reflecting a common challenge for consumer agents."
+  },
   "https://www.lennysnewsletter.com/p/how-i-turned-claude-into-a-self-improving": {
     "created_at": "2026-08-31T17:56:46.804034+00:00",
     "model": "gemini-2.5-flash",
@@ -358,6 +370,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "AI models, while capable of creativity, tend to produce generic designs due to their training to make safe and predictable choices. To achieve world-class designs, users must push AI beyond these patterns by exploring broad ideas through varied prompts and seed strings. Further refinement involves using \"design critic\" subagents to provide objective feedback, incorporating image and video generation for enriched visuals, and polishing the final product by removing non-essential elements."
+  },
+  "https://www.lennysnewsletter.com/p/how-warp-ships-2000-prs-a-month-with": {
+    "created_at": "2026-09-21T16:51:40.996135+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Zach Lloyd, CEO of Warp, discusses how the company ships 2,000 PRs a month using AI software factories. Warp's platform is a cloud-based system that takes an idea from Slack all the way through to a merged PR. The discussion covers why human review is still the bottleneck, scoring agent runs, and how agent workflows self-improve from failed runs."
   },
   "https://www.lennysnewsletter.com/p/how-we-built-grok-bot-in-a-month": {
     "created_at": "2026-09-08T14:58:12.329925+00:00",
@@ -1228,6 +1246,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Shipping category-winning AI agents in B2B is effectively a second build of the entire product, requiring careful planning. It is recommended to start with agents that cannot break anything, and to ensure human approval for agent plans before execution. New product requirements emerge around accountability for agent behavior and minimizing the context users must provide."
+  },
+  "https://www.saastr.com/the-new-career-path-joining-a-0-grower-maybe-for-many-its-better/": {
+    "created_at": "2026-09-21T16:52:13.519340+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "A new career path is emerging for seasoned B2B executives: joining companies that are growing at 0% to 10%, often established unicorns no longer experiencing rapid expansion. Maintaining zero growth at significant revenue levels requires substantial effort, such as consistently selling millions in new ARR to offset churn. This option offers better cash compensation than many high-growth AI startups and values established playbooks, making it a rational choice for experienced professionals."
   },
   "https://www.saastr.com/the-one-hire-you-just-cant-make-chief-product-technology-officer/": {
     "created_at": "2026-07-31T12:58:46.867909+00:00",

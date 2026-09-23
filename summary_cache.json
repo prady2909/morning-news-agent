@@ -395,6 +395,12 @@
     "prompt_version": 1,
     "summary": "Roman Ugarte of SpaceXAI helped incubate and build Grok Bot, a popular new knowledge-work agent. A small team developed it from the first line of code to an internal product in four weeks, achieving a successful public launch three weeks later. The discussion covers Grok Bot's origin story, key development decisions, and early product choices that contributed to its success."
   },
+  "https://www.lennysnewsletter.com/p/i-left-claude-for-months-opus-55": {
+    "created_at": "2026-09-23T15:21:24.448468+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "The author stopped using Claude for months due to annoying behaviors, switching most daily work to Codex. Anthropic then shipped Opus 5.5, which is 40% cheaper than Opus 5, faster, and has a fundamentally different alignment approach. After a week of testing across various tasks, the author found a lot to like and an unexpected capability, leading to a return to Claude."
+  },
   "https://www.lennysnewsletter.com/p/i-spent-20000-on-devin-in-a-month": {
     "created_at": "2026-08-25T11:30:09.465137+00:00",
     "model": "gemini-2.5-flash",
@@ -424,6 +430,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Ian Silber, OpenAI’s head of product design, discusses how OpenAI designs products like ChatGPT and Codex, and the future of human interaction with AI. He shares why he believes this is the best time to be a product designer and offers advice to his designers."
+  },
+  "https://www.lennysnewsletter.com/p/opus-55-vs-gpt-6-sol-which-model": {
+    "created_at": "2026-09-23T15:21:10.124655+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "The author conducted a blind taste test of AI models including GPT-6 Astra, GPT-6 Sol, and Claude Opus 5.5. The models were evaluated on tasks such as emails, frontend prototypes, backend work, SVGs, and video editing. Astra won the author's heart, Opus 5.5 was deemed overall strongest, and Sol was noted for clear writing and readable PRDs."
   },
   "https://www.lennysnewsletter.com/p/productpass-summer2026launch": {
     "created_at": "2026-07-29T13:02:09.030385+00:00",
@@ -514,6 +526,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "India Quotient, a VC firm, made a significant 2015 seed investment in ShareChat, an Indian local-language social network, which saw its valuation jump during the pandemic and provided a 77x return. However, the lack of an exit and uncertain valuation for ShareChat has since hobbled the performance of India Quotient's second fund, illustrating how the venture capital power law doesn't always play out as expected."
+  },
+  "https://www.newcomer.co/p/introducing-newcomers-vc-sentiment": {
+    "created_at": "2026-09-23T15:21:57.183416+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Newcomer has released its first VC Sentiment Report, which offers unfiltered insights from 25 top venture capitalists. These anonymous interviews systematically cover current industry questions, including sentiment on a potential bubble, competitive rounds, and various tech subsectors. The report combines quantitative and qualitative information and is available to paying subscribers."
   },
   "https://www.newcomer.co/p/investors-are-betting-on-agents-that": {
     "created_at": "2026-09-03T14:55:41.854955+00:00",
@@ -640,6 +658,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "The book \"Lonesome Dove,\" a Pulitzer Prize winner from 1985, is experiencing a widespread resurgence in popularity. This phenomenon is attributed to factors like media discussions, celebrity recommendations, the rise of Western-themed entertainment, and organized read-alongs. The article suggests that Large Language Models (LLMs) such as Claude and ChatGPT are also significantly contributing to its rediscovery by recommending the book to numerous readers."
+  },
+  "https://www.notboring.co/p/haa": {
+    "created_at": "2026-09-23T15:21:41.133765+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "The Horowitz Andreessen Academy (HAA) recently launched as an alternative program for young college-aged people. Co-founded by Gagan Biyani, it is a residential program in San Francisco focused on helping ambitious youth learn to build things and be useful. HAA aims to provide an environment for these young people to connect with like-minded peers and access necessary skills and experienced individuals."
   },
   "https://www.notboring.co/p/weekly-dose-of-optimism-202": {
     "created_at": "2026-07-17T12:12:00.847721+00:00",

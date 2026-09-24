@@ -11,6 +11,12 @@
     "prompt_version": 1,
     "summary": "Traditionally, people could generally judge more tasks than they could perform, even in areas where their own proficiency was low. However, artificial intelligence allows individuals to perform far more tasks, including those outside their expertise, often at a medium or below-average level. This creates a \"danger zone\" where one's ability to do work with AI can exceed their ability to judge its quality, challenging existing roles, responsibilities, and accountability."
   },
+  "https://itamargilad.com/good-ideas/": {
+    "created_at": "2026-09-24T15:44:34.728577+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Good product ideas are rare and valuable, but their survival depends heavily on the development process. The traditional launch-and-iterate model has an estimated 5% survival rate for these ideas due to challenges in prioritization, specification, and implementation. In contrast, an evidence-guided development approach, which incorporates evaluation and validation, is estimated to allow roughly 8 out of 10 good ideas to manifest their full value."
+  },
   "https://magazine.sebastianraschka.com/p/ai-detector-from-scratch": {
     "created_at": "2026-08-16T11:22:13.444086+00:00",
     "model": "gemini-2.5-flash",
@@ -64,6 +70,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "The MKT1 newsletter offers an inside look at how Growth Marketing Lead Matt Ratchford is building Mutiny's growth engine. His updates for the AI agent for GTM teams include improving conversion with a headline change, re-orienting outbound efforts to focus on high-quality accounts, and noting that 50% of new users come from word of mouth."
+  },
+  "https://newsletter.mkt1.co/p/september-mkt1-roundup": {
+    "created_at": "2026-09-24T15:44:52.885445+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "The September MKT1 Roundup is a bonus newsletter for paid subscribers, covering upcoming events, updates to the MKT1 MCP, and marketing insights. It details office hours for paid subscribers this Friday, the MKT1 x Lovable Buildathon on 10/28, and information on 5 new skills and 7 skill updates for the MKT1 MCP. Prices for new subscribers will increase on 10/1, though existing subscribers can lock in the current annual rate before then."
   },
   "https://www.interconnects.ai/p/5-useful-things-youll-learn-in-my": {
     "created_at": "2026-08-11T11:46:39.291371+00:00",
@@ -491,6 +503,12 @@
     "prompt_version": 1,
     "summary": "The Machine Earning AI Summit, a one-day, invite-only event, will be held on Tuesday, Sept. 29 in San Francisco. It will focus on AI commerce and finance, exploring questions about online shopping with agents, banking with language models, and intelligent payment rails. The summit is aimed at top founders, investors, media, and other AI insiders."
   },
+  "https://www.newcomer.co/p/crusoe-is-on-track-for-2-billion": {
+    "created_at": "2026-09-24T15:45:27.904212+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Crusoe, a data center builder and cloud provider, is on track for $2 billion in revenue this year. The company recently raised $3.9 billion at a $30.9 billion valuation, with funding led by Atreides Management, Valor Equity Partners, and Mubadala."
+  },
   "https://www.newcomer.co/p/decagon-hit-100-million-betting-against": {
     "created_at": "2026-08-12T11:48:33.461129+00:00",
     "model": "gemini-2.5-flash",
@@ -550,6 +568,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Three new speakers have been announced for the inaugural Machine Earning AI Summit: Kirsten Green, Katie Haun, and Ilan Zerbib, CEO of Sapiom. This one-day, invite-only event will cover the new AI economy, including how AI is reshaping commerce and finance, and its impact on banking, payments, and online shopping."
+  },
+  "https://www.newcomer.co/p/less-than-one-week-until-the-machine": {
+    "created_at": "2026-09-24T15:45:47.694646+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "The Machine Earning AI Summit, focused on AI finance and commerce, is scheduled for Tuesday, September 29 in San Francisco. It will bring together top founders, investors, and business leaders in the field. New speakers and discussion leaders have been added to the agenda, and a few limited spots remain available to attend."
   },
   "https://www.newcomer.co/p/market-map-89-vc-backed-startups": {
     "created_at": "2026-09-17T15:28:00.390612+00:00",
@@ -1253,6 +1277,12 @@
     "prompt_version": 1,
     "summary": "Stripe acquired OpenRouter for approximately $7 billion, four months after OpenRouter was valued at $1.3 billion. OpenRouter is described as the leading LLM routing layer, with the acquisition viewed as a total addressable market expansion for Stripe."
   },
+  "https://www.saastr.com/stripes-ai-cro-on-the-fastest-growing-ai-companies-175-growth-48-of-revenue-from-outside-the-home-market-and-agents-about-to-read-more-stripe-docs-than-human/": {
+    "created_at": "2026-09-24T15:45:12.235946+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Stripe's data on fast-growing AI companies shows accelerating growth, with top firms achieving 175% growth in 2026 and reaching first paying customers in under six weeks. These companies expand internationally quickly, with 48% of revenue coming from outside their home market, and frequently use usage-based pricing models. They are also adopting sales-led growth earlier and building unified revenue infrastructure to manage rapid scaling."
+  },
   "https://www.saastr.com/the-0-quota-club-and-why-the-same-mediocre-rep-hits-70-at-one-company-and-0-at-yours/": {
     "created_at": "2026-08-17T11:29:11.764404+00:00",
     "model": "gemini-2.5-flash",
@@ -1300,6 +1330,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Chief Product & Technology Officers (CPTOs) are appearing in B2B companies, but the author finds the role problematic. They argue CPTOs often fail because they are neither deeply involved with product development nor technical execution. Companies instead require distinct, specialized leaders for product and engineering to maintain speed and expertise, particularly in the Age of AI."
+  },
+  "https://www.saastr.com/the-saastr-ai-guide-to-building-a-top-tier-inbound-ai-agent-17000-conversations-600-meetings-booked-and-60-more-new-business/": {
+    "created_at": "2026-09-24T15:46:02.568117+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "An inbound AI agent had 17,000 conversations with prospects in 12 months and booked about 600 meetings for SaaStr AI Annual 2026. This agent, combined with a newer self-serve agent, drove a 60% increase in new business. The system, which replaced a slower, form-based process, is run by three humans."
   },
   "https://www.saastr.com/the-simple-math-behind-a-3x-venture-fund-why-your-best-investment-needs-to-return-the-whole-thing/": {
     "created_at": "2026-08-09T11:31:25.145039+00:00",

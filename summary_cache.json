@@ -737,6 +737,12 @@
     "prompt_version": 1,
     "summary": "Ben Wilson, diagnosed with stage 4 cancer, found encouraging news regarding the treatment tarlatamab. A Phase III trial reported positive results, showing that a combination of durvalumab and tarlatamab significantly improved overall survival and the time patients lived without their cancer progressing. Tarlatamab helps the immune system attack cancer cells, while durvalumab blocks mechanisms tumors use to suppress the immune response."
   },
+  "https://www.notboring.co/p/weekly-dose-of-optimism-212": {
+    "created_at": "2026-09-25T15:46:02.138800+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Vironexis has shared encouraging results for a new cancer treatment method that turns the liver into a drug factory. An adeno-associated virus delivers genetic instructions to liver cells, which then produce a protein that helps immune system T cells target cancer cells. In an early subgroup, all three patients with a specific type of leukemia achieved complete responses after a single administration of VNX-101, with one response lasting 260 days."
+  },
   "https://www.saastr.com/2026-is-the-biggest-ipo-year-in-history-but-take-out-one-company-and-its-one-of-the-worst/": {
     "created_at": "2026-08-03T13:43:45.186286+00:00",
     "model": "gemini-2.5-flash",
@@ -796,6 +802,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Atlassian reported Q4 results with total revenue up 28% and cloud revenue accelerating 31%, resulting in a 35% single-day stock increase. The company is bundling new AI capabilities for free, impacting future operating margins as costs are incurred before revenue. Remaining performance obligations (RPO) grew 44%, indicating growth from long, multi-year enterprise contracts."
+  },
+  "https://www.saastr.com/5-interesting-learnings-from-gitlab-at-1-13-billion-in-revenue-24-billings-growth-20m-of-flex-in-six-weeks-and-400-basis-points-of-ai-margin-cost/": {
+    "created_at": "2026-09-25T15:45:46.692790+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "GitLab's Q2 FY27 results showed revenue grew 21% and calculated billings grew 24%. The company introduced a new \"Flex\" consumption model, which is impacting revenue recognition and contributing to a lower Q3 revenue guide. Gross margins also declined due to increased subscription costs of revenue, with 400 basis points attributed to AI-related expenses."
   },
   "https://www.saastr.com/5-interesting-learnings-from-palantir-at-7-7-billion-arr-93-growth-157-nrr-and-a-rule-of-40-score-of-155/": {
     "created_at": "2026-08-05T12:55:22.780714+00:00",

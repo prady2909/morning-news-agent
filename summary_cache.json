@@ -455,6 +455,12 @@
     "prompt_version": 1,
     "summary": "Lenny's Product Pass has been expanded with the addition of 11 new products, bringing the total number of offerings to 34. Subscribers, including Annual and Insider members, can receive a free year of access to these tools, which include both work-related and personal applications. The pass provides over $36,000 in value for Annual subscribers and over $40,000 for Insiders, aiming to provide access to expensive tools and bridge a gap in career success."
   },
+  "https://www.lennysnewsletter.com/p/the-grief-loneliness-and-burnout": {
+    "created_at": "2026-09-27T15:33:10.269295+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Molly Graham, with experience helping organizations navigate growth and change, discusses topics related to the tech industry and AI. The conversation covers why her \"give away your Legos\" career advice is outdated in an AI world, and the grief, loneliness, and burnout currently in the tech industry. It also explores differences in delegating to AI versus humans, the fear of AI job displacement, and effective management strategies."
+  },
   "https://www.lennysnewsletter.com/p/the-playbook-for-building-high-talent": {
     "created_at": "2026-08-10T11:48:36.943307+00:00",
     "model": "gemini-2.5-flash",
@@ -1277,6 +1283,12 @@
     "prompt_version": 1,
     "summary": "Kroll's Summer 2026 Global Software Sector Update reveals a concentrated M&A market, with deal volume high but one transaction accounting for half the annualized deal value, resulting in near-record-low aggregate prices for other deals. Valuation drivers have shifted, with category and positioning now more impactful than growth or margins above 25-30%. Strategic buyers are paying significantly higher multiples than public markets, favoring specific, defensible positions over company size."
   },
+  "https://www.saastr.com/saastr-ai-app-of-the-week-larridin-the-median-engineer-now-bills-213-a-week-in-ai-coding-tokens-larridin-tells-you-what-it-bought/": {
+    "created_at": "2026-09-27T15:33:24.589593+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Larridin is a platform that connects AI usage and spending to the work of people and agents across a business. It aims to answer what AI spend is producing by covering adoption, fluency, engineering performance, and automation opportunities. The platform also published a benchmark finding that the median engineer bills $213 a week in AI coding tokens."
+  },
   "https://www.saastr.com/saastr-ai-app-of-the-week-nue-the-revenue-platform-built-for-how-b2b-ai-actually-prices-now/": {
     "created_at": "2026-07-18T11:54:35.865831+00:00",
     "model": "gemini-2.5-flash",
@@ -1348,6 +1360,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Shipping category-winning AI agents in B2B is effectively a second build of the entire product, requiring careful planning. It is recommended to start with agents that cannot break anything, and to ensure human approval for agent plans before execution. New product requirements emerge around accountability for agent behavior and minimizing the context users must provide."
+  },
+  "https://www.saastr.com/the-keepers-the-employees-to-never-let-go-even-if-you-have-to-invent-a-role/": {
+    "created_at": "2026-09-27T15:33:39.275233+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "\"Irreplaceable\" employees, or \"Keepers,\" are defined by specific valuable traits, including proactively taking on and completing tasks without being asked. They also maintain consistent output whether supervised or not, and deliver bad news early, even if it makes them look bad. The text suggests that companies should prioritize retaining these individuals, even to the point of inventing roles for them, as their value extends beyond specific skill sets."
   },
   "https://www.saastr.com/the-new-career-path-joining-a-0-grower-maybe-for-many-its-better/": {
     "created_at": "2026-09-21T16:52:13.519340+00:00",

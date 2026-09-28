@@ -341,6 +341,12 @@
     "prompt_version": 1,
     "summary": "Two designers on the Grok Bot team at SpaceXAI use AI agents to enhance their work. Peng Zheng employs Grok Bot to build a self-updating personal site, automating tasks like location lookups and 3D art generation for new check-ins. John Bai uses voice memos and Grok Bot, connected to Figma MCP, to complete design work remotely and turn ideas into working prototypes with natural-language instructions."
   },
+  "https://www.lennysnewsletter.com/p/how-i-ai-jev-for-beginners-i-left": {
+    "created_at": "2026-09-28T18:31:59.372119+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "A new decision model called Jev makes large-scale data analysis and real-time applications more practical and cost-effective by returning structured choices instead of generated text. Separately, the usability and performance of Claude Opus 5.5 have brought one user back to the model for tasks such as frontend design and SVG illustration. A blind comparison of Opus 5.5 and GPT-6 Sol also highlighted how ergonomics, cost, and specific task performance influence model selection."
+  },
   "https://www.lennysnewsletter.com/p/how-i-ai-metas-muse-review-how-warp": {
     "created_at": "2026-09-21T16:51:17.310296+00:00",
     "model": "gemini-2.5-flash",
@@ -671,6 +677,12 @@
     "prompt_version": 1,
     "summary": "Tech leaders, including Satya Nadella and Jensen Huang, signed a letter supporting open-weight models, which the author interprets as a capitalist strategy where signatories benefit from models becoming cheaper and more plentiful. The author argues that AI is more akin to \"Oil\"—an economically useful commodity—than a dangerous, god-like entity, though acknowledging concerns about potential misuse like the removal of safeguards."
   },
+  "https://www.notboring.co/p/airbound-as-we-may-move": {
+    "created_at": "2026-09-28T18:32:51.616757+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Airbound, founded by Naman Pushp, aims to shift most movement to the sky by making flying cheaper than existing transportation. The company is developing highly efficient electric vertical take-off and landing (eVTOL) aircraft through carbon fiber-first design and manufacturing. Their strategy involves starting with small cargo drones to achieve low costs per kilogram-kilometer, with plans to scale to human-carrying vehicles."
+  },
   "https://www.notboring.co/p/an-american-engineer-in-china": {
     "created_at": "2026-08-26T11:33:02.318025+00:00",
     "model": "gemini-2.5-flash",
@@ -916,6 +928,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Bending Spoons is acquiring Airtable in an all-cash deal at a $1.285 billion enterprise value, which is roughly $2.25 billion of equity value. The acquisition, expected to close by year end subject to regulatory approval, excludes Airtable's Hyperagent AI unit, which contributed negligible revenue. Airtable has approximately $480 million in annual recurring revenue, growing over 20% year over year, with over 500,000 organizational customers including 80% of the Fortune 100."
+  },
+  "https://www.saastr.com/almost-every-pre-ai-vendor-we-use-is-raising-prices-for-agent-access-they-may-be-building-an-agentic-death-spiral/": {
+    "created_at": "2026-09-28T18:32:30.882652+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Almost every pre-AI B2B vendor is raising prices for agent access, often by metering API calls. This prompts agents to work around these charges by moving data off platforms and reading from their own databases. The article suggests this strategy risks reduced platform usage, decreased stickiness for vendors, and a shift towards agent-friendly alternatives."
   },
   "https://www.saastr.com/an-hour-with-our-top-ai-agent-cost-13-42-you-cant-hire-anyone-for-that/": {
     "created_at": "2026-07-16T12:22:04.101022+00:00",

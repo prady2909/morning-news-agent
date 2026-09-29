@@ -23,6 +23,12 @@
     "prompt_version": 1,
     "summary": "This project focuses on building an AI text detector from scratch to explain how such systems work. It aims to demonstrate an applied end-to-end LLM project, including its use as a verifier to train a small language model to produce text that avoids detection. The project will result in an AI-detector API and a user-friendly interface."
   },
+  "https://magazine.sebastianraschka.com/p/classifier-history-and-jev": {
+    "created_at": "2026-09-29T16:50:00.136944+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Jev is a recently released AI model designed for general-purpose text classification, capable of handling various text inputs without custom fine-tuning. It performs these classification tasks faster and more cheaply than other advanced language models, offering high accuracy across different domains."
+  },
   "https://magazine.sebastianraschka.com/p/claude-watermarking": {
     "created_at": "2026-08-22T11:22:19.720115+00:00",
     "model": "gemini-2.5-flash",
@@ -202,6 +208,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Tara Seshan, OpenAI’s product lead, discussed the shift from humans \"rowing\" to \"steering\" as AI takes on execution. She noted that human judgment and ambition will become differentiators, and ambition is now the new bottleneck for companies. Elevating others’ ambitions is presented as a key part of the product manager's role in this context."
+  },
+  "https://www.lennysnewsletter.com/p/all-of-the-lenny-and-friends-summit": {
+    "created_at": "2026-09-29T16:49:28.690589+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "All main-stage talks from the recent Lenny & Friends Summit are now available online, with a full list and playlist provided. The summit highlighted themes such as the need for in-person events, the evolving role of product management, and the importance of building valuable products in an AI-driven landscape. Attendees and speakers reflected on the shared experience of navigating an uncertain but ambitious future in product."
   },
   "https://www.lennysnewsletter.com/p/announcing-lennys-jobs-the-best-place": {
     "created_at": "2026-08-19T11:27:05.569996+00:00",
@@ -430,6 +442,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "This item presents an honest take on Grok Bot, Grok 4.6, and Cursor Origin, recent shipments from xAI and Cursor. The author performed a solo breakdown, including setting up five Grok Bots, running Grok 4.6 through a Claire Weighted Index, and using Origin as a GitHub replacement. The review highlights what is worth attention, what is overhyped, and where the author is personally focusing time."
+  },
+  "https://www.lennysnewsletter.com/p/jev-for-beginners-how-to-use-it-and": {
+    "created_at": "2026-09-29T16:49:43.464983+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Jev is TypeSafe AI’s new decision model, which returns type-safe structured values such as a choice, score, or probability instead of generated text. It costs 4 cents per million input tokens with no output charge and has been used for projects like PR categorization, Gmail triage, and building an audience dashboard from YouTube comments."
   },
   "https://www.lennysnewsletter.com/p/muse-review-the-personal-ai-agent": {
     "created_at": "2026-09-16T15:21:34.189392+00:00",
@@ -1462,6 +1480,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "SaaStr has been running Salesforce \"headless\" for six months, accessing data through the Salesforce API with an AI agent built on Claude instead of the user interface. This system, internally called Claudeforce, integrates CRM data with marketing and financial systems to create a \"meta CRM.\" SaaStr reports a 10x increase in Salesforce data usage and a 40% rise in their bill, stating they would not revert to the previous method."
+  },
+  "https://www.saastr.com/what-17000-subscription-apps-tell-us-about-free-trial-length-annual-plans-convert-86-better-with-30-day-trials-monthly-tops-out-at-two-weeks-and-ai-apps-hit-a-wall-at-16-days/": {
+    "created_at": "2026-09-29T16:50:16.213954+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Optimal free trial lengths vary by subscription type, according to a study of over 17,000 mobile apps. Annual plans saw significantly higher conversion and renewal rates with 17 to 32 day trials compared to shorter ones. For monthly self-serve products, conversion generally peaked around 10 to 16 days, while B2B + AI products should cap time-based trials at about two weeks to avoid conversion drops."
   },
   "https://www.saastr.com/what-a-great-vp-sales-does-in-their-first-week-watch-for-it/": {
     "created_at": "2026-07-20T13:09:31.789717+00:00",

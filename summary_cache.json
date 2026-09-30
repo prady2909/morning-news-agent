@@ -443,6 +443,12 @@
     "prompt_version": 1,
     "summary": "This item presents an honest take on Grok Bot, Grok 4.6, and Cursor Origin, recent shipments from xAI and Cursor. The author performed a solo breakdown, including setting up five Grok Bots, running Grok 4.6 through a Claire Weighted Index, and using Origin as a GitHub replacement. The review highlights what is worth attention, what is overhyped, and where the author is personally focusing time."
   },
+  "https://www.lennysnewsletter.com/p/jev-8-real-use-cases-for-the-fastest": {
+    "created_at": "2026-09-30T16:43:37.236038+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "John Lindquist discusses Jev, described as the fastest, cheapest model he has used, highlighting its nature as a TypeSafe AI decision model rather than a chatbot. The discussion covers various real use cases, such as building a real-time voice to-do app, data deduplication, and using Jev as a router for app navigation. It also explores multi-step classification, multi-agent coordination, and compares Jev's speed and cost against traditional LLMs, while also noting its limitations."
+  },
   "https://www.lennysnewsletter.com/p/jev-for-beginners-how-to-use-it-and": {
     "created_at": "2026-09-29T16:49:43.464983+00:00",
     "model": "gemini-2.5-flash",
@@ -460,6 +466,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Netflix Chief Product and Technology Officer Elizabeth Stone, who oversees Engineering, Product, and Design, discusses AI and the future of product and tech roles. The conversation covers key skills like \"systems thinking,\" managing AI-generated output quality, and Netflix's expectation of AI fluency."
+  },
+  "https://www.lennysnewsletter.com/p/openai-dev-day-2026-the-releases": {
+    "created_at": "2026-09-30T16:43:22.679750+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "OpenAI's DevDay featured new releases, which an attendee tested and shared early impressions of. Key announcements include Dots, Spaces, Sites, GPT-6.1 Sol, the Decisions API, and Astra ultrafast. Spaces and Sites are highlighted for their potential impact on team collaboration."
   },
   "https://www.lennysnewsletter.com/p/openais-head-of-design-this-is-the": {
     "created_at": "2026-08-17T11:28:21.828507+00:00",

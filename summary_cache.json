@@ -641,6 +641,12 @@
     "prompt_version": 1,
     "summary": "Airtable has agreed to be acquired by Bending Spoons for an enterprise value of $1.285 billion. This sale represents a steep discount from Airtable's pandemic-era $11.7 billion valuation. Despite the lower overall valuation, some early investors still made significant returns by selling shares at opportune times."
   },
+  "https://www.newcomer.co/p/scoop-benchmark-backs-early-stage": {
+    "created_at": "2026-10-01T17:18:04.583658+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Benchmark has won a hot competition to lead a new, previously unreported funding round for early-stage chip startup Tendrils Compute. The company is already discussing a fast follow-up raise that would potentially value it at more than $1 billion. Tendrils Compute is betting on general-purpose chips based on an obscure graph-based computing model called interaction nets."
+  },
   "https://www.newcomer.co/p/scoop-fundraising-documents-reveal": {
     "created_at": "2026-07-24T12:21:10.547498+00:00",
     "model": "gemini-2.5-flash",
@@ -802,6 +808,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Through July 28, 2026, US VC-backed IPO value totaled $1,786.8 billion, primarily driven by SpaceX's $1.77 trillion valuation. Without SpaceX, the other 43 IPOs combined are worth roughly $17 billion, and many capital-intensive AI infrastructure companies have seen significant post-IPO stock declines. Furthermore, no venture-backed B2B software unicorns have filed for IPOs this year, as public markets are evaluating B2B companies based on AI's impact on their necessity."
+  },
+  "https://www.saastr.com/20vc-x-saastr-anthropics-s-1-leaks-instinct-hits-10-billion-in-33-days-amd-buys-world-labs-and-meta-poaches-mongodbs-ceo/": {
+    "created_at": "2026-10-01T17:18:23.071091+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Anthropic's draft S-1 recently leaked, showing projected 2025 revenue of $4.6 billion, an $8 billion operating loss, and $518 billion in cloud, computing, and infrastructure commitments. Reports indicate Anthropic is delaying its IPO. Two customers were responsible for 25% of the company's revenue last year."
   },
   "https://www.saastr.com/20vc-x-saastr-jensen-declares-agi-170m-of-secondary-before-the-series-c-and-why-index-walked-away-from-town/": {
     "created_at": "2026-09-11T14:54:22.011881+00:00",
@@ -1385,6 +1397,12 @@
     "prompt_version": 1,
     "summary": "AI Sales Development Representatives (SDRs) are powerful multipliers for existing go-to-market strategies, capable of significantly scaling proven playbooks. However, they do not create strategy or determine what works, requiring companies to first establish a successful, documented human-run process to avoid yielding zero results."
   },
+  "https://www.saastr.com/the-10-most-important-learnings-from-a16zs-latest-state-of-markets-horizontal-b2b-trades-at-2-7x-revenue-new-startups-are-growing-500-and-55-of-unicorns-have-under-2-years-of-runway/": {
+    "created_at": "2026-10-01T17:18:43.215270+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "The latest a16z State of Markets deck indicates that horizontal B2B applications now trade at a median 2.7x TTM revenue. It also reports new B2B companies are experiencing 500-600% year-over-year revenue growth, contrasting with mature companies that only recovered to 24%. Additionally, 55% of U.S. unicorns currently have less than two years of runway, with 57% growing 20% or less."
+  },
   "https://www.saastr.com/the-20-minute-test-in-vp-hiring-maybe-all-hiring/": {
     "created_at": "2026-07-22T12:27:34.390073+00:00",
     "model": "gemini-2.5-flash",
@@ -1546,6 +1564,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Companies should aim to collect at least 100% of their Monthly Recurring Revenue (MRR) in cash each month, ideally 110%+. Many B2B startups struggle with cash collection from invoices, often collecting only 60-70% of MRR, which significantly shortens their financial runway. Dedicated collection efforts, annual deals, prepaid upsells, and annual renewals can help improve this rate."
+  },
+  "https://www.saastr.com/youll-know-if-that-new-vp-is-going-to-fail-at-the-first-board-meeting/": {
+    "created_at": "2026-10-01T17:18:58.261219+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "The success of a new CRO or VP Sales can be determined by their performance at the first board meeting. Key indicators of potential failure include not knowing top accounts, deals, or their team, or lacking a clear, data-driven plan for improvement. A great VP, by contrast, will demonstrate a strong understanding of their department, team, and a sensible 60-90 day plan based on data."
   },
   "https://www.saastr.com/your-agents-are-about-to-start-firing-your-vendors-ours-fired-marketo/": {
     "created_at": "2026-07-28T12:56:34.206614+00:00",

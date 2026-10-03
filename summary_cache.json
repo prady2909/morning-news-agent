@@ -1295,6 +1295,12 @@
     "prompt_version": 1,
     "summary": "Nue.io demonstrated an AI agent capable of building a guided selling playbook in about two minutes from plain English, significantly reducing the time for this specific task. However, the full system implementation still averages about 90 days, potentially taking up to a year, due to dependencies on product catalog and data quality."
   },
+  "https://www.saastr.com/okta-tripled-on-11-growth-5-interesting-learnings-from-one-of-the-biggest-re-ratings-in-b2b-this-year-14-crpo-growth-30-of-bookings-from-new-products-and-50x-forward-earnings/": {
+    "created_at": "2026-10-03T15:05:08.146559+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Okta's stock tripled in five months despite its Q2 revenue growing 11% and Q3 guidance projecting 10% year-over-year growth. This re-rating was driven by an expanded forward earnings multiple due to a shift in the AI narrative, acceleration in contracted Remaining Performance Obligations, and new products making up 30% of bookings. The company also announced an agent kill switch and formed a standards alliance with competitors."
+  },
   "https://www.saastr.com/on-your-next-big-deal-double-your-pricing/": {
     "created_at": "2026-08-19T11:27:42.380621+00:00",
     "model": "gemini-2.5-flash",
@@ -1360,6 +1366,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Kroll's Summer 2026 Global Software Sector Update reveals a concentrated M&A market, with deal volume high but one transaction accounting for half the annualized deal value, resulting in near-record-low aggregate prices for other deals. Valuation drivers have shifted, with category and positioning now more impactful than growth or margins above 25-30%. Strategic buyers are paying significantly higher multiples than public markets, favoring specific, defensible positions over company size."
+  },
+  "https://www.saastr.com/saastr-ai-app-of-the-week-chargebee-the-billing-system-behind-how-gorgias-coderabbit-lambda-and-zapier-price-ai/": {
+    "created_at": "2026-10-03T15:05:32.025818+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Chargebee, a billing system for over 6,500 businesses, has implemented new features to support AI companies that frequently change their pricing models from seats to credits, actions, or outcomes. Its 2026 updates include a single catalog for credit, action, and outcome pricing, as well as an MCP server for AI tools to read and act on live account data. The system also offers CPQ (Configure, Price, Quote) built on the billing engine, and is utilized by companies such as Gorgias, CodeRabbit, and Zapier."
   },
   "https://www.saastr.com/saastr-ai-app-of-the-week-larridin-the-median-engineer-now-bills-213-a-week-in-ai-coding-tokens-larridin-tells-you-what-it-bought/": {
     "created_at": "2026-09-27T15:33:24.589593+00:00",
@@ -1505,6 +1517,12 @@
     "prompt_version": 1,
     "summary": "A company canceled its Notion subscription after seven years because they stopped needing the product, despite having no complaints or issues with it. An internally developed AI agent gradually absorbed Notion's last remaining function, such as running staff meetings. A re-engagement email from Notion ultimately prompted the cancellation, illustrating a type of churn where satisfied, low-touch accounts are replaced by internal AI agents."
   },
+  "https://www.saastr.com/we-got-a-240000-estimate-for-agent-api-access-our-agent-suggested-a-5-postgres-instance/": {
+    "created_at": "2026-10-03T15:05:48.446596+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Vendors including Salesforce and Atlassian are adding charges for agent API access, leading to an estimate of up to $240,000 annually for the company's AI agent, 10K. To address this, 10K suggested mirroring the system of record to a $5 Postgres instance and reducing API calls to the vendors."
+  },
   "https://www.saastr.com/we-mentioned-replit-in-214-articles-last-year-for-free-most-vendors-have-no-plan-for-customers-like-that/": {
     "created_at": "2026-09-16T15:21:54.822301+00:00",
     "model": "gemini-2.5-flash",
@@ -1522,6 +1540,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "AI agents are effectively used for tasks such as booking meetings, resurrecting leads, and processing invoices, generating millions in revenue for the company. While these agents excel at the \"easy half\" of functions like SDR, support, and account management, they primarily handle situations where buyers are already engaged or for leads humans wouldn't pursue. A good AI Account Executive capable of closing complex deals by persuading hesitant buyers or exercising concession authority does not yet exist."
+  },
+  "https://www.saastr.com/we-vibe-coded-our-own-calendly-our-ai-agent-pushed-us-to-do-it-and-it-was-right/": {
+    "created_at": "2026-10-03T15:04:50.139162+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "A company built its own scheduling tool, suggested by their AI agent 10K, who built it on Replit in about 20 minutes. This custom booker integrates with internal data, allowing for the real-time creation of personalized prospectuses and intelligent routing of prospects to the correct team member. The existing scheduling tool, Calendly, could not provide these deep data integrations or dynamic routing capabilities."
   },
   "https://www.saastr.com/weve-been-running-salesforce-headless-and-our-own-claudeforce-for-6-months-were-never-going-back/": {
     "created_at": "2026-08-31T17:57:03.861240+00:00",

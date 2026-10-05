@@ -299,6 +299,12 @@
     "prompt_version": 1,
     "summary": "Grok Bot designers John Bai and Peng Zheng utilize AI agents to build personal sites and product prototypes. Peng built a self-updating personal website with Grok Bot as the backend and uses a check-in bot to automatically update his portfolio. John uses a Figma Bro bot for production design tasks, directs Figma work with voice memos, and employs DevBot for a \"shower thought to prototype\" workflow to test interaction ideas."
   },
+  "https://www.lennysnewsletter.com/p/how-i-ai-8-real-jev-use-cases-how": {
+    "created_at": "2026-10-05T19:32:33.680458+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Jev is a fast and inexpensive decision engine that outputs structured decisions rather than text, functioning like an if/else statement for routing natural language into defined action spaces. This model is useful for applications such as real-time voice assistants, data deduplication, app routing, and chess analysis, unlocking new possibilities due to its speed and low cost."
+  },
   "https://www.lennysnewsletter.com/p/how-i-ai-build-an-ai-code-review": {
     "created_at": "2026-08-11T11:45:13.983211+00:00",
     "model": "gemini-2.5-flash",
@@ -376,6 +382,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Daniel Blum, a product manager at Melio, developed a Claude- and Cowork-based productivity system to manage his Notion board and process Slack and email. This system runs weekly self-improvement loops without prompts, allowing him to run 70% to 80% of his workday through it. He also built a \"Workstation\" onboarding plugin to provide personalized Claude setups for other Melio employees."
+  },
+  "https://www.lennysnewsletter.com/p/how-openai-uses-chatgpt-sites-live": {
+    "created_at": "2026-10-05T19:32:51.626345+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "OpenAI Product Lead Kath Korevec built and utilized ChatGPT Sites internally for over a year before its public launch, working on its connector ecosystem. The discussion covers internal testing, infrastructure, and unique use cases of Sites, including an incident command site built by Korevec for her OpenAI team using live Slack and Notion connectors."
   },
   "https://www.lennysnewsletter.com/p/how-tech-workers-actually-feel-about": {
     "created_at": "2026-07-15T12:17:43.485256+00:00",
@@ -1624,6 +1636,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "The success of a new CRO or VP Sales can be determined by their performance at the first board meeting. Key indicators of potential failure include not knowing top accounts, deals, or their team, or lacking a clear, data-driven plan for improvement. A great VP, by contrast, will demonstrate a strong understanding of their department, team, and a sensible 60-90 day plan based on data."
+  },
+  "https://www.saastr.com/youll-probably-end-up-with-40-of-your-revenue-from-international-invest-earlier-there/": {
+    "created_at": "2026-10-05T19:33:09.950390+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Many companies generate a significant portion of their revenue internationally, with several B2B companies reporting 40% or more. Investing earlier in international markets, even when a single country represents 5% of revenue, can accelerate growth by providing local support, payment methods, and staffing."
   },
   "https://www.saastr.com/your-agents-are-about-to-start-firing-your-vendors-ours-fired-marketo/": {
     "created_at": "2026-07-28T12:56:34.206614+00:00",

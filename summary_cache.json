@@ -179,6 +179,12 @@
     "prompt_version": 1,
     "summary": "Chinese AI companies are currently the clear leaders in open-weight models, surpassing American models in metrics like Hugging Face downloads and popular capability benchmarks. This leadership is also evident in academic research and commercial adoption, with Chinese open-weight models showing greater usage and mention in papers compared to their American counterparts."
   },
+  "https://www.interconnects.ai/p/the-cyber-risk-discourse-is-broken": {
+    "created_at": "2026-10-06T17:04:17.656945+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "The current discourse on the cyber risks of open AI models is deemed broken, potentially leading to policy decisions that limit American AI competitiveness and increase long-term cyber risk. This debate often features opposing views on whether open models pose an untenable risk or are necessary for defense, yet often lacks nuance regarding trade-offs and China's distinct risk assessments. The author challenges the idea that closed models are inherently safer, noting their accessibility and documented role in most existing cyber attacks, while suggesting open-weight models could be vital for cyber defense."
+  },
   "https://www.interconnects.ai/p/when-will-average-people-feel-ais": {
     "created_at": "2026-09-09T15:03:04.942227+00:00",
     "model": "gemini-2.5-flash",
@@ -550,6 +556,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Anish Acharya, a General Partner at Andreessen Horowitz, discusses why company building will now involve creating a series of loops. The conversation also covers what is happening in consumer right now, the biggest opportunities, and how moats are discovered, not designed, emphasizing the rising importance of distribution as a moat."
+  },
+  "https://www.newcomer.co/p/9-videos-from-machine-earning-towns": {
+    "created_at": "2026-10-06T17:04:33.278832+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Industry leaders at the Machine Earning AI Summit discussed the future of finance and commerce in the AI era. They offered insights on the impact of AI agents on payments, banking, and business operations, addressing both opportunities and challenges. Topics included the responsibility for AI model errors, the automation of back-office work, and the readiness of regular people to use AI for managing money."
   },
   "https://www.newcomer.co/p/a16zs-martin-casado-bullish-on-ai": {
     "created_at": "2026-08-27T20:57:06.783614+00:00",
@@ -1246,6 +1258,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Mailchimp's parent company, Intuit, has confirmed a year-over-year revenue decline for the product, leading to a 17% workforce reduction for \"rightsizing\" in Mailchimp. Intuit now publishes its overall growth rates both with and without Mailchimp, indicating reduced investment and a strategy to run the asset for cash rather than growth."
+  },
+  "https://www.saastr.com/how-much-of-your-customer-support-can-ai-really-resolve-the-best-get-about-70-the-median-is-48-heres-the-real-data-from-13-vendors/": {
+    "created_at": "2026-10-06T17:04:49.094301+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "A public benchmark tested 13 AI customer support vendors on real e-commerce stores to evaluate their resolution capabilities. The study found that the best AI agents fully resolve about 70% of customer conversations without human involvement, while the median vendor resolves 48%. Most vendors saw declines in both automation and quality over a four-week period, and resolution rates varied significantly by conversation type."
   },
   "https://www.saastr.com/i-bought-30-apis-this-year-only-exa-asked-how-it-went-copy-them/": {
     "created_at": "2026-08-07T11:47:52.856360+00:00",

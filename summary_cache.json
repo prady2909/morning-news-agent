@@ -569,6 +569,12 @@
     "prompt_version": 1,
     "summary": "Martin Casado of a16z's infrastructure team discussed recent successful acquisitions, Cursor and OpenRouter, noting their significant returns. He expressed concern about individual VCs claiming credit for deals, calling it a \"historical relic.\" Casado stated that modern venture capital is a collaborative effort, with many individuals instrumental in any given deal."
   },
+  "https://www.newcomer.co/p/after-missing-ais-early-days-lightspeed": {
+    "created_at": "2026-10-08T17:46:37.479999+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "In April 2023, Lightspeed Venture Partner's co-leaders directed partners worldwide to clear their calendars for an urgent, firm-wide meeting. The firm felt unprepared for the AI landscape, having missed early investments in companies like OpenAI, ElevenLabs, and Hugging Face, while rivals had secured stakes. The seven-hour meeting, led by Bejul Somaia, addressed what it would mean to act as though AI would change everything."
+  },
   "https://www.newcomer.co/p/agents-promise-to-remake-the-web": {
     "created_at": "2026-09-26T14:56:08.355127+00:00",
     "model": "gemini-2.5-flash",
@@ -586,6 +592,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "The Machine Earning AI Summit, a one-day, invite-only event, will be held on Tuesday, Sept. 29 in San Francisco. It will focus on AI commerce and finance, exploring questions about online shopping with agents, banking with language models, and intelligent payment rails. The summit is aimed at top founders, investors, media, and other AI insiders."
+  },
+  "https://www.newcomer.co/p/anthropics-ipo-cant-wait-forever": {
+    "created_at": "2026-10-08T17:46:55.478841+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Anthropic is preparing for its impending IPO, targeting a November debut after postponing an expected October start, amidst uncertain market conditions. A leaked draft prospectus revealed an operating loss of around $8 billion on $4.6 billion in revenue last year and a commitment to spend $518 billion on future infrastructure. However, these figures predate its Opus 4.6 model, which significantly boosted revenue, and questions about its growth rate and a potential $2 trillion valuation persist."
   },
   "https://www.newcomer.co/p/crusoe-is-on-track-for-2-billion": {
     "created_at": "2026-09-24T15:45:27.904212+00:00",

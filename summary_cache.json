@@ -599,6 +599,12 @@
     "prompt_version": 1,
     "summary": "Anthropic is preparing for its impending IPO, targeting a November debut after postponing an expected October start, amidst uncertain market conditions. A leaked draft prospectus revealed an operating loss of around $8 billion on $4.6 billion in revenue last year and a commitment to spend $518 billion on future infrastructure. However, these figures predate its Opus 4.6 model, which significantly boosted revenue, and questions about its growth rate and a potential $2 trillion valuation persist."
   },
+  "https://www.newcomer.co/p/competing-arr-estimates-and-fuzzy": {
+    "created_at": "2026-10-09T17:22:23.193929+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Reports indicate OpenAI's annual recurring revenue (ARR) was $20 billion less than widely cited figures, causing AI stocks to drop. This discrepancy arose from confusion between gross and net revenue, as OpenAI used a net figure while Anthropic used a gross figure that included partner sales. The situation spotlights risks for investors, employees, and founders due to a lack of transparency in valuation figures."
+  },
   "https://www.newcomer.co/p/crusoe-is-on-track-for-2-billion": {
     "created_at": "2026-09-24T15:45:27.904212+00:00",
     "model": "gemini-2.5-flash",
@@ -862,6 +868,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Researchers found that transplanted hearts shifted toward the biological age of their recipients. Older hearts showed signs of rejuvenation in younger bodies, while younger hearts showed accelerated aging in older ones. This discovery could allow doctors to use older donor hearts more often and implies that some aspects of an organ's age are responsive to the body around it."
+  },
+  "https://www.notboring.co/p/weekly-dose-of-optimism-214": {
+    "created_at": "2026-10-09T17:23:12.488210+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Atomic Machines has emerged from six years in stealth with a product called the Matter Compiler. This AI-native manufacturing system builds micro-machines directly from code, aiming to eliminate per-product tooling and process development. The company's first product, the PrimeSwitch PS-150, is a relay for data centers, and it is now shipping to early customers."
   },
   "https://www.saastr.com/2026-is-the-biggest-ipo-year-in-history-but-take-out-one-company-and-its-one-of-the-worst/": {
     "created_at": "2026-08-03T13:43:45.186286+00:00",
@@ -1306,6 +1318,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "The leadership archetype for fast-growing B2B and AI companies is shifting, with 82 out of 100 fastest-growing AI-native startups now led by technical CEOs or domain experts. These leaders can pivot faster by directly evaluating new models, while sales organizations, though still critical, are built later and report to a technical CEO."
+  },
+  "https://www.saastr.com/it-takes-12-years-to-ipo-then-another-2-3-for-your-vcs-to-get-liquid-and-founders-can-generally-only-sell-about-4-a-year/": {
+    "created_at": "2026-10-09T17:22:39.843944+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "While an IPO is often considered the best outcome, achieving full liquidity for investors and founders typically takes many years after the initial public offering. The median tech company takes 11.5 years to IPO, and then several more years for VCs to get liquid, with founders often selling only a few percent of their stake annually. Therefore, the IPO path generally needs to be worth 2 to 3 times a strong M&A offer to compensate for the longer timeline, risk, and dilution."
   },
   "https://www.saastr.com/jasons-takes-on-this-weeks-20vc-locks-beat-guardrails-agents-pick-your-software-and-building-with-448-open-tasks/": {
     "created_at": "2026-09-07T16:20:57.973175+00:00",

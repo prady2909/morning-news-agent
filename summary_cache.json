@@ -1073,6 +1073,12 @@
     "prompt_version": 1,
     "summary": "Atlassian has eliminated Loom's free \"Creator Lite\" seats within paid workspaces, automatically converting these users to full paid Creator seats. Previously, these individuals could watch, comment, and record in a limited way at no cost, but now their presence incurs a charge. This change means workspaces pay for all users, including those who were formerly free watchers, potentially increasing costs significantly."
   },
+  "https://www.saastr.com/atlassians-head-of-ai-we-bolted-ai-onto-20-apps-almost-didnt-ship-chat-and-flipped-our-hiring-toward-juniors/": {
+    "created_at": "2026-10-10T16:08:37.655997+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Atlassian's Head of AI shared insights on integrating AI across its 20+ apps, including the initially controversial decision to ship Rovo chat, now used by millions of users daily. The company found success in bolting AI agent steps onto existing Jira workflows and developed the principle that agents need the same primitives as humans. Atlassian also learned that \"AI builder\" teams stalled without clear direction and flipped its hiring pipeline to include more juniors and seniors, leveraging their distinct strengths in AI adoption and quality control."
+  },
   "https://www.saastr.com/b2b-for-physical-products-is-crushing-it-shopify-34-toast-23/": {
     "created_at": "2026-08-14T11:45:49.479909+00:00",
     "model": "gemini-2.5-flash",
@@ -1456,6 +1462,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Nue is a revenue platform designed for B2B + AI companies transitioning from per-seat pricing to usage, consumption, or outcome-based models. It unifies quoting, billing, usage metering, and revenue recognition on a single data model. This allows companies to quickly launch and change pricing models without complex engineering projects."
+  },
+  "https://www.saastr.com/saastr-ai-app-of-the-week-remote-the-300m-payroll-platform-your-ai-agent-can-run/": {
+    "created_at": "2026-10-10T16:08:52.488530+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Remote is a global payroll and employment platform that has heavily adopted AI. It shipped Remote MCP, which allows AI agents secure access to payroll, contract, compliance, and organizational data. Over 85% of Remote's code is now written by AI, leading to a 50% increase in revenue per employee without layoffs, and its AI-powered payroll operates in more than 100 countries."
   },
   "https://www.saastr.com/saastr-ai-app-of-the-week-sumble-the-kaggle-founders-rebuilt-sales-intelligence-around-context-not-contacts/": {
     "created_at": "2026-09-14T16:50:39.966167+00:00",

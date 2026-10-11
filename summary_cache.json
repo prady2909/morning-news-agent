@@ -113,6 +113,12 @@
     "prompt_version": 1,
     "summary": "Z.ai has announced its GLM-5.3 model, which shows exceptional performance and has surpassed other leading models on many benchmarks, particularly in agentic coding. The company attributes this to substantially extended post-training and is taking a staged release approach due to the model's advanced cybersecurity capabilities and associated dual-use risks."
   },
+  "https://www.interconnects.ai/p/i-expect-rapid-progress-but-not-towards": {
+    "created_at": "2026-10-11T16:35:49.624750+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "The author expects rapid progress in AI engineering and infrastructure capabilities, anticipating models will become superhuman distributed GPU engineers within a few years. This development will significantly ease experimentation and research, leading to a near-exponential decline in the effective cost of model intelligence. However, this acceleration is not expected to make models dramatically different in nature, but rather to diffuse the technology and improve current capabilities."
+  },
   "https://www.interconnects.ai/p/i-wrote-an-ai-textbook-how-long-until": {
     "created_at": "2026-08-13T11:50:20.738559+00:00",
     "model": "gemini-2.5-flash",
@@ -268,6 +274,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "This is a review of Claude Opus 5, based on hands-on time with the model. It includes a personality analysis, live benchmark results from a 7-model evaluation, and a verdict on its future use. The review also discusses Opus 5's \"neurotic\" personality, a \"verbosity problem,\" and its performance on a benchmark leaderboard."
+  },
+  "https://www.lennysnewsletter.com/p/community-wisdom-community-wisdom": {
+    "created_at": "2026-10-11T16:35:29.845499+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Community Wisdom is a weekly, subscriber-only email that highlights helpful conversations from a members-only Slack community. This edition discusses topics including ML recommendation systems, returning to product after being fired, and deciding when to quit a side project, along with the Community Wisdom Top Contributors Summer Class 2026. The email is sponsored by PostHog, which provides a free year of its analytics and business data service for paid subscribers."
   },
   "https://www.lennysnewsletter.com/p/computer-and-browser-use-in-codex": {
     "created_at": "2026-07-22T12:26:42.937439+00:00",
@@ -556,6 +568,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Anish Acharya, a General Partner at Andreessen Horowitz, discusses why company building will now involve creating a series of loops. The conversation also covers what is happening in consumer right now, the biggest opportunities, and how moats are discovered, not designed, emphasizing the rising importance of distribution as a moat."
+  },
+  "https://www.lennysnewsletter.com/p/why-every-company-now-needs-to-think": {
+    "created_at": "2026-10-11T16:35:05.168882+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Josh Woodward, head of Google Labs, the Gemini app, and AI Studio, oversees Google's largest labs team and focuses on finding, experimenting with, and scaling new AI products. He built a distinctive product culture for generating ideas, running experiments, and knowing when to quit. In a discussion, he explores why every company now needs to operate like a labs team, covering topics such as where ideas come from and how to recognize product-market fit."
   },
   "https://www.newcomer.co/p/9-videos-from-machine-earning-towns": {
     "created_at": "2026-10-06T17:04:33.278832+00:00",
@@ -1336,6 +1354,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Learnings from using AI agents include the necessity of strong permissions to control agent actions, as guardrails alone can lead to unpredictable outcomes. Agents demonstrate preferences for specific software tools, and their output volume requires dedicated project management systems to track numerous tasks. This shift also accelerates product development, urging companies to reassess roadmaps, build comprehensive suites, and consider product value independently of the user interface."
+  },
+  "https://www.saastr.com/jasons-takes-on-this-weeks-20vc-loyalty-changed-for-good-agents-now-pick-your-vendors-and-when-to-take-the-2-billion/": {
+    "created_at": "2026-10-11T16:36:11.696303+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Listen Labs, a three-year-old company, was reportedly acquired by Salesforce for $2 billion, having previously walked away from a $125 million Series C round at a $1.5 billion valuation. This transaction sparked a discussion about whether founders should accept a significant offer within five years if their company is not considered \"generational,\" contrasting with venture capitalists who might advise against selling."
   },
   "https://www.saastr.com/jasons-takes-on-this-weeks-20vc-the-agents-never-suggested-canva-the-meme-you-cant-outrun-and-why-i-only-underwrite-founders-now/": {
     "created_at": "2026-08-17T11:28:53.546458+00:00",

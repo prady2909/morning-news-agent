@@ -365,6 +365,12 @@
     "prompt_version": 1,
     "summary": "Solo founder Yana Welinder launched an AI-native fashion brand, Yana Bana, without an engineering team. She uses ChatGPT and Codex to transform hand-drawn sketches into product images, operate 3D fashion software, research manufacturers, and build an e-commerce site. This approach allows specialized software to be accessible without training and makes previously impractical design ideas possible."
   },
+  "https://www.lennysnewsletter.com/p/how-i-ai-how-meta-designed-muse-with": {
+    "created_at": "2026-10-12T20:10:23.657089+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Alex Cornell, a design director at Meta, explains how Muse, an AI agent, was designed for human-like conversations and an ongoing relationship rather than software interactions. Key principles include progressive disclosure, which offers varying levels of detail, and generative UI, where content changes within a fixed structure. Cornell uses Muse to turn Instagram saves into shopping catalogs and analyze personal data, demonstrating its practical applications."
+  },
   "https://www.lennysnewsletter.com/p/how-i-ai-how-the-founder-of-morning": {
     "created_at": "2026-07-21T12:24:58.537922+00:00",
     "model": "gemini-2.5-flash",
@@ -400,6 +406,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Daniel Blum, a product manager at Melio, developed a Claude- and Cowork-based productivity system to manage his Notion board and process Slack and email. This system runs weekly self-improvement loops without prompts, allowing him to run 70% to 80% of his workday through it. He also built a \"Workstation\" onboarding plugin to provide personalized Claude setups for other Melio employees."
+  },
+  "https://www.lennysnewsletter.com/p/how-meta-designed-muse-an-ai-agent": {
+    "created_at": "2026-10-12T20:10:38.996526+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Alex Cornell, a design director at Meta, leads the design for Muse, Meta's consumer AI agent. He has built a thoughtful agent interface featuring a custom avatar, a three-layer status display, a personalized ideas surface, and a generative feed, designed to feel like messaging. Muse can also turn Instagram saves into a shopping catalog and track golf games."
   },
   "https://www.lennysnewsletter.com/p/how-openai-uses-chatgpt-sites-live": {
     "created_at": "2026-10-05T19:32:51.626345+00:00",
@@ -1421,6 +1433,12 @@
     "prompt_version": 1,
     "summary": "Only seven public B2B software companies are currently growing faster than 30%, a notable decrease from 2021 when the median growth rate was above this figure. This has led to two distinct B2B markets: a small group of public companies often leveraging AI-driven demand and consumption-based pricing, and a separate, faster-growing cohort of AI-native companies that show significantly higher growth rates."
   },
+  "https://www.saastr.com/our-ai-agent-picked-render-over-railway-and-vercel-id-never-heard-of-it-thats-how-you-get-leads-in-the-agent-age/": {
+    "created_at": "2026-10-12T20:11:13.023984+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "An AI agent recommended Render for app hosting, despite the author's unfamiliarity with the service. The agent first defined the app's hosting requirements before evaluating multiple vendors and selecting Render as its pick. Render was chosen for being \"built for exactly this shape,\" leading the author to test it first."
+  },
   "https://www.saastr.com/our-ai-agent-rewrote-our-app-without-telling-us-the-agents-12-is-here/": {
     "created_at": "2026-08-06T12:58:30.117772+00:00",
     "model": "gemini-2.5-flash",
@@ -1570,6 +1588,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "\"Irreplaceable\" employees, or \"Keepers,\" are defined by specific valuable traits, including proactively taking on and completing tasks without being asked. They also maintain consistent output whether supervised or not, and deliver bad news early, even if it makes them look bad. The text suggests that companies should prioritize retaining these individuals, even to the point of inventing roles for them, as their value extends beyond specific skill sets."
+  },
+  "https://www.saastr.com/the-latest-saastr-ai-agent-playbook-for-gtm-is-out-everything-weve-learned-running-saastr-on-3-humans-and-21-ai-agents-in-one-handy-guide/": {
+    "created_at": "2026-10-12T20:10:58.448283+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "SaaStr has released the October 2026 edition of its AI Agent Playbook for GTM, detailing everything learned from running on 3 humans and 21+ AI agents in production. The 53-page guide includes financial results like $4.8M in pipeline sourced and a revenue increase from -19% to +47% year over year. It also covers new topics such as agent evolution patterns, headless CRM, and six new case studies."
   },
   "https://www.saastr.com/the-new-career-path-joining-a-0-grower-maybe-for-many-its-better/": {
     "created_at": "2026-09-21T16:52:13.519340+00:00",
@@ -1744,6 +1768,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "A trend capturing attention is the idea that managers and other leaders will be much less important, with a focus instead on skilled individual contributor builders. Headlines about companies pushing for fewer managers support this idea."
+  },
+  "https://www.svpg.com/predictability-vs-outcomes/": {
+    "created_at": "2026-10-12T20:10:06.245220+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "An engineer was taught the importance of outcome over output while being coached to become a tech lead. They learned that it was no longer enough to just build and ship, but to ensure the solution actually solves the underlying problem."
   },
   "https://www.svpg.com/strong-opinions-loosely-held/": {
     "created_at": "2026-09-12T13:54:58.803393+00:00",

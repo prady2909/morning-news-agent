@@ -695,6 +695,12 @@
     "prompt_version": 1,
     "summary": "India Quotient, a VC firm, made a significant 2015 seed investment in ShareChat, an Indian local-language social network, which saw its valuation jump during the pandemic and provided a 77x return. However, the lack of an exit and uncertain valuation for ShareChat has since hobbled the performance of India Quotient's second fund, illustrating how the venture capital power law doesn't always play out as expected."
   },
+  "https://www.newcomer.co/p/indian-vc-firms-are-following-founders": {
+    "created_at": "2026-10-15T15:31:40.666097+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Indian founders are increasingly moving to the US for AI opportunities and to learn about the US market. Following this trend, Indian VC firms are also expanding their presence in the Bay Area, opening offices and hiring executives. This comes after Indian VCs made over a hundred investments in US-based companies over the past two years."
+  },
   "https://www.newcomer.co/p/introducing-newcomers-vc-sentiment": {
     "created_at": "2026-09-23T15:21:57.183416+00:00",
     "model": "gemini-2.5-flash",
@@ -929,6 +935,12 @@
     "prompt_version": 1,
     "summary": "Through July 28, 2026, US VC-backed IPO value totaled $1,786.8 billion, primarily driven by SpaceX's $1.77 trillion valuation. Without SpaceX, the other 43 IPOs combined are worth roughly $17 billion, and many capital-intensive AI infrastructure companies have seen significant post-IPO stock declines. Furthermore, no venture-backed B2B software unicorns have filed for IPOs this year, as public markets are evaluating B2B companies based on AI's impact on their necessity."
   },
+  "https://www.saastr.com/2027aievents/": {
+    "created_at": "2026-10-15T15:31:58.262472+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "SaaStr AI Annual 2027 will be held May 11-12, 2027, following the 2026 event where its top nine sponsors averaged 957 leads each. The event targets founders, CEOs, and C-suite executives, and the 2027 iteration plans for over 10,000 attendees and 3,000+ scheduled 1-on-1 meetings."
+  },
   "https://www.saastr.com/20vc-x-saastr-anthropics-s-1-leaks-instinct-hits-10-billion-in-33-days-amd-buys-world-labs-and-meta-poaches-mongodbs-ceo/": {
     "created_at": "2026-10-01T17:18:23.071091+00:00",
     "model": "gemini-2.5-flash",
@@ -988,6 +1000,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Atlassian reported Q4 results with total revenue up 28% and cloud revenue accelerating 31%, resulting in a 35% single-day stock increase. The company is bundling new AI capabilities for free, impacting future operating margins as costs are incurred before revenue. Remaining performance obligations (RPO) grew 44%, indicating growth from long, multi-year enterprise contracts."
+  },
+  "https://www.saastr.com/5-interesting-learnings-from-bending-spoons-at-2-8-billion-in-revenue-126-growth-3-organic-growth-and-1-08-billion-of-arr-bought-in-37-days/": {
+    "created_at": "2026-10-15T15:31:23.065619+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Bending Spoons reported Q2 revenue of $704M, an increase of 126%, with 3% organic growth. The company recently acquired Airtable and Miro, accumulating $1.08 billion of ARR in 37 days for $2.64 billion of enterprise value. Its CEO also stated that AI now generates at least 90% of the company's code."
   },
   "https://www.saastr.com/5-interesting-learnings-from-gitlab-at-1-13-billion-in-revenue-24-billings-growth-20m-of-flex-in-six-weeks-and-400-basis-points-of-ai-margin-cost/": {
     "created_at": "2026-09-25T15:45:46.692790+00:00",

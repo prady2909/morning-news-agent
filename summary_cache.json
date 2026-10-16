@@ -713,6 +713,12 @@
     "prompt_version": 1,
     "summary": "Venture capitalists are investing in AI agents to reshape e-commerce and payments, primarily focusing on building the infrastructure and tools needed for these agents to be trusted with customer credit cards and shopping choices. Consumer use of AI for online shopping has increased significantly, with startups developing various categories of agents including multipurpose personal agents, shopping assistants, marketing technology, smart payment systems, and underlying transaction infrastructure."
   },
+  "https://www.newcomer.co/p/investors-turn-on-data-center-builders": {
+    "created_at": "2026-10-16T15:17:37.447449+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Rising interest rates, political backlash, and general market jitters are challenging \"neocloud\" companies building AI infrastructure. Firms like CoreWeave, Firmus Grid, and Nscale, which took on significant debt, are facing scrutiny, with CoreWeave's debt recently trading at distress levels and Firmus Grid's IPO pulled. This comes as Anthropic's revenue growth has slowed, raising questions about the large projected spending on data center capacity."
+  },
   "https://www.newcomer.co/p/ipo-party-faces-down-volatility-and": {
     "created_at": "2026-07-17T22:41:15.981737+00:00",
     "model": "gemini-2.5-flash",
@@ -928,6 +934,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Atomic Machines has emerged from six years in stealth with a product called the Matter Compiler. This AI-native manufacturing system builds micro-machines directly from code, aiming to eliminate per-product tooling and process development. The company's first product, the PrimeSwitch PS-150, is a relay for data centers, and it is now shipping to early customers."
+  },
+  "https://www.notboring.co/p/weekly-dose-of-optimism-215": {
+    "created_at": "2026-10-16T15:18:08.965770+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Arrowhead Pharmaceuticals reported interim Phase 1/2a data for ARO-MAPT, a drug designed to silence the gene producing tau, a protein associated with Alzheimer's disease. Healthy volunteers receiving two subcutaneous doses saw their mean total tau in spinal fluid decrease by 73% by Day 105. This effect held for three months after the last shot, with further data expected in 2027 as early Alzheimer's cohorts enroll."
   },
   "https://www.saastr.com/2026-is-the-biggest-ipo-year-in-history-but-take-out-one-company-and-its-one-of-the-worst/": {
     "created_at": "2026-08-03T13:43:45.186286+00:00",
@@ -1313,6 +1325,12 @@
     "prompt_version": 1,
     "summary": "Founders are increasingly returning to lead their pre-AI B2B companies, particularly those focused on seat-priced applications, which are now facing AI as a significant headwind. This situation is termed \"The Last Stand\" because founders are uniquely positioned and willing to implement the drastic rebuilds needed to stop decline and re-establish the company's foundation, a task hired CEOs often cannot perform."
   },
+  "https://www.saastr.com/g2s-2026-ai-agents-report-only-9-of-buyers-think-seat-pricing-is-fair-57-want-usage-based-and-74-will-shop-you-at-renewal/": {
+    "created_at": "2026-10-16T15:17:52.307727+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Only 9% of B2B software buyers consider per-seat pricing fair for AI agent services, with 57% preferring usage-based models such as pay-as-you-go. A significant 74% of buyers are open to replacing their current vendor at renewal, influenced by expectations for stronger agent capabilities and concerns about higher-than-expected operating costs."
+  },
   "https://www.saastr.com/gammas-ceo-why-getting-to-100m-arr-without-a-sales-team-worked-and-why-it-was-a-mistake/": {
     "created_at": "2026-08-16T11:22:31.299732+00:00",
     "model": "gemini-2.5-flash",
@@ -1438,6 +1456,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "SaaStr operates using roughly three humans and 20 AI agents, which handle various operational roles and are connected to real systems. The article details what specific agents do, what they refuse to do, and where they have failed. Common issues noted include verification taking longer than building, agents fixing only pointed-at issues, and accidental visibility into agent changes."
+  },
+  "https://www.saastr.com/meta-ships-muse-wonder-jev-raises-870m-24-days-after-launch-and-anthropic-cuts-haiku-90-the-top-takeaways-from-this-weeks-20vc-x-saastr/": {
+    "created_at": "2026-10-16T15:18:30.021807+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Anthropic has reduced the pricing for its Haiku model by 90% with the release of Haiku 5.5. For prompts under 100K, the cost is now $0.10/$0.50 per million tokens, a decrease from the previous $1/$5. The company notes that 90% of past Haiku requests were within this specific tier."
   },
   "https://www.saastr.com/nues-guided-selling-playbook-took-2-minutes-to-build-the-implementation-still-takes-90-days/": {
     "created_at": "2026-08-04T13:04:55.555311+00:00",

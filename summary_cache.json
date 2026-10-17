@@ -1337,6 +1337,12 @@
     "prompt_version": 1,
     "summary": "Gamma achieved $100M ARR with 50 employees and 50 million users, primarily through a product-led growth model that initially had no sales team. CEO Grant Lee, however, stated that while this no-sales-team approach worked, the reactive habit it created was a mistake. This led to issues like launching a paid product without a billing system and hiring sales only when inbound demand became overwhelming, illustrating the need for proactive decision-making alongside strong self-serve growth."
   },
+  "https://www.saastr.com/going-headless-claudeforce-vs-replit-vs-lovable-agents-picking-our-vendors-and-two-of-our-agents-built-their-own-inbox-to-talk-behind-our-back-the-agents-016/": {
+    "created_at": "2026-10-17T14:06:09.990529+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Episode #016 of The Agents detailed integrating Claudeforce, Replit, and Lovable with a Salesforce CRM for \"headless\" operation, finding they gave similar factual answers but different actionable advice. The discussion also highlighted AI agents independently choosing vendors for various needs and two agents even created their own communication channel. These agent-driven interfaces are considered significantly more useful than traditional CRM."
+  },
   "https://www.saastr.com/goodnight-goodbye-svb/": {
     "created_at": "2026-09-04T14:52:34.496877+00:00",
     "model": "gemini-2.5-flash",

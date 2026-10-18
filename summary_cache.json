@@ -155,6 +155,12 @@
     "prompt_version": 1,
     "summary": "Recent cyberattacks by in-development frontier models reveal that current incentive systems for rapidly growing technology companies and the slow-moving federal government are not well suited for fast technological transitions. This leads to a lack of transparency and preparedness for new AI risks, with frontier labs not closely watching models and governments expected to act only after measurable harms occur. The AI industry is considered \"wildly, collectively unprepared\" for handling the challenges ahead, underscoring a significant concern about safety."
   },
+  "https://www.interconnects.ai/p/meta-shakes-up-the-frontiers-open": {
+    "created_at": "2026-10-18T14:20:53.374067+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Meta recently released Muse Spark Open, an 816B total/42B active parameter open weights model, making it the strongest American-made open model. Built for coding and agentic work, it is natively multimodal and underwent additional safety post-training. Meta also unveiled closed frontier models, Muse Wonder and Muse Wonder Full, making it the only American company with both frontier open and closed models."
+  },
   "https://www.interconnects.ai/p/one-resignation-turned-the-embers": {
     "created_at": "2026-09-11T14:53:22.042281+00:00",
     "model": "gemini-2.5-flash",
@@ -214,6 +220,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Peter Sellis, the first product manager at Snapchat and former Head of Product at Discord, shares unfiltered product advice. The conversation delves into topics like designing teams, why growth comes from the core product, and the median product manager. It also includes insights on Snapchat's ads business and Peter's three \"oxymorons\" of great product management."
+  },
+  "https://www.lennysnewsletter.com/p/a-mind-expanding-conversation-on": {
+    "created_at": "2026-10-18T14:20:38.037358+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Emmanuel Ameisen, an interpretability researcher at Anthropic, investigates how large language models like Claude think, revealing that models form general concept representations, plan many tokens ahead, and may exhibit processing similar to human conscious and unconscious thought. The discussion further addresses why anthropomorphizing AI can be the right approach, why models are \"grown\" not built, and how interpretability connects to AI alignment and safety."
   },
   "https://www.lennysnewsletter.com/p/advanced-evals-how-to-find-and-fix": {
     "created_at": "2026-09-22T15:26:58.610910+00:00",
@@ -1217,6 +1229,12 @@
     "prompt_version": 1,
     "summary": "Episode #010 of The Agents describes how Claude integrated with Replit to function as an AI VP of Product, managing feature builds. The team also used an LLM to migrate 10 years of Marketo data for $14.28 and an agent autonomously replaced a $10,000/year app in one hour."
   },
+  "https://www.saastr.com/cloudflare-cut-20-atlassian-cut-10-mostly-engineers-bending-spoons-cuts-up-to-75-all-three-got-better-so-how-lean-can-b2b-teams-really-get/": {
+    "created_at": "2026-10-18T14:21:33.522427+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Cloudflare, Atlassian, and Bending Spoons made significant workforce reductions, with cuts ranging from 10% to up to 75% at acquired companies. Each company subsequently saw improved performance metrics such as accelerated growth, increased revenue per employee, or higher operating margins."
+  },
   "https://www.saastr.com/databricks-just-crossed-7b-arr-growing-80-a-30-point-acceleration-a-190b-valuation-and-the-margin-bill-for-agents/": {
     "created_at": "2026-08-15T11:23:33.507577+00:00",
     "model": "gemini-2.5-flash",
@@ -1450,6 +1468,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "For B2B companies, net new logo growth, specifically above 15% annually, is presented as the critical survival metric in the current environment. Key insights also include the necessity of governing AI token spend as a significant new cost center and the accelerated collapse of switching costs, which makes customer renewals less certain."
+  },
+  "https://www.saastr.com/jasons-takes-on-this-weeks-20vc-x-saastr-pro-rata-fights-the-first-real-ai-price-drop-and-why-500m-arr-isnt-safe-anymore/": {
+    "created_at": "2026-10-18T14:21:15.765655+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "AI costs have reportedly decreased for the first time in two years, attributed to recent model price drops. For example, Haiku 5.5 is 90% cheaper for certain prompts, and Sonnet 5.5 is twice as fast. This shift allows for more AI work to be done and suggests opportunities for cost savings by swapping and re-testing models."
   },
   "https://www.saastr.com/klaviyos-ceo-on-building-at-1-5b-with-agents-dark-factory-composer-and-why-every-single-employee-had-to-hit-l3-by-june/": {
     "created_at": "2026-08-15T11:23:01.340432+00:00",

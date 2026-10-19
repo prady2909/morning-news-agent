@@ -281,6 +281,12 @@
     "prompt_version": 1,
     "summary": "Grace Clarke, an AI educator, runs her entire service business using tools she built with Claude Code, such as a pipeline operator and a Gmail replacement. She teaches individuals and teams to build similar systems, including an hourly pipeline and interactive HTML proposals, and how to use a \"voice guide\" skill file for personalized outputs. The content also covers \"intent engineering\" and using Claude for diverse tasks from client work to personal tracking."
   },
+  "https://www.lennysnewsletter.com/p/claude-cuts-my-tiktok-how-this-creator": {
+    "created_at": "2026-10-19T17:22:23.949963+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Brooke Lacey, a creator with over 290,000 TikTok followers, scales her video production using an AI workflow. She employs Claude Code, FFmpeg, and Whisper to edit her TikToks in about 15 seconds and mines comments for new scripts. This process allows her to run a weekly short-form operation without an editor."
+  },
   "https://www.lennysnewsletter.com/p/claude-opus-5-review-this-model-is": {
     "created_at": "2026-07-25T12:04:21.346675+00:00",
     "model": "gemini-2.5-flash",
@@ -406,6 +412,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "A new decision model called Jev makes large-scale data analysis and real-time applications more practical and cost-effective by returning structured choices instead of generated text. Separately, the usability and performance of Claude Opus 5.5 have brought one user back to the model for tasks such as frontend design and SVG illustration. A blind comparison of Opus 5.5 and GPT-6 Sol also highlighted how ergonomics, cost, and specific task performance influence model selection."
+  },
+  "https://www.lennysnewsletter.com/p/how-i-ai-meta-muse-wonder-how-brooke": {
+    "created_at": "2026-10-19T17:22:08.401650+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Meta's new Muse Wonder model performed strongly in agentic tasks, excelling at billing support, inbox triage, computer use, and email writing due to its \"active focus\" capability. However, it consistently fell short in design and visual work, struggling with prototypes and video editing. The model is considered promising for agent workflows and knowledge-work orchestration, but not for design-related tasks."
   },
   "https://www.lennysnewsletter.com/p/how-i-ai-metas-muse-review-how-warp": {
     "created_at": "2026-09-21T16:51:17.310296+00:00",
@@ -755,6 +767,12 @@
     "prompt_version": 1,
     "summary": "The financial services industry is being transformed by AI, leading venture capitalists to back startups creating AI-powered tools. These tools assist bankers and finance workers with tasks such as deal sourcing, daily operations, fraud detection, and compliance. AI applications are emerging across areas including investment banking, wealth management, accounting, and lending."
   },
+  "https://www.newcomer.co/p/mercury-crosses-1-billion-annualized": {
+    "created_at": "2026-10-19T17:22:40.673263+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Mercury's CEO shared that its fintech business has reached $1 billion in annualized revenue, marking a 50% increase year over year. The company now serves over 450,000 customers and is launching a payroll service. The conversation also covered AI agents, the startup market, and the fintech industry's cooldown."
+  },
   "https://www.newcomer.co/p/nvidia-is-carrying-the-ai-economy": {
     "created_at": "2026-08-28T21:20:53.938131+00:00",
     "model": "gemini-2.5-flash",
@@ -1018,6 +1036,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "SaaStr AI provides advertisers with live dashboards and reconciled performance numbers, tracked in real-time by an AI VP of Marketing. One campaign delivered over 5.4 million impressions across 67 newsletter editions, resulting in 11,749 visits from B2B buyers to a sponsor's signup form. This advertising targets B2B decision-makers with budget authority across multiple channels, leading to measurable revenue and renewals for sponsors."
+  },
+  "https://www.saastr.com/5-interesting-learnings-from-anthropics-data-on-its-own-workforce-junior-technical-hiring-down-from-27-to-9-agents-working-6x-the-hours-of-humans-and-agents-waiting-on-a-human-80-of-the-time/": {
+    "created_at": "2026-10-19T17:22:57.352830+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Anthropic's report on its workforce reveals that junior technical hiring has significantly decreased, with new hires being assessed more for autonomy and judgment than domain expertise. Despite this, overall headcount tripled, and agents now work six times more hours than humans, though they spend 80% of that time waiting for human responses."
   },
   "https://www.saastr.com/5-interesting-learnings-from-atlassian-at-6-6-billion-in-arr-28-growth-44-rpo-growth-and-a-35-one-day-stock-pop/": {
     "created_at": "2026-08-20T11:29:21.702667+00:00",
@@ -1720,6 +1744,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Many B2B software companies are entering a \"terminal state\" with growth rates under 5%, as the market no longer views them as reliable annuities. This shift is driven by AI, which directly impacts the seat-based model that previously sustained growth and high net revenue retention. Consequently, the premium once paid for these software economics has vanished, and the market now questions the long-term durability of their cash flows."
+  },
+  "https://www.saastr.com/the-top-10-mistakes-i-see-in-the-vp-of-sales-hiring-process/": {
+    "created_at": "2026-10-19T17:23:13.961881+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "The article outlines ten common mistakes founders make when hiring a VP of Sales or CRO. These errors include selecting candidates who do not genuinely understand the product, lack a pipeline of strong recruits, or are unwilling to actively sell or visit customers. Further issues involve hiring individuals who are cynical, overly focused on social media, seeking a different role, or primarily chosen for their former employer's prestige rather than their current capabilities."
   },
   "https://www.saastr.com/the-top-sales-lessons-from-saastr-ai-2026-gamma-owner-stripe-salesforce-cloudflare-and-monaco/": {
     "created_at": "2026-07-28T12:56:49.977757+00:00",

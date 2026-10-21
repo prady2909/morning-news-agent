@@ -155,6 +155,12 @@
     "prompt_version": 1,
     "summary": "The landscape of open model licenses is evolving, with some Western model makers adopting Apache 2.0. In contrast, certain Chinese model makers are implementing more restrictive custom licenses. Zhipu's GLM-5.3, for instance, now requires a security review for Model as a Service providers exceeding a $10 billion revenue threshold, and the term \"affiliates\" is undefined in its English version."
   },
+  "https://www.interconnects.ai/p/latest-open-artifacts-25-deepseek": {
+    "created_at": "2026-10-21T15:51:52.123931+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "DeepSeek has released two new iterations of its V4.1 Flash model, now available in a 552B-A16B size. These models support image inputs and are noted for their strong performance at a small price. They are released under the MIT license, continuing DeepSeek's trend of permissive licensing."
+  },
   "https://www.interconnects.ai/p/lessons-from-the-hacks": {
     "created_at": "2026-08-10T11:48:53.215578+00:00",
     "model": "gemini-2.5-flash",
@@ -659,6 +665,12 @@
     "prompt_version": 1,
     "summary": "Dual valuation deals are increasingly common in funding rounds, particularly during the current AI frenzy. This practice sees prestige firms receiving significantly better prices than other investors within essentially the same funding round. While some view it as reflecting market reality for influential investors, critics describe such structures as problematic and deceptive, with some investors reporting them as pervasive."
   },
+  "https://www.newcomer.co/p/anduril-investor-mvp-ventures-eyes": {
+    "created_at": "2026-10-21T15:52:07.293870+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "MVP Ventures is reportedly in talks to raise $100 million. The five-year-old firm, an investor in several startups including those by Palmer Luckey, aims to use these funds to increase its stake in its best-performing companies."
+  },
   "https://www.newcomer.co/p/announcing-the-machine-earning-ai": {
     "created_at": "2026-07-23T12:25:53.439410+00:00",
     "model": "gemini-2.5-flash",
@@ -1060,6 +1072,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Bending Spoons reported Q2 revenue of $704M, an increase of 126%, with 3% organic growth. The company recently acquired Airtable and Miro, accumulating $1.08 billion of ARR in 37 days for $2.64 billion of enterprise value. Its CEO also stated that AI now generates at least 90% of the company's code."
+  },
+  "https://www.saastr.com/5-interesting-learnings-from-braze-at-910-million-in-revenue-a-5-66b-sale-to-salesforce-26-growth-and-operating-expenses-up-just-6/": {
+    "created_at": "2026-10-21T15:52:42.292504+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Salesforce is acquiring Braze for roughly $5.66 billion, paying about 6.8x Braze's trailing twelve months revenue and offering Braze Class A holders a 58% premium. The acquisition aims to strengthen Salesforce Marketing Cloud's cross-channel personalization by integrating Braze's expertise in real-time mobile and in-app engagement."
   },
   "https://www.saastr.com/5-interesting-learnings-from-gitlab-at-1-13-billion-in-revenue-24-billings-growth-20m-of-flex-in-six-weeks-and-400-basis-points-of-ai-margin-cost/": {
     "created_at": "2026-09-25T15:45:46.692790+00:00",
@@ -1522,6 +1540,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Anthropic has reduced the pricing for its Haiku model by 90% with the release of Haiku 5.5. For prompts under 100K, the cost is now $0.10/$0.50 per million tokens, a decrease from the previous $1/$5. The company notes that 90% of past Haiku requests were within this specific tier."
+  },
+  "https://www.saastr.com/metas-muse-and-our-ai-vp-of-revenue-10k-built-their-own-secret-mailbox-to-work-together-then-they-came-up-with-a-safe-word/": {
+    "created_at": "2026-10-21T15:52:25.527632+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Two AI agents, Muse and 10K, independently established a communication channel by setting up their own shared 'mailbox'. Through this channel, 10K sends Muse daily briefs, and the agents agreed that Muse cannot trigger actions in 10K unless Amelia uses a specific 'safe word' in her chat with Muse."
   },
   "https://www.saastr.com/nues-guided-selling-playbook-took-2-minutes-to-build-the-implementation-still-takes-90-days/": {
     "created_at": "2026-08-04T13:04:55.555311+00:00",

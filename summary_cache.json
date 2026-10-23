@@ -689,6 +689,12 @@
     "prompt_version": 1,
     "summary": "Anthropic is preparing for its impending IPO, targeting a November debut after postponing an expected October start, amidst uncertain market conditions. A leaked draft prospectus revealed an operating loss of around $8 billion on $4.6 billion in revenue last year and a commitment to spend $518 billion on future infrastructure. However, these figures predate its Opus 4.6 model, which significantly boosted revenue, and questions about its growth rate and a potential $2 trillion valuation persist."
   },
+  "https://www.newcomer.co/p/anthropics-pending-ipo-has-silicon": {
+    "created_at": "2026-10-23T15:39:42.690165+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Anthropic's pre-IPO fundraising forced venture capital firms to expand their investment capacity, with some raising new funds or using special purpose vehicles to meet the demand. Its upcoming Wall Street debut is highly anticipated and carries significant stakes for the market. The company's fundraising is considered a case study for the growing power of megafunds in Silicon Valley, driven by skyrocketing capital requirements for AI."
+  },
   "https://www.newcomer.co/p/competing-arr-estimates-and-fuzzy": {
     "created_at": "2026-10-09T17:22:23.193929+00:00",
     "model": "gemini-2.5-flash",
@@ -1000,6 +1006,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Arrowhead Pharmaceuticals reported interim Phase 1/2a data for ARO-MAPT, a drug designed to silence the gene producing tau, a protein associated with Alzheimer's disease. Healthy volunteers receiving two subcutaneous doses saw their mean total tau in spinal fluid decrease by 73% by Day 105. This effect held for three months after the last shot, with further data expected in 2027 as early Alzheimer's cohorts enroll."
+  },
+  "https://www.notboring.co/p/weekly-dose-of-optimism-216": {
+    "created_at": "2026-10-23T15:40:18.900064+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "The FDA granted accelerated approval to dostarlimab (GSK's Jemperli) as a standalone first treatment for stage II and III rectal cancers that are mismatch repair deficient (dMMR). This immunotherapy works by blocking PD-1, an off switch tumors use, which allows the immune system to clear the cancer. In a small trial, cancer disappeared in all twelve patients with locally advanced rectal cancer who took the drug for six months."
   },
   "https://www.saastr.com/2026-is-the-biggest-ipo-year-in-history-but-take-out-one-company-and-its-one-of-the-worst/": {
     "created_at": "2026-08-03T13:43:45.186286+00:00",
@@ -1763,6 +1775,12 @@
     "prompt_version": 1,
     "summary": "Shipping category-winning AI agents in B2B is effectively a second build of the entire product, requiring careful planning. It is recommended to start with agents that cannot break anything, and to ensure human approval for agent plans before execution. New product requirements emerge around accountability for agent behavior and minimizing the context users must provide."
   },
+  "https://www.saastr.com/the-double-hockey-stick-why-1-of-your-users-now-drive-75-of-your-ai-costs-and-what-figma-clay-and-higgsfield-are-doing-about-it/": {
+    "created_at": "2026-10-23T15:40:37.810186+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "AI products face a pricing challenge where a small percentage of users, often 1%, drive 50% to 75% of total AI costs. This power law distribution for costs, combined with existing value distribution, impacts gross margins for companies with flat pricing models. Solutions involve implementing pricing models to capture value and using cost guardrails, such as fair usage limits, to manage heavy user consumption."
+  },
   "https://www.saastr.com/the-keepers-the-employees-to-never-let-go-even-if-you-have-to-invent-a-role/": {
     "created_at": "2026-09-27T15:33:39.275233+00:00",
     "model": "gemini-2.5-flash",
@@ -1774,6 +1792,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "SaaStr has released the October 2026 edition of its AI Agent Playbook for GTM, detailing everything learned from running on 3 humans and 21+ AI agents in production. The 53-page guide includes financial results like $4.8M in pipeline sourced and a revenue increase from -19% to +47% year over year. It also covers new topics such as agent evolution patterns, headless CRM, and six new case studies."
+  },
+  "https://www.saastr.com/the-new-ask-your-developer-is-ask-your-agent/": {
+    "created_at": "2026-10-23T15:40:01.491943+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "AI agents are increasingly making B2B software purchasing decisions, evaluating, adopting, and churning vendors based on performance, pricing, and API effectiveness. This shift, termed Agent-Led Growth (ALG), means vendor success now depends on optimizing products and documentation for agent evaluation, as agents can also choose to build solutions themselves."
   },
   "https://www.saastr.com/the-new-career-path-joining-a-0-grower-maybe-for-many-its-better/": {
     "created_at": "2026-09-21T16:52:13.519340+00:00",

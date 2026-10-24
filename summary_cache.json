@@ -23,6 +23,12 @@
     "prompt_version": 1,
     "summary": "This project focuses on building an AI text detector from scratch to explain how such systems work. It aims to demonstrate an applied end-to-end LLM project, including its use as a verifier to train a small language model to produce text that avoids detection. The project will result in an AI-detector API and a user-friendly interface."
   },
+  "https://magazine.sebastianraschka.com/p/building-reasoning-models": {
+    "created_at": "2026-10-24T14:19:31.641039+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "A new full video course, \"Build Your Own Reasoning Model,\" has been released, offering eight coding videos (11 hours) that teach how reasoning models work. It implements these models from the ground up in Python and PyTorch, covering methods such as inference scaling, reinforcement learning, and distillation with a pre-trained LLM."
+  },
   "https://magazine.sebastianraschka.com/p/classifier-history-and-jev": {
     "created_at": "2026-09-29T16:50:00.136944+00:00",
     "model": "gemini-2.5-flash",
@@ -1762,6 +1768,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "B2B seat-based software pricing models are facing growing pressure and are considered to be dying due to aggressive price increases, CIOs reallocating budgets to AI, and a disconnect between headcount and software value. Three new models—Consumption, Outcome, and Resolution—are emerging, but incumbents are advised to transition by adding new pricing lines in segments rather than a full conversion."
+  },
+  "https://www.saastr.com/the-agent-led-growth-playbook-a-10-minute-inbound-booking-a-46-of-50-aeo-score-and-why-first-party-data-beats-every-signal-tool-the-agents-017/": {
+    "created_at": "2026-10-24T14:19:51.152620+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "A recent session outlined an agent-led growth stack focusing on using AI agents for go-to-market functions and getting picked by other agents. The company employs its main agent, 10K, and a tool called The Prospector to automate and centralize inbound, outbound, renewals, and support, which can lead to quick meeting bookings. An AEO audit also helps optimize content so that external AI agents recommend the company, prioritizing verifiable facts over opinion."
   },
   "https://www.saastr.com/the-ai-board-member-why-yours-should-chair-the-next-meeting-for-real/": {
     "created_at": "2026-08-03T13:44:00.632067+00:00",

@@ -197,6 +197,12 @@
     "prompt_version": 1,
     "summary": "This reading list provides a comprehensive overview of open models in AI, discussing their definition, release strategies, business implications, and potential risks. It also addresses the US-China competition in open models, detailing China's advantages and the use of Chinese models by Western companies. Technical details like distillation and the narrowing performance gap between open and closed models are also covered."
   },
+  "https://www.interconnects.ai/p/podcast-kimi-k31-pro-the-new-cyber": {
+    "created_at": "2026-10-25T14:54:12.625309+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "The podcast discussed Kimi K3.1 Pro, noting its mixed reaction despite incredible benchmark scores. Questions were raised about its adoption and the implications of serving a 3-trillion parameter model. The developers intentionally reduced the model's offensive cyber capabilities as part of their open-weight principles."
+  },
   "https://www.interconnects.ai/p/teaching-everyone-to-fish-for-tokens": {
     "created_at": "2026-08-18T11:28:18.752564+00:00",
     "model": "gemini-2.5-flash",
@@ -262,6 +268,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "All main-stage talks from the recent Lenny & Friends Summit are now available online, with a full list and playlist provided. The summit highlighted themes such as the need for in-person events, the evolving role of product management, and the importance of building valuable products in an AI-driven landscape. Attendees and speakers reflected on the shared experience of navigating an uncertain but ambitious future in product."
+  },
+  "https://www.lennysnewsletter.com/p/an-86-minute-guide-to-finding-pmf": {
+    "created_at": "2026-10-25T14:53:51.809080+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "This 86-minute guide features Rob Snyder, author of \"The Power of Pull,\" sharing his step-by-step framework for finding product-market fit. Drawing on his experience as a founder and advisor to over 50 startups, he discusses topics from idea generation to sales tactics, including his PULL framework."
   },
   "https://www.lennysnewsletter.com/p/announcing-lennys-jobs-the-best-place": {
     "created_at": "2026-08-19T11:27:05.569996+00:00",
@@ -1463,6 +1475,12 @@
     "prompt_version": 1,
     "summary": "The Silicon Valley Bank (SVB) brand will be retired starting in early October, with its services transitioning under First Citizens' new brand names, marking the end of a 43-year-old institution crucial to the startup economy. SVB failed in March 2023 due to mismanagement, including issues with interest rate risk and concentrated deposits, and its acquirer, First Citizens, is still paying the FDIC for the deal and facing a trademark lawsuit."
   },
+  "https://www.saastr.com/half-your-crm-is-wrong-ai-prospecting-in-a-world-of-49-exec-turnover/": {
+    "created_at": "2026-10-25T14:54:50.722623+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "At SaaStr AI Day, Aurasell showcased an AI prospecting agent built to use first-party data, including CRM history and meeting transcripts. An agent used a detail about a prospect's home fish tank from an old meeting transcript to book a meeting, demonstrating personalized outreach that third-party data would not have. The agent creates unique outreach plans for each contact, which are dynamically replanned based on signals such as email opens or LinkedIn replies."
+  },
   "https://www.saastr.com/harvey-puts-a-former-practicing-lawyer-in-every-deployment-about-180-of-them-heres-how-that-model-works/": {
     "created_at": "2026-09-13T14:49:55.105719+00:00",
     "model": "gemini-2.5-flash",
@@ -1984,6 +2002,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "The author's company migrated from Marketo after their agent encountered severe API limitations, repeatedly stalling and recommending alternatives. This decision, driven by the agent's functional assessment rather than a human procurement process, highlights a shift where API quality becomes a primary churn factor. Vendors face a new challenge as agents, without loyalty or political reasons, surface product failures and suggest replacements."
+  },
+  "https://www.saastr.com/your-top-job-for-2027-hire-1-2-execs-who-can-take-the-load-not-just-do-the-work/": {
+    "created_at": "2026-10-25T14:54:30.743260+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "For 2027, the top priority should be hiring one or two executives who can take on the organizational \"load,\" not just the \"work.\" Ex-founders are often ideal candidates due to their unique ownership mindset, but it is crucial to assess if they still have the capacity for demanding, long-term roles. Such hires are essential to delegate ultimate responsibility and reduce the personal burden on a CEO."
   },
   "https://www.svpg.com/a-fresh-definition-of-the-product-role/": {
     "created_at": "2026-08-11T11:45:33.478554+00:00",

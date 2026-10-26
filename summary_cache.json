@@ -389,6 +389,12 @@
     "prompt_version": 1,
     "summary": "Nick Baumann from OpenAI demonstrated his AI workflow using ChatGPT, Codex, and Voice to automate significant parts of his work and life. He showed how these tools manage tasks, monitor emails, book travel, build websites, and edit videos, with Codex operating his computer and managing parallel tasks. The demonstration also highlighted Voice as a method for giving AI more context, often leading to better results."
   },
+  "https://www.lennysnewsletter.com/p/how-i-ai-claude-duet-honest-review": {
+    "created_at": "2026-10-26T17:09:40.891880+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "A review of Claude Duet, Anthropic's new personal AI agent, found it to be a polished and thoughtfully designed tool. However, the agent suffered from slow responses, quiet notifications, and a lack of desktop and team support. These factors prevented it from earning a permanent place in the reviewer's daily AI stack."
+  },
   "https://www.lennysnewsletter.com/p/how-i-ai-claude-opus-5-review-browser": {
     "created_at": "2026-07-28T12:56:18.801556+00:00",
     "model": "gemini-2.5-flash",
@@ -658,6 +664,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Josh Woodward, head of Google Labs, the Gemini app, and AI Studio, oversees Google's largest labs team and focuses on finding, experimenting with, and scaling new AI products. He built a distinctive product culture for generating ideas, running experiments, and knowing when to quit. In a discussion, he explores why every company now needs to operate like a labs team, covering topics such as where ideas come from and how to recognize product-market fit."
+  },
+  "https://www.lennysnewsletter.com/p/why-reddit-built-its-own-ai-prototyping": {
+    "created_at": "2026-10-26T17:09:58.215363+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Reddit Proto is the company's in-house vibe-coding harness, built by principal UX engineer Blair Metcalf. It has achieved 100% adoption across Reddit's UX and product organization, with over 700 prototypes live, and maps Reddit's product language to production code using a design system MCP."
   },
   "https://www.newcomer.co/p/9-videos-from-machine-earning-towns": {
     "created_at": "2026-10-06T17:04:33.278832+00:00",
@@ -1109,6 +1121,12 @@
     "prompt_version": 1,
     "summary": "Anthropic's report on its workforce reveals that junior technical hiring has significantly decreased, with new hires being assessed more for autonomy and judgment than domain expertise. Despite this, overall headcount tripled, and agents now work six times more hours than humans, though they spend 80% of that time waiting for human responses."
   },
+  "https://www.saastr.com/5-interesting-learnings-from-anthropics-s-1-at-16-3-billion-in-half-year-revenue-900-nrr-6-6m-in-revenue-per-employee-and-a-10-adjusted-operating-margin/": {
+    "created_at": "2026-10-26T17:10:14.832030+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Anthropic filed its S-1, showing revenue of $16,286 million in the first half of 2026, approximately fourteen times the $1,163 million from the first half of 2025. The company reported Net Revenue Retention of approximately 900% as of September 30, 2026, and an adjusted operating income of $1,618 million for the first half of 2026, with a 10% adjusted operating margin."
+  },
   "https://www.saastr.com/5-interesting-learnings-from-atlassian-at-6-6-billion-in-arr-28-growth-44-rpo-growth-and-a-35-one-day-stock-pop/": {
     "created_at": "2026-08-20T11:29:21.702667+00:00",
     "model": "gemini-2.5-flash",
@@ -1204,6 +1222,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "SaaStr AI employs over 21 agents with three human employees to run its inbound, renewals, and outbound operations. This system has led to substantial revenue growth, including a 2.1x increase in sponsorship revenue, a 60% rise in new business from inbound, and a 124% growth in annual outbound revenue."
+  },
+  "https://www.saastr.com/a-record-8625-startups-raised-their-first-venture-round-this-year-smaller-vcs-now-have-to-find-founders-before-they-found-anything/": {
+    "created_at": "2026-10-26T17:10:44.508316+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "This year saw a record number of US startups close their first venture financing, with an estimated 8,625 through Q3 2026, and also a record amount of dollars raised. Despite this, smaller VC firms face intense competition and are struggling to access deals, as capital consolidates into fewer, larger funds. This market dynamic is leading smaller firms to find founders before a company is even established."
   },
   "https://www.saastr.com/a-simple-4-part-test-to-know-if-youve-hired-the-right-vp/": {
     "created_at": "2026-08-23T11:22:32.791377+00:00",
@@ -1564,6 +1588,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Listen Labs, a three-year-old company, was reportedly acquired by Salesforce for $2 billion, having previously walked away from a $125 million Series C round at a $1.5 billion valuation. This transaction sparked a discussion about whether founders should accept a significant offer within five years if their company is not considered \"generational,\" contrasting with venture capitalists who might advise against selling."
+  },
+  "https://www.saastr.com/jasons-takes-on-this-weeks-20vc-meet-100-vcs-none-and-done-beats-one-and-done-and-build-to-prod-is-where-id-make-10-bets/": {
+    "created_at": "2026-10-26T17:11:03.499477+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "The venture capital market is experiencing an unprecedented concentration of capital, splitting into two businesses: mega-funds seeking multi-billion dollar outcomes, and all other profitable, fast-growing companies. Founders not targeted by mega-funds are advised to adapt their strategies by meeting many investors, carefully choosing seed partners, or foregoing venture capital entirely."
   },
   "https://www.saastr.com/jasons-takes-on-this-weeks-20vc-the-agents-never-suggested-canva-the-meme-you-cant-outrun-and-why-i-only-underwrite-founders-now/": {
     "created_at": "2026-08-17T11:28:53.546458+00:00",

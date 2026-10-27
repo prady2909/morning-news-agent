@@ -11,6 +11,12 @@
     "prompt_version": 1,
     "summary": "Traditionally, people could generally judge more tasks than they could perform, even in areas where their own proficiency was low. However, artificial intelligence allows individuals to perform far more tasks, including those outside their expertise, often at a medium or below-average level. This creates a \"danger zone\" where one's ability to do work with AI can exceed their ability to judge its quality, challenging existing roles, responsibilities, and accountability."
   },
+  "https://itamargilad.com/eric-ries-incorruptible/": {
+    "created_at": "2026-10-27T16:15:20.044992+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "An interview with author Eric Ries discusses his new book, 'Incorruptible,' which addresses how companies can avoid prioritizing short-term profits and instead maintain focus on high-value missions through specific governance choices. Ries also emphasizes that AI makes validated learning more crucial for product development and clarifies that while 'founder mode' diagnoses problems with professional management, it is not a sufficient long-term solution for institutional endurance."
+  },
   "https://itamargilad.com/good-ideas/": {
     "created_at": "2026-09-24T15:44:34.728577+00:00",
     "model": "gemini-2.5-flash",
@@ -70,6 +76,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "This article discusses Model Context Protocols (MCPs) and Command Line Interfaces (CLIs) as mechanisms to connect AI models like Claude to Go-To-Market (GTM) tools. It explains that connecting Claude to other tools makes it more useful by integrating existing context and data, helping to solve common limitations of standalone AI. The newsletter details various workflows from seven GTM tools, demonstrating how these connectors enable more robust AI-native systems for work."
+  },
+  "https://newsletter.mkt1.co/p/mkt1-roundup-october-2026": {
+    "created_at": "2026-10-27T16:15:35.757280+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "This bonus, paid-subscriber-only October MKT1 Roundup newsletter provides updates on MKT1 MCPs and what's coming next from MKT1. It also includes information on upcoming events, marketing topics, bookmarked items, and new MKT1 job openings."
   },
   "https://newsletter.mkt1.co/p/multiplayer-ai-mintlify-langchain-buffer": {
     "created_at": "2026-09-03T14:55:07.241205+00:00",
@@ -724,6 +736,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Anthropic's pre-IPO fundraising forced venture capital firms to expand their investment capacity, with some raising new funds or using special purpose vehicles to meet the demand. Its upcoming Wall Street debut is highly anticipated and carries significant stakes for the market. The company's fundraising is considered a case study for the growing power of megafunds in Silicon Valley, driven by skyrocketing capital requirements for AI."
+  },
+  "https://www.newcomer.co/p/anthropics-s-1-key-data-points-and": {
+    "created_at": "2026-10-27T16:16:26.140859+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Anthropic's S-1 has arrived during a fraught moment for the tech business, marked by anti-AI sentiment and an upcoming consequential election. The filing contains extraordinary numbers that are expected to further polarize debates. A handful of highlights from the S-1 have been pulled."
   },
   "https://www.newcomer.co/p/competing-arr-estimates-and-fuzzy": {
     "created_at": "2026-10-09T17:22:23.193929+00:00",
@@ -1781,6 +1799,12 @@
     "prompt_version": 1,
     "summary": "Stripe's data on fast-growing AI companies shows accelerating growth, with top firms achieving 175% growth in 2026 and reaching first paying customers in under six weeks. These companies expand internationally quickly, with 48% of revenue coming from outside their home market, and frequently use usage-based pricing models. They are also adopting sales-led growth earlier and building unified revenue infrastructure to manage rapid scaling."
   },
+  "https://www.saastr.com/sumble-why-80-accurate-data-turns-into-33-accurate-data-by-the-time-your-agent-uses-it-and-how-nooks-found-700-accounts-it-didnt-know-about/": {
+    "created_at": "2026-10-27T16:16:09.671390+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Sumble provides precise and accurate data for agent-first sales motions, focusing on determining who to target before outreach. It uses AI to analyze various company data sources, aiming for high accuracy in daily account and contact scoring. This approach helps go-to-market teams, with customers like Nooks finding hundreds of new accounts and SaaStr enriching leads and understanding GTM structures."
+  },
   "https://www.saastr.com/the-0-quota-club-and-why-the-same-mediocre-rep-hits-70-at-one-company-and-0-at-yours/": {
     "created_at": "2026-08-17T11:29:11.764404+00:00",
     "model": "gemini-2.5-flash",
@@ -1906,6 +1930,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "New VPs of Sales and CROs often make several avoidable mistakes in their first week on the job, which can lead to mis-hires. Common errors include not knowing the product cold, failing to start preparations before the official start date, and insisting on their own methods without first understanding existing successful strategies. Other mistakes involve not having reps lined up, not asking enough questions, not starting outbound outreach, and not being able to demo the product themselves."
+  },
+  "https://www.saastr.com/two-ai-agents-wiped-critical-data-at-saastr-both-times-a-copy-nobody-planned-is-what-saved-us-it-will-happen-to-you-too-plan-for-it/": {
+    "created_at": "2026-10-27T16:15:53.521862+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "SaaStr experienced two incidents where AI agents deleted critical data, including Salesforce opportunities and a core engine file. The data was restored quickly each time, but relied on unplanned backups, leading SaaStr to implement new strategies for ensuring independent data copies and checking agent outputs."
   },
   "https://www.saastr.com/vertical-b2b-leader-owner-acclerated-after-100m-arr-with-agents-the-key-insight-every-time-a-customer-logs-in-owner-has-failed/": {
     "created_at": "2026-08-21T11:29:06.153227+00:00",

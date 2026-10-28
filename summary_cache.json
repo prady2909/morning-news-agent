@@ -125,6 +125,12 @@
     "prompt_version": 1,
     "summary": "Open-source AI models are facing a serious viability test due to new regulations being discussed at the White House. There is a likely action to ban or delay open-weights models above certain capability levels within the next six months, driven by concerns about frontier capabilities and calls to restrict Chinese open-weight models."
   },
+  "https://www.interconnects.ai/p/artificial-analysis-v5-and-the-benchmarkers": {
+    "created_at": "2026-10-28T17:02:31.851156+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Independent evaluation of AI models is a hard task, with benchmark creators facing a dilemma in distilling complex capabilities into a single, representative number. Artificial Analysis's recent Intelligence Index v5 aims to reflect real-world usage with specific weightings, showing closed models ahead of open-weight models. The shift to \"private benchmarks\" and the significant financial influence of these indices highlight the pressure on evaluators, who must navigate trust and inherent trade-offs."
+  },
   "https://www.interconnects.ai/p/debating-rsi-the-us-china-gap-and": {
     "created_at": "2026-09-22T15:27:18.315550+00:00",
     "model": "gemini-2.5-flash",
@@ -370,6 +376,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "This item details the replacement of an entire agent stack, specifically migrating from OpenClaw to a Grok Bot setup. It breaks down the full Grok Bot setup, its comparison to OpenClaw, and nine specific bots built for work and personal use. The discussion includes bots like a chief-of-staff bot, a family agent, engineering bots, and Holly Helpdesk, along with the script used to migrate agents."
+  },
+  "https://www.lennysnewsletter.com/p/grok-vs-dot-vs-muse-vs-claude-duet": {
+    "created_at": "2026-10-28T17:02:13.337877+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "A benchmark was conducted comparing personal agents: Grok Bot, Dot, Muse, and Claude Duet. These agents were tested across nine real tasks, including a Slack reply, physics homework, and a launch video. The results include a scoreboard and indicate which agent is trusted for work versus life."
   },
   "https://www.lennysnewsletter.com/p/how-a-solo-founder-used-codex-and": {
     "created_at": "2026-08-18T11:28:00.951324+00:00",
@@ -1373,6 +1385,12 @@
     "prompt_version": 1,
     "summary": "Cloudflare, Atlassian, and Bending Spoons made significant workforce reductions, with cuts ranging from 10% to up to 75% at acquired companies. Each company subsequently saw improved performance metrics such as accelerated growth, increased revenue per employee, or higher operating margins."
   },
+  "https://www.saastr.com/databricks-cro-ron-gabrisko-5-interesting-learnings-on-selling-at-a-200b-ai-company-flat-sdr-headcount-6-10-reply-rates-and-free-seats-that-unlocked-consumption/": {
+    "created_at": "2026-10-28T17:02:50.454575+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Databricks emphasizes an AI-first selling approach, requiring sales candidates to build live product demos and present industry-specific pitches. The company leverages automation to boost SDR productivity, increasing reply rates and maintaining the team as a pipeline for future AEs. Additionally, Databricks found that removing per-user fees led to a sharp increase in product consumption, aligning with its consumption-based pricing model."
+  },
   "https://www.saastr.com/databricks-just-crossed-7b-arr-growing-80-a-30-point-acceleration-a-190b-valuation-and-the-margin-bill-for-agents/": {
     "created_at": "2026-08-15T11:23:33.507577+00:00",
     "model": "gemini-2.5-flash",
@@ -1841,6 +1859,12 @@
     "prompt_version": 1,
     "summary": "B2B seat-based software pricing models are facing growing pressure and are considered to be dying due to aggressive price increases, CIOs reallocating budgets to AI, and a disconnect between headcount and software value. Three new models—Consumption, Outcome, and Resolution—are emerging, but incumbents are advised to transition by adding new pricing lines in segments rather than a full conversion."
   },
+  "https://www.saastr.com/the-300-billion-software-debt-wall-the-big-b2b-defaults-unfortunately-havent-even-started-yet/": {
+    "created_at": "2026-10-28T17:03:24.649873+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "About $300 billion in risky corporate loans, including roughly $100 billion from B2B software companies, is scheduled to mature in 2028 and 2029. Many of these software companies are growing slower than their debt assumed and face competition from AI-native firms, while refinancing decisions are mostly due in 2027. Lenders have already repriced software debt downwards, and a significant number of defaults or lender takeovers are expected."
+  },
   "https://www.saastr.com/the-agent-led-growth-playbook-a-10-minute-inbound-booking-a-46-of-50-aeo-score-and-why-first-party-data-beats-every-signal-tool-the-agents-017/": {
     "created_at": "2026-10-24T14:19:51.152620+00:00",
     "model": "gemini-2.5-flash",
@@ -2104,6 +2128,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Product teams are leveraging AI to deliver faster, yet their outcomes are not improving. This phenomenon, known as the \"AI Productivity Paradox,\" has been recognized by people from across the industry. The business world is grappling with this paradox."
+  },
+  "https://www.ycombinator.com/blog/how-alex-lee-became-the-first-engineer-at-magic-patterns/": {
+    "created_at": "2026-10-28T17:04:03.570173+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Alex Lee joined Magic Patterns after a former colleague invited him, drawn by the company's AI-first approach to a problem he had personally encountered. He quickly took on a broad role focused on owning problems rather than just features, allowing him to rapidly develop and ship solutions. He currently serves as a forward-deployed engineer for enterprise customers, specializing in the Design Systems vertical."
   },
   "https://www.ycombinator.com/blog/how-ryder-kemper-became-employee-7-at-corgi-insurance-and-never-left-san-francisco/": {
     "created_at": "2026-10-20T15:35:26.177476+00:00",

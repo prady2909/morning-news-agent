@@ -917,6 +917,12 @@
     "prompt_version": 1,
     "summary": "\"The Big Cheese,\" a feature-length documentary about American cheesemongers, is having its theatrical premiere starting tonight at the IFC Center in New York City. The film will run all week at the IFC Center and begin screening in Los Angeles on August 14. Reviews have described it as a \"satisfyingly tender story\" and \"bright, tangy, and bold.\""
   },
+  "https://www.newcomer.co/p/the-new-space-race-startups-press": {
+    "created_at": "2026-10-29T17:21:02.820998+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Space data centers are beginning to get real, with an experimental Google satellite launched to test its TPUs in space. Startup Cowboy Space also launched a satellite to experiment with beaming solar power to Earth and unveiled its own data center rocket, which it plans to use for carrying GPUs into orbit and selling launch services. Starcloud is another well-funded player in this emerging area."
+  },
   "https://www.newcomer.co/p/the-story-of-a-cap-table-openrouter": {
     "created_at": "2026-08-21T11:28:49.392392+00:00",
     "model": "gemini-2.5-flash",
@@ -1096,6 +1102,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Anthropic's draft S-1 recently leaked, showing projected 2025 revenue of $4.6 billion, an $8 billion operating loss, and $518 billion in cloud, computing, and infrastructure commitments. Reports indicate Anthropic is delaying its IPO. Two customers were responsible for 25% of the company's revenue last year."
+  },
+  "https://www.saastr.com/20vc-x-saastr-anthropics-s-1-shows-16-3b-in-first-half-revenue-microsoft-offers-buyouts-to-27-of-its-staff-and-chinese-open-weight-models-may-be-done-in-the-us/": {
+    "created_at": "2026-10-29T17:20:14.803630+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Anthropic publicly filed its S-1 prospectus on Monday, detailing its financial performance. The company reported $16.3 billion in revenue for the first half of 2026, with $11.6 billion generated in Q2. Anthropic also posted its first operating profit of $974 million in Q2, and its adjusted operating margin for the first half of 2026 was positive 10%."
   },
   "https://www.saastr.com/20vc-x-saastr-jensen-declares-agi-170m-of-secondary-before-the-series-c-and-why-index-walked-away-from-town/": {
     "created_at": "2026-09-11T14:54:22.011881+00:00",
@@ -1804,6 +1816,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "ServiceTitan has ended its nine-year integration with Podium for approximately 1,000 shared customers, providing about 30 days' notice. This decision occurred after Podium's AI agents began to directly compete with ServiceTitan's core services, which ServiceTitan's updated policies and API terms disallow for partners."
+  },
+  "https://www.saastr.com/sponsor-saastr-ai-annual-2027-walk-out-with-85-customer-meetings-set/": {
+    "created_at": "2026-10-29T17:20:47.583020+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Sponsoring SaaStr AI Annual can lead to booked customer meetings and pipeline. At the 2026 event, Aurasell booked 85 customer meetings and was #3 on the sponsor leaderboard with 1,046 leads. SaaStr AI Annual 2027 plans to facilitate over 3,000 scheduled 1-on-1 meetings for sponsors and attendees."
   },
   "https://www.saastr.com/stripe-buys-openrouter-for-7b-anthropic-turns-its-first-profit-and-silver-lake-circles-workday-at-43b-20vc-x-saastr/": {
     "created_at": "2026-08-24T11:31:17.625070+00:00",

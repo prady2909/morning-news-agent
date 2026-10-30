@@ -755,6 +755,12 @@
     "prompt_version": 1,
     "summary": "Anthropic's S-1 has arrived during a fraught moment for the tech business, marked by anti-AI sentiment and an upcoming consequential election. The filing contains extraordinary numbers that are expected to further polarize debates. A handful of highlights from the S-1 have been pulled."
   },
+  "https://www.newcomer.co/p/big-tech-defied-tradition-with-a": {
+    "created_at": "2026-10-30T16:57:44.949890+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Tech leaders and companies have made unprecedented investments in electoral politics, a sector they historically avoided. Elon Musk has spent almost half-a-billon dollars supporting Republicans in the midterms, but these significant bets are looking less promising as opposition to AI emerges as a major campaign issue."
+  },
   "https://www.newcomer.co/p/competing-arr-estimates-and-fuzzy": {
     "created_at": "2026-10-09T17:22:23.193929+00:00",
     "model": "gemini-2.5-flash",
@@ -778,6 +784,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "The Cerebral Valley AI Summit will feature discussion groups led by founders, investors, and AI leaders. Emmett Shear, founder and CEO of Softmax, is among these leaders. Other discussion group leaders include Joon Sung Park, founder and CEO of Simile; Rodrigo Liang, founder and CEO of SambaNova; and Michael Grinich, founder and CEO of WorkOS."
+  },
+  "https://www.newcomer.co/p/exclusive-former-sequoia-india-partners": {
+    "created_at": "2026-10-30T16:58:32.934027+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Mettle Capital, a new VC fund started by three former partners at Sequoia India, has raised $350 million. The fund will invest in Indian tech startups. This fundraising suggests that limited partners are not dismissing India as an investment destination, despite regional investors and founders undergoing a period of introspection."
   },
   "https://www.newcomer.co/p/exclusive-tech-reporter-alex-heath": {
     "created_at": "2026-09-11T14:54:39.443998+00:00",
@@ -1078,6 +1090,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "The FDA granted accelerated approval to dostarlimab (GSK's Jemperli) as a standalone first treatment for stage II and III rectal cancers that are mismatch repair deficient (dMMR). This immunotherapy works by blocking PD-1, an off switch tumors use, which allows the immune system to clear the cancer. In a small trial, cancer disappeared in all twelve patients with locally advanced rectal cancer who took the drug for six months."
+  },
+  "https://www.notboring.co/p/weekly-dose-of-optimism-217": {
+    "created_at": "2026-10-30T16:58:18.852332+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Neuralink released early numbers for its VOICE implant, which aims to help ALS patients regain speech. One participant, in their first week, achieved 75 words per minute with a 5.8% error rate across a large vocabulary. The system can also speak in the participant's pre-ALS voice."
   },
   "https://www.saastr.com/2026-is-the-biggest-ipo-year-in-history-but-take-out-one-company-and-its-one-of-the-worst/": {
     "created_at": "2026-08-03T13:43:45.186286+00:00",
@@ -1894,6 +1912,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Many board meetings are inefficient, with significant time spent reviewing unread materials and making non-actionable comments. An AI agent could address this by analyzing market data, reviewing financials, benchmarking competitors, and identifying key discussion points before human input. This allows human board members to focus on judgment, relationships, and strategic decisions, leading to more productive and higher-quality conversations."
+  },
+  "https://www.saastr.com/the-b2b-category-the-markets-hate-the-most-today-gtm/": {
+    "created_at": "2026-10-30T16:58:03.611251+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Go-to-market (GTM) software companies trade at significantly lower multiples than infrastructure and security software, partly due to investor expectations that AI agents will reduce the need for GTM apps priced per seat. Conversely, infrastructure and security companies are expected to benefit from AI's consumption-based billing, and private investors along with strategic buyers are paying higher valuations for GTM companies that charge on usage or outcomes."
   },
   "https://www.saastr.com/the-cpos-of-harvey-glean-and-rubrik-on-what-it-actually-takes-to-ship-a-category-winning-agent/": {
     "created_at": "2026-09-03T14:55:59.567161+00:00",

@@ -239,6 +239,12 @@
     "prompt_version": 1,
     "summary": "The current discourse on the cyber risks of open AI models is deemed broken, potentially leading to policy decisions that limit American AI competitiveness and increase long-term cyber risk. This debate often features opposing views on whether open models pose an untenable risk or are necessary for defense, yet often lacks nuance regarding trade-offs and China's distinct risk assessments. The author challenges the idea that closed models are inherently safer, noting their accessibility and documented role in most existing cyber attacks, while suggesting open-weight models could be vital for cyber defense."
   },
+  "https://www.interconnects.ai/p/was-i-wrong-about-open-models-and": {
+    "created_at": "2026-10-31T15:58:09.403355+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "The author reflects on whether previous concerns about open AI models causing mass societal destabilization through cyber risks were exaggerated. Recent critical vulnerability disclosures indicate an acceleration in cyber incidents, but the text suggests little public evidence that current open-weight models have caused the substantial, not-seen-before AI harms predicted. Instead, closed models have played a heavier part in recent hacks, with the rise in exploits seen as a continuation of a broader, exponential trend."
+  },
   "https://www.interconnects.ai/p/when-will-average-people-feel-ais": {
     "created_at": "2026-09-09T15:03:04.942227+00:00",
     "model": "gemini-2.5-flash",
@@ -1793,6 +1799,12 @@
     "prompt_version": 1,
     "summary": "Kroll's Summer 2026 Global Software Sector Update reveals a concentrated M&A market, with deal volume high but one transaction accounting for half the annualized deal value, resulting in near-record-low aggregate prices for other deals. Valuation drivers have shifted, with category and positioning now more impactful than growth or margins above 25-30%. Strategic buyers are paying significantly higher multiples than public markets, favoring specific, defensible positions over company size."
   },
+  "https://www.saastr.com/saas-isnt-dead-old-saas-is-dead-sierra-adds-150m-arr-in-one-quarter-while-servicenow-drops-27-in-a-day/": {
+    "created_at": "2026-10-31T15:58:26.474245+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "ServiceNow's shares fell 26.9% after its Q3 report, despite 20% subscription revenue growth, while Sierra added over $150M in Annual Recurring Revenue (ARR) in the same quarter, passing $400M total ARR. This suggests a re-splitting of the B2B budget, moving from traditional seat-based software that helps people do work to outcome-based agent-native SaaS that performs the work itself."
+  },
   "https://www.saastr.com/saastr-ai-app-of-the-week-chargebee-the-billing-system-behind-how-gorgias-coderabbit-lambda-and-zapier-price-ai/": {
     "created_at": "2026-10-03T15:05:32.025818+00:00",
     "model": "gemini-2.5-flash",
@@ -2176,6 +2188,24 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Alex Lee joined Magic Patterns after a former colleague invited him, drawn by the company's AI-first approach to a problem he had personally encountered. He quickly took on a broad role focused on owning problems rather than just features, allowing him to rapidly develop and ship solutions. He currently serves as a forward-deployed engineer for enterprise customers, specializing in the Design Systems vertical."
+  },
+  "https://www.ycombinator.com/blog/how-andrew-hunzekerhesed-became-employee-1-at-10x-science/": {
+    "created_at": "2026-10-31T15:59:15.412522+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Andrew HunzekerHesed, a software engineer seeking a shift from typical development cycles, was drawn to 10x Science after meeting its founders. He was impressed by their unique approach to using AI principles for scientific data analysis rather than just wrapping commercial models. Following a rigorous interview, he became Employee #1, valuing the opportunity to \"make the thing\" and quickly contributed to core company tools."
+  },
+  "https://www.ycombinator.com/blog/how-dylan-anderson-became-founding-engineer-at-adam/": {
+    "created_at": "2026-10-31T15:58:58.165685+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Dylan Anderson became the first engineer at Adam, a company building AI agents for CAD software, after a friend-of-a-friend connection led to a work trial and a move to San Francisco. He accepted the role due to the founders' trust and freedom, the team's frictionless work environment, and the opportunity to build core systems, which he views as integral to his identity."
+  },
+  "https://www.ycombinator.com/blog/how-harsh-vardhan-goenka-became-founding-engineer-1-at-kalpa-labs/": {
+    "created_at": "2026-10-31T15:58:41.071042+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Harsh Vardhan Goenka became the first founding engineer at Kalpa Labs, a company focused on building generalist audio models. He joined after working at Rubrik Inc., and his role at Kalpa Labs shifted from ML infrastructure to ML research, reflecting the company's philosophy of encouraging team members to stretch into new domains."
   },
   "https://www.ycombinator.com/blog/how-ryder-kemper-became-employee-7-at-corgi-insurance-and-never-left-san-francisco/": {
     "created_at": "2026-10-20T15:35:26.177476+00:00",

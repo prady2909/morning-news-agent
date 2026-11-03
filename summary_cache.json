@@ -623,6 +623,12 @@
     "prompt_version": 1,
     "summary": "Jev is TypeSafe AI’s new decision model, which returns type-safe structured values such as a choice, score, or probability instead of generated text. It costs 4 cents per million input tokens with no output charge and has been used for projects like PR categorization, Gmail triage, and building an audience dashboard from YouTube comments."
   },
+  "https://www.lennysnewsletter.com/p/lennys-newsletter-holiday-gift-guide-057": {
+    "created_at": "2026-11-03T18:15:52.069393+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Lenny's Newsletter has published its sixth annual holiday gift guide for 2026. Lenny, with assistance from his wife Michelle, curated a mix of practical, fun, and delightful items ranging from high-end to affordable. The guide states there are no affiliate links, and the author is an investor in only two of the recommended companies."
+  },
   "https://www.lennysnewsletter.com/p/metas-new-muse-wonder-model-good": {
     "created_at": "2026-10-14T15:44:20.574977+00:00",
     "model": "gemini-2.5-flash",
@@ -1204,6 +1210,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "SaaStr AI provides advertisers with live dashboards and reconciled performance numbers, tracked in real-time by an AI VP of Marketing. One campaign delivered over 5.4 million impressions across 67 newsletter editions, resulting in 11,749 visits from B2B buyers to a sponsor's signup form. This advertising targets B2B decision-makers with budget authority across multiple channels, leading to measurable revenue and renewals for sponsors."
+  },
+  "https://www.saastr.com/5-interesting-learnings-from-anthropic-at-17-billion-in-quarterly-revenue-47-q-q-growth-900-nrr-and-895-billion-in-compute-commitments/": {
+    "created_at": "2026-11-03T18:16:15.628132+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Anthropic's Q3 revenue rose to $16.96 billion, an increase of 47% from the second quarter, though the dollar amount added was less than Q2. The company posted an operating loss of $567 million in Q3, compared to an operating income in Q2, largely due to $5 billion in higher cost short-term compute. Anthropic also has $895.4 billion in committed spend, mostly for compute, against $131.8 billion in cash and investments, and serves over 11,900 customers spending $100K+ annually."
   },
   "https://www.saastr.com/5-interesting-learnings-from-anthropics-data-on-its-own-workforce-junior-technical-hiring-down-from-27-to-9-agents-working-6x-the-hours-of-humans-and-agents-waiting-on-a-human-80-of-the-time/": {
     "created_at": "2026-10-19T17:22:57.352830+00:00",

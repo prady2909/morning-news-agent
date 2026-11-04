@@ -143,6 +143,12 @@
     "prompt_version": 1,
     "summary": "Z.ai has announced its GLM-5.3 model, which shows exceptional performance and has surpassed other leading models on many benchmarks, particularly in agentic coding. The company attributes this to substantially extended post-training and is taking a staged release approach due to the model's advanced cybersecurity capabilities and associated dual-use risks."
   },
+  "https://www.interconnects.ai/p/how-well-can-we-measure-open-model": {
+    "created_at": "2026-11-04T18:30:06.857143+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "The author is researching the market for open model inference, noting that current measurements of open model adoption are imprecise. They are tracking growth using data from open model inference startups, which have shown near-exponential growth in token volume. For example, one startup announced serving over 40T tokens per day for customized models, a figure that grew over 2x from the summer."
+  },
   "https://www.interconnects.ai/p/i-expect-rapid-progress-but-not-towards": {
     "created_at": "2026-10-11T16:35:49.624750+00:00",
     "model": "gemini-2.5-flash",
@@ -1343,6 +1349,12 @@
     "prompt_version": 1,
     "summary": "Many B2B software companies are failing due to internal neglect and a lack of modernization, not directly because of AI. The author's experience with Adobe Marketo, which had significant downtime, a broken unsubscribe link, and an outdated API that hindered AI agents, exemplifies how vendors are raising prices on degrading products and failing to adapt."
   },
+  "https://www.saastr.com/ai-spend-hit-177-billion-this-year-only-22-of-it-came-out-of-software-budgets/": {
+    "created_at": "2026-11-04T18:30:42.278520+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Enterprises are projected to spend $176.8 billion deploying AI in 2026, a 5.4x increase from $33 billion in 2025. Most of this funding, 55%, comes from net-new budgets, with 22% sourced from software budgets and about 23% from labor and other areas. This shift has contributed to AI reducing application SaaS growth from 13% to 11%."
+  },
   "https://www.saastr.com/ai-wont-kill-saas-but-it-will-kill-vendors-that-stopped-shipping-point-solutions-are-most-at-risk/": {
     "created_at": "2026-07-24T12:21:43.789468+00:00",
     "model": "gemini-2.5-flash",
@@ -2038,6 +2050,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Many B2B software companies are entering a \"terminal state\" with growth rates under 5%, as the market no longer views them as reliable annuities. This shift is driven by AI, which directly impacts the seat-based model that previously sustained growth and high net revenue retention. Consequently, the premium once paid for these software economics has vanished, and the market now questions the long-term durability of their cash flows."
+  },
+  "https://www.saastr.com/the-top-1-of-ai-spenders-stalled-in-q3-so-did-anthropics-dollar-growth/": {
+    "created_at": "2026-11-04T18:30:22.171935+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "The top 1% of firms, which drive 80% of OpenAI and Anthropic spending, spent less on AI per employee in September than in July. Concurrently, Anthropic's quarterly dollar add shrank for the first time in Q3, adding $5.4 billion, down from $6.8 billion in Q2. This slowdown is mainly attributed to falling prices for top AI models, though adoption across other firms is still rising."
   },
   "https://www.saastr.com/the-top-10-mistakes-i-see-in-the-vp-of-sales-hiring-process/": {
     "created_at": "2026-10-19T17:23:13.961881+00:00",

@@ -905,6 +905,12 @@
     "prompt_version": 1,
     "summary": "Three new speakers have been announced for the inaugural Machine Earning AI Summit: Kirsten Green, Katie Haun, and Ilan Zerbib, CEO of Sapiom. This one-day, invite-only event will cover the new AI economy, including how AI is reshaping commerce and finance, and its impact on banking, payments, and online shopping."
   },
+  "https://www.newcomer.co/p/latest-fundraising-efforts-show-openai": {
+    "created_at": "2026-11-05T18:34:39.239763+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Both OpenAI and Anthropic are undertaking fundraising campaigns, revealing a clear divergence in how investors view their trajectories. Anthropic is seen as distancing itself from its rival, with its proposed IPO appearing on track despite industry headwinds and strong demand for its shares. Conversely, OpenAI is described as thirsting for a comeback story."
+  },
   "https://www.newcomer.co/p/less-than-one-week-until-the-machine": {
     "created_at": "2026-09-24T15:45:47.694646+00:00",
     "model": "gemini-2.5-flash",
@@ -1901,6 +1907,12 @@
     "prompt_version": 1,
     "summary": "ICONIQ's 2026 GTM benchmark report shows increased annual sales quotas for high performers, with enterprise AEs carrying $2.25M, Mid-Market at $1.35M, and SMB at $750K. These higher quotas are supported by AI-driven pipeline generation and are accompanied by increased attainment rates and a shift in AE compensation towards expansion activities like cross-sell and renewals."
   },
+  "https://www.saastr.com/seo-may-be-dead-shopify-just-paid-100-million-for-shop-com-anyway/": {
+    "created_at": "2026-11-05T18:34:23.987559+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Shopify reportedly paid around $100 million for Shop.com, marking what is considered the largest public domain sale on record. This acquisition comes as organic search traffic is shrinking for many companies due to changes in search and the rise of AI agents. The trend indicates direct visits and strong brand recognition are becoming increasingly important as buyers interact more with AI."
+  },
   "https://www.saastr.com/servicetitan-just-shut-off-podiums-integration-for-1000-shared-customers-agents-turned-a-9-year-partner-into-a-direct-competitor/": {
     "created_at": "2026-08-22T11:23:16.063691+00:00",
     "model": "gemini-2.5-flash",
@@ -2116,6 +2128,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "An eight-figure B2B business found that managing nearly 30 human-interfaced AI agents became unsustainable due to high attention, context, and maintenance costs. They consolidated their AI agents from close to 30 down towards 20, resulting in roughly a 4x increase in output. This was achieved as improved AI models allowed for greater generalization, enabling fewer agents to handle diverse tasks and leverage cross-functional data access."
+  },
+  "https://www.saastr.com/we-ran-an-email-deliverability-bake-off-across-3-vendors-and-500000-emails-this-week-our-ai-agent-ran-all-of-it/": {
+    "created_at": "2026-11-05T18:34:08.474283+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "SaaStr ran an email deliverability bake-off across three vendors, comparing more than 500,000 emails. 10K, their AI VP of Marketing, managed the process entirely, catching issues, running diagnostics, and writing a recommendation. This allowed for testing at production volume and detailed verification of delivery, which changes how they buy software."
   },
   "https://www.saastr.com/we-run-21-ai-agents-and-theyve-closed-millions-but-there-still-isnt-a-good-ai-account-executive-yet/": {
     "created_at": "2026-09-14T16:50:21.062101+00:00",

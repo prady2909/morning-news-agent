@@ -59,6 +59,12 @@
     "prompt_version": 1,
     "summary": "GPT-6 Astra is described as an exceptionally good model, demonstrating significant improvements across various tasks and particularly excelling in 3D rendering, animation, and computer use capabilities. It is rumored to utilize a \"looped transformer\" architecture, which involves reusing transformer blocks multiple times to increase effective depth while conserving memory for weights. While the model may exhibit shorter reasoning traces, the author suggests this is likely due to its increased capability rather than the looped transformer architecture intentionally obscuring its chain of thought."
   },
+  "https://newsletter.mkt1.co/p/b2b-creator-marketing": {
+    "created_at": "2026-11-06T17:50:23.429591+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "This advice on sponsoring B2B creators details why and when to work with them, and offers guidance on how to do so effectively. Creators can provide a halo effect, speak an audience's language, and extend marketing teams, especially for amplifying messages or testing new ideas. Recommendations include selecting creators who genuinely like the company or product, treating outreach like an interview, and writing briefs that inspire rather than prescribe."
+  },
   "https://newsletter.mkt1.co/p/marketing-job-posts": {
     "created_at": "2026-10-20T15:34:52.980775+00:00",
     "model": "gemini-2.5-flash",
@@ -977,6 +983,12 @@
     "prompt_version": 1,
     "summary": "\"The Big Cheese,\" a feature-length documentary about American cheesemongers, is having its theatrical premiere starting tonight at the IFC Center in New York City. The film will run all week at the IFC Center and begin screening in Los Angeles on August 14. Reviews have described it as a \"satisfyingly tender story\" and \"bright, tangy, and bold.\""
   },
+  "https://www.newcomer.co/p/the-blue-tsunami-is-a-victory-for": {
+    "created_at": "2026-11-06T17:50:40.752484+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Google announced schools could turn off its AI tools in educational software following pressure from educators and parents. This change initially meant schools would lose access to Google Search, leading to criticism from antitrust advocates and officials. The company later softened its stance, stating schools could toggle individual features, including search, on or off."
+  },
   "https://www.newcomer.co/p/the-new-space-race-startups-press": {
     "created_at": "2026-10-29T17:21:02.820998+00:00",
     "model": "gemini-2.5-flash",
@@ -1144,6 +1156,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Neuralink released early numbers for its VOICE implant, which aims to help ALS patients regain speech. One participant, in their first week, achieved 75 words per minute with a 5.8% error rate across a large vocabulary. The system can also speak in the participant's pre-ALS voice."
+  },
+  "https://www.notboring.co/p/weekly-dose-of-optimism-218": {
+    "created_at": "2026-11-06T17:51:15.164249+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "The FDA has granted accelerated approval to INOVIO's Voceryq, the first plasmid DNA-based immunotherapy approved in the U.S. It treats recurrent respiratory papillomatosis (RPP), a disease causing recurring wart-like growths in the airway. This therapy works by delivering DNA plasmids that teach the immune system to target infected cells."
   },
   "https://www.saastr.com/2026-is-the-biggest-ipo-year-in-history-but-take-out-one-company-and-its-one-of-the-worst/": {
     "created_at": "2026-08-03T13:43:45.186286+00:00",
@@ -1871,6 +1889,12 @@
     "prompt_version": 1,
     "summary": "ServiceNow's shares fell 26.9% after its Q3 report, despite 20% subscription revenue growth, while Sierra added over $150M in Annual Recurring Revenue (ARR) in the same quarter, passing $400M total ARR. This suggests a re-splitting of the B2B budget, moving from traditional seat-based software that helps people do work to outcome-based agent-native SaaS that performs the work itself."
   },
+  "https://www.saastr.com/saastr-ai-and-10k-featured-in-wall-street-journal/": {
+    "created_at": "2026-11-06T17:51:32.393733+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "SaaStr AI's 10K was featured in the Wall Street Journal for its role as a specialized agent in lean startups. It began as an AI VP of Marketing, and now handles tasks such as optimizing pricing to increase attendance, managing marketing campaigns, and performing finance and RevOps functions. This agent does more work than any other at SaaStr, which operates with three humans and over twenty agents."
+  },
   "https://www.saastr.com/saastr-ai-app-of-the-week-chargebee-the-billing-system-behind-how-gorgias-coderabbit-lambda-and-zapier-price-ai/": {
     "created_at": "2026-10-03T15:05:32.025818+00:00",
     "model": "gemini-2.5-flash",
@@ -2087,6 +2111,12 @@
     "prompt_version": 1,
     "summary": "New VPs of Sales and CROs often make several avoidable mistakes in their first week on the job, which can lead to mis-hires. Common errors include not knowing the product cold, failing to start preparations before the official start date, and insisting on their own methods without first understanding existing successful strategies. Other mistakes involve not having reps lined up, not asking enough questions, not starting outbound outreach, and not being able to demo the product themselves."
   },
+  "https://www.saastr.com/top-5-learnings-from-vercels-coo-10-sdrs-down-to-1-a-5k-a-year-lead-agent-and-93-of-support-cases-handled-by-ai/": {
+    "created_at": "2026-11-06T17:50:58.313465+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Vercel has implemented agents that significantly impacted its go-to-market operations, reducing its lead qualification team from 10 people to one, with the agent costing under $5,000 annually. Additionally, a support agent now handles 93% of all case volume, and SDR quotas rose by 30% after automating 30 workflows."
+  },
   "https://www.saastr.com/two-ai-agents-wiped-critical-data-at-saastr-both-times-a-copy-nobody-planned-is-what-saved-us-it-will-happen-to-you-too-plan-for-it/": {
     "created_at": "2026-10-27T16:15:53.521862+00:00",
     "model": "gemini-2.5-flash",
@@ -2248,6 +2278,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Many different definitions of the product role, such as product manager or product owner, have been observed over the years. This issue is partly due to various operating models that require different responsibilities."
+  },
+  "https://www.svpg.com/ai-and-the-future-of-the-product-role/": {
+    "created_at": "2026-11-06T17:50:06.480570+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "The item, \"AI and the Future of the Product Role,\" notes that the job definition and responsibilities for the product role can vary widely across companies. This variability has always been true, in no small part due to inheriting the job title."
   },
   "https://www.svpg.com/experimentation-ai-and-the-product-model/": {
     "created_at": "2026-10-22T15:49:01.990408+00:00",

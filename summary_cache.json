@@ -803,6 +803,12 @@
     "prompt_version": 1,
     "summary": "Tech leaders and companies have made unprecedented investments in electoral politics, a sector they historically avoided. Elon Musk has spent almost half-a-billon dollars supporting Republicans in the midterms, but these significant bets are looking less promising as opposition to AI emerges as a major campaign issue."
   },
+  "https://www.newcomer.co/p/ceos-of-perplexity-applied-intuition": {
+    "created_at": "2026-11-07T16:46:58.325449+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "The Cerebral Valley AI Summit, taking place next week, has added five new speakers to its lineup. These include the CEOs of Perplexity, Applied Intuition, Flapping Airplanes, Vercel, and General Catalyst. The summit will also feature Bessemer Venture Partners revealing the AI 100 list."
+  },
   "https://www.newcomer.co/p/competing-arr-estimates-and-fuzzy": {
     "created_at": "2026-10-09T17:22:23.193929+00:00",
     "model": "gemini-2.5-flash",
@@ -1349,6 +1355,12 @@
     "prompt_version": 1,
     "summary": "Higgsfield reached a $500M annualized revenue run rate in June, approximately 15 months after launching in March 2025, and is cash-flow positive. The company operates with about 150 people, including a core engineering team of 60, and now aggregates various AI models, with approximately 70% of its revenue coming from agencies."
   },
+  "https://www.saastr.com/a-critical-app-we-pay-for-went-down-for-2-days-they-never-offered-a-credit-i-wont-forget/": {
+    "created_at": "2026-11-07T16:46:06.490931+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "A critical app experienced an outage for almost two full days, stopping work and requiring the team to build workarounds. Despite this downtime, the vendor never offered a service-level credit to the customer. The author emphasizes that offering such a credit shows accountability and prevents the outage from becoming a long-term relationship problem."
+  },
   "https://www.saastr.com/a-full-teardown-of-how-saastr-ai-actually-runs-inbound-renewals-and-outbound-on-the-latest-the-agents/": {
     "created_at": "2026-09-19T14:13:00.084002+00:00",
     "model": "gemini-2.5-flash",
@@ -1625,6 +1637,12 @@
     "prompt_version": 1,
     "summary": "Gamma achieved $100M ARR with 50 employees and 50 million users, primarily through a product-led growth model that initially had no sales team. CEO Grant Lee, however, stated that while this no-sales-team approach worked, the reactive habit it created was a mistake. This led to issues like launching a paid product without a billing system and hiring sales only when inbound demand became overwhelming, illustrating the need for proactive decision-making alongside strong self-serve growth."
   },
+  "https://www.saastr.com/gartner-sees-software-growing-14-6-to-1-68-trillion-in-2027-models-at-117-ai-app-platforms-at-39-and-price-increases-doing-a-lot-of-the-work/": {
+    "created_at": "2026-11-07T16:46:25.208098+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Gartner forecasts software spending to grow 14.6% to $1.68 trillion in 2027, adding $215 billion to overall worldwide IT spending. This increase is significantly driven by GenAI models, projected at 117% growth, and AI application development platforms, forecast at 39% growth. A meaningful share of this growth also stems from price increases on existing software, including AI add-ons and usage meters."
+  },
   "https://www.saastr.com/getty-images-files-for-chapter-11-at-a-910m-run-rate-27-ebitda-margins-25-fewer-subscribers-and-0-for-public-shareholders/": {
     "created_at": "2026-10-22T15:49:36.603554+00:00",
     "model": "gemini-2.5-flash",
@@ -1894,6 +1912,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "SaaStr AI's 10K was featured in the Wall Street Journal for its role as a specialized agent in lean startups. It began as an AI VP of Marketing, and now handles tasks such as optimizing pricing to increase attendance, managing marketing campaigns, and performing finance and RevOps functions. This agent does more work than any other at SaaStr, which operates with three humans and over twenty agents."
+  },
+  "https://www.saastr.com/saastr-ai-app-of-the-week-base44-one-founder-zero-funding-80-million-from-wix-in-6-months-now-at-200-million-arr/": {
+    "created_at": "2026-11-07T16:46:41.781394+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Base44 is an AI app builder that creates complete working applications, including interface, database, user authentication, and hosting, from plain language descriptions for non-technical users. Started as a self-funded side project in January 2025, it was acquired by Wix for $80 million cash within six months. Following the acquisition, Base44 scaled from approximately $3.5 million in ARR to a reported $200 million ARR run-rate with about 2 million users by August 2026."
   },
   "https://www.saastr.com/saastr-ai-app-of-the-week-chargebee-the-billing-system-behind-how-gorgias-coderabbit-lambda-and-zapier-price-ai/": {
     "created_at": "2026-10-03T15:05:32.025818+00:00",

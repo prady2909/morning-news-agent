@@ -719,6 +719,12 @@
     "prompt_version": 1,
     "summary": "This item introduces the concept of \"emergence\" as an alternative to conventional long-term career planning. It suggests building a career by focusing on clear principles and taking the right next step, rather than optimizing toward a fixed destination. This approach involves defining \"local rules\" based on what energizes you, trusting that a complex and unique path will reveal itself over time."
   },
+  "https://www.lennysnewsletter.com/p/what-it-actually-takes-to-build-frontier": {
+    "created_at": "2026-11-08T16:56:42.138971+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Tulsee Doshi, Head of Product for Google's frontier AI models including Gemini, discussed what it takes to build these models. The conversation covered the nature of model development, Google's full-stack frontier AI strategy, and the role of PMs inside an AI lab. It also touched on a framework for balancing development, writing an initial evaluation, and the rising value of product managers."
+  },
   "https://www.lennysnewsletter.com/p/why-companies-are-becoming-a-series": {
     "created_at": "2026-09-07T16:19:45.130701+00:00",
     "model": "gemini-2.5-flash",
@@ -1559,6 +1565,12 @@
     "prompt_version": 1,
     "summary": "When a highly respected team member quits, it often leads to a quick exodus of other employees. The recommended strategy for this situation is to immediately promote one of their best and most respected team members into a leadership position. This approach can help rebuild more quickly, retain domain knowledge, and keep a chunk of the best staff."
   },
+  "https://www.saastr.com/dear-saastr-what-are-the-first-things-vcs-notice-when-a-team-of-founders-starts-pitching-to-them/": {
+    "created_at": "2026-11-08T16:57:14.162127+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "When a team of founders pitches, VCs first notice their confidence. This includes confidence in their progress, metrics, understanding of the competition and market, and their cohesion as a team. VCs look for self-awareness and honesty about unknowns, and the right type of confidence combined with early traction makes them take notice."
+  },
   "https://www.saastr.com/dear-saastr-what-is-the-difference-between-a-good-sales-exec-and-a-great-one/": {
     "created_at": "2026-10-22T15:49:53.313794+00:00",
     "model": "gemini-2.5-flash",
@@ -2266,6 +2278,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "A sales rep's ineffective and outdated emails demonstrated the challenges of human-led outbound at volume. These issues arise when humans do not read what they send and systems fail to update. The text proposes that agents (AI) can address this by personalizing communications at scale based on prospect data, allowing humans to focus on high-value interactions."
+  },
+  "https://www.saastr.com/why-your-revenues-only-sort-of-matter-when-you-get-acquired-by-a-strategic-even-though-they-are-usually-how-a-deal-is-priced/": {
+    "created_at": "2026-11-08T16:56:58.849761+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Strategic acquisitions of startups are often driven by the potential to scale the acquired company within the acquirer's ecosystem, rather than its current revenue. For example, after Stripe acquired Privy, its assets grew 25x and monthly transaction volume reached nearly $25B, leveraging Stripe's existing distribution. Despite this focus on future potential, deal pricing frequently anchors on the acquired company's current revenue to provide a tangible metric for stakeholders."
   },
   "https://www.saastr.com/you-should-be-collecting-at-least-100-of-your-mrr-each-month-in-cash-ideally-110/": {
     "created_at": "2026-07-25T12:05:28.633013+00:00",

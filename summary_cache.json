@@ -707,6 +707,12 @@
     "prompt_version": 1,
     "summary": "Lenny's Product Pass has been expanded with the addition of 11 new products, bringing the total number of offerings to 34. Subscribers, including Annual and Insider members, can receive a free year of access to these tools, which include both work-related and personal applications. The pass provides over $36,000 in value for Annual subscribers and over $40,000 for Insiders, aiming to provide access to expensive tools and bridge a gap in career success."
   },
+  "https://www.lennysnewsletter.com/p/state-of-the-tech-job-market-late": {
+    "created_at": "2026-11-10T18:30:16.781437+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "The tech job market in late 2026 shows product managers benefiting in the AI era with increased open roles, while engineering demand has plateaued and design roles are at a record low. A significant trend is the need for AI-related skills across all tech roles, with terms like \"LLM\" and \"Claude\" becoming prominent in job descriptions. Additionally, top tech jobs are increasingly concentrating in the Bay Area, leading to a record low number of remote roles globally."
+  },
   "https://www.lennysnewsletter.com/p/the-grief-loneliness-and-burnout": {
     "created_at": "2026-09-27T15:33:10.269295+00:00",
     "model": "gemini-2.5-flash",
@@ -1421,6 +1427,12 @@
     "prompt_version": 1,
     "summary": "Enterprises are projected to spend $176.8 billion deploying AI in 2026, a 5.4x increase from $33 billion in 2025. Most of this funding, 55%, comes from net-new budgets, with 22% sourced from software budgets and about 23% from labor and other areas. This shift has contributed to AI reducing application SaaS growth from 13% to 11%."
   },
+  "https://www.saastr.com/ai-startups-may-have-fewer-sales-reps-but-not-as-a-percent-of-the-team-has-the-playbook-really-changed-all-that-much/": {
+    "created_at": "2026-11-10T18:30:54.627389+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "AI-forward companies operate with smaller overall go-to-market teams compared to lower-adoption peers. However, sales as a percentage of the workforce in AI hypergrowth companies is similar to the rest of tech. Customer support teams are notably smaller, while engineering constitutes a significantly larger proportion of the workforce."
+  },
   "https://www.saastr.com/ai-wont-kill-saas-but-it-will-kill-vendors-that-stopped-shipping-point-solutions-are-most-at-risk/": {
     "created_at": "2026-07-24T12:21:43.789468+00:00",
     "model": "gemini-2.5-flash",
@@ -1450,6 +1462,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Meta's AI agent, Muse, from Meta Superintelligence Labs, has reached the #1 spot on the US App Store within a week of its launch, surpassing ChatGPT. This consumer AI product is described as competing head-on with ChatGPT. Following its success, Meta's stock increased by 7-8% in the week, adding approximately $100 billion to its market capitalization."
+  },
+  "https://www.saastr.com/anthropics-ipo-puts-216-billion-in-employee-hands-another-160-billion-is-reserved-for-the-next-hires/": {
+    "created_at": "2026-11-10T18:30:34.333834+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Anthropic's IPO filing reveals that current employees holding options and RSUs possess approximately $216 billion in net value. The company has also reserved about $160 billion in shares for future grants to new hires. This substantial equity pool is intended to help Anthropic compete for talent in the B2B and AI sectors."
   },
   "https://www.saastr.com/astra-6-replaced-a-core-engine-of-saastr-connect-with-two-words-do-it-twice-in-under-an-hour-then-it-said-i-did-not-make-that-edit/": {
     "created_at": "2026-10-04T15:42:30.122674+00:00",

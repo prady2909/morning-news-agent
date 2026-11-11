@@ -347,6 +347,12 @@
     "prompt_version": 1,
     "summary": "Grace Clarke, an AI educator, runs her entire service business using tools she built with Claude Code, such as a pipeline operator and a Gmail replacement. She teaches individuals and teams to build similar systems, including an hourly pipeline and interactive HTML proposals, and how to use a \"voice guide\" skill file for personalized outputs. The content also covers \"intent engineering\" and using Claude for diverse tasks from client work to personal tracking."
   },
+  "https://www.lennysnewsletter.com/p/claude-code-obsidian-my-familys-ai": {
+    "created_at": "2026-11-11T18:26:02.885283+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Scott Farrar, a math educator and parent, built a household brain in Claude Code, viewed in Obsidian, to address his frustration with AI chats that drift and forget. This system stores information on his appliances, warranties, insurance documents, and family to-do list. He uses it for tasks like car insurance shopping, planning repairs, and sharing the system with his wife, with priority tasks and recent wins displayed on a wall."
+  },
   "https://www.lennysnewsletter.com/p/claude-cuts-my-tiktok-how-this-creator": {
     "created_at": "2026-10-19T17:22:23.949963+00:00",
     "model": "gemini-2.5-flash",
@@ -1103,6 +1109,12 @@
     "prompt_version": 1,
     "summary": "The Horowitz Andreessen Academy (HAA) recently launched as an alternative program for young college-aged people. Co-founded by Gagan Biyani, it is a residential program in San Francisco focused on helping ambitious youth learn to build things and be useful. HAA aims to provide an environment for these young people to connect with like-minded peers and access necessary skills and experienced individuals."
   },
+  "https://www.notboring.co/p/of-miracles-and-moats": {
+    "created_at": "2026-11-11T18:26:53.970408+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "A miracle technology does not guarantee a miraculous business, as impressive and useful innovations often attract many competitors, leading to oversupply and price collapses. This pattern, seen in industries like airlines, railways, oil, and fiber optics, ultimately benefits consumers through lower prices but frequently leads to the failure of many producers. Durable competitive advantages, or \"moats,\" are crucial for businesses to profit from such technological proliferations, as consumers typically capture most of the overall economic benefits."
+  },
   "https://www.notboring.co/p/runway-learning-from-watching-the": {
     "created_at": "2026-10-13T18:02:17.422770+00:00",
     "model": "gemini-2.5-flash",
@@ -1733,6 +1745,12 @@
     "prompt_version": 1,
     "summary": "Harvey employs approximately 180 legal engineers, all of whom are former practicing attorneys with significant experience. These legal engineers are present in every deployment, working with law firms and in-house teams. They provide subject matter expertise, help customers build agents, and shape the product roadmap based on real-world legal needs."
   },
+  "https://www.saastr.com/higgsfield-went-from-1b-to-1-35b-in-run-rate-in-one-month-now-its-aiming-for-2b-by-year-end/": {
+    "created_at": "2026-11-11T18:27:12.406264+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Higgsfield increased its annualized revenue run rate from $1 billion in September to $1.35 billion in October, adding $350 million in about one month. The company is now targeting a $2 billion run rate by the end of 2026, with agencies and enterprise customers driving most of its revenue."
+  },
   "https://www.saastr.com/how-a-mediocre-sales-team-loses-you-deals-ones-you-could-have-won/": {
     "created_at": "2026-07-23T12:25:34.732185+00:00",
     "model": "gemini-2.5-flash",
@@ -1906,6 +1924,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Only seven public B2B software companies are currently growing faster than 30%, a notable decrease from 2021 when the median growth rate was above this figure. This has led to two distinct B2B markets: a small group of public companies often leveraging AI-driven demand and consumption-based pricing, and a separate, faster-growing cohort of AI-native companies that show significantly higher growth rates."
+  },
+  "https://www.saastr.com/our-agents-never-picked-canva-10-learnings-on-agent-pricing-getting-picked-and-security-from-this-weeks-the-agents-with-ulrik-lehrskov-schmidt/": {
+    "created_at": "2026-11-11T18:26:19.123617+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "The latest episode of \"The Agents\" discussed how agents choose vendors, the impact of AI pricing models on customers, and lessons learned from internal agents. The authors cancelled Canva after 12 years because their agents never had a use for it, illustrating that agents pick vendors once and then stop looking. The episode also covered how companies like HubSpot are tripling bills with new credit models and the importance of agents delivering significant value, such as one that doubled ACV for a portfolio company."
   },
   "https://www.saastr.com/our-ai-agent-picked-render-over-railway-and-vercel-id-never-heard-of-it-thats-how-you-get-leads-in-the-agent-age/": {
     "created_at": "2026-10-12T20:11:13.023984+00:00",
@@ -2200,6 +2224,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Future sales organizations are becoming smaller, more senior, and AI-native. They focus on pipeline humans previously wrote off, allow buyers who don't need a rep to close on their own, and are ready for buyers that are software rather than people. Compensation and hiring practices must be rebuilt to align with these changes."
+  },
+  "https://www.saastr.com/top-10-learnings-from-databricks-cro-ron-gabrisko-on-scaling-sales-from-under-1m-to-a-200b-company/": {
+    "created_at": "2026-11-11T18:26:37.079894+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Ron Gabrisko, Databricks CRO, shared learnings on scaling sales, noting that while selling fundamentals endure, the company's approach to hiring, training, and operations has evolved significantly. Databricks now leverages AI agents for tasks like research and proposals, enabling reps to focus 60% of their time on customer interactions, including new executive buyers. Key strategies include hiring reps who build working demos, continuous certification, and consumption-based pricing with free users to drive product adoption and revenue."
   },
   "https://www.saastr.com/top-10-mistakes-i-see-new-vp-of-sales-make-the-first-week-on-the-job/": {
     "created_at": "2026-08-21T11:29:20.465276+00:00",

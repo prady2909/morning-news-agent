@@ -1409,6 +1409,12 @@
     "prompt_version": 1,
     "summary": "SaaStr AI employs over 21 agents with three human employees to run its inbound, renewals, and outbound operations. This system has led to substantial revenue growth, including a 2.1x increase in sponsorship revenue, a 60% rise in new business from inbound, and a 124% growth in annual outbound revenue."
   },
+  "https://www.saastr.com/a-great-b2b-agent-doubles-your-acv-most-ai-features-dont-move-it-at-all/": {
+    "created_at": "2026-11-12T18:44:06.337905+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "A great B2B agent can double Annual Contract Value (ACV) by taking over jobs a human used to do, allowing customers to pay from their labor budget. One portfolio company saw its agent double ACV, with 3% of its customer base buying it in the first week due to obvious value. In contrast, AI features that only slightly improve existing workflows do not move ACV and can cause customer resentment when metered with credits."
+  },
   "https://www.saastr.com/a-record-8625-startups-raised-their-first-venture-round-this-year-smaller-vcs-now-have-to-find-founders-before-they-found-anything/": {
     "created_at": "2026-10-26T17:10:44.508316+00:00",
     "model": "gemini-2.5-flash",
@@ -1600,6 +1606,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Becoming a better VP of Sales involves consistently hitting sales targets and building a machine for future success. This primary role emphasizes two jobs: hiring and improving sales talent, and actively participating in closing deals, particularly for earlier-stage companies. Successful VPs also set clear, believed-in goals, treat pipeline as oxygen, act as product experts, own their misses, and focus on accountability for results."
+  },
+  "https://www.saastr.com/dear-saastr-how-do-you-become-successful-at-enterprise-sales-what-are-the-biggest-challenges-people-experience/": {
+    "created_at": "2026-11-12T18:44:21.646269+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Becoming successful at enterprise sales requires significant hustle, active in-person engagement with prospects, and a deep understanding of their business processes and how the product benefits their career. Key challenges include learning to navigate multiple stakeholders, potentially committing to future development, and investing substantial time in managing and hiring sales personnel internally."
   },
   "https://www.saastr.com/dear-saastr-i-fired-my-vp-of-sales-what-now/": {
     "created_at": "2026-08-02T12:04:41.212727+00:00",

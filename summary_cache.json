@@ -1211,6 +1211,12 @@
     "prompt_version": 1,
     "summary": "The FDA has granted accelerated approval to INOVIO's Voceryq, the first plasmid DNA-based immunotherapy approved in the U.S. It treats recurrent respiratory papillomatosis (RPP), a disease causing recurring wart-like growths in the airway. This therapy works by delivering DNA plasmids that teach the immune system to target infected cells."
   },
+  "https://www.notboring.co/p/weekly-dose-of-optimism-219": {
+    "created_at": "2026-11-13T18:26:27.889241+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "A new study published in *Aging Cell* suggests that LSD may reverse gene signatures of brain aging in rodents. Researchers found that LSD opposed age-related gene expression drift more effectively than exercise or enriched environments in rats and mice. Additionally, LSD repaired mouse neurons damaged by amyloid-β in a laboratory setting."
+  },
   "https://www.saastr.com/2026-is-the-biggest-ipo-year-in-history-but-take-out-one-company-and-its-one-of-the-worst/": {
     "created_at": "2026-08-03T13:43:45.186286+00:00",
     "model": "gemini-2.5-flash",
@@ -1336,6 +1342,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Palantir reported 93% year-over-year revenue growth to $1.935 billion, marking its twelfth consecutive quarter of accelerating growth. The company achieved a net revenue retention of 157% and a Rule of 40 score of 155%. Full-year guidance was raised, and 73 deals of at least $10 million were closed in the quarter."
+  },
+  "https://www.saastr.com/5-interesting-learnings-from-palantir-at-9-3-billion-run-rate-96-growth-165-nrr-and-u-s-commercial-passing-government-for-the-first-time/": {
+    "created_at": "2026-11-13T18:26:07.901508+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Palantir reported Q3 2026 revenue of $2.313 billion, growing 96% year-over-year, with company-wide net dollar retention rising to 165%. For the first time, U.S. commercial revenue of $984 million surpassed U.S. government revenue of $953 million. Despite these results and $1.128 billion in GAAP net income, the stock declined due to flat bookings, with total contract value up 6% year-over-year."
   },
   "https://www.saastr.com/5-interesting-learnings-from-palo-alto-networks-at-11-4-billion-in-revenue-60-arr-growth-120-nrr-and-a-25b-acquisition-that-doubled-the-stock/": {
     "created_at": "2026-08-12T11:48:52.706331+00:00",
@@ -1649,6 +1661,12 @@
     "prompt_version": 1,
     "summary": "A good sales representative hits their quota, but a great one closes significantly more, often 2.5 times or more than a decent rep with the same leads. This difference stems from great reps closing larger deals, discounting less, and closing faster. They achieve this by deeply understanding customer needs, believing in the product's value, listening to prospects, engaging the entire buying group, and preparing more for interactions."
   },
+  "https://www.saastr.com/dear-saastr-what-is-the-difference-between-a-good-salesman-and-a-great-one/": {
+    "created_at": "2026-11-13T18:26:45.515825+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "A great sales representative closes multiples of what a good rep does, even with the same leads, demonstrating a significant performance gap. This is achieved by great reps closing larger deals, discounting less, and closing faster. They map customer needs, believe in the product's value, act as solution architects, and engage the entire buying group, ultimately making the purchasing process easier."
+  },
   "https://www.saastr.com/dear-saastr-whats-the-best-advice-founders-never-hear/": {
     "created_at": "2026-07-30T12:46:39.565646+00:00",
     "model": "gemini-2.5-flash",
@@ -1882,6 +1900,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "AI costs have reportedly decreased for the first time in two years, attributed to recent model price drops. For example, Haiku 5.5 is 90% cheaper for certain prompts, and Sonnet 5.5 is twice as fast. This shift allows for more AI work to be done and suggests opportunities for cost savings by swapping and re-testing models."
+  },
+  "https://www.saastr.com/jensen-resigns-sequoia-pulls-back-to-the-bay-and-anthropics-ipo-draws-6x-demand-the-top-takeaways-from-20vc-x-saastr/": {
+    "created_at": "2026-11-13T18:25:49.033132+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Jensen Huang resigned as Nvidia's President, CEO, and director on November 11, effective immediately. This followed an investigation opened by Nvidia's board on November 8 concerning reports that Huang was the target of a foreign intelligence effort, and his acknowledgement of an intimate relationship with a business executive reportedly gathering information for Beijing. Nvidia's board appointed CFO Colette Kress as interim CEO and plans to continue the investigation."
   },
   "https://www.saastr.com/klaviyos-ceo-on-building-at-1-5b-with-agents-dark-factory-composer-and-why-every-single-employee-had-to-hit-l3-by-june/": {
     "created_at": "2026-08-15T11:23:01.340432+00:00",

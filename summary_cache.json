@@ -479,6 +479,12 @@
     "prompt_version": 1,
     "summary": "A review of Claude Opus 5 found it produced some of the best work among leading AI models, winning a seven-model blind benchmark. Despite its strong performance, the model was described as frustrating to use, exhibiting timid and overly cautious behavior, often deferring decisions or seeking human approval. Its output was also noted for being too long, overly cautious, and filled with unnecessary adjectives."
   },
+  "https://www.lennysnewsletter.com/p/how-i-ai-fable-52-review-how-i-fight": {
+    "created_at": "2026-11-16T20:50:28.450401+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Scott Farrar, a math educator and parent, built a shared household AI brain using Claude Code and Obsidian. This system tracks appliances and warranties, compares insurance quotes, organizes family projects, and manages household tasks through a shared to-do list and wall display. Farrar uses persistent files to avoid AI memory drift and helps his children use AI to aid their thinking, not to replace it."
+  },
   "https://www.lennysnewsletter.com/p/how-i-ai-gpt-56-review-how-a-solo": {
     "created_at": "2026-07-15T12:17:28.899389+00:00",
     "model": "gemini-2.5-flash",
@@ -556,6 +562,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Meta's Muse is a personal AI agent designed for everyday users, tested for tasks like managing family calendars and creating morning newsletters. Its consumer design expertise provides a frictionless and trustworthy experience, avoiding technical jargon and proactively identifying useful information. While it performs well in many areas, Muse struggles with browser-based shopping, reflecting a common challenge for consumer agents."
+  },
+  "https://www.lennysnewsletter.com/p/how-i-fight-token-fraud-as-a-solo": {
+    "created_at": "2026-11-16T20:50:43.047471+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "A solo founder discusses fighting token fraud, which has cost tens of thousands of dollars and significant engineering effort for their AI platform, ChatPRD. Fraudsters have been farming free trials and reselling promo codes, leading the founder to implement business and technical controls, classify fraud in real time, and ultimately end free trials."
   },
   "https://www.lennysnewsletter.com/p/how-i-turned-claude-into-a-self-improving": {
     "created_at": "2026-08-31T17:56:46.804034+00:00",
@@ -1042,6 +1054,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "The rapid retreat of AI and chip stocks has exposed the fragility of the AI funding boom, which is increasingly reliant on debt. Situational Awareness, an AI-centric hedge fund, was forced to sell its public stock portfolio due to a liquidity crisis from margin calls. This served as an object lesson in the risks of leveraged bets and how quickly fortunes can turn in the AI trade."
+  },
+  "https://www.newcomer.co/p/the-ai-100": {
+    "created_at": "2026-11-16T20:50:58.360458+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "The AI 100 is an inaugural list of 100 promising private AI companies, identified and ranked in collaboration with Bessemer Venture Partners. Anthropic took first place on the list, which represents a collective valuation of around $3.5 trillion and was compiled using both quantitative and qualitative factors."
   },
   "https://www.newcomer.co/p/the-big-cheese-hits-theaters-today": {
     "created_at": "2026-08-08T11:30:52.834788+00:00",

@@ -23,6 +23,12 @@
     "prompt_version": 1,
     "summary": "Good product ideas are rare and valuable, but their survival depends heavily on the development process. The traditional launch-and-iterate model has an estimated 5% survival rate for these ideas due to challenges in prioritization, specification, and implementation. In contrast, an evidence-guided development approach, which incorporates evaluation and validation, is estimated to allow roughly 8 out of 10 good ideas to manifest their full value."
   },
+  "https://itamargilad.com/ice-antipatterns/": {
+    "created_at": "2026-11-17T19:40:09.777957+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "ICE scoring is an idea evaluation technique that rates ideas on Impact, Confidence, and Ease, multiplying these values to generate a prioritization score. However, despite its apparent simplicity, ICE is often misunderstood and misused, which can lead to bad decisions and wasted effort instead of effective prioritization."
+  },
   "https://magazine.sebastianraschka.com/p/ai-detector-from-scratch": {
     "created_at": "2026-08-16T11:22:13.444086+00:00",
     "model": "gemini-2.5-flash",
@@ -280,6 +286,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "The author observes that the use of thousands of AI agents in frontier labs is raising anxiety and driving a \"singularity soon\" view, which exaggerates AI risk timelines and severity. However, the author's perspective, called \"lossy self-improvement,\" suggests that automatable research is too narrow and diminishing returns, along with resource bottlenecks, limit a massive acceleration in intelligence. While AI can improve efficiency and make models cheaper, there are no clear signs of dramatic acceleration in peak intelligence, leading the author to view discussions of extinction risk as misplaced."
+  },
+  "https://www.lennysnewsletter.com/p/35-premium-tools-free-for-a-yearnow": {
+    "created_at": "2026-11-17T19:39:51.364571+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Lenny's Newsletter has added five new partners—OpenRouter, Ploy, Sentry, TextExpander, and LangSmith by LangChain—to its Product Pass. This expands the Product Pass to 35 products for Insider subscribers ($400/year) and 22 products for Annual subscribers ($200/year). These subscriptions offer a full free year of premium products, generally for new customers of each tool."
   },
   "https://www.lennysnewsletter.com/p/60-creative-growth-ideas": {
     "created_at": "2026-09-15T15:28:54.610266+00:00",
@@ -1097,6 +1109,12 @@
     "prompt_version": 1,
     "summary": "Data from the Ramp Economics Lab indicates that a small portion of customers generate most enterprise revenue for OpenAI and Anthropic. Specifically, 1% of their customers on Ramp's platform account for 80% of enterprise revenues. This concentration could pose a risk to the growth projections of these companies."
   },
+  "https://www.newcomer.co/p/top-takes-from-cvai-2026": {
+    "created_at": "2026-11-17T19:40:50.865057+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Key insights from the Cerebral Valley AI Summit focused on the cost of compute as a critical leverage point in AI development, with various approaches debated for bringing costs down. Discussions also highlighted concerns about the concentration of AI intelligence in large labs and the industry's public perception. Despite a majority of attendees believing the AI industry is in a bubble, there was near-unanimous optimism about the overall AI opportunity."
+  },
   "https://www.newcomer.co/p/two-huge-exits-show-the-power-of": {
     "created_at": "2026-08-22T11:22:41.118107+00:00",
     "model": "gemini-2.5-flash",
@@ -1835,6 +1853,12 @@
     "prompt_version": 1,
     "summary": "To steal customers from a market leader, businesses should actively appear where competitors are, attending the same events and sponsoring similar services. Additionally, it is essential to \"do the work\" for potential customers by making the switch effortless, such as buying out existing contracts, migrating data, and onboarding teams at no extra cost. This strategy requires patience, as it often takes years to succeed."
   },
+  "https://www.saastr.com/how-fast-do-you-really-have-to-be-growing-to-raise-venture-capital-today-1m-to-100m-arr-in-5-years/": {
+    "created_at": "2026-11-17T19:40:29.479343+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Companies seeking venture capital today are generally expected to grow from $1M to $100M in annual recurring revenue (ARR) within five years or less, which requires a 151% compound annual growth rate. This growth benchmark serves as the minimum bar for raising capital, with the clock starting at $1M ARR, and must be cleared before other factors like retention or gross margin are fully diligenced."
+  },
   "https://www.saastr.com/how-long-is-each-venture-funding-supposed-to-last-for-the-company-being-funded/": {
     "created_at": "2026-08-25T11:30:44.230910+00:00",
     "model": "gemini-2.5-flash",
@@ -1876,6 +1900,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "ICONIQ data reveals companies with over 100% revenue growth increased median headcount by 133% in the first half of 2026, surpassing prior years. In contrast, companies with 50%-100% revenue growth cut their headcount expansion from 46% to 25% in a single year. This reflects contrasting hiring strategies across different revenue growth bands."
+  },
+  "https://www.saastr.com/if-youre-refounding-your-b2b-company-for-ai-make-your-product-cheaper-probably-much-cheaper/": {
+    "created_at": "2026-11-17T19:41:23.208076+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "As B2B companies refound for AI, a core piece of advice is to make products cheaper, potentially much cheaper. While AI agents will use products far more than humans, they precisely measure costs and will reduce usage or switch to cheaper alternatives if prices are too high. Lower unit prices can lead to significantly increased agent usage, resulting in greater overall contract value."
   },
   "https://www.saastr.com/is-software-dead-no-it-just-got-a-lot-harder-to-win-the-saastr-ai-deep-dive-with-rory-odriscoll/": {
     "created_at": "2026-07-16T12:21:54.955379+00:00",
@@ -2170,6 +2200,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Stripe's data on fast-growing AI companies shows accelerating growth, with top firms achieving 175% growth in 2026 and reaching first paying customers in under six weeks. These companies expand internationally quickly, with 48% of revenue coming from outside their home market, and frequently use usage-based pricing models. They are also adopting sales-led growth earlier and building unified revenue infrastructure to manage rapid scaling."
+  },
+  "https://www.saastr.com/stripes-new-index-shows-non-ai-b2b-revenue-up-30-year-over-year-through-the-saaspocalypse/": {
+    "created_at": "2026-11-17T19:41:07.713223+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Stripe Economics has published a new SaaS Index, which tracks weekly revenue for non-AI B2B software businesses based on real payment flows. The index shows year-over-year growth above 30%, exceeding summer 2023 highs and sitting 4% above its pre-sell-off trend. However, it primarily tracks self-serve, non-AI companies, excludes those that shut down, and its payment volume counts price increases as growth."
   },
   "https://www.saastr.com/sumble-why-80-accurate-data-turns-into-33-accurate-data-by-the-time-your-agent-uses-it-and-how-nooks-found-700-accounts-it-didnt-know-about/": {
     "created_at": "2026-10-27T16:16:09.671390+00:00",

@@ -815,6 +815,12 @@
     "prompt_version": 1,
     "summary": "Reddit Proto is the company's in-house vibe-coding harness, built by principal UX engineer Blair Metcalf. It has achieved 100% adoption across Reddit's UX and product organization, with over 700 prototypes live, and maps Reddit's product language to production code using a design system MCP."
   },
+  "https://www.newcomer.co/p/13-videos-from-cvai-igor-babuschkin": {
+    "created_at": "2026-11-18T19:15:57.723804+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Last week, top founders and investors gathered for the Cerebral Valley AI Summit amidst industry turbulence. Leaders from various companies shared their thoughts about the future of AI. All 13 onstage conversations from the summit are being published."
+  },
   "https://www.newcomer.co/p/9-videos-from-machine-earning-towns": {
     "created_at": "2026-10-06T17:04:33.278832+00:00",
     "model": "gemini-2.5-flash",

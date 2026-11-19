@@ -1319,6 +1319,12 @@
     "prompt_version": 1,
     "summary": "Jensen Huang declared that AGI has arrived, crediting OpenAI's GPT Astra. This model was trained on over 100,000 NVIDIA chips, with an additional 400,000 more chips anticipated."
   },
+  "https://www.saastr.com/20vc-x-saastr-jensen-out-at-nvidia-anthropics-1-4-trillion-ipo-and-hubspot-brings-back-brian-halligan/": {
+    "created_at": "2026-11-19T19:23:46.106238+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Anthropic's 825 million-share offering could raise up to $64.4 billion, valuing the company at up to $1.4 trillion, with trading on Nasdaq as ANT set to begin November 19. The IPO was six times oversubscribed and could raise up to $90.4 billion including a private placement. The company is projected to reach $100 billion in revenue with fewer than 6,000 employees, which is 1/12th the headcount Google or Meta had at similar revenue levels."
+  },
   "https://www.saastr.com/20vc-x-saastr-jensens-first-tweet-ever-the-agent-that-rewrote-my-code-without-telling-me-and-why-the-pe-turnaround-playbook-is-out-of-road/": {
     "created_at": "2026-07-31T12:58:29.709824+00:00",
     "model": "gemini-2.5-flash",
@@ -1348,6 +1354,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Apple sued OpenAI this week over alleged trade secret theft involving physical prototypes and former employees, which signaled Apple's intent to make poaching expensive. The discussion also noted the start of a \"token-maxing\" era, driven by rapidly increasing AI spend and a shift towards two-tier model strategies for token consumption. A central, unresolved question was the total addressable market for AI coding, with concerns that leading AI companies could quickly reach the ceiling of the US developer wage market."
+  },
+  "https://www.saastr.com/22-reasons-to-sponsor-saastr-ai-2027-900-qualified-leads-is-just-one-of-them/": {
+    "created_at": "2026-11-19T19:24:40.926488+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "The document promotes sponsorship opportunities for SaaStr AI Annual 2027, scheduled for May 11-12 at the San Mateo County Event Center. It highlights 2026 event results, noting that top sponsors cleared over 900 leads and deals closed on-site or in weeks, targeting B2B and AI companies."
   },
   "https://www.saastr.com/3-humans-20-ai-agents-and-yes-we-still-need-real-b2b-software/": {
     "created_at": "2026-07-22T12:27:15.435438+00:00",
@@ -1991,6 +2003,12 @@
     "prompt_version": 1,
     "summary": "Jensen Huang resigned as Nvidia's President, CEO, and director on November 11, effective immediately. This followed an investigation opened by Nvidia's board on November 8 concerning reports that Huang was the target of a foreign intelligence effort, and his acknowledgement of an intimate relationship with a business executive reportedly gathering information for Beijing. Nvidia's board appointed CFO Colette Kress as interim CEO and plans to continue the investigation."
   },
+  "https://www.saastr.com/keybancs-2026-ai-x-software-survey-24-growth-only-6-at-the-rule-of-40-and-43-of-vendors-watching-customers-vibe-code-their-product/": {
+    "created_at": "2026-11-19T19:24:23.350300+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "A KeyBanc Capital Markets survey of private B2B software companies, conducted from July through September 2026, found 43% of vendors report customers using AI coding tools to rebuild their product or features. The median company grew 24% in 2025, but only 6% met the Rule of 40. Additionally, 30 of 68 companies were over budget on AI spend, primarily due to higher token usage."
+  },
   "https://www.saastr.com/klaviyos-ceo-on-building-at-1-5b-with-agents-dark-factory-composer-and-why-every-single-employee-had-to-hit-l3-by-june/": {
     "created_at": "2026-08-15T11:23:01.340432+00:00",
     "model": "gemini-2.5-flash",
@@ -2350,6 +2368,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "The top 1% of firms, which drive 80% of OpenAI and Anthropic spending, spent less on AI per employee in September than in July. Concurrently, Anthropic's quarterly dollar add shrank for the first time in Q3, adding $5.4 billion, down from $6.8 billion in Q2. This slowdown is mainly attributed to falling prices for top AI models, though adoption across other firms is still rising."
+  },
+  "https://www.saastr.com/the-top-10-metrics-in-anthropics-s-1-for-b2b-execs-33-billion-in-nine-months-900-nrr-and-12x-more-100k-customers-in-a-year/": {
+    "created_at": "2026-11-19T19:24:05.467773+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Anthropic reported $33.24 billion in revenue for the nine months ended Sept. 30. The company achieved approximately 900% net revenue retention from metered accounts, and its customers generating over $100K annually grew from 950 to 11,900 in one year. Gross margin increased to 85.5% from 29.4% a year earlier, with 79% of revenue derived from consumption-based models."
   },
   "https://www.saastr.com/the-top-10-mistakes-i-see-in-the-vp-of-sales-hiring-process/": {
     "created_at": "2026-10-19T17:23:13.961881+00:00",

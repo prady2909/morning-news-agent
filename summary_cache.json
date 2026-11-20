@@ -833,6 +833,12 @@
     "prompt_version": 1,
     "summary": "Martin Casado of a16z's infrastructure team discussed recent successful acquisitions, Cursor and OpenRouter, noting their significant returns. He expressed concern about individual VCs claiming credit for deals, calling it a \"historical relic.\" Casado stated that modern venture capital is a collaborative effort, with many individuals instrumental in any given deal."
   },
+  "https://www.newcomer.co/p/after-anthropic-euphoria-nvidia-amd": {
+    "created_at": "2026-11-20T18:59:27.534802+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Google has reestablished itself in the AI model race with the release of Gemini 4 Neon this week. This new medium-sized model ranks at or near the top of the most powerful models by benchmarks and is receiving positive reviews on X. The release comes after Google had struggled with previous Gemini models, leading some critics to believe it was out of the AI race."
+  },
   "https://www.newcomer.co/p/after-missing-ais-early-days-lightspeed": {
     "created_at": "2026-10-08T17:46:37.479999+00:00",
     "model": "gemini-2.5-flash",
@@ -1282,6 +1288,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "A new study published in *Aging Cell* suggests that LSD may reverse gene signatures of brain aging in rodents. Researchers found that LSD opposed age-related gene expression drift more effectively than exercise or enriched environments in rats and mice. Additionally, LSD repaired mouse neurons damaged by amyloid-β in a laboratory setting."
+  },
+  "https://www.notboring.co/p/weekly-dose-of-optimism-220": {
+    "created_at": "2026-11-20T19:00:01.252722+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "SpaceX's Mechazilla successfully caught an orbital Starship on Flight 15. Ship 42 launched, reached orbit, deployed satellites, spent over 22 hours in space, survived re-entry, and was caught by Mechazilla's chopsticks. This feat is noted as the \"final boss of rapid, full reusability\" and is expected to significantly reduce marginal launch costs, with plans to increase flight frequency substantially by 2027 and beyond."
   },
   "https://www.saastr.com/2026-is-the-biggest-ipo-year-in-history-but-take-out-one-company-and-its-one-of-the-worst/": {
     "created_at": "2026-08-03T13:43:45.186286+00:00",
@@ -1925,6 +1937,12 @@
     "prompt_version": 1,
     "summary": "As B2B companies refound for AI, a core piece of advice is to make products cheaper, potentially much cheaper. While AI agents will use products far more than humans, they precisely measure costs and will reduce usage or switch to cheaper alternatives if prices are too high. Lower unit prices can lead to significantly increased agent usage, resulting in greater overall contract value."
   },
+  "https://www.saastr.com/intuit-sells-mailchimp-for-3-68-billion-30-cents-on-the-dollar-2-9x-revenue-0-growth-and-the-biggest-deal-yet-for-bending-spoons/": {
+    "created_at": "2026-11-20T19:00:21.350426+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Intuit has agreed to sell Mailchimp to Bending Spoons for $3.68 billion. This is less than one-third of the $12 billion Intuit paid for Mailchimp in 2021. Mailchimp is currently guiding to 0% growth on $1.26 billion in revenue, and the deal is expected to close in early 2027."
+  },
   "https://www.saastr.com/is-software-dead-no-it-just-got-a-lot-harder-to-win-the-saastr-ai-deep-dive-with-rory-odriscoll/": {
     "created_at": "2026-07-16T12:21:54.955379+00:00",
     "model": "gemini-2.5-flash",
@@ -2380,6 +2398,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "The article outlines ten common mistakes founders make when hiring a VP of Sales or CRO. These errors include selecting candidates who do not genuinely understand the product, lack a pipeline of strong recruits, or are unwilling to actively sell or visit customers. Further issues involve hiring individuals who are cynical, overly focused on social media, seeking a different role, or primarily chosen for their former employer's prestige rather than their current capabilities."
+  },
+  "https://www.saastr.com/the-top-10-things-that-have-changed-in-sales-gtm-in-the-age-of-ai-and-10-things-that-really-havent/": {
+    "created_at": "2026-11-20T18:59:43.099259+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "AI agents have significantly transformed sales and go-to-market functions by automating tasks like first responses, SDR work, and renewals, resulting in leaner GTM teams and increased lead coverage. However, human sales executives remain crucial for closing complex deals, handling objections, and strategic decision-making, while fast-growing AI companies still build sales teams and implementation times largely remain unchanged."
   },
   "https://www.saastr.com/the-top-sales-lessons-from-saastr-ai-2026-gamma-owner-stripe-salesforce-cloudflare-and-monaco/": {
     "created_at": "2026-07-28T12:56:49.977757+00:00",

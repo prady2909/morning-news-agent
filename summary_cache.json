@@ -1445,6 +1445,12 @@
     "prompt_version": 1,
     "summary": "Palo Alto Networks, with an $11.4 billion revenue run rate, saw its stock double over the past twelve months. The company's Next-Gen Security ARR grew 60%, with AI acting as a tailwind by increasing demand for security services and data inspection. This has led to rapid scaling of new products and a resurgence in its hardware business."
   },
+  "https://www.saastr.com/5-interesting-learnings-from-palo-alto-networks-at-14-5-billion-in-revenue-39-growth-a-1-billion-gaap-gap-and-a-4-5b-stock-bet-on-open-weight-ai/": {
+    "created_at": "2026-11-21T17:54:43.394652+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Palo Alto Networks reported fiscal Q1 2027 revenue of $3.44 billion, marking 39% year-over-year growth, with Next-Generation Security ARR up 66% to $9.73 billion. Much of this growth stemmed from acquisitions, and the company recently acquired Applied Compute for $4.5 billion in an all-stock transaction to embed AI capabilities. Palo Alto Networks beat its Q1 revenue guidance, raised its full-year outlook, and reported $1.94 billion in adjusted free cash flow for the quarter."
+  },
   "https://www.saastr.com/5-interesting-learnings-from-procore-at-1-5-billion-in-arr-16-growth-its-first-gaap-operating-profit-and-845m-for-dronedeploy/": {
     "created_at": "2026-08-01T12:04:02.948530+00:00",
     "model": "gemini-2.5-flash",
@@ -2560,6 +2566,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Strategic acquisitions of startups are often driven by the potential to scale the acquired company within the acquirer's ecosystem, rather than its current revenue. For example, after Stripe acquired Privy, its assets grew 25x and monthly transaction volume reached nearly $25B, leveraging Stripe's existing distribution. Despite this focus on future potential, deal pricing frequently anchors on the acquired company's current revenue to provide a tangible metric for stakeholders."
+  },
+  "https://www.saastr.com/with-agents-were-all-going-to-have-to-work-weekends-theyll-want-to-you-may-need-to/": {
+    "created_at": "2026-11-21T17:54:24.211635+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "AI agents will be ready to work through weekends, requiring people to put in time to review their output, approve steps, and assign new tasks. This involves short check-in sessions over the weekend to keep agents productive and prevent them from sitting idle. Companies that don't utilize their agents on weekends risk falling behind competitors who do."
   },
   "https://www.saastr.com/you-should-be-collecting-at-least-100-of-your-mrr-each-month-in-cash-ideally-110/": {
     "created_at": "2026-07-25T12:05:28.633013+00:00",

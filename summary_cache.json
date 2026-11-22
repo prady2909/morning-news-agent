@@ -413,6 +413,12 @@
     "prompt_version": 1,
     "summary": "This item explores browser and computer use through Codex, the ChatGPT desktop app, detailing specific workflows. Examples include QA testing onboarding flows, persona impersonation, managing a LinkedIn inbox, AI personal shopping, and controlling iPhone mirroring. The discussion also covers why the Codex desktop app with a Chrome extension is the preferred combination and suggests under-prompting for better results."
   },
+  "https://www.lennysnewsletter.com/p/first-principles-what-it-takes-to": {
+    "created_at": "2026-11-22T18:17:53.265139+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Sherif Mansour, Head of AI and Product Craft at Atlassian, discusses what it takes to be a great product manager in the AI era. The conversation explores a PM's primary role in building a \"shared brain\" and identifies three types of product managers. It also delves into why product manager roles are growing fastest in the AI era, Atlassian's hiring of junior PMs, and common mistakes new PM managers make."
+  },
   "https://www.lennysnewsletter.com/p/from-zero-coding-background-to-hardware": {
     "created_at": "2026-07-27T13:40:42.941596+00:00",
     "model": "gemini-2.5-flash",
@@ -1421,6 +1427,12 @@
     "prompt_version": 1,
     "summary": "Salesforce is acquiring Braze for roughly $5.66 billion, paying about 6.8x Braze's trailing twelve months revenue and offering Braze Class A holders a 58% premium. The acquisition aims to strengthen Salesforce Marketing Cloud's cross-channel personalization by integrating Braze's expertise in real-time mobile and in-app engagement."
   },
+  "https://www.saastr.com/5-interesting-learnings-from-cartas-q3-2026-data-100b-raised-in-six-months-21-fewer-deals-and-1-in-3-series-a-rounds-is-a-bridge/": {
+    "created_at": "2026-11-22T18:18:45.596410+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Carta's Q3 2026 report indicates startups on Carta raised $49.3 billion, totaling over $100 billion in the last two quarters, marking the most in any six-month period since Q4 2021-Q1 2022. While total deal count fell 21% year over year, median valuations are up at every stage and companies raising in 2026 secured the best terms of the decade. However, 1 in 3 Series A rounds is a bridge round, and M&A exit rates are tied for the lowest of the decade."
+  },
   "https://www.saastr.com/5-interesting-learnings-from-gitlab-at-1-13-billion-in-revenue-24-billings-growth-20m-of-flex-in-six-weeks-and-400-basis-points-of-ai-margin-cost/": {
     "created_at": "2026-09-25T15:45:46.692790+00:00",
     "model": "gemini-2.5-flash",
@@ -1745,6 +1757,12 @@
     "prompt_version": 1,
     "summary": "When a team of founders pitches, VCs first notice their confidence. This includes confidence in their progress, metrics, understanding of the competition and market, and their cohesion as a team. VCs look for self-awareness and honesty about unknowns, and the right type of confidence combined with early traction makes them take notice."
   },
+  "https://www.saastr.com/dear-saastr-what-are-your-biggest-regrets-when-starting-a-company-culture-scaling-hiring-marketing-etc/": {
+    "created_at": "2026-11-22T18:19:01.823700+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "The author listed ten mistakes made in the first 12-18 months of starting a B2B company that still achieved solid success. These errors included launching too early, insufficient market diligence, turning down extra offered funds, and misjudgments in hiring, scaling, and strategic focus."
+  },
   "https://www.saastr.com/dear-saastr-what-can-a-startup-do-to-get-their-customers-to-pay-on-time/": {
     "created_at": "2026-11-09T21:21:17.717531+00:00",
     "model": "gemini-2.5-flash",
@@ -1972,6 +1990,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "This week's takes for B2B and AI founders include insights on optimizing AI model costs and reporting growth transparently. The article also covers navigating pricing pressures, adapting products for AI agents, and strategizing around acquisition targets and AI security."
+  },
+  "https://www.saastr.com/jasons-takes-on-this-weeks-20vc-anthropics-6000-employees-a-2027-without-nvidia-as-a-buyer-and-why-muse-is-replacing-marketing-automation/": {
+    "created_at": "2026-11-22T18:18:10.460092+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Anthropic is projected to reach $100 billion in revenue with fewer than 6,000 employees, significantly less than Google or Meta at similar revenue levels. This indicates a large financial return distributed among fewer individuals, with the average employee potentially making $41 million on IPO and a manager $400K. The author suggests that companies should plan for the smallest possible team to achieve their goals, rather than emulating pre-AI competitor structures."
   },
   "https://www.saastr.com/jasons-takes-on-this-weeks-20vc-anthropics-s-1-microsofts-27-buyout-and-my-100-day-rule/": {
     "created_at": "2026-11-02T20:40:52.539307+00:00",
@@ -2218,6 +2242,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "ICONIQ's 2026 GTM benchmark report shows increased annual sales quotas for high performers, with enterprise AEs carrying $2.25M, Mid-Market at $1.35M, and SMB at $750K. These higher quotas are supported by AI-driven pipeline generation and are accompanied by increased attainment rates and a shift in AE compensation towards expansion activities like cross-sell and renewals."
+  },
+  "https://www.saastr.com/sam-blond-met-200-ai-sales-startups-at-founders-fund-then-built-monaco-why-most-get-it-wrong-where-ai-beats-your-reps-and-the-15000-plane/": {
+    "created_at": "2026-11-22T18:18:26.870157+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Sam Blond, after meeting hundreds of AI GTM startups, co-founded Monaco, an AI-native revenue platform, identifying that most startups failed by being a feature or a solution without a problem. He outlined several GTM jobs where AI already outperforms humans, such as building and scoring TAM, enrichment, and automated outbound. Blond emphasizes that humans remain crucial for meeting customers, building relationships, and executing creative campaigns, advising founders to use AI to free up time for customer calls instead of outsourcing GTM entirely."
   },
   "https://www.saastr.com/seo-may-be-dead-shopify-just-paid-100-million-for-shop-com-anyway/": {
     "created_at": "2026-11-05T18:34:23.987559+00:00",

@@ -581,6 +581,12 @@
     "prompt_version": 1,
     "summary": "Meta's Muse is a personal AI agent designed for everyday users, tested for tasks like managing family calendars and creating morning newsletters. Its consumer design expertise provides a frictionless and trustworthy experience, avoiding technical jargon and proactively identifying useful information. While it performs well in many areas, Muse struggles with browser-based shopping, reflecting a common challenge for consumer agents."
   },
+  "https://www.lennysnewsletter.com/p/how-i-ai-openclaw-for-executives": {
+    "created_at": "2026-11-23T22:29:10.367660+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Ankit Maheshwari, CTO of Innovaccer, uses a personal AI chief of staff named Jarvis, run through OpenClaw, to automate daily tasks such as work approvals, lunch orders, and smart home controls. The system employs specialist subagents, soul files, and strict guardrails to operate autonomously and address \"1% annoyances,\" with efforts underway to reduce its $500 to $600 monthly model bill."
+  },
   "https://www.lennysnewsletter.com/p/how-i-fight-token-fraud-as-a-solo": {
     "created_at": "2026-11-16T20:50:43.047471+00:00",
     "model": "gemini-2.5-flash",
@@ -748,6 +754,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Ian Silber, OpenAI’s head of product design, discusses how OpenAI designs products like ChatGPT and Codex, and the future of human interaction with AI. He shares why he believes this is the best time to be a product designer and offers advice to his designers."
+  },
+  "https://www.lennysnewsletter.com/p/openclaw-for-executives-automate": {
+    "created_at": "2026-11-23T22:29:25.799705+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Ankit Maheshwari, CTO of Innovaccer, uses an OpenClaw Jarvis system he runs on a Mac Mini. He began by automating work approvals where he was a bottleneck. The system now handles tasks such as ordering lunch, calling unresponsive coworkers on Slack, negotiating restaurant reservations, and turning on the AC before he arrives home."
   },
   "https://www.lennysnewsletter.com/p/opus-55-vs-gpt-6-sol-which-model": {
     "created_at": "2026-09-23T15:21:10.124655+00:00",
@@ -1930,6 +1942,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "A public benchmark tested 13 AI customer support vendors on real e-commerce stores to evaluate their resolution capabilities. The study found that the best AI agents fully resolve about 70% of customer conversations without human involvement, while the median vendor resolves 48%. Most vendors saw declines in both automation and quality over a four-week period, and resolution rates varied significantly by conversation type."
+  },
+  "https://www.saastr.com/how-saastr-uses-muse-for-gtm-5-jobs-we-didnt-want-to-build-into-our-own-agents/": {
+    "created_at": "2026-11-23T22:29:43.256724+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "SaaStr utilizes Muse for go-to-market tasks that their main agent, 10K, cannot perform due to its lack of a browser and scheduling capabilities. Muse provides a virtual machine, its own browser, and cron, allowing it to handle recurring web-based work and one-off research projects. These jobs include tasks like identifying competitors from customer lists, conducting AEO audits logged out, and monitoring competing events' sponsor pages daily."
   },
   "https://www.saastr.com/hubspot-is-refounding-as-the-customer-harness-company-heres-what-that-means-for-us-right-now-in-november-2026/": {
     "created_at": "2026-11-15T17:36:50.759788+00:00",

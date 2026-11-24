@@ -1517,6 +1517,12 @@
     "prompt_version": 1,
     "summary": "Zoom reported re-accelerating revenue growth in Q1 FY2027, reaching $1.239 billion, up 5.5% year-over-year. The company has become a \"cash machine,\" with free cash flow margins over 40%, driven by enterprise sales and successful AI monetization. Additionally, its Anthropic stake is carried at $1.27 billion, representing a significant gain and potential additional value."
   },
+  "https://www.saastr.com/5-reasons-not-to-raise-prices-on-existing-customers-and-2-better-ways-to-do-it-anyway/": {
+    "created_at": "2026-11-24T21:01:42.034816+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Raising prices on existing customers carries risks such as increased churn, damaged customer relationships and referrals, and internal discussions that consume resources. Material price increases can also prompt customers to immediately evaluate and suggest alternative vendors. Instead, better approaches include offering optional, more expensive editions, implementing small, pre-announced, and equally applied increases, or pairing a price increase with a significant increase in value."
+  },
   "https://www.saastr.com/50-of-the-work-created-in-linear-is-now-created-by-agents-a-year-ago-it-was-3/": {
     "created_at": "2026-08-29T15:32:24.288138+00:00",
     "model": "gemini-2.5-flash",
@@ -2368,6 +2374,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Go-to-market (GTM) software companies trade at significantly lower multiples than infrastructure and security software, partly due to investor expectations that AI agents will reduce the need for GTM apps priced per seat. Conversely, infrastructure and security companies are expected to benefit from AI's consumption-based billing, and private investors along with strategic buyers are paying higher valuations for GTM companies that charge on usage or outcomes."
+  },
+  "https://www.saastr.com/the-bar-to-get-funded-is-far-higher-than-most-founders-realize-900-median-growth-under-10m-115-at-100m-and-655k-in-revenue-per-employee/": {
+    "created_at": "2026-11-24T21:01:26.149322+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "The bar for top-tier funding has significantly risen, with top growth investors now backing \"Pacesetter\" companies that achieve median growth rates of 900% under $10M ARR and $655K in revenue per employee at $100M+ ARR. This means founders are being compared to companies with much higher growth than traditional benchmarks, although some other metrics like 55% gross margins and 105% net revenue retention under $10M can be lower than expected."
   },
   "https://www.saastr.com/the-cpos-of-harvey-glean-and-rubrik-on-what-it-actually-takes-to-ship-a-category-winning-agent/": {
     "created_at": "2026-09-03T14:55:59.567161+00:00",

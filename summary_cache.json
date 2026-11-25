@@ -71,6 +71,12 @@
     "prompt_version": 1,
     "summary": "This article explains how Large Language Models (LLMs) encode and process token position information, covering classic methods that add position vectors and modern techniques such as Rotary Position Embeddings (RoPE). It details how RoPE works by rotating query and key vectors within attention, and surveys recent architectural choices including partial RoPE, layers with no explicit positional encoding (NoPE), and learned relative position biases, noting that RoPE remains predominant but mixed RoPE/NoPE designs are growing."
   },
+  "https://newsletter.mkt1.co/p/ai-build-ideas-for-marketers": {
+    "created_at": "2026-11-25T20:24:34.103694+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Marketers are urged to become \"builders\" by actively using new AI tools to create skills, agents, apps, and MCPs. The newsletter provides 30 specific AI build ideas across five categories: internal apps, external apps, skills, agents, and holiday builds. It also includes advice on how to get started with these AI projects."
+  },
   "https://newsletter.mkt1.co/p/b2b-creator-marketing": {
     "created_at": "2026-11-06T17:50:23.429591+00:00",
     "model": "gemini-2.5-flash",
@@ -424,6 +430,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Maddie Reese is a hardware tinkerer and builder who creates projects at the intersection of software and hardware, including a thermal receipt printer and a Twitter pager built with a Raspberry Pi. She uses Cursor to brainstorm hardware projects and manage her building process. Her approach also involves building a personal API and focusing on fun to ship physical projects."
+  },
+  "https://www.lennysnewsletter.com/p/gemini-4-neon-beat-gpt-62-and-claude": {
+    "created_at": "2026-11-25T20:24:12.729521+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "A new 25-task AI benchmark compared six frontier models: GPT-6.2 Astra and Sol, Claude Fable 5.2 and Opus 5.5, and Gemini 4 Neon and Carbon. Gemini 4 Neon emerged as the surprise winner, with results showing it wasn't close among the competitors. The blind-scored benchmark covered tasks in coding, writing, creative, video, prototyping, and personal-assistant work."
   },
   "https://www.lennysnewsletter.com/p/gpt-6-astra-is-a-banger-heres-everything": {
     "created_at": "2026-09-04T14:51:40.766470+00:00",
@@ -1150,6 +1162,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "SpaceX acquired Cursor for $60 billion in stock, marking the largest buyout ever of a venture-backed startup, while Stripe agreed to acquire OpenRouter for around $8 billion. These deals generated combined outcomes north of $8 billion for a16z from total investments of about $320 million. Such mega-exits are noted as critical to powering a16z's megafund model."
+  },
+  "https://www.newcomer.co/p/vc-funding-keeps-flowing-as-nvidia": {
+    "created_at": "2026-11-25T20:24:49.227595+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Anthropic mathematician Levent Alpöge announced that he proved the Riemann hypothesis with the help of Claude. The machine proof has been validated by academic experts and certifying bodies. This achievement has led to differing opinions on AI's future capabilities, with some seeing it as a sign of superintelligence and others viewing Claude as a tool."
   },
   "https://www.newcomer.co/p/war-in-the-middle-east-and-rising": {
     "created_at": "2026-09-18T14:49:28.779507+00:00",
@@ -2069,6 +2087,12 @@
     "prompt_version": 1,
     "summary": "AI costs have reportedly decreased for the first time in two years, attributed to recent model price drops. For example, Haiku 5.5 is 90% cheaper for certain prompts, and Sonnet 5.5 is twice as fast. This shift allows for more AI work to be done and suggests opportunities for cost savings by swapping and re-testing models."
   },
+  "https://www.saastr.com/jay-chaudhry-put-50m-of-his-own-money-into-zscaler-and-took-no-vc-for-five-years-crowdstrike-just-paid-43-9b/": {
+    "created_at": "2026-11-25T20:25:06.746066+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "CrowdStrike is acquiring Zscaler in a deal valued at approximately $43.9 billion, marking the biggest cyber deal on record. Zscaler founder Jay Chaudhry will stay on to run the company, with his family owning between a third and 40% of Zscaler, a stake valued at over $10 billion. This significant ownership resulted from early decisions like self-funding with $50 million and not taking outside capital for Zscaler's first five years."
+  },
   "https://www.saastr.com/jensen-resigns-sequoia-pulls-back-to-the-bay-and-anthropics-ipo-draws-6x-demand-the-top-takeaways-from-20vc-x-saastr/": {
     "created_at": "2026-11-13T18:25:49.033132+00:00",
     "model": "gemini-2.5-flash",
@@ -2717,6 +2741,12 @@
     "prompt_version": 1,
     "summary": "Andrew HunzekerHesed, a software engineer seeking a shift from typical development cycles, was drawn to 10x Science after meeting its founders. He was impressed by their unique approach to using AI principles for scientific data analysis rather than just wrapping commercial models. Following a rigorous interview, he became Employee #1, valuing the opportunity to \"make the thing\" and quickly contributed to core company tools."
   },
+  "https://www.ycombinator.com/blog/how-daniel-zeltser-cold-emailed-his-way-to-employee-2-at-beacon-health/": {
+    "created_at": "2026-11-25T20:25:41.341272+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Daniel Zeltser joined Beacon Health as employee #2, after persistently cold-emailing the CEO of the tiny healthcare startup. Beacon Health is a YC startup that builds AI agents to automate repetitive work for medical teams, handling tasks like sorting documents and updating patient records. As a founding engineer, Daniel builds workflows to address medical practices' daily challenges, such as updating patient charts to ensure they receive credit and payment."
+  },
   "https://www.ycombinator.com/blog/how-dylan-anderson-became-founding-engineer-at-adam/": {
     "created_at": "2026-10-31T15:58:58.165685+00:00",
     "model": "gemini-2.5-flash",
@@ -2734,6 +2764,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Ryder Kemper became employee number seven at Corgi Insurance after a swift interview and work trial, moving to San Francisco from Ohio. He has since built core policy administration and claims systems, new product development, and hiring processes, contributing to Corgi's goal of rebuilding core financial infrastructure."
+  },
+  "https://www.ycombinator.com/blog/how-steven-basart-forced-his-way-into-beacon-health-and-became-its-first-engineer/": {
+    "created_at": "2026-11-25T20:25:23.579495+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Steven Basart joined Beacon Health as its first or second hired employee, having met the cofounders after dropping out of a YC batch. As Head of Engineering, his role involves \"get whatever stuff done,\" such as building an EHR exporter, achieving compliance, and developing a programming language called Iris. Basart values the company's supportive cofounders and its mission to automate back office work and improve EHRs."
   },
   "https://www.ycombinator.com/blog/how-vin-bui-became-engineer-1-at-nowadays-and-started-treating-it-like-his-own-company/": {
     "created_at": "2026-10-20T15:35:09.441747+00:00",

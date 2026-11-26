@@ -1469,6 +1469,12 @@
     "prompt_version": 1,
     "summary": "GitLab's Q2 FY27 results showed revenue grew 21% and calculated billings grew 24%. The company introduced a new \"Flex\" consumption model, which is impacting revenue recognition and contributing to a lower Q3 revenue guide. Gross margins also declined due to increased subscription costs of revenue, with 400 basis points attributed to AI-related expenses."
   },
+  "https://www.saastr.com/5-interesting-learnings-from-hubspot-as-brian-halligan-returns-as-ceo-net-new-customers-cut-in-half-nrr-down-to-101-and-a-guide-to-12-growth/": {
+    "created_at": "2026-11-26T20:01:32.119106+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "HubSpot's co-founder, Brian Halligan, has returned as President and CEO, replacing Yamini Rangan who stepped down. Halligan calls this a \"re-founding\" to reaccelerate growth and pivot the company towards being a \"Customer Harness Company.\" The board made the change because they concluded the previous success metrics no longer predict the future."
+  },
   "https://www.saastr.com/5-interesting-learnings-from-palantir-at-7-7-billion-arr-93-growth-157-nrr-and-a-rule-of-40-score-of-155/": {
     "created_at": "2026-08-05T12:55:22.780714+00:00",
     "model": "gemini-2.5-flash",

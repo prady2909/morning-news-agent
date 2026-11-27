@@ -1331,6 +1331,12 @@
     "prompt_version": 1,
     "summary": "SpaceX's Mechazilla successfully caught an orbital Starship on Flight 15. Ship 42 launched, reached orbit, deployed satellites, spent over 22 hours in space, survived re-entry, and was caught by Mechazilla's chopsticks. This feat is noted as the \"final boss of rapid, full reusability\" and is expected to significantly reduce marginal launch costs, with plans to increase flight frequency substantially by 2027 and beyond."
   },
+  "https://www.notboring.co/p/weekly-dose-of-optimism-221": {
+    "created_at": "2026-11-27T19:50:33.426392+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Molly Falco has become the first person to live a full year off dialysis with a genetically engineered pig kidney. The organ, developed by eGenesis and received last November, carries 69 genetic edits to integrate with the human body. This milestone was reported by The New York Times and announced by Mass General Brigham and eGenesis."
+  },
   "https://www.saastr.com/2026-is-the-biggest-ipo-year-in-history-but-take-out-one-company-and-its-one-of-the-worst/": {
     "created_at": "2026-08-03T13:43:45.186286+00:00",
     "model": "gemini-2.5-flash",
@@ -1348,6 +1354,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Anthropic informed prospective investors its Q3 revenue reached $16.8 billion, increasing 45% from Q2 and more than tripling Q1's revenue. Reports indicated an adjusted gross margin of 85%. Attendees discussed a valuation of approximately $1.5 trillion, which was below the ~$2 trillion investors had expected for the November IPO."
+  },
+  "https://www.saastr.com/20vc-x-saastr-anthropics-1-5-trillion-ipo-jensen-huangs-return-and-mailchimp-sells-for-under-a-third-of-what-intuit-paid/": {
+    "created_at": "2026-11-27T19:50:47.865908+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Intuit agreed to sell Mailchimp to Bending Spoons for $3.68 billion. This is less than a third of the $12 billion Intuit paid for Mailchimp in 2021. Mailchimp's revenue fell 1% to $313 million last quarter."
   },
   "https://www.saastr.com/20vc-x-saastr-anthropics-s-1-leaks-instinct-hits-10-billion-in-33-days-amd-buys-world-labs-and-meta-poaches-mongodbs-ceo/": {
     "created_at": "2026-10-01T17:18:23.071091+00:00",
@@ -2626,6 +2638,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "An analysis suggests that an independent Slack today would likely be valued between $16 billion and $20 billion, significantly less than the $27.7 billion Salesforce paid for it. This lower valuation is attributed to its single-product strategy, in contrast to multi-product companies like Atlassian that can expand customer spending. The real-world case of Figma also demonstrates that despite substantial revenue growth after its acquisition was blocked, its market cap ended up below the initial offer due to multiple compression."
+  },
+  "https://www.saastr.com/whats-hot-in-b2b-adtech-yes-adtech/": {
+    "created_at": "2026-11-27T19:50:11.625666+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Adtech, previously avoided by investors, posted strong Q3 2026 numbers, with AppLovin growing 55% and Zeta Global accelerating to 46% growth. This performance contrasts with The Trade Desk, which shrank, and HubSpot, which guided to 12% growth. The winning adtech companies are characterized by having an AI model at their core, demonstrating exact dollar returns to customers, and drawing money from marketing budgets."
   },
   "https://www.saastr.com/whats-truly-great-now-in-b2b-ai-per-iconiq-115-growth-at-100m-55-gross-margins-and-655k-in-revenue-per-employee/": {
     "created_at": "2026-09-18T14:49:46.407723+00:00",

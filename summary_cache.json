@@ -1859,6 +1859,12 @@
     "prompt_version": 1,
     "summary": "An investor's actual return from an acquisition can be significantly lower than the company's headline valuation multiple, exemplified by a 3.8x valuation yielding 1.6x in one case. This gap occurs because the headline value is reduced by various costs, debt, and taxes before distribution, and investor ownership is diluted by subsequent funding rounds, while some proceeds may also be held in escrow."
   },
+  "https://www.saastr.com/dont-brainstorm-what-your-ai-agent-should-do-your-support-queue-is-the-spec/": {
+    "created_at": "2026-11-28T18:43:11.085555+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "Owner built its AI agent by analyzing hundreds of thousands of historical support tickets. These tickets were grouped into approximately 2,000 distinct operations, prioritized by the support time each took to resolve, which then formed the agent's roadmap and initial test cases. After launch, Owner continued to use real conversation data to identify new needs and improve the agent, turning failures into additional test cases."
+  },
   "https://www.saastr.com/dont-hire-a-vp-of-sales-everybody-loves/": {
     "created_at": "2026-09-07T16:20:20.898237+00:00",
     "model": "gemini-2.5-flash",
@@ -2128,6 +2134,12 @@
     "model": "gemini-2.5-flash",
     "prompt_version": 1,
     "summary": "Klaviyo's CEO outlined the company's approach to building AI products, including a mandate for all 2,300 employees to achieve \"L3\" AI autonomy by June, which involves constantly running multiple AI sessions or teams of agents. This system utilizes an internal \"Dark Factory\" where agents build other agents by decomposing problems and defining API interfaces, while also treating external agents as power users that interact with software via robust APIs."
+  },
+  "https://www.saastr.com/looking-back-on-a-few-investments-i-shouldnt-have-made-one-sign-stands-out-the-founders-didnt-know-their-space-10000-cold/": {
+    "created_at": "2026-11-28T18:42:55.321983+00:00",
+    "model": "gemini-2.5-flash",
+    "prompt_version": 1,
+    "summary": "A key sign of unsuccessful investments is when founders lack a comprehensive understanding of their market space. This includes knowing every competitor, market dynamic, player, and pricing, as well as why deals are won or lost, even at the pre-seed stage. Founders without this deep knowledge are often blindsided by competitive moves and may underprice their products due to a lack of market awareness."
   },
   "https://www.saastr.com/meet-our-agents-what-all-20-actually-do-what-they-refuse-to-do-and-every-place-theyve-failed-us/": {
     "created_at": "2026-09-08T14:58:49.873914+00:00",
